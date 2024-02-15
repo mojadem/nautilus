@@ -1,0 +1,23 @@
+[gd_scene load_steps=8 format=3 uid="uid://dch6y6iihywuc"]
+
+[ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_icpdt"]
+[ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_4u0w0"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_4punf"]
+[ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="4_ytsrv"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="5_n6ycq"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_gtq1k"]
+[ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="6_t30ao"]
+
+[node name="SceneBase" instance=ExtResource("1_icpdt")]
+
+[node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_4u0w0")]
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("3_4punf")]
+
+[node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("4_ytsrv")]
+
+[node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("5_n6ycq")]
+
+[node name="FunctionTeleport" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("6_t30ao")]
+
+[node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("6_gtq1k")]
