@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://qmrog76fwnmm"]
+
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_x8yqv"]
+[ext_resource type="PackedScene" uid="uid://uno0pwhr048l" path="res://assets/models/living_room.blend" id="2_7s7nu"]
+
+[sub_resource type="Environment" id="Environment_apxhd"]
+background_mode = 1
+sdfgi_enabled = true
+sdfgi_read_sky_light = false
+
+[node name="LivingRoom" instance=ExtResource("1_x8yqv")]
+
+[node name="LivingRoom" parent="." index="1" instance=ExtResource("2_7s7nu")]
+
+[node name="Environment" type="Node3D" parent="." index="2"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" index="0"]
+environment = SubResource("Environment_apxhd")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.8511, -1.36701)
+light_color = Color(1, 0.968627, 0.898039, 1)
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51307, 1.1294, -1.98649)
+light_color = Color(1, 0.968627, 0.898039, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Environment" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840763, 0.388324, 3.70981)
+light_color = Color(1, 0.968627, 0.898039, 1)
