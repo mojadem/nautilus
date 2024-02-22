@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://qmrog76fwnmm"]
+[gd_scene load_steps=5 format=3 uid="uid://qmrog76fwnmm"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_x8yqv"]
 [ext_resource type="PackedScene" uid="uid://b5rw53aetsjbn" path="res://assets/models/living_room.glb" id="2_go36v"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l85wr"]
 
 [sub_resource type="Environment" id="Environment_apxhd"]
 background_mode = 1
@@ -10,21 +12,29 @@ sdfgi_read_sky_light = false
 
 [node name="LivingRoom" instance=ExtResource("1_x8yqv")]
 
+[node name="XROrigin3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71253, 0, 0)
+
 [node name="Environment" type="Node3D" parent="." index="1"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" index="0"]
+[node name="Floor" type="StaticBody3D" parent="Environment" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor" index="0"]
+shape = SubResource("WorldBoundaryShape3D_l85wr")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" index="1"]
 environment = SubResource("Environment_apxhd")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Environment" index="1"]
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.8511, -1.36701)
 light_color = Color(1, 0.968627, 0.898039, 1)
 omni_range = 10.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Environment" index="2"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51307, 1.1294, -1.98649)
 light_color = Color(1, 0.968627, 0.898039, 1)
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="Environment" index="3"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="Environment" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840763, 0.388324, 3.70981)
 light_color = Color(1, 0.968627, 0.898039, 1)
 
