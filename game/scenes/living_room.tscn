@@ -7,7 +7,6 @@
 
 [sub_resource type="Environment" id="Environment_apxhd"]
 background_mode = 1
-sdfgi_enabled = true
 sdfgi_read_sky_light = false
 
 [node name="LivingRoom" instance=ExtResource("1_x8yqv")]
@@ -15,7 +14,9 @@ sdfgi_read_sky_light = false
 [node name="XROrigin3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71253, 0, 0)
 
-[node name="Environment" type="Node3D" parent="." index="1"]
+[node name="Model" parent="." index="1" instance=ExtResource("2_go36v")]
+
+[node name="Environment" type="Node3D" parent="." index="2"]
 
 [node name="Floor" type="StaticBody3D" parent="Environment" index="0"]
 
@@ -26,16 +27,14 @@ shape = SubResource("WorldBoundaryShape3D_l85wr")
 environment = SubResource("Environment_apxhd")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Environment" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.8511, -1.36701)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.8511, -0.954904)
 light_color = Color(1, 0.968627, 0.898039, 1)
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Environment" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51307, 1.1294, -1.98649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51307, 1.00281, -1.98649)
 light_color = Color(1, 0.968627, 0.898039, 1)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Environment" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840763, 0.388324, 3.70981)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840763, 0.622989, 3.70981)
 light_color = Color(1, 0.968627, 0.898039, 1)
-
-[node name="LivingRoom" parent="." index="2" instance=ExtResource("2_go36v")]
