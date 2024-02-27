@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://qmrog76fwnmm"]
+[gd_scene load_steps=7 format=3 uid="uid://qmrog76fwnmm"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_x8yqv"]
 [ext_resource type="PackedScene" uid="uid://b5rw53aetsjbn" path="res://assets/models/living_room.glb" id="2_go36v"]
+[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/scenes/test_item.tscn" id="3_n1psi"]
+[ext_resource type="PackedScene" uid="uid://cf4hyfwtsoryh" path="res://components/interactable_end_table.tscn" id="4_r07r7"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l85wr"]
 
@@ -38,3 +40,10 @@ light_color = Color(1, 0.968627, 0.898039, 1)
 [node name="OmniLight3D3" type="OmniLight3D" parent="Environment" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840763, 0.622989, 3.70981)
 light_color = Color(1, 0.968627, 0.898039, 1)
+
+[node name="TestItem" parent="." index="3" instance=ExtResource("3_n1psi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83899, 0.591207, 2.56904)
+scene_switch_enabled = false
+
+[node name="InteractableEndTable" parent="." index="4" instance=ExtResource("4_r07r7")]
+transform = Transform3D(0.74249, 0, 0.669857, 0, 1, 0, -0.669857, 0, 0.74249, -1.86319, 0, 2.6098)

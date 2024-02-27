@@ -4,8 +4,10 @@
 [ext_resource type="Script" path="res://components/key_item.gd" id="2_bhanu"]
 
 [node name="KeyItem" instance=ExtResource("1_sese6")]
+collision_mask = 197639
 script = ExtResource("2_bhanu")
 zone_scene = ""
+scene_switch_enabled = true
 spawn_node_name = ""
 
 [connection signal="picked_up" from="." to="." method="_on_picked_up"]

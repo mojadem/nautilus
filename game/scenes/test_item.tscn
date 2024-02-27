@@ -29,7 +29,6 @@ closed_pose = ExtResource("7_wwfgx")
 
 [node name="TestItem" instance=ExtResource("1_i7yin")]
 zone_scene = "res://game/scenes/test_scene_2.tscn"
-scene_switch_enabled = true
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("SphereShape3D_fuqne")
