@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://s6pwu85l6y06"]
+
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_w1bvk"]
+[ext_resource type="PackedScene" uid="uid://cidtb1t7d8d0i" path="res://assets/models/funeral_reception.glb" id="2_urd6k"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g7lj2"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mhqh4"]
+size = Vector2(15, 15)
+
+[sub_resource type="Environment" id="Environment_urysr"]
+background_mode = 1
+sdfgi_read_sky_light = false
+
+[node name="FuneralReception" instance=ExtResource("1_w1bvk")]
+
+[node name="XROrigin3D" parent="." index="0"]
+transform = Transform3D(0.895261, 0, -0.445542, 0, 1, 0, 0.445542, 0, 0.895261, -2.29323, 0, 3.70402)
+
+[node name="Model" parent="." index="1" instance=ExtResource("2_urd6k")]
+
+[node name="Environment" type="Node3D" parent="." index="2"]
+
+[node name="Floor" type="StaticBody3D" parent="Environment" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Floor" index="0"]
+shape = SubResource("WorldBoundaryShape3D_g7lj2")
+
+[node name="Roof" type="MeshInstance3D" parent="Environment" index="1"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 3.03954, 0)
+mesh = SubResource("PlaneMesh_mhqh4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment" index="2"]
+environment = SubResource("Environment_urysr")
+
+[node name="Lights" type="Node3D" parent="Environment" index="3"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment/Lights" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72098, 2.04016, 1.40317)
+light_color = Color(0.945098, 0.894118, 0.760784, 1)
+light_energy = 1.5
+omni_range = 10.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Environment/Lights" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72098, 2.04016, -3.38024)
+light_color = Color(0.945098, 0.894118, 0.760784, 1)
+light_energy = 1.5
+omni_range = 10.0
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Environment/Lights" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73027, 2.04016, -7.2078)
+light_color = Color(0.945098, 0.894118, 0.760784, 1)
+light_energy = 1.5
+omni_range = 10.0
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Environment/Lights" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.75125, 2.04016, -7.2078)
+light_color = Color(0.945098, 0.894118, 0.760784, 1)
+light_energy = 1.5
+omni_range = 10.0
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="Environment/Lights" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76166, 2.04016, -4.12543)
+light_color = Color(0.945098, 0.894118, 0.760784, 1)
+light_energy = 1.5
+omni_range = 10.0
+
+[node name="OmniLight3D6" type="OmniLight3D" parent="Environment/Lights" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76166, 2.04016, -1.61165)
+light_color = Color(0.945098, 0.894118, 0.760784, 1)
+light_energy = 1.5
+omni_range = 10.0
+
+[node name="OmniLight3D7" type="OmniLight3D" parent="Environment/Lights" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.805413, 2.04016, 5.54687)
+light_color = Color(0.945098, 0.894118, 0.760784, 1)
+light_energy = 1.5
+omni_range = 10.0
