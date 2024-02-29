@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cf4hyfwtsoryh"]
+[gd_scene load_steps=17 format=3 uid="uid://boll40m3suscs"]
 
 [ext_resource type="PackedScene" uid="uid://dj6rlu31a4qtm" path="res://assets/models/end_table.glb" id="1_6sbgi"]
 [ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="2_g4mqg"]
@@ -34,7 +34,6 @@ radius = 0.01967
 [node name="InteractableEndTable" type="Node3D"]
 
 [node name="Table" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="end_table" parent="Table" instance=ExtResource("1_6sbgi")]
 
@@ -45,10 +44,10 @@ shape = SubResource("ConvexPolygonShape3D_2c7fv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14238, 0.474, 0)
 
 [node name="InteractableSlider" parent="SliderOrigin" instance=ExtResource("2_g4mqg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0, 0)
 slider_limit_max = 0.2
 
 [node name="Drawer" type="StaticBody3D" parent="SliderOrigin/InteractableSlider"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 collision_layer = 1024
 collision_mask = 4
 

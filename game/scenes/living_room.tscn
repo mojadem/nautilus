@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_x8yqv"]
 [ext_resource type="PackedScene" uid="uid://b5rw53aetsjbn" path="res://assets/models/living_room.glb" id="2_go36v"]
 [ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/scenes/test_item.tscn" id="3_n1psi"]
-[ext_resource type="PackedScene" path="res://components/interactable_end_table.tscn" id="4_r07r7"]
+[ext_resource type="PackedScene" uid="uid://boll40m3suscs" path="res://components/interactable_end_table.tscn" id="4_r07r7"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l85wr"]
 
@@ -58,4 +58,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83899, 0.591207, 2.56904)
 scene_switch_enabled = false
 
 [node name="InteractableEndTable" parent="." index="4" instance=ExtResource("4_r07r7")]
-transform = Transform3D(0.74249, 0, 0.669857, 0, 1, 0, -0.669857, 0, 0.74249, -1.86319, 0, 2.6098)
+transform = Transform3D(0.0839741, 0, -0.996468, 0, 1, 0, 0.996468, 0, 0.083974, -1.68582, -0.0431562, -1.02612)
+
+[node name="InteractableEndTable2" parent="." index="5" instance=ExtResource("4_r07r7")]
+transform = Transform3D(-0.243108, 0, 0.969999, 0, 1, 0, -0.969999, 0, -0.243108, 5.5105, -0.0596634, -2.008)
+
+[node name="InteractableEndTable3" parent="." index="6" instance=ExtResource("4_r07r7")]
+transform = Transform3D(-0.999997, 0, -0.00228696, 0, 1, 0, 0.00228699, 0, -0.999997, 1.41455, -0.0380317, 1.99868)
