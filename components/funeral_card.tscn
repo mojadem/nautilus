@@ -1,0 +1,43 @@
+[gd_scene load_steps=12 format=3 uid="uid://b3sgfc1eweadf"]
+
+[ext_resource type="PackedScene" uid="uid://6qt58vb1mp14" path="res://components/key_item.tscn" id="1_4bg32"]
+[ext_resource type="PackedScene" uid="uid://s08hys8tu7tq" path="res://assets/models/funeral_card.glb" id="2_nvhp0"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="4_qeu81"]
+[ext_resource type="Animation" uid="uid://bi1l6lre2w2lp" path="res://addons/godot-xr-tools/hands/animations/left/Hold.res" id="5_613r5"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_tevi1"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="7_avnik"]
+[ext_resource type="Animation" uid="uid://bv5tuc1kjv0k5" path="res://addons/godot-xr-tools/hands/animations/right/Hold.res" id="8_qyx14"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="9_o3kqy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e8c8o"]
+size = Vector3(0.2, 0.01, 0.1)
+
+[sub_resource type="Resource" id="Resource_t8d0q"]
+script = ExtResource("6_tevi1")
+open_pose = ExtResource("5_613r5")
+closed_pose = ExtResource("5_613r5")
+
+[sub_resource type="Resource" id="Resource_3bo4b"]
+script = ExtResource("6_tevi1")
+open_pose = ExtResource("8_qyx14")
+closed_pose = ExtResource("8_qyx14")
+
+[node name="FuneralCard" instance=ExtResource("1_4bg32")]
+zone_scene = "res://game/scenes/funeral_reception.tscn"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_e8c8o")
+
+[node name="funeral_card" parent="." index="1" instance=ExtResource("2_nvhp0")]
+
+[node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("4_qeu81")]
+transform = Transform3D(1, 0, 0, 0, 0.996044, 0.0888595, 0, -0.0888595, 0.996044, -0.0956197, 0, -0.0711206)
+hand_pose = SubResource("Resource_t8d0q")
+
+[node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("7_avnik")]
+transform = Transform3D(1, 0, 0, 0, 0.996044, 0.0888595, 0, -0.0888595, 0.996044, 0.096, 0, -0.071)
+hand_pose = SubResource("Resource_3bo4b")
+
+[node name="HighlightRing" parent="." index="4" instance=ExtResource("9_o3kqy")]
+
+[editable path="funeral_card"]
