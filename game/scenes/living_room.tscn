@@ -18,9 +18,12 @@ sdfgi_read_sky_light = false
 [node name="LivingRoom" instance=ExtResource("1_x8yqv")]
 
 [node name="XROrigin3D" parent="." index="0"]
-transform = Transform3D(-0.705587, 0, -0.708623, 0, 1, 0, 0.708623, 0, -0.705587, -1.71253, 0, 0)
+transform = Transform3D(-0.705587, 0, -0.708623, 0, 1, 0, 0.708623, 0, -0.705587, -1.71253, -0.0336731, 0)
 
 [node name="Model" parent="." index="1" instance=ExtResource("2_go36v")]
+
+[node name="roof" parent="Model" index="33"]
+visible = false
 
 [node name="Environment" type="Node3D" parent="." index="2"]
 
@@ -54,7 +57,7 @@ spot_range = 10.0
 spot_angle = 73.7
 
 [node name="TestItem" parent="." index="3" instance=ExtResource("3_n1psi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83899, 0.591207, 2.56904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65117, 0.545816, -0.938149)
 scene_switch_enabled = false
 
 [node name="InteractableEndTable" parent="." index="4" instance=ExtResource("4_r07r7")]
@@ -65,3 +68,5 @@ transform = Transform3D(-0.243108, 0, 0.969999, 0, 1, 0, -0.969999, 0, -0.243108
 
 [node name="InteractableEndTable3" parent="." index="6" instance=ExtResource("4_r07r7")]
 transform = Transform3D(-0.999997, 0, -0.00228696, 0, 1, 0, 0.00228699, 0, -0.999997, 1.41455, -0.0380317, 1.99868)
+
+[editable path="Model"]
