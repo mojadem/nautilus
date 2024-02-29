@@ -3,18 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_x8yqv"]
 [ext_resource type="PackedScene" uid="uid://b5rw53aetsjbn" path="res://assets/models/living_room.glb" id="2_go36v"]
 [ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/scenes/test_item.tscn" id="3_n1psi"]
-[ext_resource type="PackedScene" uid="uid://cf4hyfwtsoryh" path="res://components/interactable_end_table.tscn" id="4_r07r7"]
+[ext_resource type="PackedScene" path="res://components/interactable_end_table.tscn" id="4_r07r7"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l85wr"]
 
 [sub_resource type="Environment" id="Environment_apxhd"]
 background_mode = 1
+ambient_light_source = 2
+ambient_light_color = Color(0.905882, 0.843137, 0.705882, 1)
+ambient_light_energy = 0.5
+reflected_light_source = 1
 sdfgi_read_sky_light = false
 
 [node name="LivingRoom" instance=ExtResource("1_x8yqv")]
 
 [node name="XROrigin3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.71253, 0, 0)
+transform = Transform3D(-0.705587, 0, -0.708623, 0, 1, 0, 0.708623, 0, -0.705587, -1.71253, 0, 0)
 
 [node name="Model" parent="." index="1" instance=ExtResource("2_go36v")]
 
@@ -29,17 +33,25 @@ shape = SubResource("WorldBoundaryShape3D_l85wr")
 environment = SubResource("Environment_apxhd")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Environment" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.8511, -0.954904)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.49688, -0.954904)
 light_color = Color(1, 0.968627, 0.898039, 1)
 omni_range = 10.0
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Environment" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51307, 1.00281, -1.98649)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51307, 0.694264, -1.98649)
 light_color = Color(1, 0.968627, 0.898039, 1)
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Environment" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840763, 0.622989, 3.70981)
 light_color = Color(1, 0.968627, 0.898039, 1)
+light_energy = 1.5
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Environment" index="5"]
+transform = Transform3D(-1, 3.48787e-16, -8.74228e-08, 3.48787e-16, 1, -3.48787e-16, 8.74228e-08, -3.48787e-16, -1, 0, 1.37565, -5.78764)
+light_energy = 5.0
+shadow_enabled = true
+spot_range = 10.0
+spot_angle = 73.7
 
 [node name="TestItem" parent="." index="3" instance=ExtResource("3_n1psi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.83899, 0.591207, 2.56904)
