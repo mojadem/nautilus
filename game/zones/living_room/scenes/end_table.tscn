@@ -37,6 +37,9 @@ slider_limit_max = 0.2
 
 [node name="end_table_drawer" parent="SliderOrigin/InteractableSlider" instance=ExtResource("3_6y2ex")]
 
+[node name="StaticBody3D" parent="SliderOrigin/InteractableSlider/end_table_drawer/drawer" index="0"]
+collision_layer = 1024
+
 [node name="GrabPointHandLeft" parent="SliderOrigin/InteractableSlider" instance=ExtResource("5_54m42")]
 transform = Transform3D(-0.289281, -0.408042, 0.86592, 0.540953, 0.676619, 0.499557, -0.789738, 0.612934, 0.0249982, 0.114049, -0.0099214, 0.0413888)
 hand_pose = SubResource("Resource_6da4d")
@@ -60,3 +63,6 @@ target = NodePath("../../../GrabPointHandLeft")
 
 [node name="GrabPointRedirectRight" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("11_8ygwl")]
 target = NodePath("../../../GrabPointHandRight")
+
+[editable path="end_table"]
+[editable path="SliderOrigin/InteractableSlider/end_table_drawer"]
