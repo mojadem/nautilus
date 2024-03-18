@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://cwdt0eajfm1jj"]
 
-[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_e1iiy"]
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/base_zone.tscn" id="1_e1iiy"]
 [ext_resource type="Material" uid="uid://csepeix2yvih" path="res://assets/prototype_materials/grass.tres" id="2_l5616"]
 [ext_resource type="Material" uid="uid://ccdofvku4c7w3" path="res://assets/prototype_materials/stone_grey.tres" id="3_4mr8h"]
-[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/scenes/test_item.tscn" id="4_5w1jk"]
+[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/zones/test_item.tscn" id="4_5w1jk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlibs"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)

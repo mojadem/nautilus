@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://s6pwu85l6y06"]
 
-[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_w1bvk"]
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/base_zone.tscn" id="1_w1bvk"]
 [ext_resource type="PackedScene" uid="uid://cidtb1t7d8d0i" path="res://assets/models/funeral_reception.glb" id="2_urd6k"]
-[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/scenes/test_item.tscn" id="3_4fo4m"]
+[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/zones/test_item.tscn" id="3_4fo4m"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g7lj2"]
 

@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://qmrog76fwnmm"]
 
-[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_x8yqv"]
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/base_zone.tscn" id="1_x8yqv"]
 [ext_resource type="PackedScene" uid="uid://b5rw53aetsjbn" path="res://assets/models/living_room.glb" id="2_go36v"]
-[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/scenes/test_item.tscn" id="3_n1psi"]
+[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/zones/test_item.tscn" id="3_n1psi"]
 [ext_resource type="PackedScene" uid="uid://boll40m3suscs" path="res://components/interactable_end_table.tscn" id="4_r07r7"]
 [ext_resource type="PackedScene" uid="uid://b3sgfc1eweadf" path="res://components/funeral_card.tscn" id="5_th83t"]
 

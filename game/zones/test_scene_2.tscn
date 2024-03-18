@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://ctmbugd584nvv"]
 
-[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/scenes/scene_base.tscn" id="1_0koxv"]
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/base_zone.tscn" id="1_0koxv"]
 [ext_resource type="Material" uid="uid://cqs6que52ytcg" path="res://assets/prototype_materials/dry_grass.tres" id="2_q3fli"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_tlibs"]
