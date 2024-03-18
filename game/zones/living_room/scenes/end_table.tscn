@@ -1,0 +1,62 @@
+[gd_scene load_steps=15 format=3 uid="uid://boll40m3suscs"]
+
+[ext_resource type="PackedScene" uid="uid://b05oeq61qgf6n" path="res://assets/models/zones/living_room/end_table.blend" id="1_7d4u1"]
+[ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="2_g4mqg"]
+[ext_resource type="PackedScene" uid="uid://bhkt8gq82sh63" path="res://assets/models/zones/living_room/end_table_drawer.blend" id="3_6y2ex"]
+[ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="4_h2dfd"]
+[ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_54m42"]
+[ext_resource type="Animation" uid="uid://dkjsnihi81b7p" path="res://addons/godot-xr-tools/hands/animations/left/Pinch Large.res" id="6_kycfi"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_6pjhm"]
+[ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_250nh"]
+[ext_resource type="Animation" uid="uid://cuwwpxi44vwpm" path="res://addons/godot-xr-tools/hands/animations/right/Pinch Large.res" id="9_jwy1q"]
+[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="10_ojvnb"]
+[ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="11_8ygwl"]
+
+[sub_resource type="Resource" id="Resource_6da4d"]
+script = ExtResource("7_6pjhm")
+open_pose = ExtResource("6_kycfi")
+closed_pose = ExtResource("6_kycfi")
+
+[sub_resource type="Resource" id="Resource_j5fif"]
+script = ExtResource("7_6pjhm")
+open_pose = ExtResource("9_jwy1q")
+closed_pose = ExtResource("9_jwy1q")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_81bwg"]
+radius = 0.01967
+
+[node name="EndTable" type="Node3D"]
+
+[node name="end_table" parent="." instance=ExtResource("1_7d4u1")]
+
+[node name="SliderOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14238, 0.474, 0)
+
+[node name="InteractableSlider" parent="SliderOrigin" instance=ExtResource("2_g4mqg")]
+slider_limit_max = 0.2
+
+[node name="end_table_drawer" parent="SliderOrigin/InteractableSlider" instance=ExtResource("3_6y2ex")]
+
+[node name="GrabPointHandLeft" parent="SliderOrigin/InteractableSlider" instance=ExtResource("5_54m42")]
+transform = Transform3D(-0.289281, -0.408042, 0.86592, 0.540953, 0.676619, 0.499557, -0.789738, 0.612934, 0.0249982, 0.114049, -0.0099214, 0.0413888)
+hand_pose = SubResource("Resource_6da4d")
+
+[node name="GrabPointHandRight" parent="SliderOrigin/InteractableSlider" instance=ExtResource("8_250nh")]
+transform = Transform3D(0.334987, -0.37208, 0.865644, -0.540296, 0.676817, 0.5, -0.771922, -0.635197, 0.0256917, 0.114, -0.00999999, -0.041)
+hand_pose = SubResource("Resource_j5fif")
+
+[node name="HandleOrigin" type="Node3D" parent="SliderOrigin/InteractableSlider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16107, 0.00753742, 0.00348571)
+
+[node name="InteractableHandle" parent="SliderOrigin/InteractableSlider/HandleOrigin" instance=ExtResource("4_h2dfd")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle"]
+shape = SubResource("SphereShape3D_81bwg")
+
+[node name="HighlightRing" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" instance=ExtResource("10_ojvnb")]
+
+[node name="GrabPointRedirectLeft" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("11_8ygwl")]
+target = NodePath("../../../GrabPointHandLeft")
+
+[node name="GrabPointRedirectRight" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("11_8ygwl")]
+target = NodePath("../../../GrabPointHandRight")
