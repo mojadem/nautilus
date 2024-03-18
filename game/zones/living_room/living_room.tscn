@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://qmrog76fwnmm"]
+[gd_scene load_steps=9 format=3 uid="uid://qmrog76fwnmm"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/base_zone.tscn" id="1_61gii"]
 [ext_resource type="PackedScene" uid="uid://iw3jh5lhjs2e" path="res://assets/models/zones/living_room/living_room.blend" id="2_tag1c"]
 [ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/zones/test_item.tscn" id="3_al7vx"]
+[ext_resource type="AudioStream" uid="uid://dsjh1d3b0plor" path="res://assets/audio/light_buzz_loop.wav" id="3_sr7tx"]
 [ext_resource type="PackedScene" uid="uid://boll40m3suscs" path="res://game/zones/living_room/scenes/end_table.tscn" id="4_faaiq"]
 [ext_resource type="PackedScene" uid="uid://b3sgfc1eweadf" path="res://components/funeral_card.tscn" id="5_dsco0"]
 
@@ -54,20 +55,36 @@ light_energy = 5.0
 spot_range = 10.0
 spot_angle = 73.7
 
-[node name="TestItem" parent="." index="5" instance=ExtResource("3_al7vx")]
+[node name="Sounds" type="Node3D" parent="." index="5"]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.49688, -0.954904)
+stream = ExtResource("3_sr7tx")
+attenuation_model = 1
+autoplay = true
+max_distance = 10.0
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="Sounds" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51307, 0.694264, -1.98649)
+stream = ExtResource("3_sr7tx")
+attenuation_model = 1
+autoplay = true
+max_distance = 10.0
+
+[node name="TestItem" parent="." index="6" instance=ExtResource("3_al7vx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84158, 1.13757, -0.114233)
 scene_switch_enabled = false
 
-[node name="InteractableEndTable" parent="." index="6" instance=ExtResource("4_faaiq")]
+[node name="InteractableEndTable" parent="." index="7" instance=ExtResource("4_faaiq")]
 transform = Transform3D(0.0839741, 0, -0.996468, 0, 1, 0, 0.996468, 0, 0.083974, -1.68582, -0.0431562, -1.02612)
 
-[node name="InteractableEndTable2" parent="." index="7" instance=ExtResource("4_faaiq")]
+[node name="InteractableEndTable2" parent="." index="8" instance=ExtResource("4_faaiq")]
 transform = Transform3D(-0.243108, 0, 0.969999, 0, 1, 0, -0.969999, 0, -0.243108, 5.5105, -0.0596634, -2.008)
 
-[node name="InteractableEndTable3" parent="." index="8" instance=ExtResource("4_faaiq")]
+[node name="InteractableEndTable3" parent="." index="9" instance=ExtResource("4_faaiq")]
 transform = Transform3D(-0.999997, 0, -0.00228696, 0, 1, 0, 0.00228699, 0, -0.999997, 1.41455, -0.0380317, 1.99868)
 
-[node name="FuneralCard" parent="." index="9" instance=ExtResource("5_dsco0")]
+[node name="FuneralCard" parent="." index="10" instance=ExtResource("5_dsco0")]
 transform = Transform3D(-0.891173, 0, -0.453664, 0, 1, 0, 0.453664, 0, -0.891173, -1.66464, 0.502041, -1.07718)
 zone_scene = ""
 scene_switch_enabled = false
