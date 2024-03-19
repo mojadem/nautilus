@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://qmrog76fwnmm"]
+[gd_scene load_steps=10 format=3 uid="uid://qmrog76fwnmm"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/base_zone.tscn" id="1_61gii"]
 [ext_resource type="PackedScene" uid="uid://iw3jh5lhjs2e" path="res://assets/models/zones/living_room/living_room.blend" id="2_tag1c"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://dsjh1d3b0plor" path="res://assets/audio/light_buzz_loop.wav" id="3_sr7tx"]
 [ext_resource type="PackedScene" uid="uid://boll40m3suscs" path="res://game/zones/living_room/scenes/end_table.tscn" id="4_faaiq"]
 [ext_resource type="PackedScene" uid="uid://b3sgfc1eweadf" path="res://components/funeral_card.tscn" id="5_dsco0"]
+[ext_resource type="PackedScene" uid="uid://b360bt2tbr7p2" path="res://game/zones/oceanside_cliff/characters/pat_young_adult.tscn" id="7_ku4lw"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l85wr"]
 
@@ -88,3 +89,6 @@ transform = Transform3D(-0.999997, 0, -0.00228696, 0, 1, 0, 0.00228699, 0, -0.99
 transform = Transform3D(-0.891173, 0, -0.453664, 0, 1, 0, 0.453664, 0, -0.891173, -1.66464, 0.502041, -1.07718)
 zone_scene = ""
 scene_switch_enabled = false
+
+[node name="PatYoungAdult" parent="." index="11" instance=ExtResource("7_ku4lw")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4, 0, -0.228657)

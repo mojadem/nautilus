@@ -36,7 +36,6 @@ radius = 0.01967
 [node name="Table" type="StaticBody3D" parent="."]
 
 [node name="end-table" type="MeshInstance3D" parent="Table"]
-transform = Transform3D(-1, 0, -3.25841e-07, 0, 1, 0, 3.25841e-07, 0, -1, 0, 0, 0)
 mesh = ExtResource("1_3qvkx")
 skeleton = NodePath("")
 
