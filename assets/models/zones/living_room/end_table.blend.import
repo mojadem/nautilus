@@ -37,9 +37,9 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
-"save_to_file/enabled": false,
+"save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/zones/living_room/end_table_drawer.res"
+"save_to_file/path": "res://assets/models/zones/living_room/meshes/end_table_drawer.res"
 },
 "end_table_table": {
 "generate/lightmap_uv": 0,
@@ -47,9 +47,9 @@ _subresources={
 "generate/shadow_meshes": 0,
 "lods/normal_merge_angle": 60.0,
 "lods/normal_split_angle": 25.0,
-"save_to_file/enabled": false,
+"save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/zones/living_room/end_table_table.res"
+"save_to_file/path": "res://assets/models/zones/living_room/meshes/end_table_table.res"
 }
 }
 }
