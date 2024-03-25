@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://k0n7kexm1gaf"]
 
-[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/base_zone.tscn" id="1_3km7h"]
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_3km7h"]
 [ext_resource type="PackedScene" uid="uid://bn62yu2sa6l6q" path="res://assets/models/zones/forest_lake/forest_lake.blend" id="2_ur1ia"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lwdt2"]

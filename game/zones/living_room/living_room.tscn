@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://qmrog76fwnmm"]
 
-[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/base_zone.tscn" id="1_61gii"]
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_61gii"]
 [ext_resource type="PackedScene" uid="uid://iw3jh5lhjs2e" path="res://assets/models/zones/living_room/living_room.blend" id="2_tag1c"]
-[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/zones/test_item.tscn" id="3_al7vx"]
+[ext_resource type="PackedScene" uid="uid://cl4117yiyu3yh" path="res://game/components/key_items/test_item.tscn" id="3_al7vx"]
 [ext_resource type="AudioStream" uid="uid://dsjh1d3b0plor" path="res://assets/audio/light_buzz_loop.wav" id="3_sr7tx"]
 [ext_resource type="PackedScene" uid="uid://boll40m3suscs" path="res://game/zones/living_room/scenes/end_table.tscn" id="4_faaiq"]
-[ext_resource type="PackedScene" uid="uid://b3sgfc1eweadf" path="res://components/funeral_card.tscn" id="5_dsco0"]
+[ext_resource type="PackedScene" uid="uid://b3sgfc1eweadf" path="res://game/components/key_items/funeral_card.tscn" id="5_dsco0"]
 [ext_resource type="PackedScene" uid="uid://b360bt2tbr7p2" path="res://game/zones/oceanside_cliff/characters/pat_young_adult.tscn" id="7_ku4lw"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_l85wr"]
