@@ -52,6 +52,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.14238, 0.474, 0)
 slider_limit_max = 0.2
 
 [node name="Drawer" type="StaticBody3D" parent="SliderOrigin/InteractableSlider"]
+collision_layer = 1024
+collision_mask = 4
 
 [node name="drawer" type="MeshInstance3D" parent="SliderOrigin/InteractableSlider/Drawer"]
 mesh = ExtResource("3_plfoa")
