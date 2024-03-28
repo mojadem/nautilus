@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bbc7qxmp3gnyq"
-path="res://.godot/imported/character_oldadult_male.glb-3b22e0177c6dcfa190bd5b80d37784c2.scn"
+uid="uid://jxxw5ypt1e1o"
+path="res://.godot/imported/character_youngchild_male.glb-a32e7c5db9c52ab51d06fdb0fe842bf1.scn"
 
 [deps]
 
-source_file="res://assets/models/characters/exports/character_oldadult_male.glb"
-dest_files=["res://.godot/imported/character_oldadult_male.glb-3b22e0177c6dcfa190bd5b80d37784c2.scn"]
+source_file="res://assets/models/characters/imports/character_youngchild_male.glb"
+dest_files=["res://.godot/imported/character_youngchild_male.glb-a32e7c5db9c52ab51d06fdb0fe842bf1.scn"]
 
 [params]
 
@@ -38,6 +38,13 @@ _subresources={
 "character_expression": {
 "use_external/enabled": true,
 "use_external/path": "res://assets/models/characters/materials/character_expression.tres"
+}
+},
+"nodes": {
+"PATH:character_rig_oldadult_male/Skeleton3D": {
+"retarget/bone_map": Resource("res://assets/models/characters/bone_map.tres"),
+"retarget/bone_renamer/unique_node/make_unique": false,
+"retarget/remove_tracks/unmapped_bones": true
 }
 }
 }

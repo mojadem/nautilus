@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcg2c5bv8c56f"
-path="res://.godot/imported/character_oldadult_male_drink.glb-645736e19f11bce2726d18f261218282.scn"
+uid="uid://buqbqxxn4xtjd"
+path="res://.godot/imported/character_youngchild_female.glb-37f699cde15fc283a398562e3c36dfbf.scn"
 
 [deps]
 
-source_file="res://assets/models/characters/exports/character_oldadult_male_drink.glb"
-dest_files=["res://.godot/imported/character_oldadult_male_drink.glb-645736e19f11bce2726d18f261218282.scn"]
+source_file="res://assets/models/characters/imports/character_youngchild_female.glb"
+dest_files=["res://.godot/imported/character_youngchild_female.glb-37f699cde15fc283a398562e3c36dfbf.scn"]
 
 [params]
 
@@ -38,6 +38,13 @@ _subresources={
 "character_expression": {
 "use_external/enabled": true,
 "use_external/path": "res://assets/models/characters/materials/character_expression.tres"
+}
+},
+"nodes": {
+"PATH:character_rig_oldadult_male/Skeleton3D": {
+"retarget/bone_map": Resource("res://assets/models/characters/bone_map.tres"),
+"retarget/bone_renamer/unique_node/make_unique": false,
+"retarget/remove_tracks/unmapped_bones": true
 }
 }
 }
