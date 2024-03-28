@@ -4,6 +4,5 @@
 
 [resource]
 resource_name = "character"
-cull_mode = 2
 albedo_texture = ExtResource("1_0bywk")
 texture_filter = 2
