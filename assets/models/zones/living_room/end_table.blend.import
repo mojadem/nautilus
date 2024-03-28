@@ -39,7 +39,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/zones/living_room/meshes/end_table_drawer.res"
+"save_to_file/path": "res://bin/end_table_drawer.res"
 },
 "end_table_table": {
 "generate/lightmap_uv": 0,
@@ -49,7 +49,7 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://assets/models/zones/living_room/meshes/end_table_table.res"
+"save_to_file/path": "res://bin/end_table_table.res"
 }
 }
 }
