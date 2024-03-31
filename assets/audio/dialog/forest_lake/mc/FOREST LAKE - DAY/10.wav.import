@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b8rn0ptbd4iu0"
+path="res://.godot/imported/10.wav-9c23a501f8d6fc0e96f5c584cb6929c9.sample"
+
+[deps]
+
+source_file="res://assets/audio/dialog/forest_lake/mc/FOREST LAKE - DAY/10.wav"
+dest_files=["res://.godot/imported/10.wav-9c23a501f8d6fc0e96f5c584cb6929c9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

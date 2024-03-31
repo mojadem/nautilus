@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cp5e1o38s36kc"
+path="res://.godot/imported/9.wav-9ca1a21b36592ef91158a7a5e6dea33e.sample"
+
+[deps]
+
+source_file="res://assets/audio/dialog/oceanside_cliff/mc/OCEANSIDE CLIFF - SUNSET/9.wav"
+dest_files=["res://.godot/imported/9.wav-9ca1a21b36592ef91158a7a5e6dea33e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
