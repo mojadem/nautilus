@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c1gb5c3hi4xlw"]
+[gd_scene load_steps=34 format=3 uid="uid://c1gb5c3hi4xlw"]
 
 [ext_resource type="ArrayMesh" uid="uid://cg0m6gsb54mqw" path="res://bin/phone_phone-box.res" id="1_ccwgm"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_4l8tc"]
@@ -13,6 +13,21 @@
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="9_rgxxh"]
 [ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="10_wvntj"]
 [ext_resource type="AudioStream" uid="uid://raqn7eqt7kva" path="res://assets/audio/sfx/living_room/phone_ring.wav" id="12_xgrna"]
+[ext_resource type="ArrayMesh" uid="uid://bspigj1tq6ou4" path="res://bin/phone_0-button.res" id="13_3wp5n"]
+[ext_resource type="ArrayMesh" uid="uid://c6shnapt61xpw" path="res://bin/phone_1-button.res" id="14_p6i54"]
+[ext_resource type="ArrayMesh" uid="uid://cnj8xjuxv6121" path="res://bin/phone_2-button.res" id="15_26l30"]
+[ext_resource type="ArrayMesh" uid="uid://cwpwqihj7c8ii" path="res://bin/phone_3-button.res" id="16_x0u0o"]
+[ext_resource type="ArrayMesh" uid="uid://c8vv3p242uurk" path="res://bin/phone_4-button.res" id="17_02878"]
+[ext_resource type="ArrayMesh" uid="uid://b70ilcuj4587y" path="res://bin/phone_5-button.res" id="18_0dv8v"]
+[ext_resource type="ArrayMesh" uid="uid://bhf5qu4o51q5x" path="res://bin/phone_6-button.res" id="19_os0tu"]
+[ext_resource type="ArrayMesh" uid="uid://bqvp2mx8hmw3" path="res://bin/phone_7-button.res" id="20_rkrst"]
+[ext_resource type="ArrayMesh" uid="uid://bq6ympryaoasb" path="res://bin/phone_8-button.res" id="21_k75p0"]
+[ext_resource type="ArrayMesh" uid="uid://6k3au4m874t2" path="res://bin/phone_9-button.res" id="22_orkwo"]
+[ext_resource type="ArrayMesh" uid="uid://dju8xjnc1pfr8" path="res://bin/phone_pound-button.res" id="23_uk32m"]
+[ext_resource type="ArrayMesh" uid="uid://c04twbq17sfw1" path="res://bin/phone_star-button.res" id="24_bv1be"]
+[ext_resource type="ArrayMesh" uid="uid://dcv60qt0buq6y" path="res://bin/phone_top-left-button.res" id="25_ugeyj"]
+[ext_resource type="ArrayMesh" uid="uid://dxqxxh3fmx7jc" path="res://bin/phone_top-middle-button.res" id="26_1bypt"]
+[ext_resource type="ArrayMesh" uid="uid://c8vtpe8lmwb7r" path="res://bin/phone_top-right-button.res" id="27_giawj"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j7sos"]
 points = PackedVector3Array(-0.0917823, -0.0322611, -0.0821563, -0.0917823, -0.040025, -0.0748977, -0.0995625, -0.0322504, -0.07436, -0.0917823, 0.0644026, -0.0758002, 0.0908481, -0.0322611, -0.0821563, -0.0917823, -0.040025, 0.10774, 0.0908481, -0.040025, -0.0748977, -0.0995625, 0.0608736, -0.0682343, -0.0995625, -0.0322504, 0.106051, -0.0917823, 0.0692256, -0.0680806, 0.0908481, 0.0644026, -0.0758002, 0.0986283, -0.0322504, -0.07436, -0.0917823, -0.0324002, 0.11402, 0.0908481, -0.040025, 0.10774, 0.0986477, -0.0322504, -0.021533, -0.0995625, 0.0393036, -0.0155417, -0.0995625, -0.00854168, 0.101327, -0.0917823, 0.0446293, -0.00799499, 0.00728396, 0.0185571, 0.0689315, 0.00728396, 0.0425546, 0.0103053, 0.00728396, 0.0487144, -0.00474972, 0.0908481, 0.0692256, -0.0680806, 0.0986283, 0.0608736, -0.0682343, -0.0917823, -0.0105522, 0.109661, 0.0908481, -0.0324002, 0.11402, 0.0986283, -0.0322504, 0.106051, 0.0986283, 0.0393036, -0.0155417, 0.0986283, -0.00360102, 0.0892673, 0.0986283, -0.00854168, 0.101327, -0.0995625, -0.00360102, 0.0892673, -0.0917823, 2.42665e-05, 0.100943, -0.0917823, 0.00495424, 0.0889217, 0.00728396, 0.0123438, 0.0841018, 0.0764131, 0.0185571, 0.0689315, 0.0764131, 0.0425546, 0.0103053, 0.0764131, 0.0487144, -0.00474972, 0.0908481, 0.0446293, -0.00799499, 0.0908481, -0.0105522, 0.109661, 0.0908481, 0.00495424, 0.0889217, 0.0908481, 2.42665e-05, 0.100943, 0.0764131, 0.0123438, 0.0841018)
@@ -72,6 +87,68 @@ hand_pose = SubResource("Resource_4wcad")
 transform = Transform3D(1, 0, 0, 0, 1, -6.11383e-08, 0, 6.45666e-08, 1, 0, -0.0103232, -0.0556711)
 stream = SubResource("AudioStreamWAV_iiuat")
 attenuation_model = 1
+
+[node name="Buttons" type="Node3D" parent="."]
+
+[node name="Phone0-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("13_3wp5n")
+skeleton = NodePath("../..")
+
+[node name="Phone1-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("14_p6i54")
+skeleton = NodePath("../..")
+
+[node name="Phone2-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("15_26l30")
+skeleton = NodePath("../..")
+
+[node name="Phone3-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("16_x0u0o")
+skeleton = NodePath("../..")
+
+[node name="Phone4-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("17_02878")
+skeleton = NodePath("../..")
+
+[node name="Phone5-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("18_0dv8v")
+skeleton = NodePath("../..")
+
+[node name="Phone6-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("19_os0tu")
+skeleton = NodePath("../..")
+
+[node name="Phone7-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("20_rkrst")
+skeleton = NodePath("../..")
+
+[node name="Phone8-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("21_k75p0")
+skeleton = NodePath("../..")
+
+[node name="Phone9-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("22_orkwo")
+skeleton = NodePath("../..")
+
+[node name="PhonePound-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("23_uk32m")
+skeleton = NodePath("../..")
+
+[node name="PhoneStar-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("24_bv1be")
+skeleton = NodePath("../..")
+
+[node name="PhoneTop-left-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("25_ugeyj")
+skeleton = NodePath("../..")
+
+[node name="PhoneTop-middle-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("26_1bypt")
+skeleton = NodePath("../..")
+
+[node name="PhoneTop-right-button" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("27_giawj")
+skeleton = NodePath("../..")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_xgrna")
