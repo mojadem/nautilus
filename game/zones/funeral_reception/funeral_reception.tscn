@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://s6pwu85l6y06"]
+[gd_scene load_steps=5 format=3 uid="uid://s6pwu85l6y06"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_0ttmv"]
 [ext_resource type="PackedScene" uid="uid://c120g3eta4baa" path="res://assets/models/zones/funeral_reception/funeral_reception.blend" id="2_63qw3"]
@@ -9,9 +9,6 @@ sdfgi_read_sky_light = false
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g7lj2"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_mhqh4"]
-size = Vector2(15, 15)
-
 [node name="FuneralReception" instance=ExtResource("1_0ttmv")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
@@ -20,20 +17,15 @@ environment = SubResource("Environment_urysr")
 [node name="XROrigin3D" parent="." index="1"]
 transform = Transform3D(0.895261, 0, -0.445542, 0, 1, 0, 0.445542, 0, 0.895261, -2.29323, 0, 3.70402)
 
-[node name="Floor" type="StaticBody3D" parent="." index="2"]
+[node name="funeral_reception" parent="." index="2" instance=ExtResource("2_63qw3")]
+
+[node name="Floor" type="StaticBody3D" parent="." index="3"]
 collision_layer = 2049
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" index="0"]
 shape = SubResource("WorldBoundaryShape3D_g7lj2")
 
-[node name="funeral_reception" parent="." index="3" instance=ExtResource("2_63qw3")]
-
-[node name="Roof" type="MeshInstance3D" parent="." index="4"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 3.03954, 0)
-mesh = SubResource("PlaneMesh_mhqh4")
-skeleton = NodePath("")
-
-[node name="Lights" type="Node3D" parent="." index="5"]
+[node name="Lights" type="Node3D" parent="." index="4"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72098, 2.04016, 1.40317)
