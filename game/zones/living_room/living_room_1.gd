@@ -21,12 +21,17 @@ func _on_phone_ring_delay_timeout() -> void:
 	state = State.PHONE_RINGING
 	phone_ring.play()
 	phone.enabled = true
+	var mesh: MeshInstance3D = phone.get_node("MeshInstance3D")
+	mesh.get_active_material(0).next_pass.set_shader_param("enabled", true)
 
 
 func _on_snap_zone_has_dropped():
 	if state == State.PHONE_RINGING:
 		state = State.PHONE_CALL
+		phone_ring.stop()
 		animation_player.play("phone_call")
+		var mesh: MeshInstance3D = phone.get_node("MeshInstance3D")
+		mesh.get_active_material(0).next_pass.set_shader_param("enabled", false)
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
