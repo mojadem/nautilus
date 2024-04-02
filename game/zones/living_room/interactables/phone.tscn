@@ -57,7 +57,7 @@ mesh = ExtResource("1_ccwgm")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhoneBox"]
 shape = SubResource("ConvexPolygonShape3D_j7sos")
 
-[node name="SnapZone" parent="PhoneBox" instance=ExtResource("2_4l8tc")]
+[node name="PhoneSnapZone" parent="PhoneBox" instance=ExtResource("2_4l8tc")]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0.0472335, 0.0381644, 0.0189885)
 stash_sound = ExtResource("3_fxd43")
 drop_sound = ExtResource("4_y7u4f")

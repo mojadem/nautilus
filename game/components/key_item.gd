@@ -1,7 +1,9 @@
 extends XRToolsPickable
 
+class_name KeyItem
+
 @export_file("*.tscn") var zone_scene : String = ""
-@export var scene_switch_enabled := true
+@export var scene_switch_enabled := false
 @export var spawn_node_name := ""
 
 @onready var timer: Timer = $Timer

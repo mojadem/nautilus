@@ -110,10 +110,6 @@ initial_object = NodePath("../../../../../FuneralCard")
 
 [node name="FuneralCard" parent="Interactables" index="3"]
 zone_scene = "res://game/zones/funeral_reception/funeral_reception.tscn"
-scene_switch_enabled = true
-enabled = false
-
-[node name="Phone" parent="Interactables/Phone" index="1"]
 enabled = false
 
 [node name="AudioStreamPlayer3D" parent="Interactables/Phone/Phone" index="6"]
@@ -128,12 +124,6 @@ libraries = {
 wait_time = 10.0
 one_shot = true
 autostart = true
-
-[connection signal="picked_up" from="Interactables/FuneralCard" to="." method="_on_funeral_card_picked_up"]
-[connection signal="has_dropped" from="Interactables/Phone/PhoneBox/SnapZone" to="." method="_on_snap_zone_has_dropped"]
-[connection signal="has_picked_up" from="Interactables/Phone/PhoneBox/SnapZone" to="." method="_on_snap_zone_has_picked_up"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="timeout" from="PhoneRingDelay" to="." method="_on_phone_ring_delay_timeout"]
 
 [editable path="Interactables/InteractableEndTable3"]
 [editable path="Interactables/Phone"]

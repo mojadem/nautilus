@@ -1,54 +1,57 @@
 extends XRToolsSceneBase
 
+@onready var phone_ring_delay = $PhoneRingDelay
+@onready var phone_snap_zone = $Interactables/Phone/PhoneBox/PhoneSnapZone
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var funeral_card: KeyItem = $Interactables/FuneralCard
+
 @onready var phone_ring: AudioStreamPlayer3D = $Interactables/Phone/AudioStreamPlayer3D
-@onready var phone: XRToolsPickable = $Interactables/Phone/Phone
 @onready var mc_dialog: AudioStreamPlayer3D = $XROrigin3D/XRCamera3D/AudioStreamPlayer3D
-@onready var funeral_card: RigidBody3D = $Interactables/FuneralCard
 
 enum State {
 	INITIAL,
 	PHONE_RINGING,
-	PHONE_CALL,
-	POST_PHONE_CALL,
+	PHONE_CALL_STARTED,
+	PHONE_CALL_ENDED,
 	PHONE_HANGUP,
+	TRANSITION
 }
+
+var state_advancers = [
+	phone_ring_delay.timeout,
+	phone_snap_zone.has_dropped,
+	animation_player.animation_finished,
+	phone_snap_zone.has_picked_up,
+	funeral_card.picked_up
+]
 
 var state := State.INITIAL
 
 
-func _on_phone_ring_delay_timeout() -> void:
-	state = State.PHONE_RINGING
-	phone_ring.play()
-	phone.enabled = true
-	var mesh: MeshInstance3D = phone.get_node("MeshInstance3D")
-	mesh.get_active_material(0).next_pass.set_shader_param("enabled", true)
+func advance_state():
+	state += 1
+	
+	match state:
+		State.PHONE_RINGING:
+			phone_ring.play()
+		
+		State.PHONE_CALL_STARTED:
+			phone_ring.stop()
+			animation_player.play("phone_call")
+			phone_snap_zone.enabled = false
+		
+		State.PHONE_CALL_ENDED:
+			phone_snap_zone.enabled = true
+		
+		State.PHONE_HANGUP:
+			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/6.wav")
+			mc_dialog.play()
+			funeral_card.scene_switch_enabled = true
+		
+		State.TRANSITION:
+			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/7.wav")
+			mc_dialog.play()
 
-
-func _on_snap_zone_has_dropped():
-	if state == State.PHONE_RINGING:
-		state = State.PHONE_CALL
-		phone_ring.stop()
-		animation_player.play("phone_call")
-		var mesh: MeshInstance3D = phone.get_node("MeshInstance3D")
-		mesh.get_active_material(0).next_pass.set_shader_param("enabled", false)
-
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if state == State.PHONE_CALL:
-		assert(anim_name == "phone_call")
-		state = State.POST_PHONE_CALL
-
-
-func _on_snap_zone_has_picked_up(_what: Variant) -> void:
-	if state == State.POST_PHONE_CALL:
-		state = State.PHONE_HANGUP
-		mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/6.wav")
-		mc_dialog.play()
-		funeral_card.enabled = true
-
-
-func _on_funeral_card_picked_up(pickable: Variant) -> void:
-	assert(state == State.PHONE_HANGUP)
-	mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/7.wav")
-	mc_dialog.play()
+func _ready():
+	for s in state_advancers:
+		s.connect(advance_state)
