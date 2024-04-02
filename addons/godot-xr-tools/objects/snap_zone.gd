@@ -28,6 +28,7 @@ enum SnapMode {
 
 ## Optional audio stream to play when a object snaps to the zone
 @export var stash_sound : AudioStream
+@export var drop_sound : AudioStream
 
 ## Grab distance
 @export var grab_distance : float = 0.3: set = _set_grab_distance
@@ -161,6 +162,13 @@ func drop_object() -> void:
 	picked_up_object = null
 	has_dropped.emit()
 	highlight_updated.emit(self, enabled)
+	
+	var player = get_node("AudioStreamPlayer3D")
+	if is_instance_valid(player):
+		if player.playing:
+			player.stop()
+		player.stream = drop_sound
+		player.play()
 
 
 # Check for an initial object pickup

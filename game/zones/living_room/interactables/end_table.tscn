@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://boll40m3suscs"]
+[gd_scene load_steps=18 format=3 uid="uid://boll40m3suscs"]
 
-[ext_resource type="ArrayMesh" uid="uid://or446mdjcito" path="res://bin/end_table_table.res" id="1_3qvkx"]
+[ext_resource type="ArrayMesh" uid="uid://ciwtaixa6u5ym" path="res://bin/end_table_table.res" id="1_3qvkx"]
 [ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="2_g4mqg"]
-[ext_resource type="ArrayMesh" uid="uid://cfqrtrtioxkag" path="res://bin/end_table_drawer.res" id="3_plfoa"]
+[ext_resource type="ArrayMesh" uid="uid://1ovystv53h5u" path="res://bin/end_table_drawer.res" id="3_plfoa"]
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="4_h2dfd"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="4_k6qhh"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_54m42"]
 [ext_resource type="Animation" uid="uid://dkjsnihi81b7p" path="res://addons/godot-xr-tools/hands/animations/left/Pinch Large.res" id="6_kycfi"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_6pjhm"]
@@ -62,6 +63,8 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/InteractableSlider/Drawer"]
 transform = Transform3D(-1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 0, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_htxkh")
+
+[node name="SnapZone" parent="SliderOrigin/InteractableSlider/Drawer" instance=ExtResource("4_k6qhh")]
 
 [node name="GrabPointHandLeft" parent="SliderOrigin/InteractableSlider" instance=ExtResource("5_54m42")]
 transform = Transform3D(-0.289281, -0.408042, 0.86592, 0.540953, 0.676619, 0.499557, -0.789738, 0.612934, 0.0249982, 0.114049, -0.0099214, 0.0413888)

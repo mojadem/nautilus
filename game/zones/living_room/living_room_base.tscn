@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_a5qlr"]
 [ext_resource type="PackedScene" uid="uid://iw3jh5lhjs2e" path="res://assets/models/zones/living_room/living_room.blend" id="2_yd3hy"]
-[ext_resource type="AudioStream" uid="uid://dsjh1d3b0plor" path="res://assets/audio/light_buzz_loop.wav" id="3_5whe4"]
+[ext_resource type="AudioStream" uid="uid://dsjh1d3b0plor" path="res://assets/audio/sfx/living_room/light_buzz_loop.wav" id="3_5whe4"]
 [ext_resource type="PackedScene" uid="uid://boll40m3suscs" path="res://game/zones/living_room/interactables/end_table.tscn" id="4_v2fwa"]
 [ext_resource type="PackedScene" uid="uid://b3sgfc1eweadf" path="res://game/components/key_items/funeral_card.tscn" id="5_c18oj"]
 [ext_resource type="PackedScene" uid="uid://c1gb5c3hi4xlw" path="res://game/zones/living_room/interactables/phone.tscn" id="6_0s71t"]
