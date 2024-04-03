@@ -52,6 +52,7 @@ func advance_state():
 			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/7.wav")
 			mc_dialog.play()
 
+
 func _ready():
 	for s in state_advancers:
 		s.connect(advance_state)

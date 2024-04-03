@@ -2,6 +2,7 @@
 extends Node3D
 
 @export var mesh: MeshInstance3D
+
 @export_enum("Happy", "Sad", "Angry", "Surprised") var expression: int:
 	set(value):
 		expression = value
