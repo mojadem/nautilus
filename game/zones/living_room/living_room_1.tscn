@@ -110,9 +110,9 @@ initial_object = NodePath("../../../../../FuneralCard")
 
 [node name="FuneralCard" parent="Interactables" index="3"]
 zone_scene = "res://game/zones/funeral_reception/funeral_reception.tscn"
-enabled = false
+scene_switch_enabled = false
 
-[node name="AudioStreamPlayer3D" parent="Interactables/Phone/Phone" index="6"]
+[node name="AudioStreamPlayer3D" parent="Interactables/Phone/Phone" index="5"]
 stream = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
@@ -126,4 +126,6 @@ one_shot = true
 autostart = true
 
 [editable path="Interactables/InteractableEndTable3"]
+[editable path="Interactables/FuneralCard"]
+[editable path="Interactables/FuneralCard/funeral_card"]
 [editable path="Interactables/Phone"]

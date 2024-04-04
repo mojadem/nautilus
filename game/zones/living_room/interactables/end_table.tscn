@@ -1,8 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://boll40m3suscs"]
+[gd_scene load_steps=17 format=3 uid="uid://boll40m3suscs"]
 
-[ext_resource type="ArrayMesh" uid="uid://ciwtaixa6u5ym" path="res://bin/end_table_table.res" id="1_3qvkx"]
+[ext_resource type="ArrayMesh" uid="uid://co0ntjgicod3m" path="res://bin/end_table_table.res" id="1_3qvkx"]
 [ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="2_g4mqg"]
-[ext_resource type="ArrayMesh" uid="uid://1ovystv53h5u" path="res://bin/end_table_drawer.res" id="3_plfoa"]
+[ext_resource type="ArrayMesh" uid="uid://c4aomt7eq0s7y" path="res://bin/end_table_drawer.res" id="3_plfoa"]
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="4_h2dfd"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="4_k6qhh"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_54m42"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_6pjhm"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_250nh"]
 [ext_resource type="Animation" uid="uid://cuwwpxi44vwpm" path="res://addons/godot-xr-tools/hands/animations/right/Pinch Large.res" id="9_jwy1q"]
-[ext_resource type="PackedScene" uid="uid://da2qgxxwwitl6" path="res://addons/godot-xr-tools/objects/highlight/highlight_ring.tscn" id="10_ojvnb"]
 [ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="11_8ygwl"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_syule"]
@@ -81,8 +80,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16107, 0.00753742, 0.003485
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle"]
 shape = SubResource("SphereShape3D_81bwg")
-
-[node name="HighlightRing" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" instance=ExtResource("10_ojvnb")]
 
 [node name="GrabPointRedirectLeft" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("11_8ygwl")]
 target = NodePath("../../../GrabPointHandLeft")

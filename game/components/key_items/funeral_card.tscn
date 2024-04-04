@@ -27,7 +27,6 @@ physics_material_override = SubResource("PhysicsMaterial_87vy5")
 gravity_scale = 0.5
 continuous_cd = true
 zone_scene = "res://game/scenes/funeral_reception.tscn"
-scene_switch_enabled = false
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_ncgi2")

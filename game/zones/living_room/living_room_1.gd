@@ -1,12 +1,11 @@
 extends XRToolsSceneBase
 
-@onready var phone_ring_delay = $PhoneRingDelay
-@onready var phone_snap_zone = $Interactables/Phone/PhoneBox/PhoneSnapZone
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var funeral_card: KeyItem = $Interactables/FuneralCard
-
-@onready var phone_ring: AudioStreamPlayer3D = $Interactables/Phone/AudioStreamPlayer3D
+@onready var animation_player = $AnimationPlayer
+@onready var funeral_card = $Interactables/FuneralCard
 @onready var mc_dialog: AudioStreamPlayer3D = $XROrigin3D/XRCamera3D/AudioStreamPlayer3D
+@onready var phone_ring: AudioStreamPlayer3D = $Interactables/Phone/AudioStreamPlayer3D
+@onready var phone_ring_delay = $PhoneRingDelay
+@onready var phone_snap_zone = $Interactables/Phone/PhoneBox/SnapZone
 
 enum State {
 	INITIAL,
@@ -17,20 +16,10 @@ enum State {
 	TRANSITION
 }
 
-var state_advancers = [
-	phone_ring_delay.timeout,
-	phone_snap_zone.has_dropped,
-	animation_player.animation_finished,
-	phone_snap_zone.has_picked_up,
-	funeral_card.picked_up
-]
-
 var state := State.INITIAL
 
 
-func advance_state():
-	state += 1
-	
+func process_state():
 	match state:
 		State.PHONE_RINGING:
 			phone_ring.play()
@@ -53,6 +42,46 @@ func advance_state():
 			mc_dialog.play()
 
 
+func _start_phone_ringing():
+	state = State.PHONE_RINGING
+	process_state()
+
+
+func _start_phone_call():
+	if state != State.PHONE_RINGING:
+		return
+	
+	state = State.PHONE_CALL_STARTED
+	process_state()
+
+
+func _end_phone_call(_anim_name):
+	if state != State.PHONE_CALL_STARTED:
+		return
+	
+	state = State.PHONE_CALL_ENDED
+	process_state()
+
+
+func _hangup_phone(_what):
+	if state != State.PHONE_CALL_ENDED:
+		return
+	
+	state = State.PHONE_HANGUP
+	process_state()
+
+
+func _start_transition(_pickable):
+	if state != State.PHONE_HANGUP:
+		return
+	
+	state = State.TRANSITION
+	process_state()
+
+
 func _ready():
-	for s in state_advancers:
-		s.connect(advance_state)
+	phone_ring_delay.timeout.connect(_start_phone_ringing)
+	phone_snap_zone.has_dropped.connect(_start_phone_call)
+	animation_player.animation_finished.connect(_end_phone_call)
+	phone_snap_zone.has_picked_up.connect(_hangup_phone)
+	funeral_card.picked_up.connect(_start_transition)
