@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://boll40m3suscs"]
+[gd_scene load_steps=18 format=3 uid="uid://boll40m3suscs"]
 
-[ext_resource type="ArrayMesh" uid="uid://co0ntjgicod3m" path="res://bin/end_table_table.res" id="1_3qvkx"]
+[ext_resource type="ArrayMesh" uid="uid://or446mdjcito" path="res://bin/end_table_table.res" id="1_3qvkx"]
 [ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="2_g4mqg"]
-[ext_resource type="ArrayMesh" uid="uid://c4aomt7eq0s7y" path="res://bin/end_table_drawer.res" id="3_plfoa"]
+[ext_resource type="ArrayMesh" uid="uid://cfqrtrtioxkag" path="res://bin/end_table_drawer.res" id="3_plfoa"]
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="4_h2dfd"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="4_k6qhh"]
+[ext_resource type="Script" path="res://game/components/highlight/highlight_mesh.gd" id="4_lugyq"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_54m42"]
 [ext_resource type="Animation" uid="uid://dkjsnihi81b7p" path="res://addons/godot-xr-tools/hands/animations/left/Pinch Large.res" id="6_kycfi"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_6pjhm"]
@@ -55,9 +56,10 @@ slider_limit_max = 0.2
 collision_layer = 1024
 collision_mask = 4
 
-[node name="drawer" type="MeshInstance3D" parent="SliderOrigin/InteractableSlider/Drawer"]
+[node name="HighlightMesh" type="MeshInstance3D" parent="SliderOrigin/InteractableSlider/Drawer"]
 mesh = ExtResource("3_plfoa")
 skeleton = NodePath("")
+script = ExtResource("4_lugyq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/InteractableSlider/Drawer"]
 transform = Transform3D(-1, 0, -3.89414e-07, 0, 1, 0, 3.89414e-07, 0, -1, 0, 0, 0)

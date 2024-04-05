@@ -7,6 +7,10 @@ extends XRToolsSceneBase
 @onready var phone_ring_delay = $PhoneRingDelay
 @onready var phone_snap_zone = $Interactables/Phone/PhoneBox/SnapZone
 
+@onready var phone_mesh = $Interactables/Phone/Phone/HighlightMesh
+@onready var phone_box_mesh = $Interactables/Phone/PhoneBox/HighlightMesh
+@onready var drawer_mesh = $Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/HighlightMesh
+
 enum State {
 	INITIAL,
 	PHONE_RINGING,
@@ -23,23 +27,29 @@ func process_state():
 	match state:
 		State.PHONE_RINGING:
 			phone_ring.play()
+			phone_mesh.highlight_enabled = true
 		
 		State.PHONE_CALL_STARTED:
 			phone_ring.stop()
 			animation_player.play("phone_call")
 			phone_snap_zone.enabled = false
+			phone_mesh.highlight_enabled = false
 		
 		State.PHONE_CALL_ENDED:
 			phone_snap_zone.enabled = true
+			phone_box_mesh.highlight_enabled = true
 		
 		State.PHONE_HANGUP:
 			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/6.wav")
 			mc_dialog.play()
 			funeral_card.scene_switch_enabled = true
+			phone_box_mesh.highlight_enabled = false
+			drawer_mesh.highlight_enabled = true
 		
 		State.TRANSITION:
 			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/7.wav")
 			mc_dialog.play()
+			drawer_mesh.highlight_enabled = false
 
 
 func _start_phone_ringing():

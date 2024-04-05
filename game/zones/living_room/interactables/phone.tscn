@@ -1,32 +1,33 @@
-[gd_scene load_steps=33 format=3 uid="uid://c1gb5c3hi4xlw"]
+[gd_scene load_steps=34 format=3 uid="uid://c1gb5c3hi4xlw"]
 
-[ext_resource type="ArrayMesh" uid="uid://deepe6sibni7" path="res://bin/phone_phone-box.res" id="1_ccwgm"]
+[ext_resource type="ArrayMesh" uid="uid://cg0m6gsb54mqw" path="res://bin/phone_phone-box.res" id="1_ccwgm"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_4l8tc"]
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="3_7w5on"]
 [ext_resource type="AudioStream" uid="uid://cuvvlfx6nbw8k" path="res://assets/audio/sfx/living_room/phone_hangup.wav" id="3_fxd43"]
-[ext_resource type="ArrayMesh" uid="uid://drdr5io67sihc" path="res://bin/phone_phone.res" id="4_g5ns4"]
+[ext_resource type="ArrayMesh" uid="uid://you5t81jf1x" path="res://bin/phone_phone.res" id="4_g5ns4"]
 [ext_resource type="AudioStream" uid="uid://dv3w17p45ueft" path="res://assets/audio/sfx/living_room/phone_pickup.wav" id="4_y7u4f"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_m6h7h"]
 [ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="6_l2com"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_kc373"]
+[ext_resource type="Script" path="res://game/components/highlight/highlight_mesh.gd" id="7_wa668"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_2kjbd"]
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="9_rgxxh"]
 [ext_resource type="AudioStream" uid="uid://raqn7eqt7kva" path="res://assets/audio/sfx/living_room/phone_ring.wav" id="12_xgrna"]
-[ext_resource type="ArrayMesh" uid="uid://cg1jkpqqcfpvq" path="res://bin/phone_0-button.res" id="13_3wp5n"]
-[ext_resource type="ArrayMesh" uid="uid://vyuetjubs43j" path="res://bin/phone_1-button.res" id="14_p6i54"]
-[ext_resource type="ArrayMesh" uid="uid://cf7nc07anrnfv" path="res://bin/phone_2-button.res" id="15_26l30"]
-[ext_resource type="ArrayMesh" uid="uid://dm77si5opqd11" path="res://bin/phone_3-button.res" id="16_x0u0o"]
-[ext_resource type="ArrayMesh" uid="uid://dd76t7y6fxnwa" path="res://bin/phone_4-button.res" id="17_02878"]
-[ext_resource type="ArrayMesh" uid="uid://ddwdpe0e3nloh" path="res://bin/phone_5-button.res" id="18_0dv8v"]
-[ext_resource type="ArrayMesh" uid="uid://bpp3avci7nb7i" path="res://bin/phone_6-button.res" id="19_os0tu"]
-[ext_resource type="ArrayMesh" uid="uid://iqmbtspw7vb5" path="res://bin/phone_7-button.res" id="20_rkrst"]
-[ext_resource type="ArrayMesh" uid="uid://jt838cj1d2qc" path="res://bin/phone_8-button.res" id="21_k75p0"]
-[ext_resource type="ArrayMesh" uid="uid://bh221tos84tix" path="res://bin/phone_9-button.res" id="22_orkwo"]
-[ext_resource type="ArrayMesh" uid="uid://vfrtlhktevoh" path="res://bin/phone_pound-button.res" id="23_uk32m"]
-[ext_resource type="ArrayMesh" uid="uid://dapn7hrulm7g7" path="res://bin/phone_star-button.res" id="24_bv1be"]
-[ext_resource type="ArrayMesh" uid="uid://do2a5md5vonld" path="res://bin/phone_top-left-button.res" id="25_ugeyj"]
-[ext_resource type="ArrayMesh" uid="uid://cgw0t6t8ylflp" path="res://bin/phone_top-middle-button.res" id="26_1bypt"]
-[ext_resource type="ArrayMesh" uid="uid://dsrrlq2blhcmf" path="res://bin/phone_top-right-button.res" id="27_giawj"]
+[ext_resource type="ArrayMesh" uid="uid://bspigj1tq6ou4" path="res://bin/phone_0-button.res" id="13_3wp5n"]
+[ext_resource type="ArrayMesh" uid="uid://c6shnapt61xpw" path="res://bin/phone_1-button.res" id="14_p6i54"]
+[ext_resource type="ArrayMesh" uid="uid://cnj8xjuxv6121" path="res://bin/phone_2-button.res" id="15_26l30"]
+[ext_resource type="ArrayMesh" uid="uid://cwpwqihj7c8ii" path="res://bin/phone_3-button.res" id="16_x0u0o"]
+[ext_resource type="ArrayMesh" uid="uid://c8vv3p242uurk" path="res://bin/phone_4-button.res" id="17_02878"]
+[ext_resource type="ArrayMesh" uid="uid://b70ilcuj4587y" path="res://bin/phone_5-button.res" id="18_0dv8v"]
+[ext_resource type="ArrayMesh" uid="uid://bhf5qu4o51q5x" path="res://bin/phone_6-button.res" id="19_os0tu"]
+[ext_resource type="ArrayMesh" uid="uid://bqvp2mx8hmw3" path="res://bin/phone_7-button.res" id="20_rkrst"]
+[ext_resource type="ArrayMesh" uid="uid://bq6ympryaoasb" path="res://bin/phone_8-button.res" id="21_k75p0"]
+[ext_resource type="ArrayMesh" uid="uid://6k3au4m874t2" path="res://bin/phone_9-button.res" id="22_orkwo"]
+[ext_resource type="ArrayMesh" uid="uid://dju8xjnc1pfr8" path="res://bin/phone_pound-button.res" id="23_uk32m"]
+[ext_resource type="ArrayMesh" uid="uid://c04twbq17sfw1" path="res://bin/phone_star-button.res" id="24_bv1be"]
+[ext_resource type="ArrayMesh" uid="uid://dcv60qt0buq6y" path="res://bin/phone_top-left-button.res" id="25_ugeyj"]
+[ext_resource type="ArrayMesh" uid="uid://dxqxxh3fmx7jc" path="res://bin/phone_top-middle-button.res" id="26_1bypt"]
+[ext_resource type="ArrayMesh" uid="uid://c8vtpe8lmwb7r" path="res://bin/phone_top-right-button.res" id="27_giawj"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j7sos"]
 points = PackedVector3Array(-0.0917823, -0.0322611, -0.0821563, -0.0917823, -0.040025, -0.0748977, -0.0995625, -0.0322504, -0.07436, -0.0917823, 0.0644026, -0.0758002, 0.0908481, -0.0322611, -0.0821563, -0.0917823, -0.040025, 0.10774, 0.0908481, -0.040025, -0.0748977, -0.0995625, 0.0608736, -0.0682343, -0.0995625, -0.0322504, 0.106051, -0.0917823, 0.0692256, -0.0680806, 0.0908481, 0.0644026, -0.0758002, 0.0986283, -0.0322504, -0.07436, -0.0917823, -0.0324002, 0.11402, 0.0908481, -0.040025, 0.10774, 0.0986477, -0.0322504, -0.021533, -0.0995625, 0.0393036, -0.0155417, -0.0995625, -0.00854168, 0.101327, -0.0917823, 0.0446293, -0.00799499, 0.00728396, 0.0185571, 0.0689315, 0.00728396, 0.0425546, 0.0103053, 0.00728396, 0.0487144, -0.00474972, 0.0908481, 0.0692256, -0.0680806, 0.0986283, 0.0608736, -0.0682343, -0.0917823, -0.0105522, 0.109661, 0.0908481, -0.0324002, 0.11402, 0.0986283, -0.0322504, 0.106051, 0.0986283, 0.0393036, -0.0155417, 0.0986283, -0.00360102, 0.0892673, 0.0986283, -0.00854168, 0.101327, -0.0995625, -0.00360102, 0.0892673, -0.0917823, 2.42665e-05, 0.100943, -0.0917823, 0.00495424, 0.0889217, 0.00728396, 0.0123438, 0.0841018, 0.0764131, 0.0185571, 0.0689315, 0.0764131, 0.0425546, 0.0103053, 0.0764131, 0.0487144, -0.00474972, 0.0908481, 0.0446293, -0.00799499, 0.0908481, -0.0105522, 0.109661, 0.0908481, 0.00495424, 0.0889217, 0.0908481, 2.42665e-05, 0.100943, 0.0764131, 0.0123438, 0.0841018)
@@ -50,8 +51,9 @@ closed_pose = ExtResource("9_rgxxh")
 
 [node name="PhoneBox" type="StaticBody3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="PhoneBox"]
+[node name="HighlightMesh" type="MeshInstance3D" parent="PhoneBox"]
 mesh = ExtResource("1_ccwgm")
+script = ExtResource("7_wa668")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhoneBox"]
 shape = SubResource("ConvexPolygonShape3D_j7sos")
@@ -66,8 +68,9 @@ initial_object = NodePath("../../Phone")
 [node name="Phone" parent="." groups=["phone"] instance=ExtResource("3_7w5on")]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0.0455544, 0.0428957, 0.0227543)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Phone"]
+[node name="HighlightMesh" type="MeshInstance3D" parent="Phone"]
 mesh = ExtResource("4_g5ns4")
+script = ExtResource("7_wa668")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Phone"]
 shape = SubResource("ConvexPolygonShape3D_ppu3w")
