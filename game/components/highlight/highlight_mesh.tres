@@ -9,4 +9,3 @@ shader_parameter/shine_color = Color(1, 1, 1, 1)
 shader_parameter/cycle_interval = 3.0
 shader_parameter/shine_speed = 1.0
 shader_parameter/shine_width = 1.5
-shader_parameter/enabled = false

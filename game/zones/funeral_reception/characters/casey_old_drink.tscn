@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://drobllaqkesrs"]
 
-[ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character.tscn" id="1_nje45"]
+[ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_nje45"]
 [ext_resource type="PackedScene" uid="uid://bcg2c5bv8c56f" path="res://assets/models/characters/imports/character_oldadult_male_drink.glb" id="2_pnvvj"]
 [ext_resource type="Texture2D" uid="uid://ddo2q47hh1opv" path="res://assets/models/characters/textures/character-expressions.png" id="3_ao0mb"]
 
@@ -8,7 +8,7 @@
 resource_name = "character_expression"
 transparency = 4
 albedo_texture = ExtResource("3_ao0mb")
-uv1_offset = Vector3(0.25, 0, 0)
+uv1_offset = Vector3(0.5, 0, 0)
 texture_filter = 2
 
 [sub_resource type="Animation" id="Animation_pg3e3"]
@@ -1726,12 +1726,15 @@ _data = {
 "loop_SitDrinkIdle_OldAdult_male": SubResource("Animation_5slan")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h617i"]
+animation = &"SitDrinkDrink_OldAdult_male"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xn2pg"]
+animation = &"loop_SitDrinkIdle_OldAdult_male"
+
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_v2ihy"]
 filter_enabled = true
 filters = ["character_rig_oldadult_male/Skeleton3D:Head", "character_rig_oldadult_male/Skeleton3D:Neck"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h617i"]
-animation = &"SitDrinkDrink_OldAdult_male"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_8gf8s"]
 
@@ -1747,27 +1750,22 @@ blend_point_0/pos = -1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_hramt")
 blend_point_1/pos = 1.0
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iwxvh"]
-animation = &"loop_SitDrinkIdle_OldAdult_male"
-
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dvkwt"]
-graph_offset = Vector2(-306.22, -101.475)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_xn2pg")
+nodes/Animation/position = Vector2(-240, 120)
+"nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_h617i")
+"nodes/Animation 2/position" = Vector2(-220, 250)
 nodes/Blend2/node = SubResource("AnimationNodeBlend2_v2ihy")
 nodes/Blend2/position = Vector2(300, 150)
 nodes/Drink/node = SubResource("AnimationNodeOneShot_8gf8s")
 nodes/Drink/position = Vector2(100, 100)
-"nodes/Drink 2/node" = SubResource("AnimationNodeAnimation_h617i")
-"nodes/Drink 2/position" = Vector2(-190, 250)
 nodes/HeadTurn/node = SubResource("AnimationNodeBlendSpace1D_8xrqj")
 nodes/HeadTurn/position = Vector2(100, 320)
-nodes/Idle/node = SubResource("AnimationNodeAnimation_iwxvh")
-nodes/Idle/position = Vector2(-220, 120)
 nodes/output/position = Vector2(490, 160)
-node_connections = [&"Blend2", 0, &"Drink", &"Blend2", 1, &"HeadTurn", &"Drink", 0, &"Idle", &"Drink", 1, &"Drink 2", &"output", 0, &"Blend2"]
+node_connections = [&"Blend2", 0, &"Drink", &"Blend2", 1, &"HeadTurn", &"Drink", 0, &"Animation", &"Drink", 1, &"Animation 2", &"output", 0, &"Blend2"]
 
 [node name="CaseyOldDrink" node_paths=PackedStringArray("mesh") instance=ExtResource("1_nje45")]
 mesh = NodePath("character_oldadult_male_drink2/character_rig_oldadult_male/Skeleton3D/character_oldadult_male_drink")
-expression = 1
 
 [node name="character_oldadult_male_drink2" parent="." index="0" instance=ExtResource("2_pnvvj")]
 
@@ -1775,11 +1773,11 @@ expression = 1
 bones/0/rotation = Quaternion(1.26881e-08, 0, 0, 1)
 bones/9/position = Vector3(0, 0.909701, -0.0117902)
 bones/9/rotation = Quaternion(-0.0729911, 5.49204e-15, 2.37421e-14, 0.997333)
-bones/10/rotation = Quaternion(0.23253, 0.00128147, 0.00215695, 0.972586)
+bones/10/rotation = Quaternion(0.245908, 0.000386191, 0.00520084, 0.969279)
 bones/11/rotation = Quaternion(0.404511, 0.577161, 0.373039, -0.603406)
-bones/12/rotation = Quaternion(0.131444, 0.920895, -0.128135, 0.343885)
-bones/13/rotation = Quaternion(0.513204, -0.851094, 0.0437798, 0.101703)
-bones/14/rotation = Quaternion(0.200873, 0.752788, 0.225469, 0.584914)
+bones/12/rotation = Quaternion(0.121949, 0.921375, -0.126258, 0.346779)
+bones/13/rotation = Quaternion(0.521325, -0.847793, 0.0444713, 0.0865452)
+bones/14/rotation = Quaternion(0.198746, 0.756829, 0.226283, 0.580091)
 bones/15/rotation = Quaternion(0.463648, 0.0224407, 0.0172007, 0.885568)
 bones/16/rotation = Quaternion(0.463826, 0.020777, 0.014234, 0.885568)
 bones/17/rotation = Quaternion(0.266379, 0.00773737, 0.000715882, 0.963837)
@@ -1791,9 +1789,9 @@ bones/22/rotation = Quaternion(-0.0872577, 0.0394843, 0.137269, 0.985893)
 bones/23/rotation = Quaternion(-2.19411e-08, -1.58076e-08, 1.91538e-09, 1)
 bones/24/rotation = Quaternion(-4.41596e-09, -5.20763e-15, 3.06465e-16, 1)
 bones/25/rotation = Quaternion(0.417632, -0.554111, -0.388322, -0.606424)
-bones/26/rotation = Quaternion(-0.0900017, 0.93837, -0.116158, -0.312841)
-bones/27/rotation = Quaternion(0.562736, 0.825234, -0.0480042, 0.00351695)
-bones/28/rotation = Quaternion(-0.0380409, -0.667501, 0.202087, 0.715651)
+bones/26/rotation = Quaternion(-0.0848173, 0.936854, -0.114939, -0.319217)
+bones/27/rotation = Quaternion(0.569453, 0.820514, -0.0485768, -0.0110115)
+bones/28/rotation = Quaternion(-0.044127, -0.67535, 0.200872, 0.708242)
 bones/29/rotation = Quaternion(0.189731, -0.00918303, -0.0070388, 0.981768)
 bones/30/rotation = Quaternion(0.189804, -0.00850218, -0.0058248, 0.981768)
 bones/31/rotation = Quaternion(0.190003, -0.00551893, -0.000510633, 0.981768)
@@ -1827,5 +1825,8 @@ parameters/Drink/active = false
 parameters/Drink/internal_active = false
 parameters/Drink/request = 0
 parameters/HeadTurn/blend_position = 2.08165e-12
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.38868, 0.30158)
 
 [editable path="character_oldadult_male_drink2"]

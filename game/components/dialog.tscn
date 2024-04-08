@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bw2csk08fjak"]
-
-[ext_resource type="Script" path="res://game/components/dialog.gd" id="1_b7vgy"]
-
-[node name="Dialog" type="AudioStreamPlayer3D"]
-script = ExtResource("1_b7vgy")
-base_dir = "<null>"
-
-[connection signal="finished" from="." to="." method="_on_finished"]
