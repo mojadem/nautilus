@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://0lqxaeig7bby"]
+
+[ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_165d8"]
+[ext_resource type="PackedScene" uid="uid://buqbqxxn4xtjd" path="res://assets/models/characters/imports/character_youngchild_female.glb" id="2_0twdn"]
+[ext_resource type="Texture2D" uid="uid://ddo2q47hh1opv" path="res://assets/models/characters/textures/character-expressions.png" id="3_c4n83"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ph34"]
+resource_name = "character_expression"
+transparency = 4
+albedo_texture = ExtResource("3_c4n83")
+texture_filter = 2
+
+[node name="PatYoung" node_paths=PackedStringArray("mesh") instance=ExtResource("1_165d8")]
+mesh = NodePath("character_youngchild_female2/character_rig_youngchild_female/GeneralSkeleton/character_youngchild_female")
+
+[node name="character_youngchild_female2" parent="." index="0" instance=ExtResource("2_0twdn")]
+
+[node name="GeneralSkeleton" parent="character_youngchild_female2/character_rig_youngchild_female" index="0"]
+bones/0/rotation = Quaternion(1.26881e-08, 0, 0, 1)
+bones/9/position = Vector3(0, 0.735773, -0.0317318)
+bones/9/rotation = Quaternion(1.39129e-07, 1.35482e-14, 6.17573e-15, 1)
+bones/10/rotation = Quaternion(7.04249e-10, 5.35013e-15, 4.49707e-16, 1)
+bones/12/rotation = Quaternion(-0.0930119, 0.986717, 0.0860265, -0.101672)
+bones/13/rotation = Quaternion(0.193622, -0.820434, 0.0165158, 0.537704)
+bones/14/rotation = Quaternion(-0.0926428, 0.735199, 0.0062909, 0.671462)
+bones/15/rotation = Quaternion(5.96046e-08, 0, 0, 1)
+bones/16/rotation = Quaternion(2.98023e-08, 2.98023e-08, 2.98023e-08, 1)
+bones/17/rotation = Quaternion(8.9407e-08, 2.98023e-08, -2.98023e-08, 1)
+bones/18/rotation = Quaternion(5.96046e-08, 0, 0, 1)
+bones/19/rotation = Quaternion(-5.96046e-08, -2.98023e-08, -1.49012e-08, 1)
+bones/20/rotation = Quaternion(-1.49012e-08, -1.49012e-08, -1.49012e-08, 1)
+bones/21/rotation = Quaternion(-0.214187, 0.673887, 0.214187, 0.673887)
+bones/22/rotation = Quaternion(-3.09919e-08, 2.18041e-08, -3.95448e-09, 1)
+bones/23/rotation = Quaternion(-1.2957e-08, 0.614544, -2.10277e-07, 0.788882)
+bones/24/rotation = Quaternion(-9.0178e-09, 5.76744e-15, 6.14016e-16, 1)
+bones/26/rotation = Quaternion(-0.0143461, 0.999503, -0.0196681, 0.020042)
+bones/27/rotation = Quaternion(-0.0100699, 0.69968, 0.00085891, 0.714385)
+bones/28/rotation = Quaternion(0.0103231, -0.643736, 0.0117037, 0.765088)
+bones/29/rotation = Quaternion(2.98023e-08, 1.49012e-08, -1.49012e-08, 1)
+bones/30/rotation = Quaternion(-1.04308e-07, 2.98023e-08, -1.49012e-08, 1)
+bones/31/rotation = Quaternion(5.96046e-08, 0, 0, 1)
+bones/32/rotation = Quaternion(5.96047e-08, 4.47035e-08, 0, 1)
+bones/34/rotation = Quaternion(-2.98023e-08, -2.98023e-08, 2.98023e-08, 1)
+bones/35/rotation = Quaternion(-0.214187, -0.673887, -0.214187, 0.673887)
+bones/36/rotation = Quaternion(-8.05548e-08, -1.75348e-08, 5.31946e-08, 1)
+bones/37/rotation = Quaternion(0.00117628, -1.15418e-06, 0.999999, 1.21732e-05)
+bones/37/scale = Vector3(1, 1, 1.00002)
+bones/38/rotation = Quaternion(-3.25272e-10, 1, 7.28303e-09, -1.53997e-10)
+bones/39/rotation = Quaternion(-0.000823138, 0.707103, -0.70711, -0.000840222)
+bones/39/scale = Vector3(1, 0.999993, 1.00001)
+bones/40/rotation = Quaternion(-0.00117611, -3.45633e-06, 0.999999, -1.22844e-05)
+bones/40/scale = Vector3(1, 1, 1.00002)
+bones/41/rotation = Quaternion(3.66083e-10, 1, 7.28303e-09, 1.41137e-10)
+bones/41/scale = Vector3(1, 1, 1)
+bones/42/rotation = Quaternion(0.000822995, 0.707104, -0.707108, 0.000840439)
+
+[node name="character_youngchild_female" parent="character_youngchild_female2/character_rig_youngchild_female/GeneralSkeleton" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_6ph34")
+
+[editable path="character_youngchild_female2"]

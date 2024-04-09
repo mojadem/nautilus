@@ -31,11 +31,61 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:door-L": {
+"PATH:banquet tables": {
+"generate/physics": true
+},
+"PATH:bar": {
+"generate/physics": true,
+"physics/shape_type": 2
+},
+"PATH:bar chair 0": {
+"generate/physics": true
+},
+"PATH:bar chair 2": {
+"generate/physics": true
+},
+"PATH:bar chair 3": {
+"generate/physics": true
+},
+"PATH:bar chair 4": {
+"generate/physics": true
+},
+"PATH:bar chair 5": {
+"generate/physics": true
+},
+"PATH:bar chair 6": {
+"generate/physics": true
+},
+"PATH:bar chair 7": {
+"generate/physics": true
+},
+"PATH:bar chair 8": {
+"generate/physics": true
+},
+"PATH:dining 1": {
+"generate/physics": true
+},
+"PATH:dining 2": {
+"generate/physics": true
+},
+"PATH:dining 3": {
+"generate/physics": true
+},
+"PATH:dining 4": {
+"generate/physics": true
+},
+"PATH:dining 5": {
+"generate/physics": true
+},
+"PATH:door L": {
 "import/skip_import": true
 },
-"PATH:door-R": {
+"PATH:door R": {
 "import/skip_import": true
+},
+"PATH:wall": {
+"generate/physics": true,
+"physics/shape_type": 2
 }
 }
 }

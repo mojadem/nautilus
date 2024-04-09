@@ -1,44 +1,15 @@
-[gd_scene load_steps=16 format=3 uid="uid://f6w6fn648vwn"]
+[gd_scene load_steps=14 format=3 uid="uid://f6w6fn648vwn"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_i557i"]
-[ext_resource type="PackedScene" uid="uid://bflwqyrxb857q" path="res://assets/models/zones/funeral_reception/whiskey_glass.blend" id="2_52hq0"]
-[ext_resource type="Shader" path="res://game/components/liquid/liquid.gdshader" id="3_31gdx"]
-[ext_resource type="Script" path="res://game/components/liquid/liquid.gd" id="4_45uqk"]
+[ext_resource type="Script" path="res://game/zones/funeral_reception/interactables/whiskey_glass.gd" id="1_2as7t"]
+[ext_resource type="Material" uid="uid://voydj6ikcji6" path="res://game/components/liquid/liquid.tres" id="2_7t07n"]
+[ext_resource type="PackedScene" uid="uid://dplnwlo61dlmj" path="res://game/components/highlight/highlight_mesh.tscn" id="2_egpfb"]
+[ext_resource type="ArrayMesh" uid="uid://bbh836okduh42" path="res://bin/whiskey_glass_Cylinder.res" id="3_v41e0"]
+[ext_resource type="ArrayMesh" uid="uid://dc6uqlntoxjpa" path="res://bin/whiskey_glass_Cylinder_001.res" id="4_1pvi7"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_di65x"]
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="6_b5h1x"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_5rtfq"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="8_irebu"]
 [ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="9_vl5g7"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4vwtt"]
-transparency = 1
-cull_mode = 2
-albedo_color = Color(1, 1, 1, 0.0784314)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_tjp81"]
-render_priority = 0
-shader = ExtResource("3_31gdx")
-shader_parameter/coeff = Vector2(0, 0)
-shader_parameter/vel = 0.0
-shader_parameter/liquid_color = Color(0.662745, 0.25098, 0.027451, 1)
-shader_parameter/foam_color = Color(0.662745, 0.25098, 0.027451, 1)
-shader_parameter/foam_line = 0.2
-shader_parameter/fill_amount = 0.509
-shader_parameter/size = Vector2(1, 1)
-shader_parameter/glass_thickness = 2.08165e-12
-shader_parameter/scale = 1.0
-shader_parameter/wave_intensity = 0.05
-shader_parameter/HasBubbles = false
-shader_parameter/AlwaysBubbles = false
-shader_parameter/BubbleStrength = 0.5
-shader_parameter/BubbleMask = 0.5
-shader_parameter/BubbleSpeed = Vector2(3, 3)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6jdb3"]
-next_pass = SubResource("ShaderMaterial_tjp81")
-transparency = 1
-cull_mode = 2
-albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mh6qh"]
 points = PackedVector3Array(0.0458883, 0.0458883, -8.9854e-06, 0.0324398, 0.0458883, 0.0324398, 0.028523, -0.0458883, 0.028523, 0.0403454, -0.0458883, -8.9854e-06, 0.028523, -0.0458883, -0.0285409, 0.0324398, 0.0458883, -0.0324488, -8.9854e-06, 0.0458883, 0.0458883, -8.9854e-06, -0.0458883, 0.0403454, -8.9854e-06, 0.0458883, -0.0458883, -8.9854e-06, -0.0458883, -0.0403544, -0.0324488, 0.0458883, 0.0324398, -0.0285409, -0.0458883, 0.028523, -0.0285409, -0.0458883, -0.0285409, -0.0324488, 0.0458883, -0.0324488, -0.0458883, 0.0458883, -8.9854e-06, -0.0403544, -0.0458883, -8.9854e-06)
@@ -56,17 +27,14 @@ closed_pose = ExtResource("6_b5h1x")
 [node name="WhiskeyGlass" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 196615
-script = ExtResource("1_i557i")
+script = ExtResource("1_2as7t")
+shader = ExtResource("2_7t07n")
 
-[node name="whiskey_glass" parent="." instance=ExtResource("2_52hq0")]
+[node name="Glass" parent="." instance=ExtResource("2_egpfb")]
+mesh = ExtResource("3_v41e0")
 
-[node name="glass" parent="whiskey_glass" index="0"]
-surface_material_override/0 = SubResource("StandardMaterial3D_4vwtt")
-
-[node name="liquid" parent="whiskey_glass" index="1"]
-surface_material_override/0 = SubResource("StandardMaterial3D_6jdb3")
-script = ExtResource("4_45uqk")
-liquidShaderMaterial = SubResource("ShaderMaterial_tjp81")
+[node name="Liquid" type="MeshInstance3D" parent="."]
+mesh = ExtResource("4_1pvi7")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_mh6qh")
@@ -78,5 +46,3 @@ hand_pose = SubResource("Resource_avlaf")
 [node name="GrabPointHandRight" parent="." instance=ExtResource("5_di65x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0303218, 0.0550491, -0.0689707)
 hand_pose = SubResource("Resource_fdybd")
-
-[editable path="whiskey_glass"]

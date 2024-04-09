@@ -1,96 +1,46 @@
-[gd_scene load_steps=18 format=3 uid="uid://hqwv8ymenpi7"]
+[gd_scene load_steps=8 format=3 uid="uid://hqwv8ymenpi7"]
 
 [ext_resource type="PackedScene" uid="uid://qmrog76fwnmm" path="res://game/zones/living_room/living_room_base.tscn" id="1_vawkh"]
-[ext_resource type="AudioStream" uid="uid://bciv13vs7i6sr" path="res://assets/audio/dialog/living_room_1/mc/0.wav" id="2_as5m4"]
 [ext_resource type="Script" path="res://game/zones/living_room/living_room_1.gd" id="2_j4sgx"]
-[ext_resource type="AudioStream" uid="uid://cfjf2xln7w3r" path="res://assets/audio/dialog/living_room_1/mc/1.wav" id="3_pk75k"]
-[ext_resource type="AudioStream" uid="uid://cp37j8c5uxr51" path="res://assets/audio/dialog/living_room_1/mc/2.wav" id="4_olgpy"]
-[ext_resource type="AudioStream" uid="uid://dgmqica8gvsmi" path="res://assets/audio/dialog/living_room_1/mc/3.wav" id="5_n02lv"]
-[ext_resource type="AudioStream" uid="uid://dbnbkyd5w1f5s" path="res://assets/audio/dialog/living_room_1/mc/4.wav" id="6_gwbp8"]
-[ext_resource type="AudioStream" uid="uid://b2bprcw8t8if7" path="res://assets/audio/dialog/living_room_1/mc/5.wav" id="7_mx074"]
-[ext_resource type="AudioStream" uid="uid://bvwsjg4phs7gg" path="res://assets/audio/dialog/living_room_1/ellie/0.wav" id="8_33t7i"]
-[ext_resource type="AudioStream" uid="uid://5bqfi2f4s3q6" path="res://assets/audio/dialog/living_room_1/ellie/1.wav" id="9_fui86"]
-[ext_resource type="AudioStream" uid="uid://cuxkbycktnkmf" path="res://assets/audio/dialog/living_room_1/ellie/2.wav" id="10_saqyk"]
-[ext_resource type="AudioStream" uid="uid://dv04it68nigu" path="res://assets/audio/dialog/living_room_1/ellie/3.wav" id="11_b6w1y"]
-[ext_resource type="AudioStream" uid="uid://c10lhpaersw6f" path="res://assets/audio/dialog/living_room_1/ellie/4.wav" id="12_f0n2l"]
-[ext_resource type="AudioStream" uid="uid://7ijp162gjbu1" path="res://assets/audio/dialog/living_room_1/ellie/5.wav" id="13_byr6l"]
+[ext_resource type="AudioStream" uid="uid://r3hxopqx5cyl" path="res://assets/audio/dialog/living_room_1/phone_call/mc.wav" id="3_70yam"]
+[ext_resource type="AudioStream" uid="uid://bw3wb0ywtg3h2" path="res://assets/audio/dialog/living_room_1/phone_call/ellie.wav" id="4_luyhj"]
 [ext_resource type="AudioStream" uid="uid://bxc8vg85hal3k" path="res://assets/audio/sfx/living_room/phonecall_hangup.wav" id="15_bhtos"]
 
 [sub_resource type="Animation" id="Animation_goacy"]
 resource_name = "phone_call"
-length = 50.0
+length = 48.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("XROrigin3D/XRCamera3D/AudioStreamPlayer3D")
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("2_as5m4")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("3_pk75k")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_olgpy")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("5_n02lv")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("6_gwbp8")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("7_mx074")
+"stream": ExtResource("3_70yam")
 }],
-"times": PackedFloat32Array(0, 3.9, 11.9, 17.2, 29.2, 40.8)
+"times": PackedFloat32Array(0)
 }
 tracks/0/use_blend = true
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Interactables/Phone/Phone/AudioStreamPlayer3D")
+tracks/1/path = NodePath("Interactables/Phone/Phone/PhoneDialog")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("8_33t7i")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("9_fui86")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("10_saqyk")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("11_b6w1y")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("12_f0n2l")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("13_byr6l")
+"stream": ExtResource("4_luyhj")
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("15_bhtos")
 }],
-"times": PackedFloat32Array(0.8, 7.6, 14.2, 24.8, 34.4, 45.2, 48.3)
+"times": PackedFloat32Array(0, 47.2)
 }
 tracks/1/use_blend = true
 
@@ -102,7 +52,7 @@ _data = {
 [node name="LivingRoom" instance=ExtResource("1_vawkh")]
 script = ExtResource("2_j4sgx")
 
-[node name="AudioStreamPlayer3D" parent="XROrigin3D/XRCamera3D" index="0"]
+[node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
 
 [node name="SnapZone" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer" index="2"]
@@ -112,7 +62,7 @@ initial_object = NodePath("../../../../../FuneralCard")
 zone_scene = "res://game/zones/funeral_reception/funeral_reception.tscn"
 scene_switch_enabled = false
 
-[node name="AudioStreamPlayer3D" parent="Interactables/Phone/Phone" index="5"]
+[node name="PhoneDialog" parent="Interactables/Phone/Phone" index="5"]
 stream = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]

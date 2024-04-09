@@ -22,6 +22,9 @@ var coeff_old : Vector2
 var coeff_old_old : Vector2
 
 func _physics_process(delta):
+	if not liquidShaderMaterial:
+		return
+	
 	var accell_3d:Vector3 = (pos3 - 2 * pos2 + pos1) * 3600.0
 	pos1 = pos2
 	pos2 = pos3

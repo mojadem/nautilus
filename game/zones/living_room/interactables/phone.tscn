@@ -83,7 +83,7 @@ hand_pose = SubResource("Resource_se5jg")
 transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 0.062, 0.033, -0.049)
 hand_pose = SubResource("Resource_4wcad")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Phone"]
+[node name="PhoneDialog" type="AudioStreamPlayer3D" parent="Phone"]
 transform = Transform3D(1, 0, 0, 0, 0.0075748, 0.999971, 0, -0.999971, 0.0075748, 0, -0.0103232, -0.0556711)
 stream = SubResource("AudioStreamWAV_iiuat")
 attenuation_model = 1

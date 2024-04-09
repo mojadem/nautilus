@@ -1,15 +1,15 @@
 extends XRToolsSceneBase
 
-@onready var animation_player = $AnimationPlayer
-@onready var funeral_card = $Interactables/FuneralCard
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var funeral_card: KeyItem = $Interactables/FuneralCard
 @onready var mc_dialog: AudioStreamPlayer3D = $XROrigin3D/XRCamera3D/AudioStreamPlayer3D
 @onready var phone_ring: AudioStreamPlayer3D = $Interactables/Phone/AudioStreamPlayer3D
-@onready var phone_ring_delay = $PhoneRingDelay
-@onready var phone_snap_zone = $Interactables/Phone/PhoneBox/SnapZone
+@onready var phone_ring_delay: Timer = $PhoneRingDelay
+@onready var phone_snap_zone: XRToolsSnapZone = $Interactables/Phone/PhoneBox/SnapZone
 
-@onready var phone_mesh = $Interactables/Phone/Phone/HighlightMesh
-@onready var phone_box_mesh = $Interactables/Phone/PhoneBox/HighlightMesh
-@onready var drawer_mesh = $Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/HighlightMesh
+@onready var phone_mesh: HighlightMesh = $Interactables/Phone/Phone/HighlightMesh
+@onready var phone_box_mesh: HighlightMesh = $Interactables/Phone/PhoneBox/HighlightMesh
+@onready var drawer_mesh: HighlightMesh = $Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/HighlightMesh
 
 enum State {
 	INITIAL,
