@@ -7,6 +7,7 @@ const WHISKEY_SIP = preload("res://assets/audio/sfx/funeral_reception/whiskey_si
 @onready var mc_dialog: AudioStreamPlayer3D = $XROrigin3D/XRCamera3D/MCDialog
 @onready var whiskey_glass: WhiskeyGlass = $Interactables/WhiskeyGlass
 @onready var whiskey_glass_mesh: HighlightMesh = $Interactables/WhiskeyGlass/Glass
+@onready var transition_area: Area3D = $TransitionArea
 
 enum State {
 	DIALOG_1,
@@ -23,6 +24,9 @@ var awaiting_sip := false
 func _ready():
 	animation_player.animation_finished.connect(_on_animation_finished)
 	drink_area.body_entered.connect(_on_sip)
+	transition_area.body_entered.connect(_on_transition_area_entered)
+	
+	animation_player.play("dialog_1")
 
 
 func _on_animation_finished(anim_name: StringName) -> void:
@@ -45,6 +49,8 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			
 			var target = ""
 			scene_base.load_scene(target)
+		"sip":
+			play_next_animation()
 
 
 func _on_sip(body: Node3D) -> void:
@@ -54,15 +60,15 @@ func _on_sip(body: Node3D) -> void:
 	if not awaiting_sip:
 		return
 	
-	mc_dialog.stream = WHISKEY_SIP
-	mc_dialog.play()
+	animation_player.play("sip")
 	whiskey_glass.fill_percent -= 0.33
 	whiskey_glass_mesh.highlight_enabled = false
-	
-	play_next_animation()
 
 
 func _on_transition_area_entered(body: Node3D) -> void:
+	if state != State.TRANSITION:
+		return
+	
 	animation_player.play("transition")
 
 
