@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://s6pwu85l6y06"]
+[gd_scene load_steps=32 format=3 uid="uid://s6pwu85l6y06"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_0ttmv"]
 [ext_resource type="PackedScene" uid="uid://c120g3eta4baa" path="res://assets/models/zones/funeral_reception/funeral_reception.blend" id="2_63qw3"]
@@ -23,14 +23,18 @@
 background_mode = 1
 sdfgi_read_sky_light = false
 
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_pf7yy"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_lm47d"]
 size = Vector3(0.3, 0.3, 0.396582)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g7lj2"]
 
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_3sn6i"]
+
 [sub_resource type="Animation" id="Animation_ww65y"]
 resource_name = "dialog_1"
-length = 18.0
+length = 22.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -61,10 +65,34 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CaseyOld/AnimationTree:parameters/HeadTurn/blend_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 6, 7, 13.6, 14.5, 17, 18),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [2.08165e-12, 0.5, 0.5, 2.08165e-12, 2.08165e-12, -0.5, -0.5, 2.08165e-12]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CaseyOld/AnimationTree:parameters/Drink/request")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(18),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
 
 [sub_resource type="Animation" id="Animation_e1itf"]
 resource_name = "dialog_2"
-length = 39.0
+length = 42.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -95,11 +123,46 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CaseyOld/AnimationTree:parameters/HeadTurn/blend_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(7.5, 8.3, 12.5, 13, 20.5, 21, 27.4, 28.3, 32.7, 33.1, 36, 36.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.3, -0.3, 0.7, 0.7, 0.9, 0.9, 2.08165e-12, 2.08165e-12, 0.8, 0.8, 2.08165e-12]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CaseyOld:expression")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 20.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 2]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CaseyOld/AnimationTree:parameters/Drink/request")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(29, 37.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 1]
+}
 
 [sub_resource type="Animation" id="Animation_x17uy"]
 resource_name = "dialog_3"
 length = 55.0
-step = 1.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -138,6 +201,18 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 23)
 }
 tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CaseyOld/AnimationTree:parameters/HeadTurn/blend_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(5.8, 6.7, 10.8, 11.6, 13, 13.4, 54.4, 55),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.4, -0.4, 0.4, 0.4, 1.0, 1.0, 2.08165e-12]
+}
 
 [sub_resource type="Animation" id="Animation_3hcwm"]
 resource_name = "dialog_4"
@@ -159,10 +234,28 @@ tracks/0/keys = {
 }
 tracks/0/use_blend = true
 
+[sub_resource type="Animation" id="Animation_pc1hf"]
+resource_name = "sip"
+length = 3.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_6xdce")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
 [sub_resource type="Animation" id="Animation_1qli6"]
 resource_name = "transition"
 length = 8.0
-step = 1.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -193,25 +286,18 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
-
-[sub_resource type="Animation" id="Animation_pc1hf"]
-resource_name = "sip"
-length = 3.0
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("18_6xdce")
-}],
-"times": PackedFloat32Array(0)
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CaseyOld/AnimationTree:parameters/HeadTurn/blend_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 5.4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [2.08165e-12, 0.6, 0.6, 2.08165e-12]
 }
-tracks/0/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1iagy"]
 _data = {
@@ -237,7 +323,7 @@ transform = Transform3D(0.895261, 0, -0.445542, 0, 1, 0, 0.445542, 0, 0.895261, 
 
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.38419e-07, -0.224664, -0.283057)
-stream = null
+stream = SubResource("AudioStreamPolyphonic_pf7yy")
 
 [node name="DrinkArea" type="Area3D" parent="XROrigin3D/XRCamera3D" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, -0.2)
@@ -310,22 +396,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.26207, 1.14352, 2.64027)
 
 [node name="CaseyOld" parent="." index="6" instance=ExtResource("3_473ar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.74682, 0, 2.34578)
+expression = 2
 
 [node name="Skeleton3D" parent="CaseyOld/character_oldadult_male/character_rig_oldadult_male" index="0"]
-bones/10/rotation = Quaternion(0.233329, 0.00169613, 0.00306067, 0.972392)
-bones/12/rotation = Quaternion(0.131055, 0.920837, -0.128404, 0.344089)
-bones/13/rotation = Quaternion(0.513468, -0.850992, 0.0438017, 0.101215)
-bones/14/rotation = Quaternion(0.200973, 0.752461, 0.225778, 0.585181)
-bones/23/rotation = Quaternion(0.00473531, -0.0226741, -0.00619104, 0.999713)
-bones/26/rotation = Quaternion(-0.0893348, 0.938326, -0.11598, -0.313228)
-bones/27/rotation = Quaternion(0.563374, 0.8248, -0.0480587, 0.00215107)
-bones/28/rotation = Quaternion(-0.0389062, -0.668661, 0.202122, 0.714511)
+bones/0/rotation = Quaternion(1.26881e-08, 0, 0, 1)
+bones/9/position = Vector3(0, 0.909701, -0.0117902)
+bones/9/rotation = Quaternion(-0.0729911, 5.49204e-15, 2.37421e-14, 0.997333)
+bones/10/rotation = Quaternion(0.246527, 0.000410299, 0.00559273, 0.96912)
+bones/11/rotation = Quaternion(0.404511, 0.577161, 0.373039, -0.603406)
+bones/12/rotation = Quaternion(0.121641, 0.9214, -0.126344, 0.346789)
+bones/13/rotation = Quaternion(0.521332, -0.84779, 0.0444718, 0.0865322)
+bones/14/rotation = Quaternion(0.198783, 0.756706, 0.226397, 0.580195)
+bones/15/rotation = Quaternion(0.463648, 0.0224407, 0.0172007, 0.885568)
+bones/16/rotation = Quaternion(0.463826, 0.020777, 0.014234, 0.885568)
+bones/17/rotation = Quaternion(0.266379, 0.00773737, 0.000715882, 0.963837)
+bones/18/rotation = Quaternion(0.390732, 0.0321005, 0.0379466, 0.919162)
+bones/19/rotation = Quaternion(0.341328, 0.0240217, 0.0260006, 0.939277)
+bones/20/rotation = Quaternion(0.0828582, 0.00579977, 0.00625563, 0.996525)
+bones/21/rotation = Quaternion(-0.228135, 0.805972, 0.331021, 0.434498)
+bones/22/rotation = Quaternion(-0.0872577, 0.0394843, 0.137269, 0.985893)
+bones/23/rotation = Quaternion(0.0150976, -0.0235997, -0.00542076, 0.999593)
+bones/24/rotation = Quaternion(-8.83193e-09, -1.04153e-14, 6.12931e-16, 1)
+bones/25/rotation = Quaternion(0.417632, -0.554111, -0.388322, -0.606424)
+bones/26/rotation = Quaternion(-0.0848476, 0.936814, -0.114916, -0.319334)
+bones/27/rotation = Quaternion(0.569814, 0.82025, -0.0486083, -0.0118034)
+bones/28/rotation = Quaternion(-0.0445792, -0.675934, 0.200872, 0.707656)
+bones/29/rotation = Quaternion(0.189731, -0.00918303, -0.0070388, 0.981768)
+bones/30/rotation = Quaternion(0.189804, -0.00850218, -0.0058248, 0.981768)
+bones/31/rotation = Quaternion(0.190003, -0.00551893, -0.000510633, 0.981768)
+bones/32/rotation = Quaternion(0.188564, -0.0154916, -0.0183127, 0.981768)
+bones/33/rotation = Quaternion(0.18907, -0.0133061, -0.0144024, 0.981768)
+bones/34/rotation = Quaternion(0.189085, -0.0132353, -0.0142755, 0.981768)
+bones/35/rotation = Quaternion(-0.432186, -0.394001, -0.658473, 0.4737)
+bones/36/rotation = Quaternion(-0.0331497, -0.0125969, -0.0997735, 0.994378)
+bones/37/rotation = Quaternion(0.00736655, 0.466498, 0.884326, -0.017096)
+bones/37/scale = Vector3(1, 1, 1.00001)
+bones/38/rotation = Quaternion(0.0314991, 0.722508, -0.690643, -0.00150967)
+bones/38/scale = Vector3(1, 0.99999, 1.00001)
+bones/39/rotation = Quaternion(0.0166898, 0.697241, -0.71656, -0.0108694)
+bones/40/rotation = Quaternion(-0.00736641, 0.466498, 0.884326, 0.0170961)
+bones/40/scale = Vector3(1, 1, 1.00001)
+bones/41/rotation = Quaternion(-0.0314993, 0.722508, -0.690643, 0.00150966)
+bones/41/scale = Vector3(1, 0.999989, 1.00001)
+bones/42/rotation = Quaternion(-0.01669, 0.697241, -0.71656, 0.0108697)
 
 [node name="Mouth" parent="CaseyOld" index="1"]
-transform = Transform3D(0.99915, 0.00704938, -0.0406234, -0.0199934, 0.94452, -0.327844, 0.0360585, 0.328377, 0.943858, 0.00374174, 1.4039, -0.0525267)
+transform = Transform3D(0.999054, -0.000400267, -0.0434753, -0.0158562, 0.92773, -0.372915, 0.0404826, 0.373251, 0.926847, 0.00232553, 1.40719, -0.0417814)
+
+[node name="CaseyDialog" parent="CaseyOld/Mouth" index="0"]
+stream = SubResource("AudioStreamPolyphonic_3sn6i")
 
 [node name="RightHand" parent="CaseyOld" index="2"]
-transform = Transform3D(0.0720926, 0.744102, 0.664165, 0.994435, -0.00233766, -0.105323, -0.0768187, 0.668062, -0.740129, -0.035732, 1.17116, 0.323199)
+transform = Transform3D(0.0719948, 0.744368, 0.663877, 0.994489, -0.00271868, -0.1048, -0.076205, 0.667764, -0.740462, -0.035605, 1.17098, 0.323078)
 
 [node name="cane" parent="CaseyOld/RightHand" index="1"]
 visible = false
