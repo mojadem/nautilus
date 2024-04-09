@@ -2,7 +2,7 @@ extends XRToolsSceneBase
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var funeral_card: KeyItem = $Interactables/FuneralCard
-@onready var mc_dialog: AudioStreamPlayer3D = $XROrigin3D/XRCamera3D/AudioStreamPlayer3D
+@onready var mc_dialog: AudioStreamPlayer3D = $XROrigin3D/XRCamera3D/MCDialog
 @onready var phone_ring: AudioStreamPlayer3D = $Interactables/Phone/AudioStreamPlayer3D
 @onready var phone_ring_delay: Timer = $PhoneRingDelay
 @onready var phone_snap_zone: XRToolsSnapZone = $Interactables/Phone/PhoneBox/SnapZone
@@ -40,14 +40,14 @@ func process_state():
 			phone_box_mesh.highlight_enabled = true
 		
 		State.PHONE_HANGUP:
-			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/6.wav")
+			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/MC Audio 7.wav")
 			mc_dialog.play()
 			funeral_card.scene_switch_enabled = true
 			phone_box_mesh.highlight_enabled = false
 			drawer_mesh.highlight_enabled = true
 		
 		State.TRANSITION:
-			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/mc/7.wav")
+			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/MC Audio 8.wav")
 			mc_dialog.play()
 			drawer_mesh.highlight_enabled = false
 

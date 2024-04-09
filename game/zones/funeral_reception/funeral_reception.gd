@@ -60,6 +60,7 @@ func _on_sip(body: Node3D) -> void:
 	if not awaiting_sip:
 		return
 	
+	awaiting_sip = false
 	animation_player.play("sip")
 	whiskey_glass.fill_percent -= 0.33
 	whiskey_glass_mesh.highlight_enabled = false
