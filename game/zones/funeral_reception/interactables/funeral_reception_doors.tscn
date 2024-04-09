@@ -1,7 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://x0k2ii6bra5k"]
+[gd_scene load_steps=21 format=3 uid="uid://x0k2ii6bra5k"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="1_320if"]
-[ext_resource type="ArrayMesh" uid="uid://dvkow4fein8gw" path="res://bin/doors_left-door.res" id="2_l6h53"]
+[ext_resource type="ArrayMesh" uid="uid://c7aoquurgjke3" path="res://bin/doors_left-door.res" id="2_l6h53"]
 [ext_resource type="Script" path="res://game/components/highlight/highlight_mesh.gd" id="3_48gev"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="4_e7s55"]
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="5_60rhp"]
@@ -9,12 +9,17 @@
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="7_3180c"]
 [ext_resource type="PackedScene" uid="uid://ca3daqmpo0tua" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_redirect.tscn" id="8_8kkjk"]
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/interactables/interactable_hinge.tscn" id="9_lyvqn"]
-[ext_resource type="ArrayMesh" uid="uid://bn6cqm3d1hgdf" path="res://bin/doors_right-door.res" id="10_pl5po"]
+[ext_resource type="ArrayMesh" uid="uid://crjs55xm0kjyj" path="res://bin/doors_right-door.res" id="10_pl5po"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="11_t1awg"]
 [ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="12_8u472"]
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kpond"]
-points = PackedVector3Array(-1.83464e-07, 0, -0.0400372, 0.0351416, 1.3767, -0.121151, 0.0462841, 1.37696, -0.13754, 0.0470187, 1.36946, -0.137569, 0.0697935, 1.37348, -0.148265, 0.0707731, 1.37026, -0.148294, 0.0724873, 1.36731, -0.148294, 0.202034, 0.169171, -0.0732763, 0.169219, 0.0782853, -0.0575481, 1.2509, 0, -0.0400372, -1.83464e-07, 0, 0.0400127, -1.83464e-07, 2.73891, -0.0400372, 0.0470187, 1.38447, -0.13754, 0.0694262, 1.37696, -0.148265, 0.0746913, 1.38903, -0.148237, 0.104323, 1.37026, -0.148294, 0.0746913, 1.3649, -0.148294, 1.0676, 0.169171, -0.0732763, 0.0775076, 1.36275, -0.148294, 0.0805687, 1.36115, -0.148294, 0.0839972, 1.36007, -0.148294, 0.0875481, 1.3598, -0.148294, 1.10041, 0.0782853, -0.0575481, 1.2509, 0, 0.0400127, 1.2509, 2.73891, -0.0400372, 0.213299, 0.200539, 0.0922004, 0.0811809, 1.36624, 0.145423, 0.0802014, 1.36946, 0.145423, 0.0574266, 1.36544, 0.134756, 0.0566919, 1.37294, 0.134756, 0.0455494, 1.37267, 0.118366, -1.83464e-07, 2.73891, 0.0400127, 0.169219, 2.65875, -0.0575481, 0.202034, 2.5684, -0.0732763, 0.0724873, 1.38635, -0.148237, 0.0707731, 1.3834, -0.148237, 0.0697935, 1.38018, -0.148237, 0.0775076, 1.39117, -0.148208, 0.0805687, 1.39278, -0.148208, 0.0839972, 1.39385, -0.148208, 0.0875481, 1.39412, -0.148208, 0.100282, 1.38903, -0.148237, 0.102609, 1.36731, -0.148294, 0.10567, 1.37696, -0.148265, 0.105303, 1.37348, -0.148265, 0.091099, 1.36007, -0.148294, 0.094405, 1.36115, -0.148294, 0.0975886, 1.36275, -0.148294, 0.100282, 1.3649, -0.148294, 1.0676, 2.5684, -0.0732763, 1.05633, 0.200539, 0.0922004, 1.2509, 2.73891, 0.0400127, 1.10041, 2.65875, -0.0575481, 0.0979559, 1.35578, 0.145423, 0.094405, 1.35605, 0.145423, 0.0909765, 1.35712, 0.145423, 0.0879154, 1.35873, 0.145452, 0.0850992, 1.36088, 0.145423, 0.0828952, 1.36329, 0.145423, 0.079834, 1.37294, 0.145423, 0.0574266, 1.38045, 0.134727, 0.0802014, 1.37616, 0.145394, 0.0811809, 1.37938, 0.145394, 0.213299, 2.53703, 0.0922004, 0.091099, 1.39385, -0.148208, 0.102609, 1.38635, -0.148237, 0.094405, 1.39278, -0.148208, 0.0975886, 1.39117, -0.148208, 0.104323, 1.3834, -0.148237, 0.105303, 1.38018, -0.148237, 0.11571, 1.36946, 0.145366, 0.114731, 1.36624, 0.145366, 0.110813, 1.36088, 0.145394, 0.104935, 1.35712, 0.145423, 0.101507, 1.35605, 0.145423, 1.05633, 2.53703, 0.0922004, 0.0879154, 1.38715, 0.145366, 0.0850992, 1.38501, 0.145366, 0.0828952, 1.38233, 0.145366, 0.0909765, 1.38876, 0.145337, 0.094405, 1.38983, 0.145337, 0.0979559, 1.3901, 0.145337, 0.116078, 1.37294, 0.145337, 0.11571, 1.37616, 0.145337, 0.114731, 1.37938, 0.145337, 0.101507, 1.38983, 0.145308, 0.104935, 1.38876, 0.145308, 0.107996, 1.38715, 0.145308, 0.110813, 1.38501, 0.145308)
+[sub_resource type="BoxShape3D" id="BoxShape3D_jkpsd"]
+size = Vector3(1.2439, 2.73389, 0.0869141)
+
+[sub_resource type="Resource" id="Resource_83vf8"]
+script = ExtResource("6_l0c5p")
+open_pose = ExtResource("12_8u472")
+closed_pose = ExtResource("12_8u472")
 
 [sub_resource type="Resource" id="Resource_6md8p"]
 script = ExtResource("6_l0c5p")
@@ -24,13 +29,18 @@ closed_pose = ExtResource("5_60rhp")
 [sub_resource type="SphereShape3D" id="SphereShape3D_he5vx"]
 radius = 0.05
 
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_sr6cd"]
-points = PackedVector3Array(-1.25207, 0, -0.0400372, -1.06901, 0.169171, -0.0732763, -1.1017, 0.0782853, -0.0575481, -0.00128198, 0, -0.0400372, -1.25207, 0, 0.0400127, -1.25207, 2.73891, -0.0400372, -0.105606, 1.37026, -0.148294, -0.103892, 1.36731, -0.148294, -0.101688, 1.3649, -0.148294, -0.0988714, 1.36275, -0.148294, -0.0958103, 1.36115, -0.148294, -0.0923817, 1.36007, -0.148294, -0.0888308, 1.3598, -0.148294, -0.203318, 0.169171, -0.0732763, -1.06901, 2.5684, -0.0732763, -0.106953, 1.37696, -0.148265, -0.106586, 1.37348, -0.148265, -0.170502, 0.0782853, -0.0575481, -0.00128198, 0, 0.0400127, -0.0737699, 1.36731, -0.148294, -0.0720557, 1.37026, -0.148294, -0.0710762, 1.37348, -0.148265, -0.0483012, 1.36946, -0.137569, -0.0475665, 1.37696, -0.13754, -0.0364239, 1.3767, -0.121151, -0.00128198, 2.73891, -0.0400372, -1.05762, 0.200539, 0.0922004, -1.25207, 2.73891, 0.0400127, -1.1017, 2.65875, -0.0575481, -0.101688, 1.38903, -0.148237, -0.0852799, 1.36007, -0.148294, -0.0818514, 1.36115, -0.148294, -0.0787903, 1.36275, -0.148294, -0.075974, 1.3649, -0.148294, -0.203318, 2.5684, -0.0732763, -0.0888308, 1.39412, -0.148208, -0.0923817, 1.39385, -0.148208, -0.0958103, 1.39278, -0.148208, -0.0988714, 1.39117, -0.148208, -0.103892, 1.38635, -0.148237, -0.105606, 1.3834, -0.148237, -0.106586, 1.38018, -0.148237, -0.0468318, 1.37267, 0.118366, -0.0579745, 1.37294, 0.134756, -0.0587091, 1.36544, 0.134756, -0.0814841, 1.36946, 0.145423, -0.0824636, 1.36624, 0.145423, -0.214583, 0.200539, 0.0922004, -0.00128198, 2.73891, 0.0400127, -0.075974, 1.38903, -0.148237, -0.0707089, 1.37696, -0.148265, -0.0483012, 1.38447, -0.13754, -0.0710762, 1.38018, -0.148237, -0.0720557, 1.3834, -0.148237, -0.0737699, 1.38635, -0.148237, -0.170502, 2.65875, -0.0575481, -0.0992388, 1.35578, 0.145423, -0.10279, 1.35605, 0.145423, -0.106218, 1.35712, 0.145423, -0.112096, 1.36088, 0.145394, -0.116014, 1.36624, 0.145366, -0.116993, 1.36946, 0.145366, -1.05762, 2.53703, 0.0922004, -0.0787903, 1.39117, -0.148208, -0.0818514, 1.39278, -0.148208, -0.0852799, 1.39385, -0.148208, -0.0587091, 1.38045, 0.134727, -0.0811167, 1.37294, 0.145423, -0.0891981, 1.35873, 0.145452, -0.0841779, 1.36329, 0.145423, -0.0863819, 1.36088, 0.145423, -0.0922593, 1.35712, 0.145423, -0.0956877, 1.35605, 0.145423, -0.214583, 2.53703, 0.0922004, -0.0824636, 1.37938, 0.145394, -0.0814841, 1.37616, 0.145394, -0.0891981, 1.38715, 0.145366, -0.0992388, 1.3901, 0.145337, -0.116014, 1.37938, 0.145337, -0.116993, 1.37616, 0.145337, -0.117361, 1.37294, 0.145337, -0.112096, 1.38501, 0.145308, -0.109279, 1.38715, 0.145308, -0.106218, 1.38876, 0.145308, -0.10279, 1.38983, 0.145308, -0.0956877, 1.38983, 0.145337, -0.0922593, 1.38876, 0.145337, -0.0863819, 1.38501, 0.145366, -0.0841779, 1.38233, 0.145366)
+[sub_resource type="BoxShape3D" id="BoxShape3D_06esn"]
+size = Vector3(1.2439, 2.73389, 0.0869141)
 
 [sub_resource type="Resource" id="Resource_nrvvf"]
 script = ExtResource("6_l0c5p")
 open_pose = ExtResource("12_8u472")
 closed_pose = ExtResource("12_8u472")
+
+[sub_resource type="Resource" id="Resource_tqncn"]
+script = ExtResource("6_l0c5p")
+open_pose = ExtResource("5_60rhp")
+closed_pose = ExtResource("5_60rhp")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hsne6"]
 radius = 0.05
@@ -41,7 +51,6 @@ radius = 0.05
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.26, 2.08165e-12, 2.08165e-12)
 
 [node name="InteractableHinge" type="Node3D" parent="RightDoorOrigin"]
-transform = Transform3D(1, 0, 0, 0, 1, -3.63316e-14, 0, 3.63316e-14, 1, 0, 0, 0)
 script = ExtResource("1_320if")
 hinge_limit_min = 2.08165e-12
 hinge_limit_max = 90.0
@@ -54,11 +63,15 @@ mesh = ExtResource("2_l6h53")
 script = ExtResource("3_48gev")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RightDoorOrigin/InteractableHinge/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_kpond")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.628434, 1.36542, -7.24399e-14)
+shape = SubResource("BoxShape3D_jkpsd")
 
-[node name="GrabPointHandRight" parent="RightDoorOrigin/InteractableHinge" instance=ExtResource("4_e7s55")]
-transform = Transform3D(0.236567, 0.971615, 9.14777e-09, -0.9501, 0.231328, 0.209277, 0.203337, -0.0495081, 0.977856, 1.44196, 1.1377, 0.0642076)
-visible = true
+[node name="GrabPointHandLeft" parent="RightDoorOrigin/InteractableHinge/StaticBody3D" instance=ExtResource("11_t1awg")]
+transform = Transform3D(0.949964, 0.231576, 0.209619, -0.236838, 0.971549, 0, -0.203655, -0.0496457, 0.977783, 0.0784487, 1.44196, 0.0351205)
+hand_pose = SubResource("Resource_83vf8")
+
+[node name="GrabPointHandRight" parent="RightDoorOrigin/InteractableHinge/StaticBody3D" instance=ExtResource("4_e7s55")]
+transform = Transform3D(0.9501, -0.231328, -0.209277, 0.236567, 0.971615, 1.42108e-14, 0.203337, -0.0495081, 0.977856, 0.1223, 1.44196, 0.0351205)
 hand_pose = SubResource("Resource_6md8p")
 
 [node name="HandleOrigin" type="Node3D" parent="RightDoorOrigin/InteractableHinge"]
@@ -69,32 +82,37 @@ transform = Transform3D(1, 0, -4.51262e-29, -2.13137e-41, 1, 0, -6.31766e-28, 0,
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RightDoorOrigin/InteractableHinge/HandleOrigin/InteractableHandle"]
 shape = SubResource("SphereShape3D_he5vx")
 
-[node name="GrabPointRedirect" parent="RightDoorOrigin/InteractableHinge/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("8_8kkjk")]
-visible = false
-target = NodePath("../../../GrabPointHandRight")
+[node name="GrabPointRedirectLeft" parent="RightDoorOrigin/InteractableHinge/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("8_8kkjk")]
+target = NodePath("../../../StaticBody3D/GrabPointHandLeft")
+
+[node name="GrabPointRedirectRight" parent="RightDoorOrigin/InteractableHinge/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("8_8kkjk")]
+target = NodePath("../../../StaticBody3D/GrabPointHandRight")
 
 [node name="LeftDoorOrigin" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.26, 2.08165e-12, 2.08165e-12)
 
 [node name="InteractableHinge" parent="LeftDoorOrigin" instance=ExtResource("9_lyvqn")]
-transform = Transform3D(1, 0, 0, 0, 1, -3.63316e-14, 0, 3.63316e-14, 1, 0, 0, 0)
 hinge_limit_min = 2.08165e-12
 hinge_limit_max = 90.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="LeftDoorOrigin/InteractableHinge"]
-transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 2.08165e-12, 1.26, 2.08165e-12)
+transform = Transform3D(-4.37114e-08, -1, 3.48787e-16, 1, -4.37114e-08, -3.48787e-16, 3.48787e-16, 3.48787e-16, 1, 2.08189e-12, 1.26, 2.08165e-12)
 
 [node name="HighlightMesh" type="MeshInstance3D" parent="LeftDoorOrigin/InteractableHinge/StaticBody3D"]
 mesh = ExtResource("10_pl5po")
 script = ExtResource("3_48gev")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftDoorOrigin/InteractableHinge/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_sr6cd")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62563, 1.36398, 4.46691e-17)
+shape = SubResource("BoxShape3D_06esn")
 
-[node name="GrabPointHandLeft" parent="LeftDoorOrigin/InteractableHinge" instance=ExtResource("11_t1awg")]
-transform = Transform3D(0.236838, -0.971549, 3.41038e-16, 0.949964, 0.231576, 0.209619, -0.203655, -0.0496457, 0.977783, -1.442, 1.138, 0.064)
-visible = true
+[node name="GrabPointHandLeft" parent="LeftDoorOrigin/InteractableHinge/StaticBody3D" instance=ExtResource("11_t1awg")]
+transform = Transform3D(0.949964, 0.231576, 0.209619, -0.236838, 0.971549, -9.16274e-09, -0.203655, -0.0496457, 0.977783, -0.122, 1.442, 0.0370341)
 hand_pose = SubResource("Resource_nrvvf")
+
+[node name="GrabPointHandRight" parent="LeftDoorOrigin/InteractableHinge/StaticBody3D" instance=ExtResource("4_e7s55")]
+transform = Transform3D(0.949964, -0.231576, -0.209619, 0.236838, 0.971549, 0, 0.203655, -0.0496457, 0.977783, -0.0654772, 1.442, 0.0370341)
+hand_pose = SubResource("Resource_tqncn")
 
 [node name="HandleOrigin" type="Node3D" parent="LeftDoorOrigin/InteractableHinge"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.373, 1.159, 0.104)
@@ -104,6 +122,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.373, 1.159, 0.104)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LeftDoorOrigin/InteractableHinge/HandleOrigin/InteractableHandle"]
 shape = SubResource("SphereShape3D_hsne6")
 
-[node name="GrabPointRedirect" parent="LeftDoorOrigin/InteractableHinge/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("8_8kkjk")]
-visible = false
-target = NodePath("../../../GrabPointHandLeft")
+[node name="GrabPointRedirectLeft" parent="LeftDoorOrigin/InteractableHinge/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("8_8kkjk")]
+target = NodePath("../../../StaticBody3D/GrabPointHandLeft")
+
+[node name="GrabPointRedirectRight" parent="LeftDoorOrigin/InteractableHinge/HandleOrigin/InteractableHandle" node_paths=PackedStringArray("target") instance=ExtResource("8_8kkjk")]
+target = NodePath("../../../StaticBody3D/GrabPointHandRight")

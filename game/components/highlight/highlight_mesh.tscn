@@ -1,14 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dplnwlo61dlmj"]
+[gd_scene load_steps=2 format=3 uid="uid://dplnwlo61dlmj"]
 
-[ext_resource type="Material" uid="uid://cpy1kp5754we2" path="res://game/components/highlight/highlight_mesh.tres" id="1_mgxn7"]
 [ext_resource type="Script" path="res://game/components/highlight/highlight_mesh.gd" id="2_f8gnm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_462t8"]
-next_pass = ExtResource("1_mgxn7")
-
-[sub_resource type="BoxMesh" id="BoxMesh_yt8jk"]
-material = SubResource("StandardMaterial3D_462t8")
-
 [node name="HighlightMesh" type="MeshInstance3D"]
-mesh = SubResource("BoxMesh_yt8jk")
 script = ExtResource("2_f8gnm")

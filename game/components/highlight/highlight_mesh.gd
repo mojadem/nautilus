@@ -7,10 +7,14 @@ const HIGHLIGHT_MESH = preload("res://game/components/highlight/highlight_mesh.t
 
 @export var highlight_enabled: bool = false:
 	set(value):
+		var material: Material = get_active_material(0)
+		if not material:
+			return
+		
 		highlight_enabled = value
 		
 		if value:
 			var shader = HIGHLIGHT_MESH.duplicate()
-			get_active_material(0).next_pass = shader
+			material.next_pass = shader
 		else:
-			get_active_material(0).next_pass = null
+			material.next_pass = null
