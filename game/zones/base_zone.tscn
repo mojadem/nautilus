@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_icpdt"]
 [ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="2_4u0w0"]
-[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="3_4punf"]
+[ext_resource type="PackedScene" uid="uid://d1rgc70rrg6ju" path="res://game/components/hands/left_hand.tscn" id="3_of7ap"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_e2j15"]
 [ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="4_ytsrv"]
-[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="5_n6ycq"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_gtq1k"]
+[ext_resource type="PackedScene" uid="uid://c3vvdsfaw8x7u" path="res://game/components/hands/right_hand.tscn" id="6_me1rc"]
 [ext_resource type="PackedScene" uid="uid://fiul51tsyoop" path="res://addons/godot-xr-tools/functions/function_teleport.tscn" id="6_t30ao"]
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_1wu7o"]
@@ -19,13 +19,13 @@ stream = SubResource("AudioStreamWAV_1wu7o")
 
 [node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("2_4u0w0")]
 
-[node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("3_4punf")]
+[node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("3_of7ap")]
 
 [node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="1" instance=ExtResource("4_e2j15")]
 
 [node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("4_ytsrv")]
 
-[node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("5_n6ycq")]
+[node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("6_me1rc")]
 
 [node name="FunctionTeleport" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("6_t30ao")]
 valid_teleport_mask = 2048
