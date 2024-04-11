@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://boll40m3suscs"]
 
-[ext_resource type="ArrayMesh" uid="uid://or446mdjcito" path="res://bin/end_table_table.res" id="1_3qvkx"]
+[ext_resource type="ArrayMesh" uid="uid://dip33i8csu1yq" path="res://bin/end_table_table.res" id="1_3qvkx"]
 [ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="2_g4mqg"]
-[ext_resource type="ArrayMesh" uid="uid://cfqrtrtioxkag" path="res://bin/end_table_drawer.res" id="3_plfoa"]
+[ext_resource type="ArrayMesh" uid="uid://da57b1nw0g38r" path="res://bin/end_table_drawer.res" id="3_plfoa"]
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="4_h2dfd"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="4_k6qhh"]
 [ext_resource type="Script" path="res://game/components/highlight/highlight_mesh.gd" id="4_lugyq"]
