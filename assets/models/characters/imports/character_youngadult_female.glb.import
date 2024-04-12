@@ -41,7 +41,7 @@ _subresources={
 }
 },
 "nodes": {
-"PATH:character_rig_oldadult_male/Skeleton3D": {
+"PATH:character_rig_youngadult_female/Skeleton3D": {
 "retarget/bone_map": Resource("res://assets/models/characters/bone_map.tres"),
 "retarget/bone_renamer/unique_node/make_unique": false,
 "retarget/remove_tracks/unmapped_bones": true
