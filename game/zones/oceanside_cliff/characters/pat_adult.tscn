@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://borlciqi2jb8d"]
+
+[ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_82ho8"]
+[ext_resource type="PackedScene" uid="uid://83y4qqke2slq" path="res://assets/models/characters/imports/character_youngadult_female.glb" id="2_4u8qq"]
+[ext_resource type="Texture2D" uid="uid://ddo2q47hh1opv" path="res://assets/models/characters/textures/character-expressions.png" id="3_ej0sq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fd6w"]
+resource_name = "character_expression"
+transparency = 4
+albedo_texture = ExtResource("3_ej0sq")
+texture_filter = 2
+
+[node name="PatAdult" node_paths=PackedStringArray("mesh") instance=ExtResource("1_82ho8")]
+mesh = NodePath("character_youngadult_female2/character_rig_youngadult_female/Skeleton3D/character_youngadult_female")
+
+[node name="character_youngadult_female2" parent="." index="0" instance=ExtResource("2_4u8qq")]
+
+[node name="character_youngadult_female" parent="character_youngadult_female2/character_rig_youngadult_female/Skeleton3D" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_0fd6w")
+
+[node name="Mouth" type="BoneAttachment3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.64181e-15, 1.27295, -0.159386)
+bone_name = "Head"
+bone_idx = 24
+use_external_skeleton = true
+external_skeleton = NodePath("../character_youngadult_female2/character_rig_youngadult_female/Skeleton3D")
+
+[node name="PatDialog" type="AudioStreamPlayer3D" parent="Mouth" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.252242)
+
+[editable path="character_youngadult_female2"]
