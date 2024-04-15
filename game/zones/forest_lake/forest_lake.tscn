@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_3km7h"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="2_c1ose"]
 [ext_resource type="PackedScene" uid="uid://bn62yu2sa6l6q" path="res://assets/models/zones/forest_lake/forest_lake.blend" id="2_ur1ia"]
-[ext_resource type="Shader" path="res://game/zones/forest_lake/water.gdshader" id="3_nc0kq"]
+[ext_resource type="Shader" path="res://game/components/water/water.gdshader" id="3_nc0kq"]
 [ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="3_ycci6"]
 [ext_resource type="PackedScene" uid="uid://2i4jkdfna3h" path="res://assets/models/zones/forest_lake/cliff.glb" id="5_6j1wf"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://borlciqi2jb8d"]
+[gd_scene load_steps=49 format=3 uid="uid://borlciqi2jb8d"]
 
 [ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_82ho8"]
 [ext_resource type="PackedScene" uid="uid://83y4qqke2slq" path="res://assets/models/characters/imports/character_youngadult_female.glb" id="2_4u8qq"]
@@ -9,6 +9,10 @@ resource_name = "character_expression"
 transparency = 4
 albedo_texture = ExtResource("3_ej0sq")
 texture_filter = 2
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s17vb"]
+radius = 0.25
+height = 1.6
 
 [sub_resource type="Animation" id="Animation_igtfi"]
 resource_name = "HandOverEnd_YoungAdult_female"
@@ -8580,13 +8584,13 @@ mesh = NodePath("character_youngadult_female2/character_rig_youngadult_female/Sk
 
 [node name="Skeleton3D" parent="character_youngadult_female2/character_rig_youngadult_female" index="0"]
 bones/0/rotation = Quaternion(1.26881e-08, 0, 0, 1)
-bones/9/position = Vector3(-0.0114245, 0.839929, -0.033928)
-bones/9/rotation = Quaternion(-0.00196475, -0.00150829, -0.0378004, 0.999282)
-bones/10/rotation = Quaternion(0.0040934, 0.00176085, 0.0524153, 0.998615)
+bones/9/position = Vector3(-0.0133571, 0.840658, -0.0340973)
+bones/9/rotation = Quaternion(-0.00238322, -0.00110013, -0.0337679, 0.999426)
+bones/10/rotation = Quaternion(0.00386943, 0.00234156, 0.0498203, 0.998748)
 bones/11/rotation = Quaternion(0.357448, 0.609518, 0.337138, -0.622138)
-bones/12/rotation = Quaternion(0.230996, 0.879904, -0.264963, -0.319695)
+bones/12/rotation = Quaternion(0.234147, 0.879527, -0.263974, -0.319258)
 bones/13/rotation = Quaternion(0.495981, -0.85707, 0.0423067, 0.132832)
-bones/14/rotation = Quaternion(0.273798, 0.538385, 0.534998, 0.590722)
+bones/14/rotation = Quaternion(0.270797, 0.538243, 0.536492, 0.590881)
 bones/15/rotation = Quaternion(-0.282944, -0.0136945, -0.0104969, 0.958981)
 bones/16/rotation = Quaternion(0.117944, 0.00528322, 0.00361949, 0.993)
 bones/17/rotation = Quaternion(0.0605627, 0.0017591, 0.00016278, 0.998163)
@@ -8595,12 +8599,12 @@ bones/19/rotation = Quaternion(0.117487, 0.00826836, 0.00894964, 0.993)
 bones/20/rotation = Quaternion(0.0602698, 0.00421862, 0.00455019, 0.998163)
 bones/21/rotation = Quaternion(-0.295851, 0.544346, 0.108028, 0.777489)
 bones/22/rotation = Quaternion(0.013871, -0.148057, -0.223585, 0.963274)
-bones/23/rotation = Quaternion(0.0309903, -0.0447336, -0.129143, 0.990132)
+bones/23/rotation = Quaternion(0.0240785, -0.0444153, -0.0971666, 0.993985)
 bones/24/rotation = Quaternion(0.152906, -0.0849319, 0.0375952, 0.983866)
 bones/25/rotation = Quaternion(0.357448, -0.609518, -0.337138, -0.622138)
-bones/26/rotation = Quaternion(-0.178467, 0.902459, -0.201537, 0.336304)
+bones/26/rotation = Quaternion(-0.175555, 0.902678, -0.202579, 0.336622)
 bones/27/rotation = Quaternion(0.550329, 0.833105, -0.0469404, 0.0295116)
-bones/28/rotation = Quaternion(0.293745, -0.680222, -0.461848, 0.487553)
+bones/28/rotation = Quaternion(0.296493, -0.680199, -0.460444, 0.48725)
 bones/29/rotation = Quaternion(-0.282944, 0.0136945, 0.0104968, 0.958981)
 bones/30/rotation = Quaternion(0.117944, -0.00528318, -0.00361955, 0.993)
 bones/31/rotation = Quaternion(0.0605627, -0.00175907, -0.00016278, 0.998163)
@@ -8609,23 +8613,27 @@ bones/33/rotation = Quaternion(0.117487, -0.00826834, -0.00894964, 0.993)
 bones/34/rotation = Quaternion(0.0602698, -0.00421861, -0.00455019, 0.998163)
 bones/35/rotation = Quaternion(-0.295851, -0.544347, -0.108028, 0.777489)
 bones/36/rotation = Quaternion(0.013871, 0.148057, 0.223585, 0.963274)
-bones/37/rotation = Quaternion(0.0707579, 0.0625895, 0.988458, -0.118438)
+bones/37/rotation = Quaternion(0.0727318, 0.0554459, 0.989177, -0.114742)
 bones/37/scale = Vector3(1, 1, 1.00002)
-bones/38/rotation = Quaternion(0.00548305, 0.992732, -0.12022, -0.000262743)
+bones/38/rotation = Quaternion(0.0048442, 0.994332, -0.106213, -0.000232128)
 bones/38/scale = Vector3(1, 1, 1)
-bones/39/rotation = Quaternion(0.153996, 0.651575, -0.691498, 0.271231)
+bones/39/rotation = Quaternion(0.154162, 0.657412, -0.686472, 0.269814)
 bones/39/scale = Vector3(1, 0.999993, 1.00001)
-bones/40/rotation = Quaternion(-0.0306344, 0.0106363, 0.999141, -0.025802)
+bones/40/rotation = Quaternion(-0.0294439, 0.0102907, 0.999246, -0.0231102)
 bones/40/scale = Vector3(1, 1, 1.00002)
-bones/41/rotation = Quaternion(-0.00336078, 0.997276, -0.0736872, 0.000161037)
+bones/41/rotation = Quaternion(-0.00330957, 0.997358, -0.0725647, 0.000158588)
 bones/41/scale = Vector3(1, 1, 1)
-bones/42/rotation = Quaternion(-0.0698701, 0.660057, -0.742413, -0.0909167)
+bones/42/rotation = Quaternion(-0.0718953, 0.659894, -0.742329, -0.0912025)
 
 [node name="character_youngadult_female" parent="character_youngadult_female2/character_rig_youngadult_female/Skeleton3D" index="0"]
 surface_material_override/1 = SubResource("StandardMaterial3D_0fd6w")
 
-[node name="Mouth" type="BoneAttachment3D" parent="." index="1"]
-transform = Transform3D(0.946981, 0.0887185, -0.308799, -0.190108, 0.929539, -0.315937, 0.259011, 0.357891, 0.897122, -0.0015242, 1.26874, -0.155631)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 2.08165e-12)
+shape = SubResource("CapsuleShape3D_s17vb")
+
+[node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
+transform = Transform3D(0.957918, 0.0271497, -0.285756, -0.121989, 0.939647, -0.319658, 0.259831, 0.341066, 0.903417, -0.00545375, 1.26795, -0.15626)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -8634,7 +8642,7 @@ external_skeleton = NodePath("../character_youngadult_female2/character_rig_youn
 [node name="PatDialog" type="AudioStreamPlayer3D" parent="Mouth" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.252242)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 root_node = NodePath("../character_youngadult_female2")
 libraries = {
 "": SubResource("AnimationLibrary_jh5pp")
