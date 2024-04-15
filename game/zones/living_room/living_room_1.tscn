@@ -8,44 +8,6 @@
 [ext_resource type="AudioStream" uid="uid://blhqj55i5dd7v" path="res://assets/audio/dialog/living_room_1/dialog_3/mc.wav" id="7_3uu2j"]
 [ext_resource type="AudioStream" uid="uid://bxc8vg85hal3k" path="res://assets/audio/sfx/living_room/phonecall_hangup.wav" id="15_bhtos"]
 
-[sub_resource type="Animation" id="Animation_goacy"]
-resource_name = "phone_call"
-length = 48.0
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("3_70yam")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Interactables/Phone/Phone/PhoneDialog")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_luyhj")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("15_bhtos")
-}],
-"times": PackedFloat32Array(0, 47.2)
-}
-tracks/1/use_blend = true
-
 [sub_resource type="Animation" id="Animation_1xr7x"]
 resource_name = "dialog_2"
 length = 8.0
@@ -83,6 +45,44 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_goacy"]
+resource_name = "phone_call"
+length = 48.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_70yam")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interactables/Phone/Phone/PhoneDialog")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_luyhj")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("15_bhtos")
+}],
+"times": PackedFloat32Array(0, 47.2)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h83up"]
 _data = {

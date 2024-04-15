@@ -24,7 +24,8 @@ script = ExtResource("7_5rtfq")
 open_pose = ExtResource("6_b5h1x")
 closed_pose = ExtResource("6_b5h1x")
 
-[node name="WhiskeyGlass" type="RigidBody3D"]
+[node name="WhiskeyGlass" type="RigidBody3D" groups=["whiskey_glass"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0454105, 0)
 collision_layer = 4
 collision_mask = 196615
 script = ExtResource("1_2as7t")

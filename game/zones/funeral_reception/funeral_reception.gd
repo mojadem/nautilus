@@ -54,7 +54,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 
 
 func _on_sip(body: Node3D) -> void:
-	if not body is WhiskeyGlass:
+	if not body.is_in_group("whiskey_glass"):
 		return
 	
 	if not awaiting_sip:
