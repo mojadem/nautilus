@@ -40,15 +40,13 @@ func process_state():
 			phone_box_mesh.highlight_enabled = true
 		
 		State.PHONE_HANGUP:
-			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/MC Audio 7.wav")
-			mc_dialog.play()
+			animation_player.play("dialog_2")
 			funeral_card.scene_switch_enabled = true
 			phone_box_mesh.highlight_enabled = false
 			drawer_mesh.highlight_enabled = true
 		
 		State.TRANSITION:
-			mc_dialog.stream = load("res://assets/audio/dialog/living_room_1/MC Audio 8.wav")
-			mc_dialog.play()
+			animation_player.play("dialog_3")
 			drawer_mesh.highlight_enabled = false
 
 
