@@ -2,8 +2,9 @@ extends XRToolsSceneBase
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var key_placeholder: XRToolsPickable = $Interactables/KeyPlaceholder
+@onready var keys: XRToolsPickable = $Interactables/CarKeys
 @onready var key_highlight: HighlightComponent = $Interactables/KeyPlaceholder/MeshInstance3D/HighlightComponent
+@onready var key_snap_zone: XRToolsSnapZone = $Models/car/KeyHole/SnapZone
 
 @onready var rock: XRToolsPickable = $Interactables/Rock
 @onready var rock_highlight: HighlightComponent = $Interactables/Rock/rock/Cube_009/HighlightComponent
@@ -65,9 +66,14 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		"dialog_5":
 			await_rock()
 		"dialog_6":
-			await_rock()
+			play_next_dialog()
 		"dialog_7":
-			await_rock()
+			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
+			if not scene_base:
+				return
+			
+			var target = ""
+			scene_base.load_scene(target)
 
 
 func _on_dialog_delay_timeout() -> void:
@@ -79,8 +85,8 @@ func _on_pat_arrived() -> void:
 		pat.look_at_player = true
 	
 	if current_dialog == 4:
-		key_placeholder.enabled = true
-		pat_hand.pick_up_object(key_placeholder)
+		keys.enabled = true
+		pat_hand.pick_up_object(keys)
 
 
 func await_rock() -> void:
@@ -105,6 +111,10 @@ func _on_function_pickup_has_picked_up(what: Variant) -> void:
 	if not awaiting_key_pickup:
 		return
 	
-	if what == key_placeholder:
+	if what == keys:
 		key_highlight.highlight_enabled = false
 		play_next_dialog()
+
+
+func _on_keys_inserted(what: Variant) -> void:
+	animation_player.play("dialog_6")

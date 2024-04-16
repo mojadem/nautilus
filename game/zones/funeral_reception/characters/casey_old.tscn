@@ -1,13 +1,20 @@
-[gd_scene load_steps=19 format=3 uid="uid://drobllaqkesrs"]
+[gd_scene load_steps=21 format=3 uid="uid://drobllaqkesrs"]
 
 [ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_nje45"]
 [ext_resource type="PackedScene" uid="uid://cm0ft6v3r5xwy" path="res://assets/models/characters/imports/character_oldadult_male.glb" id="2_4gf5y"]
+[ext_resource type="Texture2D" uid="uid://ddo2q47hh1opv" path="res://assets/models/characters/textures/character-expressions.png" id="3_0pfag"]
 [ext_resource type="PackedScene" uid="uid://hh51ljxlc0hj" path="res://assets/models/characters/props/drink.glb" id="3_krhma"]
 [ext_resource type="Animation" uid="uid://cqe1nohhvfhnh" path="res://assets/models/characters/animations/RESET.res" id="3_u03iw"]
 [ext_resource type="Animation" uid="uid://csknumbdj374m" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="4_a5niq"]
 [ext_resource type="Animation" uid="uid://bv1lc4luemo6f" path="res://assets/models/characters/animations/HeadTurnRight.res" id="5_c0buc"]
 [ext_resource type="Animation" uid="uid://b6ue35fk85fc2" path="res://assets/models/characters/animations/SitDrinkDrink_OldAdult_male.res" id="6_le4tv"]
 [ext_resource type="Animation" uid="uid://cqxkw0b7ywfbo" path="res://assets/models/characters/animations/SitDrinkIdle_OldAdult_male.res" id="7_6peq2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mxoj"]
+resource_name = "character_expression"
+transparency = 4
+albedo_texture = ExtResource("3_0pfag")
+texture_filter = 2
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l44en"]
 _data = {
@@ -61,7 +68,8 @@ nodes/HeadTurn/position = Vector2(100, 320)
 nodes/output/position = Vector2(490, 160)
 node_connections = [&"Add2", 0, &"Drink", &"Add2", 1, &"HeadTurn", &"Drink", 0, &"Animation", &"Drink", 1, &"Animation 2", &"output", 0, &"Add2"]
 
-[node name="CaseyOld" instance=ExtResource("1_nje45")]
+[node name="CaseyOld" node_paths=PackedStringArray("mesh") instance=ExtResource("1_nje45")]
+mesh = NodePath("character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male/character_rig_oldadult_male/GeneralSkeleton/character_oldadult_male")
 
 [node name="character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male" parent="." index="0" instance=ExtResource("2_4gf5y")]
 
@@ -106,6 +114,9 @@ bones/41/scale = Vector3(1, 1, 1)
 bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
 bones/42/scale = Vector3(1, 0.999993, 1.00001)
 
+[node name="character_oldadult_male" parent="character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male/character_rig_oldadult_male/GeneralSkeleton" index="0"]
+surface_material_override/1 = SubResource("StandardMaterial3D_7mxoj")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male" index="1"]
 libraries = {
 "": SubResource("AnimationLibrary_l44en")
@@ -116,7 +127,7 @@ transform = Transform3D(1, 0, 0, 0, 0.929461, -0.36892, 0, 0.36892, 0.929461, 0,
 shape = SubResource("CapsuleShape3D_cspw3")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.999077, -0.00209929, -0.0428973, -0.0140709, 0.927681, -0.373109, 0.0405782, 0.373369, 0.926795, 0.00178916, 1.40714, -0.0415906)
+transform = Transform3D(0.999018, 0.00180702, -0.0442807, -0.0180271, 0.92934, -0.368784, 0.0404855, 0.36922, 0.92846, 0.00309527, 1.40706, -0.0432274)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -126,7 +137,7 @@ external_skeleton = NodePath("../character_oldadult_male_character_rig_oldadult_
 transform = Transform3D(-0.999745, 0.0221626, -0.00429578, 0.0195536, 0.755018, -0.655413, -0.0112822, -0.65533, -0.755259, -0.0044381, 0.101295, 0.303589)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(0.0727921, 0.74374, 0.664494, 0.994564, -0.00439272, -0.104033, -0.0744547, 0.668455, -0.740016, -0.0357005, 1.17034, 0.323403)
+transform = Transform3D(0.0720967, 0.744099, 0.664168, 0.994436, -0.00234797, -0.105317, -0.0768072, 0.668065, -0.740128, -0.0357327, 1.17116, 0.323197)
 bone_name = "RightIndexIntermediate"
 bone_idx = 33
 use_external_skeleton = true

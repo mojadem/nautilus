@@ -179,7 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.85, 2.08165e-1
 shape = SubResource("CapsuleShape3D_ijo4p")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.981375, -0.042337, -0.18738, 0.0126276, 0.98752, -0.156987, 0.191688, 0.151697, 0.969662, 0.0606798, 0.994999, -0.677119)
+transform = Transform3D(0.976297, -0.0432929, -0.212059, 0.0114284, 0.988735, -0.14924, 0.216131, 0.143279, 0.965794, 0.0639329, 0.993977, -0.676279)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true

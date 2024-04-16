@@ -11,14 +11,14 @@ const HIGHLIGHT_MESH = preload("res://game/components/highlight/highlight_mesh.t
 		if not parent_mesh:
 			return
 		
-		var material: Material = parent_mesh.get_active_material(0)
-		if not material:
-			return
-		
 		highlight_enabled = value
 		
-		if value:
-			var shader = HIGHLIGHT_MESH.duplicate()
-			material.next_pass = shader
-		else:
-			material.next_pass = null
+		var num_materials := parent_mesh.get_surface_override_material_count()
+		for i in range(num_materials):
+			var material := parent_mesh.get_active_material(i)
+			
+			if highlight_enabled:
+				var shader = HIGHLIGHT_MESH.duplicate()
+				material.next_pass = shader
+			else:
+				material.next_pass = null

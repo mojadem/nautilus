@@ -16,7 +16,7 @@
 [ext_resource type="Animation" uid="uid://b07p47fa54egx" path="res://assets/models/characters/animations/HandOverStart_YoungAdult_female.res" id="14_cuev4"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="15_xjshr"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpkku"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syl68"]
 resource_name = "character_expression"
 transparency = 4
 albedo_texture = ExtResource("3_dnwtb")
@@ -105,9 +105,10 @@ nodes/Wave/position = Vector2(380, 50)
 nodes/output/position = Vector2(930, 110)
 node_connections = [&"HeadScratch", 0, &"Wave", &"HeadScratch", 1, &"Animation 5", &"State", 0, &"Animation", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Animation 6", &"Wave", 0, &"State", &"Wave", 1, &"Animation 4", &"output", 0, &"HeadScratch"]
 
-[node name="PatAdult" instance=ExtResource("1_82ho8")]
+[node name="PatAdult" node_paths=PackedStringArray("mesh") instance=ExtResource("1_82ho8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 velocity = Vector3(0, -33225.1, 0)
+mesh = NodePath("character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton/character_youngadult_female")
 
 [node name="character_youngadult_female2" parent="." index="0" instance=ExtResource("2_4u8qq")]
 
@@ -153,7 +154,7 @@ bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
 bones/42/scale = Vector3(1, 0.999993, 1.00001)
 
 [node name="character_youngadult_female" parent="character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton" index="0"]
-surface_material_override/1 = SubResource("StandardMaterial3D_xpkku")
+surface_material_override/1 = SubResource("StandardMaterial3D_syl68")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character_youngadult_female2" index="1"]
 libraries = {
@@ -165,7 +166,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 2.08165e-12
 shape = SubResource("CapsuleShape3D_s17vb")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.95874, -0.199851, -0.202181, 0.111368, 0.918385, -0.379693, 0.261562, 0.341511, 0.902749, -0.0260627, 1.27047, -0.156624)
+transform = Transform3D(0.96295, -0.166643, -0.21203, 0.0779098, 0.924612, -0.372858, 0.258179, 0.342524, 0.903338, -0.0164171, 1.27246, -0.156721)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -175,7 +176,7 @@ external_skeleton = NodePath("../character_youngadult_female2/character_rig_youn
 transform = Transform3D(0.96826, 0.234132, -0.0874909, -0.229423, 0.971438, 0.0606139, 0.0991836, -0.0386176, 0.99432, 0.0809107, 0.11097, 0.30169)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(0.584192, -0.266422, 0.766641, 0.729245, 0.586934, -0.351725, -0.35626, 0.764544, 0.537169, -0.149991, 0.868595, 0.0300262)
+transform = Transform3D(0.604007, -0.247195, 0.757674, 0.711814, 0.594919, -0.373352, -0.358464, 0.76483, 0.535292, -0.151299, 0.874385, 0.0306721)
 bone_name = "RightMiddleIntermediate"
 bone_idx = 30
 use_external_skeleton = true
