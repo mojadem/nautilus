@@ -24,12 +24,16 @@ var moving := false
 var speed := 1.3
 
 
-var target_position: Vector2:
-	set(value):
-		target_position = value
-		look_at(Vector3(value.x, global_position.y, value.y), Vector3.UP, true)
-		moving = true
-		anim_tree.set("parameters/State/transition_request", "walk")
+var target: Marker3D
+
+
+func move_to_marker(marker: Marker3D, duration: float) -> void:
+	target = marker
+	look_at(marker.global_position, Vector3.UP, true)
+	moving = true
+	anim_tree.set("parameters/State/transition_request", "walk")
+	
+	speed = global_position.distance_to(target.global_position) / duration
 
 
 func _ready() -> void:
@@ -38,6 +42,9 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if not physics_enabled:
 		return
 	
@@ -50,19 +57,28 @@ func _physics_process(delta: float) -> void:
 	
 	velocity = transform.basis.z * speed
 	
-	var current_position = Vector2(global_position.x, global_position.z)
-	if current_position.distance_to(target_position) < 0.5:
+	if global_position.distance_to(target.global_position) < 0.5:
 		moving = false
 		velocity = Vector3.ZERO
 		anim_tree.set("parameters/State/transition_request", "idle")
+		basis = target.basis
 	
 	move_and_slide()
 
 
 func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	if not player or not look_at_player:
 		return
 	
-	var to_player = (player.global_position - global_position).normalized()
-	var dot = transform.basis.z.dot(to_player)
-	anim_tree.set("parameters/HeadTurn/blend_position", dot)
+	var to_player := (player.global_position - global_position).normalized()
+	var angle := transform.basis.z.angle_to(to_player) / (PI / 2)
+	angle = clampf(angle, 0, 1)
+	
+	var cross := transform.basis.z.cross(to_player)
+	if cross.y > 0:
+		angle *= -1
+	
+	anim_tree.set("parameters/HeadTurn/blend_position", angle)

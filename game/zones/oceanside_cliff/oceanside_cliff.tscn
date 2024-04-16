@@ -55,13 +55,6 @@ size = Vector3(104.965, 10, 100)
 
 [sub_resource type="Animation" id="Animation_a7ns3"]
 length = 0.001
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Characters/PatAdult")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, -22.2807, 14.994, 9.84221)
 
 [sub_resource type="Animation" id="Animation_wqdpa"]
 resource_name = "dialog_1"
@@ -400,20 +393,25 @@ skeleton = NodePath("../..")
 [node name="CaseyAdult" parent="Characters" index="0" node_paths=PackedStringArray("player") instance=ExtResource("3_qb4xw")]
 transform = Transform3D(0.280415, 0, 0.959879, 0, 1, 0, -0.959879, 0, 0.280415, 2.86788, 14.5313, 9.18865)
 velocity = Vector3(0, 0, 0)
+look_at_player = true
 player = NodePath("../../XROrigin3D/PlayerBody")
 
 [node name="Mouth" parent="Characters/CaseyAdult" index="2"]
-transform = Transform3D(0.977478, 0.071547, 0.198539, -0.0347373, 0.982493, -0.183034, -0.208159, 0.172015, 0.96285, 0.00640106, 0.999707, -0.666739)
+transform = Transform3D(0.518462, 0.361303, 0.775021, -0.194608, 0.932422, -0.304494, -0.832662, 0.00704303, 0.553737, -0.069149, 1.02152, -0.591754)
 
 [node name="AnimationTree" parent="Characters/CaseyAdult" index="3"]
-parameters/HeadTurn/blend_position = -0.305758
+parameters/HeadTurn/blend_position = -1.0
 
 [node name="PatAdult" parent="Characters" index="1" instance=ExtResource("4_28525")]
 transform = Transform3D(0.997253, 0, 0.0740564, 0, 1, 0, -0.0740563, 0, 0.997253, -22.2807, 14.994, 9.84221)
 velocity = Vector3(0, 0, 0)
+physics_enabled = true
+
+[node name="character_youngadult_female" parent="Characters/PatAdult/character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton" index="0"]
+surface_material_override/1 = null
 
 [node name="Mouth" parent="Characters/PatAdult" index="2"]
-transform = Transform3D(0.950226, 0.0762136, -0.302097, -0.17292, 0.93558, -0.307876, 0.259172, 0.344791, 0.902191, 0.018631, 1.26817, -0.155499)
+transform = Transform3D(0.958499, 0.023797, -0.284103, -0.115621, 0.94333, -0.311063, 0.2606, 0.331002, 0.906932, 0.0155888, 1.26698, -0.155594)
 
 [node name="PatDialog" parent="Characters/PatAdult/Mouth" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160913, 0.00362396, 0.247843)
@@ -434,10 +432,14 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RockDetector" index="0"]
 shape = SubResource("BoxShape3D_h2dm3")
 
+[node name="DialogDelay" type="Timer" parent="RockDetector" index="1"]
+wait_time = 3.0
+one_shot = true
+
 [node name="Markers" type="Node3D" parent="." index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59098, 14.7323, 10.4642)
 
 [node name="Pat1" type="Marker3D" parent="Markers" index="0"]
+transform = Transform3D(-0.480759, 0, 0.876853, 0, 1, 0, -0.876853, 0, -0.480759, 2.59098, 14.7323, 10.4642)
 
 [node name="Sounds" type="Node3D" parent="." index="8"]
 
@@ -454,3 +456,5 @@ libraries = {
 [editable path="Characters/CaseyAdult/character_youngadult_male2"]
 [editable path="Characters/PatAdult"]
 [editable path="Characters/PatAdult/character_youngadult_female2"]
+[editable path="Interactables/Rock"]
+[editable path="Interactables/Rock/rock"]

@@ -70,7 +70,7 @@ fadein_time = 0.5
 fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bhowk"]
-graph_offset = Vector2(8.10206, -80.4886)
+graph_offset = Vector2(-227.776, -14.1183)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_3mj6o")
 nodes/Animation/position = Vector2(-210, 20)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_26glx")
@@ -90,10 +90,9 @@ nodes/Wave/position = Vector2(380, 50)
 nodes/output/position = Vector2(930, 110)
 node_connections = [&"HeadScratch", 0, &"Wave", &"HeadScratch", 1, &"Animation 5", &"State", 0, &"Animation", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"Wave", 0, &"State", &"Wave", 1, &"Animation 4", &"output", 0, &"HeadScratch"]
 
-[node name="PatAdult" node_paths=PackedStringArray("mesh") instance=ExtResource("1_82ho8")]
+[node name="PatAdult" instance=ExtResource("1_82ho8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 velocity = Vector3(0, -33225.1, 0)
-mesh = NodePath("character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton/character_youngadult_female")
 
 [node name="character_youngadult_female2" parent="." index="0" instance=ExtResource("2_4u8qq")]
 
@@ -151,7 +150,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 2.08165e-12
 shape = SubResource("CapsuleShape3D_s17vb")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.955954, 0.0424397, -0.290431, -0.135798, 0.94117, -0.309449, 0.260212, 0.335259, 0.905479, 0.0178594, 1.26729, -0.155514)
+transform = Transform3D(1, -1.58879e-14, 4.74426e-14, 1.5888e-14, 1, -2.88894e-07, -4.74426e-14, 2.88894e-07, 1, -3.93327e-15, 1.27295, -0.159386)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true

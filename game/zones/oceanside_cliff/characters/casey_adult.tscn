@@ -95,7 +95,7 @@ input_4/auto_advance = false
 input_4/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r1phn"]
-graph_offset = Vector2(-583.458, 39.1884)
+graph_offset = Vector2(-639.189, -84.2911)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_bhr2k")
 nodes/Add2/position = Vector2(-10, 260)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_6i2w4")
@@ -179,7 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.85, 2.08165e-1
 shape = SubResource("CapsuleShape3D_ijo4p")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.950752, -0.00825082, -0.309842, -0.0229136, 0.995039, -0.0968074, 0.309104, 0.0991395, 0.945847, 0.0752395, 0.987918, -0.674499)
+transform = Transform3D(0.952867, -0.00844155, -0.30327, -0.015659, 0.996912, -0.0769494, 0.302983, 0.0780715, 0.949793, 0.0743303, 0.985124, -0.673292)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
