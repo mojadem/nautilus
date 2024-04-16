@@ -5,6 +5,9 @@ class_name Character
 @export var physics_enabled := false
 @export var mesh: MeshInstance3D
 
+@export var look_at_player := false
+@export var player: XRToolsPlayerBody
+
 @export_enum("Happy", "Sad", "Angry", "Surprised") var expression: int:
 	set(value):
 		if not mesh:
@@ -20,6 +23,7 @@ var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
 var moving := false
 var speed := 1.3
 
+
 var target_position: Vector2:
 	set(value):
 		target_position = value
@@ -34,9 +38,6 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if Engine.is_editor_hint():
-		return
-	
 	if not physics_enabled:
 		return
 	
@@ -56,3 +57,12 @@ func _physics_process(delta: float) -> void:
 		anim_tree.set("parameters/State/transition_request", "idle")
 	
 	move_and_slide()
+
+
+func _process(delta: float) -> void:
+	if not player or not look_at_player:
+		return
+	
+	var to_player = (player.global_position - global_position).normalized()
+	var dot = transform.basis.z.dot(to_player)
+	anim_tree.set("parameters/HeadTurn/blend_position", dot)

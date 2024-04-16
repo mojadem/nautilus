@@ -2,6 +2,9 @@ extends XRToolsSceneBase
 
 @onready var rock_detector: Area3D = $RockDetector
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var rock: XRToolsPickable = $Interactables/Rock
+@onready var rock_snap_zone: XRToolsSnapZone = $Interactables/RockSnapZone
+@onready var rock_splash: AudioStreamPlayer3D = $Sounds/RockSplash
 
 @onready var pat: Character = $Characters/PatAdult
 
@@ -36,6 +39,9 @@ func _on_rock_detected(body: Node3D) -> void:
 	
 	if body.is_in_group("rock"):
 		awaiting_rock = false
+		rock_splash.global_position = rock.global_position
+		rock_splash.play()
+		rock_snap_zone.pick_up_object(rock)
 
 
 func _on_animation_finished(anim_name: StringName) -> void:

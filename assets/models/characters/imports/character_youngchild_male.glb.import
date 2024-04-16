@@ -41,9 +41,11 @@ _subresources={
 }
 },
 "nodes": {
+"PATH:AnimationPlayer": {
+"import/skip_import": true
+},
 "PATH:character_rig_youngchild_male/Skeleton3D": {
 "retarget/bone_map": Resource("res://assets/models/characters/bone_map.tres"),
-"retarget/bone_renamer/unique_node/make_unique": false,
 "retarget/remove_tracks/unmapped_bones": true
 }
 }
