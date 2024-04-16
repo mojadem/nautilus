@@ -1,5 +1,6 @@
 @tool
 extends Node3D
+class_name HighlightComponent
 
 const HIGHLIGHT_MESH = preload("res://game/components/highlight/highlight_mesh.tres")
 

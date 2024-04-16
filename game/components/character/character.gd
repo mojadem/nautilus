@@ -2,6 +2,8 @@
 extends CharacterBody3D
 class_name Character
 
+signal arrived_at_marker
+
 @export var physics_enabled := false
 @export var mesh: MeshInstance3D
 
@@ -62,6 +64,7 @@ func _physics_process(delta: float) -> void:
 		velocity = Vector3.ZERO
 		anim_tree.set("parameters/State/transition_request", "idle")
 		basis = target.basis
+		arrived_at_marker.emit()
 	
 	move_and_slide()
 

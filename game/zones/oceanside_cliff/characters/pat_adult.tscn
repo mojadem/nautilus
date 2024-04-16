@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://borlciqi2jb8d"]
+[gd_scene load_steps=29 format=3 uid="uid://borlciqi2jb8d"]
 
 [ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_82ho8"]
 [ext_resource type="PackedScene" uid="uid://83y4qqke2slq" path="res://assets/models/characters/imports/character_youngadult_female.glb" id="2_4u8qq"]
@@ -11,6 +11,10 @@
 [ext_resource type="Animation" uid="uid://dpe6x5y3bk6tf" path="res://assets/models/characters/animations/Wave_YoungAdult_female.res" id="8_vayi0"]
 [ext_resource type="Animation" uid="uid://csknumbdj374m" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="10_t1alr"]
 [ext_resource type="Animation" uid="uid://bv1lc4luemo6f" path="res://assets/models/characters/animations/HeadTurnRight.res" id="11_wa86l"]
+[ext_resource type="Animation" uid="uid://gyo7asegpp2j" path="res://assets/models/characters/animations/HandOverEnd_YoungAdult_female.res" id="12_ahpjw"]
+[ext_resource type="Animation" uid="uid://dx0ivhnnp2ghd" path="res://assets/models/characters/animations/HandOverIdle_YoungAdult_female.res" id="13_jnn43"]
+[ext_resource type="Animation" uid="uid://b07p47fa54egx" path="res://assets/models/characters/animations/HandOverStart_YoungAdult_female.res" id="14_cuev4"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="15_xjshr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpkku"]
 resource_name = "character_expression"
@@ -20,6 +24,9 @@ texture_filter = 2
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wdshr"]
 _data = {
+"HandOverEnd_YoungAdult_female": ExtResource("12_ahpjw"),
+"HandOverIdle_YoungAdult_female": ExtResource("13_jnn43"),
+"HandOverStart_YoungAdult_female": ExtResource("14_cuev4"),
 "HeadScratch_YoungAdult_female": ExtResource("7_yohm2"),
 "HeadTurnLeft": ExtResource("10_t1alr"),
 "HeadTurnRight": ExtResource("11_wa86l"),
@@ -46,6 +53,9 @@ animation = &"Wave_YoungAdult_female"
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2p8iw"]
 animation = &"HeadScratch_YoungAdult_female"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jcwd4"]
+animation = &"HandOverIdle_YoungAdult_female"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3mj6o"]
 animation = &"Idle_YoungAdult_female"
 
@@ -64,13 +74,16 @@ input_1/reset = true
 input_2/name = "talk"
 input_2/auto_advance = false
 input_2/reset = true
+input_3/name = "hand_over"
+input_3/auto_advance = false
+input_3/reset = true
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_ud1vt"]
 fadein_time = 0.5
 fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bhowk"]
-graph_offset = Vector2(-227.776, -14.1183)
+graph_offset = Vector2(-322.839, -77.5726)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_3mj6o")
 nodes/Animation/position = Vector2(-210, 20)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_26glx")
@@ -78,9 +91,11 @@ nodes/Animation/position = Vector2(-210, 20)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_uk8bn")
 "nodes/Animation 3/position" = Vector2(-220, 260)
 "nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_bh4tt")
-"nodes/Animation 4/position" = Vector2(90, 280)
+"nodes/Animation 4/position" = Vector2(120, 340)
 "nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_2p8iw")
 "nodes/Animation 5/position" = Vector2(390, 290)
+"nodes/Animation 6/node" = SubResource("AnimationNodeAnimation_jcwd4")
+"nodes/Animation 6/position" = Vector2(-240, 400)
 nodes/HeadScratch/node = SubResource("AnimationNodeOneShot_jsfyk")
 nodes/HeadScratch/position = Vector2(750, 80)
 nodes/State/node = SubResource("AnimationNodeTransition_rqtmc")
@@ -88,7 +103,7 @@ nodes/State/position = Vector2(120, 60)
 nodes/Wave/node = SubResource("AnimationNodeOneShot_ud1vt")
 nodes/Wave/position = Vector2(380, 50)
 nodes/output/position = Vector2(930, 110)
-node_connections = [&"HeadScratch", 0, &"Wave", &"HeadScratch", 1, &"Animation 5", &"State", 0, &"Animation", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"Wave", 0, &"State", &"Wave", 1, &"Animation 4", &"output", 0, &"HeadScratch"]
+node_connections = [&"HeadScratch", 0, &"Wave", &"HeadScratch", 1, &"Animation 5", &"State", 0, &"Animation", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Animation 6", &"Wave", 0, &"State", &"Wave", 1, &"Animation 4", &"output", 0, &"HeadScratch"]
 
 [node name="PatAdult" instance=ExtResource("1_82ho8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
@@ -150,16 +165,26 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 2.08165e-12
 shape = SubResource("CapsuleShape3D_s17vb")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(1, -1.58879e-14, 4.74426e-14, 1.5888e-14, 1, -2.88894e-07, -4.74426e-14, 2.88894e-07, 1, -3.93327e-15, 1.27295, -0.159386)
+transform = Transform3D(0.95874, -0.199851, -0.202181, 0.111368, 0.918385, -0.379693, 0.261562, 0.341511, 0.902749, -0.0260627, 1.27047, -0.156624)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
 external_skeleton = NodePath("../character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton")
 
 [node name="PatDialog" type="AudioStreamPlayer3D" parent="Mouth" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.252242)
+transform = Transform3D(0.96826, 0.234132, -0.0874909, -0.229423, 0.971438, 0.0606139, 0.0991836, -0.0386176, 0.99432, 0.0809107, 0.11097, 0.30169)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+[node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
+transform = Transform3D(0.584192, -0.266422, 0.766641, 0.729245, 0.586934, -0.351725, -0.35626, 0.764544, 0.537169, -0.149991, 0.868595, 0.0300262)
+bone_name = "RightMiddleIntermediate"
+bone_idx = 30
+use_external_skeleton = true
+external_skeleton = NodePath("../character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton")
+
+[node name="SnapZone" parent="RightHand" index="0" instance=ExtResource("15_xjshr")]
+transform = Transform3D(1, 0, 1.13687e-13, 0, 1, 3.1211e-14, -1.13687e-13, -2.36652e-14, 1, 0, -0.0151658, 0)
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 root_node = NodePath("../character_youngadult_female2")
 libraries = {
 "": SubResource("AnimationLibrary_wdshr")
