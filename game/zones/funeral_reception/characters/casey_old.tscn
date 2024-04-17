@@ -14,6 +14,7 @@
 resource_name = "character_expression"
 transparency = 4
 albedo_texture = ExtResource("3_0pfag")
+uv1_offset = Vector3(0.25, 0, 0)
 texture_filter = 2
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l44en"]
@@ -127,7 +128,7 @@ transform = Transform3D(1, 0, 0, 0, 0.929461, -0.36892, 0, 0.36892, 0.929461, 0,
 shape = SubResource("CapsuleShape3D_cspw3")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.999018, 0.00180702, -0.0442807, -0.0180271, 0.92934, -0.368784, 0.0404855, 0.36922, 0.92846, 0.00309527, 1.40706, -0.0432274)
+transform = Transform3D(1, -1.58879e-14, 4.74426e-14, 1.5888e-14, 1, -2.88894e-07, -4.74426e-14, 2.88894e-07, 1, 5.72993e-15, 1.40792, -0.176285)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -137,7 +138,7 @@ external_skeleton = NodePath("../character_oldadult_male_character_rig_oldadult_
 transform = Transform3D(-0.999745, 0.0221626, -0.00429578, 0.0195536, 0.755018, -0.655413, -0.0112822, -0.65533, -0.755259, -0.0044381, 0.101295, 0.303589)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(0.0720967, 0.744099, 0.664168, 0.994436, -0.00234797, -0.105317, -0.0768072, 0.668065, -0.740128, -0.0357327, 1.17116, 0.323197)
+transform = Transform3D(-5.75046e-08, -1, 1.97246e-08, 5.41316e-08, -2.07435e-08, -1, 1, -6.09313e-08, 4.53935e-08, -0.509814, 0.778127, -0.0198441)
 bone_name = "RightIndexIntermediate"
 bone_idx = 33
 use_external_skeleton = true

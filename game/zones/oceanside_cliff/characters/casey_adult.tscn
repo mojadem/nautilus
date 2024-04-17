@@ -36,7 +36,7 @@ _data = {
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ijo4p"]
 radius = 0.25
-height = 1.7
+height = 1.5
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_bhr2k"]
 filter_enabled = true
@@ -95,7 +95,7 @@ input_4/auto_advance = false
 input_4/reset = true
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_r1phn"]
-graph_offset = Vector2(-651.717, 115.19)
+graph_offset = Vector2(-477.88, 113.68)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_bhr2k")
 nodes/Add2/position = Vector2(-10, 260)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_6i2w4")
@@ -179,7 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.85, 2.08165e-1
 shape = SubResource("CapsuleShape3D_ijo4p")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.976297, -0.0432929, -0.212059, 0.0114284, 0.988735, -0.14924, 0.216131, 0.143279, 0.965794, 0.0639329, 0.993977, -0.676279)
+transform = Transform3D(0.98398, 0.168021, -0.059593, -0.167161, 0.985743, 0.0191594, 0.0619625, -0.0088908, 0.998039, 0.00962482, 1.39912, -0.158641)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -200,8 +200,8 @@ parameters/HeadTurn/blend_position = 2.08165e-12
 parameters/MotionToKeys/active = false
 parameters/MotionToKeys/internal_active = false
 parameters/MotionToKeys/request = 0
-parameters/State/current_state = "sit"
+parameters/State/current_state = "idle"
 parameters/State/transition_request = ""
-parameters/State/current_index = 0
+parameters/State/current_index = 2
 
 [editable path="character_youngadult_male2"]

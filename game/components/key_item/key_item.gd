@@ -12,7 +12,7 @@ class_name KeyItem
 func _on_picked_up(_pickable):
 	if not scene_switch_enabled:
 		return
-	
+
 	timer.start()
 
 
@@ -20,7 +20,7 @@ func _on_timer_timeout():
 	var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
 	if not scene_base:
 		return
-	
+
 	if zone_scene == "":
 		scene_base.reset_scene(spawn_node_name)
 	else:

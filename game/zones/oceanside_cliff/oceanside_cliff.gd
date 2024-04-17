@@ -27,7 +27,7 @@ func _ready() -> void:
 	animation_player.animation_finished.connect(_on_animation_finished)
 	dialog_delay.timeout.connect(_on_dialog_delay_timeout)
 	pat.arrived_at_marker.connect(_on_pat_arrived)
-	
+
 	animation_player.play("dialog_1")
 
 
@@ -38,14 +38,14 @@ func _on_rock_picked_up(_pickable: Variant) -> void:
 func _on_rock_detected(body: Node3D) -> void:
 	if not body.is_in_group("rock"):
 		return
-	
+
 	rock_splash.global_position = rock.global_position
 	rock_splash.play()
 	rock_snap_zone.pick_up_object(rock)
-	
+
 	if not awaiting_rock:
 		return
-	
+
 	awaiting_rock = false
 	rock_highlight.highlight_enabled = false
 	dialog_delay.start()
@@ -71,7 +71,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
 			if not scene_base:
 				return
-			
+
 			var target = ""
 			scene_base.load_scene(target)
 
@@ -83,7 +83,7 @@ func _on_dialog_delay_timeout() -> void:
 func _on_pat_arrived() -> void:
 	if current_dialog == 2:
 		pat.look_at_player = true
-	
+
 	if current_dialog == 4:
 		keys.enabled = true
 		pat_hand.pick_up_object(keys)
@@ -99,18 +99,18 @@ func play_next_dialog() -> void:
 		2:
 			var marker: Marker3D = $Markers/Pat1
 			pat.move_to_marker(marker, 20.0)
-		4: 
+		4:
 			var marker: Marker3D = $Markers/Pat2
 			pat.move_to_marker(marker, 5.0)
 			pat.look_at_player = false
-	
+
 	animation_player.play("dialog_%s" % current_dialog)
 
 
 func _on_function_pickup_has_picked_up(what: Variant) -> void:
 	if not awaiting_key_pickup:
 		return
-	
+
 	if what == keys:
 		key_highlight.highlight_enabled = false
 		play_next_dialog()

@@ -25,7 +25,7 @@ func _ready():
 	animation_player.animation_finished.connect(_on_animation_finished)
 	drink_area.body_entered.connect(_on_sip)
 	transition_area.body_entered.connect(_on_transition_area_entered)
-	
+
 	animation_player.play("dialog_1")
 
 
@@ -46,7 +46,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
 			if not scene_base:
 				return
-			
+
 			var target = ""
 			scene_base.load_scene(target)
 		"sip":
@@ -56,10 +56,10 @@ func _on_animation_finished(anim_name: StringName) -> void:
 func _on_sip(body: Node3D) -> void:
 	if not body.is_in_group("whiskey_glass"):
 		return
-	
+
 	if not awaiting_sip:
 		return
-	
+
 	awaiting_sip = false
 	animation_player.play("sip")
 	whiskey_glass.fill_percent -= 0.33
@@ -69,7 +69,7 @@ func _on_sip(body: Node3D) -> void:
 func _on_transition_area_entered(body: Node3D) -> void:
 	if state != State.TRANSITION:
 		return
-	
+
 	animation_player.play("transition")
 
 

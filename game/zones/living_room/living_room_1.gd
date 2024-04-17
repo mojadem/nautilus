@@ -28,23 +28,23 @@ func process_state():
 		State.PHONE_RINGING:
 			phone_ring.play()
 			phone_mesh.highlight_enabled = true
-		
+
 		State.PHONE_CALL_STARTED:
 			phone_ring.stop()
 			animation_player.play("phone_call")
 			phone_snap_zone.enabled = false
 			phone_mesh.highlight_enabled = false
-		
+
 		State.PHONE_CALL_ENDED:
 			phone_snap_zone.enabled = true
 			phone_box_mesh.highlight_enabled = true
-		
+
 		State.PHONE_HANGUP:
 			animation_player.play("dialog_2")
 			funeral_card.scene_switch_enabled = true
 			phone_box_mesh.highlight_enabled = false
 			drawer_mesh.highlight_enabled = true
-		
+
 		State.TRANSITION:
 			animation_player.play("dialog_3")
 			drawer_mesh.highlight_enabled = false
@@ -58,7 +58,7 @@ func _start_phone_ringing():
 func _start_phone_call():
 	if state != State.PHONE_RINGING:
 		return
-	
+
 	state = State.PHONE_CALL_STARTED
 	process_state()
 
@@ -66,7 +66,7 @@ func _start_phone_call():
 func _end_phone_call(_anim_name):
 	if state != State.PHONE_CALL_STARTED:
 		return
-	
+
 	state = State.PHONE_CALL_ENDED
 	process_state()
 
@@ -74,7 +74,7 @@ func _end_phone_call(_anim_name):
 func _hangup_phone(_what):
 	if state != State.PHONE_CALL_ENDED:
 		return
-	
+
 	state = State.PHONE_HANGUP
 	process_state()
 
@@ -82,7 +82,7 @@ func _hangup_phone(_what):
 func _start_transition(_pickable):
 	if state != State.PHONE_HANGUP:
 		return
-	
+
 	state = State.TRANSITION
 	process_state()
 
