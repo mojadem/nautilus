@@ -1,19 +1,17 @@
-[gd_scene load_steps=29 format=3 uid="uid://borlciqi2jb8d"]
+[gd_scene load_steps=31 format=3 uid="uid://borlciqi2jb8d"]
 
 [ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_82ho8"]
 [ext_resource type="PackedScene" uid="uid://83y4qqke2slq" path="res://assets/models/characters/imports/character_youngadult_female.glb" id="2_4u8qq"]
 [ext_resource type="Texture2D" uid="uid://ddo2q47hh1opv" path="res://assets/models/characters/textures/character-expressions.png" id="3_dnwtb"]
-[ext_resource type="Animation" uid="uid://cqe1nohhvfhnh" path="res://assets/models/characters/animations/RESET.res" id="3_wds41"]
-[ext_resource type="Animation" uid="uid://d2qakdmjr7bx0" path="res://assets/models/characters/animations/Talk_YoungAdult_female.res" id="4_svgys"]
-[ext_resource type="Animation" uid="uid://dgpq7qd7uw3f4" path="res://assets/models/characters/animations/Walk_YoungAdult_female.res" id="5_tqkx2"]
-[ext_resource type="Animation" uid="uid://dc6yce3fvldng" path="res://assets/models/characters/animations/Idle_YoungAdult_female.res" id="6_2jyto"]
-[ext_resource type="Animation" uid="uid://damgvewynlm1p" path="res://assets/models/characters/animations/HeadScratch_YoungAdult_female.res" id="7_yohm2"]
-[ext_resource type="Animation" uid="uid://dpe6x5y3bk6tf" path="res://assets/models/characters/animations/Wave_YoungAdult_female.res" id="8_vayi0"]
-[ext_resource type="Animation" uid="uid://csknumbdj374m" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="10_t1alr"]
-[ext_resource type="Animation" uid="uid://bv1lc4luemo6f" path="res://assets/models/characters/animations/HeadTurnRight.res" id="11_wa86l"]
-[ext_resource type="Animation" uid="uid://gyo7asegpp2j" path="res://assets/models/characters/animations/HandOverEnd_YoungAdult_female.res" id="12_ahpjw"]
-[ext_resource type="Animation" uid="uid://dx0ivhnnp2ghd" path="res://assets/models/characters/animations/HandOverIdle_YoungAdult_female.res" id="13_jnn43"]
-[ext_resource type="Animation" uid="uid://b07p47fa54egx" path="res://assets/models/characters/animations/HandOverStart_YoungAdult_female.res" id="14_cuev4"]
+[ext_resource type="Animation" uid="uid://d2a3yh4po8m6a" path="res://assets/models/characters/animations/RESET.res" id="3_wds41"]
+[ext_resource type="Animation" uid="uid://s6a7kae7egqw" path="res://assets/models/characters/animations/Loop_HandOverIdle_YoungAdult_female.res" id="4_0lkwa"]
+[ext_resource type="Animation" uid="uid://fx1kw41cw0je" path="res://assets/models/characters/animations/HeadScratch_YoungAdult_female.res" id="7_yohm2"]
+[ext_resource type="Animation" uid="uid://c2n6eeytfwd80" path="res://assets/models/characters/animations/Loop_Talk_YoungAdult_female.res" id="8_en1m5"]
+[ext_resource type="Animation" uid="uid://dogofl5vikkvj" path="res://assets/models/characters/animations/Loop_Walk_YoungAdult_female.res" id="9_7mvjf"]
+[ext_resource type="Animation" uid="uid://b7pbg8pe5bqim" path="res://assets/models/characters/animations/Loop_Idle_YoungAdult_female.res" id="10_d585y"]
+[ext_resource type="Animation" uid="uid://cqs5ql3jannq4" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="10_t1alr"]
+[ext_resource type="Animation" uid="uid://cybu8nt10h0re" path="res://assets/models/characters/animations/Loop_Wave_YoungAdult_female.res" id="11_nutf7"]
+[ext_resource type="Animation" uid="uid://b2ytdmlvd0o1r" path="res://assets/models/characters/animations/HeadTurnRight.res" id="11_wa86l"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="15_xjshr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_syl68"]
@@ -22,46 +20,60 @@ transparency = 4
 albedo_texture = ExtResource("3_dnwtb")
 texture_filter = 2
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdshr"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w6bj5"]
 _data = {
-"HandOverEnd_YoungAdult_female": ExtResource("12_ahpjw"),
-"HandOverIdle_YoungAdult_female": ExtResource("13_jnn43"),
-"HandOverStart_YoungAdult_female": ExtResource("14_cuev4"),
 "HeadScratch_YoungAdult_female": ExtResource("7_yohm2"),
 "HeadTurnLeft": ExtResource("10_t1alr"),
 "HeadTurnRight": ExtResource("11_wa86l"),
-"Idle_YoungAdult_female": ExtResource("6_2jyto"),
-"RESET": ExtResource("3_wds41"),
-"Talk_YoungAdult_female": ExtResource("4_svgys"),
-"Walk_YoungAdult_female": ExtResource("5_tqkx2"),
-"Wave_YoungAdult_female": ExtResource("8_vayi0")
+"Loop_HandOverIdle_YoungAdult_female": ExtResource("4_0lkwa"),
+"Loop_Idle_YoungAdult_female": ExtResource("10_d585y"),
+"Loop_Talk_YoungAdult_female": ExtResource("8_en1m5"),
+"Loop_Walk_YoungAdult_female": ExtResource("9_7mvjf"),
+"Loop_Wave_YoungAdult_female": ExtResource("11_nutf7"),
+"RESET": ExtResource("3_wds41")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s17vb"]
 radius = 0.25
 height = 1.5
 
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_sj4n2"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Head", "%GeneralSkeleton:Neck"]
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_26glx"]
-animation = &"Walk_YoungAdult_female"
+animation = &"Loop_Walk_YoungAdult_female"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uk8bn"]
-animation = &"Talk_YoungAdult_female"
+animation = &"Loop_Talk_YoungAdult_female"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bh4tt"]
-animation = &"Wave_YoungAdult_female"
+animation = &"Loop_Wave_YoungAdult_female"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2p8iw"]
 animation = &"HeadScratch_YoungAdult_female"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jcwd4"]
-animation = &"HandOverIdle_YoungAdult_female"
+animation = &"Loop_HandOverIdle_YoungAdult_female"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3mj6o"]
-animation = &"Idle_YoungAdult_female"
+animation = &"Loop_Idle_YoungAdult_female"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_jsfyk"]
 fadein_time = 0.25
 fadeout_time = 0.25
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6qb4e"]
+animation = &"HeadTurnLeft"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sitde"]
+animation = &"HeadTurnRight"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_qerll"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_6qb4e")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_sitde")
+blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeTransition" id="AnimationNodeTransition_rqtmc"]
 xfade_time = 0.5
@@ -83,7 +95,9 @@ fadein_time = 0.5
 fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bhowk"]
-graph_offset = Vector2(-117.865, -46.6619)
+graph_offset = Vector2(-213.12, -7.18543)
+nodes/Add2/node = SubResource("AnimationNodeAdd2_sj4n2")
+nodes/Add2/position = Vector2(380, 140)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_3mj6o")
 nodes/Animation/position = Vector2(-210, 20)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_26glx")
@@ -91,74 +105,74 @@ nodes/Animation/position = Vector2(-210, 20)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_uk8bn")
 "nodes/Animation 3/position" = Vector2(-220, 260)
 "nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_bh4tt")
-"nodes/Animation 4/position" = Vector2(120, 340)
+"nodes/Animation 4/position" = Vector2(580, 380)
 "nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_2p8iw")
-"nodes/Animation 5/position" = Vector2(390, 290)
+"nodes/Animation 5/position" = Vector2(840, 340)
 "nodes/Animation 6/node" = SubResource("AnimationNodeAnimation_jcwd4")
 "nodes/Animation 6/position" = Vector2(-240, 400)
 nodes/HeadScratch/node = SubResource("AnimationNodeOneShot_jsfyk")
-nodes/HeadScratch/position = Vector2(750, 80)
+nodes/HeadScratch/position = Vector2(1200, 120)
+nodes/HeadTurn/node = SubResource("AnimationNodeBlendSpace1D_qerll")
+nodes/HeadTurn/position = Vector2(160, 340)
 nodes/State/node = SubResource("AnimationNodeTransition_rqtmc")
 nodes/State/position = Vector2(120, 60)
 nodes/Wave/node = SubResource("AnimationNodeOneShot_ud1vt")
-nodes/Wave/position = Vector2(380, 50)
-nodes/output/position = Vector2(930, 110)
-node_connections = [&"HeadScratch", 0, &"Wave", &"HeadScratch", 1, &"Animation 5", &"State", 0, &"Animation", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Animation 6", &"Wave", 0, &"State", &"Wave", 1, &"Animation 4", &"output", 0, &"HeadScratch"]
+nodes/Wave/position = Vector2(840, 100)
+nodes/output/position = Vector2(1380, 160)
+node_connections = [&"Add2", 0, &"State", &"Add2", 1, &"HeadTurn", &"HeadScratch", 0, &"Wave", &"HeadScratch", 1, &"Animation 5", &"State", 0, &"Animation", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Animation 6", &"Wave", 0, &"Add2", &"Wave", 1, &"Animation 4", &"output", 0, &"HeadScratch"]
 
-[node name="PatAdult" node_paths=PackedStringArray("mesh") instance=ExtResource("1_82ho8")]
+[node name="PatAdult" node_paths=PackedStringArray("mesh", "nav") instance=ExtResource("1_82ho8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 velocity = Vector3(0, -33225.1, 0)
 mesh = NodePath("character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton/character_youngadult_female")
+nav = NodePath("NavigationAgent3D")
 
 [node name="character_youngadult_female2" parent="." index="0" instance=ExtResource("2_4u8qq")]
 
 [node name="GeneralSkeleton" parent="character_youngadult_female2/character_rig_youngadult_female" index="0"]
-bones/0/rotation = Quaternion(1.26881e-08, 0, 0, 1)
 bones/9/position = Vector3(0, 0.850988, -0.0367007)
-bones/9/rotation = Quaternion(1.39129e-07, 1.35482e-14, 6.17573e-15, 1)
-bones/10/rotation = Quaternion(7.04249e-10, 5.35186e-15, 3.38685e-16, 1)
+bones/9/rotation = Quaternion(1.19209e-07, 7.81121e-15, 8.91027e-15, 1)
+bones/10/rotation = Quaternion(6.61744e-24, 7.10716e-15, 1.11022e-16, 1)
 bones/11/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
-bones/12/rotation = Quaternion(0.00933758, 0.999932, -6.45369e-05, -0.00699328)
-bones/13/rotation = Quaternion(1.42878e-05, -0.707117, 1.22226e-06, 0.707096)
-bones/14/rotation = Quaternion(-0.00666262, 0.702124, -0.00655823, 0.711993)
-bones/15/rotation = Quaternion(-2.98023e-08, -2.98023e-08, 2.98023e-08, 1)
-bones/16/rotation = Quaternion(-7.45058e-08, 2.98023e-08, -1.49012e-08, 1)
-bones/17/rotation = Quaternion(-2.98023e-08, 2.98023e-08, 2.98023e-08, 1)
-bones/18/rotation = Quaternion(2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
-bones/19/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/12/rotation = Quaternion(0.00933755, 0.999932, -6.45518e-05, -0.00699329)
+bones/13/rotation = Quaternion(1.42983e-05, -0.707117, 1.19065e-06, 0.707096)
+bones/14/rotation = Quaternion(-0.00666256, 0.702124, -0.00655825, 0.711993)
+bones/15/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/16/rotation = Quaternion(-2.98023e-08, 2.98023e-08, -2.98023e-08, 1)
+bones/17/rotation = Quaternion(-2.98023e-08, 4.47035e-08, 4.47035e-08, 1)
 bones/20/rotation = Quaternion(5.96046e-08, 0, 0, 1)
 bones/21/rotation = Quaternion(-0.214187, 0.673887, 0.214187, 0.673887)
-bones/22/rotation = Quaternion(-8.66804e-10, 1.96695e-08, -3.37568e-08, 1)
-bones/23/rotation = Quaternion(-3.65832e-09, -4.37989e-15, 1.13323e-15, 1)
-bones/24/rotation = Quaternion(-4.41596e-09, 9.20112e-15, 2.96331e-16, 1)
-bones/26/rotation = Quaternion(-0.00934586, 0.999932, -7.15703e-05, 0.00698249)
-bones/27/rotation = Quaternion(-9.6727e-06, 0.7071, 8.42937e-07, 0.707114)
-bones/28/rotation = Quaternion(-0.00664941, -0.702114, 0.00655724, 0.712003)
-bones/29/rotation = Quaternion(0, -2.98023e-08, -1.49012e-08, 1)
-bones/30/rotation = Quaternion(-8.9407e-08, 2.98023e-08, 2.98023e-08, 1)
-bones/31/rotation = Quaternion(-2.98023e-08, 2.98023e-08, 2.98023e-08, 1)
-bones/32/rotation = Quaternion(0, -2.98023e-08, -1.49012e-08, 1)
-bones/34/rotation = Quaternion(5.96046e-08, -5.96046e-08, 0, 1)
+bones/22/rotation = Quaternion(1.49012e-08, 2.98023e-08, -2.98023e-08, 1)
+bones/23/rotation = Quaternion(-4.88944e-09, -3.54905e-15, 1.17961e-15, 1)
+bones/24/rotation = Quaternion(2.64698e-23, 3.58047e-15, -2.22045e-16, 1)
+bones/26/rotation = Quaternion(-0.00934595, 0.999932, -7.15703e-05, 0.00698249)
+bones/27/rotation = Quaternion(-9.58841e-06, 0.7071, 8.0079e-07, 0.707114)
+bones/28/rotation = Quaternion(-0.00664937, -0.702114, 0.00655728, 0.712003)
+bones/30/rotation = Quaternion(-1.19209e-07, 0, 0, 1)
+bones/31/rotation = Quaternion(-4.47035e-08, 0, -4.47035e-08, 1)
+bones/32/rotation = Quaternion(2.98023e-08, -2.98023e-08, 2.98023e-08, 1)
+bones/33/rotation = Quaternion(5.96046e-08, 0, 0, 1)
+bones/34/rotation = Quaternion(8.9407e-08, -2.98023e-08, -2.98023e-08, 1)
 bones/35/rotation = Quaternion(-0.214187, -0.673887, -0.214187, 0.673887)
-bones/36/rotation = Quaternion(-4.55703e-08, 1.01328e-08, -6.41e-09, 1)
-bones/37/rotation = Quaternion(0.00117628, 4.98021e-07, 0.999999, 1.20963e-05)
+bones/36/rotation = Quaternion(-4.47035e-08, -2.98023e-08, -2.98023e-08, 1)
+bones/37/rotation = Quaternion(0.00117628, 5.01048e-07, 0.999999, 1.20963e-05)
 bones/37/scale = Vector3(1, 1, 1.00002)
-bones/38/rotation = Quaternion(-2.8288e-10, 1, 3.55347e-09, -2.76892e-10)
+bones/38/rotation = Quaternion(-2.89814e-10, 1, 5.58793e-09, -1.19685e-10)
 bones/38/scale = Vector3(1, 1, 1)
 bones/39/rotation = Quaternion(-0.000823073, 0.707102, -0.707111, -0.000840278)
-bones/40/rotation = Quaternion(-0.00117613, 5.01754e-07, 0.999999, -1.20991e-05)
+bones/40/rotation = Quaternion(-0.00117613, 5.0478e-07, 0.999999, -1.20991e-05)
 bones/40/scale = Vector3(1, 1, 1.00002)
-bones/41/rotation = Quaternion(3.16436e-10, 1, 3.5524e-09, 1.60446e-10)
+bones/41/rotation = Quaternion(4.40212e-10, 1, 5.58793e-09, -3.1203e-12)
 bones/41/scale = Vector3(1, 1, 1)
-bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
-bones/42/scale = Vector3(1, 0.999993, 1.00001)
+bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840582)
+bones/42/scale = Vector3(1, 0.999992, 1.00001)
 
 [node name="character_youngadult_female" parent="character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton" index="0"]
 surface_material_override/1 = SubResource("StandardMaterial3D_syl68")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character_youngadult_female2" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_wdshr")
+"": SubResource("AnimationLibrary_w6bj5")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
@@ -166,7 +180,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 2.08165e-12
 shape = SubResource("CapsuleShape3D_s17vb")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.951749, 0.0661578, -0.299661, -0.163822, 0.935238, -0.313835, 0.259491, 0.347783, 0.90095, -0.0157936, 1.27072, -0.156739)
+transform = Transform3D(0.998907, -0.0451437, -0.0120832, 0.0456327, 0.997996, 0.0438276, 0.0100804, -0.0443311, 0.998966, 0.00776355, 1.24232, -0.149436)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -176,7 +190,7 @@ external_skeleton = NodePath("../character_youngadult_female2/character_rig_youn
 transform = Transform3D(0.96826, 0.234132, -0.0874909, -0.229423, 0.971438, 0.0606139, 0.0991836, -0.0386176, 0.99432, 0.0809107, 0.11097, 0.30169)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(0.604276, -0.246524, 0.757679, 0.711488, 0.595001, -0.373844, -0.358658, 0.764984, 0.534943, -0.150789, 0.874461, 0.0306247)
+transform = Transform3D(0.624539, -0.749858, 0.21832, -0.010534, -0.287604, -0.957692, 0.780923, 0.595816, -0.187519, -0.301408, 0.611653, 0.0332294)
 bone_name = "RightMiddleIntermediate"
 bone_idx = 30
 use_external_skeleton = true
@@ -185,19 +199,23 @@ external_skeleton = NodePath("../character_youngadult_female2/character_rig_youn
 [node name="SnapZone" parent="RightHand" index="0" instance=ExtResource("15_xjshr")]
 transform = Transform3D(1, 0, 1.13687e-13, 0, 1, 3.1211e-14, -1.13687e-13, -2.36652e-14, 1, 0, -0.0151658, 0)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="4"]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="5"]
 root_node = NodePath("../character_youngadult_female2")
 libraries = {
-"": SubResource("AnimationLibrary_wdshr")
+"": SubResource("AnimationLibrary_w6bj5")
 }
 tree_root = SubResource("AnimationNodeBlendTree_bhowk")
 anim_player = NodePath("../character_youngadult_female2/AnimationPlayer")
+parameters/Add2/add_amount = 1.0
 parameters/HeadScratch/active = false
 parameters/HeadScratch/internal_active = false
 parameters/HeadScratch/request = 0
-parameters/State/current_state = "idle"
+parameters/HeadTurn/blend_position = 0
+parameters/State/current_state = "walk"
 parameters/State/transition_request = ""
-parameters/State/current_index = 0
+parameters/State/current_index = 1
 parameters/Wave/active = false
 parameters/Wave/internal_active = false
 parameters/Wave/request = 0

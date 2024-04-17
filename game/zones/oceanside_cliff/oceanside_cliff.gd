@@ -3,8 +3,8 @@ extends XRToolsSceneBase
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 @onready var keys: XRToolsPickable = $Interactables/CarKeys
-@onready var key_highlight: HighlightComponent = $Interactables/KeyPlaceholder/MeshInstance3D/HighlightComponent
-@onready var key_snap_zone: XRToolsSnapZone = $Models/car/KeyHole/SnapZone
+@onready var key_highlight: HighlightComponent = $Interactables/CarKeys/car_keys/metal/HighlightComponent
+@onready var key_snap_zone: XRToolsSnapZone = $NavigationRegion3D/car/KeyHole/SnapZone
 
 @onready var rock: XRToolsPickable = $Interactables/Rock
 @onready var rock_highlight: HighlightComponent = $Interactables/Rock/rock/Cube_009/HighlightComponent
@@ -98,11 +98,10 @@ func play_next_dialog() -> void:
 	match current_dialog:
 		2:
 			var marker: Marker3D = $Markers/Pat1
-			pat.move_to_marker(marker, 20.0)
+			pat.nav_target = marker
 		4:
 			var marker: Marker3D = $Markers/Pat2
-			pat.move_to_marker(marker, 5.0)
-			pat.look_at_player = false
+			pat.nav_target = marker
 
 	animation_player.play("dialog_%s" % current_dialog)
 

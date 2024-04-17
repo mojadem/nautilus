@@ -5,42 +5,43 @@ class_name Character
 signal arrived_at_marker
 
 @export var physics_enabled := false
-@export var mesh: MeshInstance3D
 
-@export var look_at_player := false
 @export var player: XRToolsPlayerBody
+@export var look_at_player := false
 
-@export_enum("Happy", "Sad", "Angry", "Surprised") var expression: int:
-	set(value):
-		if not mesh:
-			return
+@export var mesh: MeshInstance3D
+@export_enum("Happy", "Sad", "Angry", "Surprised") var expression: int: set = _on_set_expression
 
-		expression = value
-		var offset: float = float(value) / 4.0
-		var material: BaseMaterial3D = mesh.get_surface_override_material(1)
-		material.uv1_offset = Vector3(offset, 0, 0)
+@export var nav: NavigationAgent3D
+
+var nav_target: Marker3D
 
 var anim_tree: AnimationTree
+
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var moving := false
 var speed := 1.3
 
 
-var target: Marker3D
+func _on_set_expression(value: int) -> void:
+	if not mesh:
+			return
+
+	expression = value
+	var offset: float = float(value) / 4.0
+	var material: BaseMaterial3D = mesh.get_surface_override_material(1)
+	material.uv1_offset = Vector3(offset, 0, 0)
 
 
-func move_to_marker(marker: Marker3D, duration: float) -> void:
-	target = marker
-	look_at(marker.global_position, Vector3.UP, true)
-	moving = true
-	anim_tree.set("parameters/State/transition_request", "walk")
-
-	speed = global_position.distance_to(target.global_position) / duration
+func _on_set_nav_target(value: Marker3D) -> void:
+	nav_target = value
 
 
 func _ready() -> void:
-	if not anim_tree:
-		anim_tree = find_child("AnimationTree")
+	anim_tree = get_node("AnimationTree")
+	nav = get_node("NavigationAgent3D")
+	
+	if nav:
+		nav.navigation_finished.connect(_on_navigation_finished)
 
 
 func _physics_process(delta: float) -> void:
@@ -49,22 +50,14 @@ func _physics_process(delta: float) -> void:
 
 	if not physics_enabled:
 		return
+	
+	if nav_target:
+		navigate()
+	
+	check_state()
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
-
-	if not moving:
-		move_and_slide()
-		return
-
-	velocity = transform.basis.z * speed
-
-	if global_position.distance_to(target.global_position) < 0.5:
-		moving = false
-		velocity = Vector3.ZERO
-		anim_tree.set("parameters/State/transition_request", "idle")
-		basis = target.basis
-		arrived_at_marker.emit()
 
 	move_and_slide()
 
@@ -85,3 +78,32 @@ func _process(delta: float) -> void:
 		angle *= -1
 
 	anim_tree.set("parameters/HeadTurn/blend_position", angle)
+
+
+func _on_navigation_finished():
+	pass
+
+
+func navigate():
+	var direction = Vector3()
+	
+	nav.target_position = nav_target.global_position
+	
+	direction = nav.get_next_path_position() - global_position
+	direction = direction.normalized()
+	
+	look_at(direction, Vector3.UP, true)
+	
+	velocity = direction * speed
+
+
+func check_state():
+	var state = anim_tree.get("parameters/State/current_state")
+	
+	var moving := not velocity.is_zero_approx()
+	
+	if moving and state != "walk":
+		anim_tree.set("parameters/State/transition_request", "walk")
+	
+	if not moving and state != "idle":
+		anim_tree.set("parameters/State/transition_request", "idle")
