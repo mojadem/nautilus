@@ -97,13 +97,6 @@ script = ExtResource("2_j4sgx")
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
 
-[node name="SnapZone" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer" index="2"]
-initial_object = NodePath("../../../../../FuneralCard")
-
-[node name="FuneralCard" parent="Interactables" index="3"]
-zone_scene = "res://game/zones/funeral_reception/funeral_reception.tscn"
-scene_switch_enabled = false
-
 [node name="PhoneDialog" parent="Interactables/Phone/Phone" index="5"]
 stream = null
 
@@ -118,6 +111,6 @@ one_shot = true
 autostart = true
 
 [editable path="Interactables/InteractableEndTable3"]
+[editable path="Interactables/Phone"]
 [editable path="Interactables/FuneralCard"]
 [editable path="Interactables/FuneralCard/funeral_card"]
-[editable path="Interactables/Phone"]

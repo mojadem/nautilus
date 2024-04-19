@@ -2,8 +2,6 @@
 extends CharacterBody3D
 class_name Character
 
-signal arrived_at_marker
-
 @export var physics_enabled := false
 
 @export var player: XRToolsPlayerBody
@@ -24,22 +22,19 @@ var speed := 1.3
 
 func _on_set_expression(value: int) -> void:
 	if not mesh:
-			return
+		return
 
 	expression = value
-	var offset: float = float(value) / 4.0
+	var offset: float = float(expression) / 4.0
 	var material: BaseMaterial3D = mesh.get_surface_override_material(1)
-	material.uv1_offset = Vector3(offset, 0, 0)
-
-
-func _on_set_nav_target(value: Marker3D) -> void:
-	nav_target = value
+	if material:
+		material.uv1_offset = Vector3(offset, 0, 0)
 
 
 func _ready() -> void:
 	anim_tree = get_node("AnimationTree")
-	nav = get_node("NavigationAgent3D")
-	
+	nav = find_child("NavigationAgent3D")
+
 	if nav:
 		nav.navigation_finished.connect(_on_navigation_finished)
 
@@ -50,10 +45,10 @@ func _physics_process(delta: float) -> void:
 
 	if not physics_enabled:
 		return
-	
+
 	if nav_target:
 		navigate()
-	
+
 	check_state()
 
 	if not is_on_floor():
@@ -69,6 +64,39 @@ func _process(delta: float) -> void:
 	if not player or not look_at_player:
 		return
 
+	set_head_turn(delta)
+
+
+func _on_navigation_finished() -> void:
+	global_rotation.y = nav_target.global_rotation.y
+
+
+func navigate() -> void:
+	var direction = Vector3()
+
+	nav.target_position = nav_target.global_position
+
+	direction = nav.get_next_path_position() - global_position
+	direction = direction.normalized()
+
+	look_at(direction, Vector3.UP, true)
+
+	velocity = direction * speed
+
+
+func check_state() -> void:
+	var state = anim_tree.get("parameters/State/current_state")
+
+	var moving := not velocity.is_zero_approx()
+
+	if moving and state != "walk":
+		anim_tree.set("parameters/State/transition_request", "walk")
+
+	if not moving and state != "idle":
+		anim_tree.set("parameters/State/transition_request", "idle")
+
+
+func set_head_turn(delta: float) -> void:
 	var to_player := (player.global_position - global_position).normalized()
 	var angle := transform.basis.z.angle_to(to_player) / (PI / 2)
 	angle = clampf(angle, 0, 1)
@@ -77,33 +105,6 @@ func _process(delta: float) -> void:
 	if cross.y > 0:
 		angle *= -1
 
-	anim_tree.set("parameters/HeadTurn/blend_position", angle)
-
-
-func _on_navigation_finished():
-	pass
-
-
-func navigate():
-	var direction = Vector3()
-	
-	nav.target_position = nav_target.global_position
-	
-	direction = nav.get_next_path_position() - global_position
-	direction = direction.normalized()
-	
-	look_at(direction, Vector3.UP, true)
-	
-	velocity = direction * speed
-
-
-func check_state():
-	var state = anim_tree.get("parameters/State/current_state")
-	
-	var moving := not velocity.is_zero_approx()
-	
-	if moving and state != "walk":
-		anim_tree.set("parameters/State/transition_request", "walk")
-	
-	if not moving and state != "idle":
-		anim_tree.set("parameters/State/transition_request", "idle")
+	var current_value = anim_tree.get("parameters/HeadTurn/blend_position")
+	var value = lerpf(current_value, angle, delta * 4)
+	anim_tree.set("parameters/HeadTurn/blend_position", value)

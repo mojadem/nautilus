@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dplnwlo61dlmj"]
-
-[ext_resource type="Script" path="res://game/components/highlight/highlight_mesh.gd" id="2_f8gnm"]
-
-[node name="HighlightMesh" type="MeshInstance3D"]
-script = ExtResource("2_f8gnm")

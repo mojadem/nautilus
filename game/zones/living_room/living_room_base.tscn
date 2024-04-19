@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://qmrog76fwnmm"]
+[gd_scene load_steps=12 format=3 uid="uid://qmrog76fwnmm"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_a5qlr"]
 [ext_resource type="PackedScene" uid="uid://iw3jh5lhjs2e" path="res://assets/models/zones/living_room/living_room.blend" id="2_yd3hy"]
 [ext_resource type="AudioStream" uid="uid://dsjh1d3b0plor" path="res://assets/audio/sfx/living_room/light_buzz_loop.wav" id="3_5whe4"]
 [ext_resource type="PackedScene" uid="uid://boll40m3suscs" path="res://game/zones/living_room/interactables/end_table.tscn" id="4_v2fwa"]
-[ext_resource type="PackedScene" uid="uid://b3sgfc1eweadf" path="res://game/components/key_item/key_items/funeral_card.tscn" id="5_c18oj"]
 [ext_resource type="PackedScene" uid="uid://c1gb5c3hi4xlw" path="res://game/zones/living_room/interactables/phone.tscn" id="6_0s71t"]
+[ext_resource type="PackedScene" uid="uid://bsoirpcijmsdr" path="res://game/components/key_items/funeral_card.tscn" id="6_clyh2"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="7_h8hgi"]
+[ext_resource type="PackedScene" uid="uid://bwr5d6rhqje32" path="res://game/components/key_items/nautilus_shell.tscn" id="8_dnesd"]
+[ext_resource type="PackedScene" uid="uid://bvlg2vxjxi6gv" path="res://game/components/key_items/car_keys.tscn" id="9_nax6b"]
 
 [sub_resource type="Environment" id="Environment_apxhd"]
 background_mode = 1
@@ -33,7 +36,7 @@ collision_layer = 2049
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" index="0"]
 shape = SubResource("WorldBoundaryShape3D_l85wr")
 
-[node name="Lights" type="Node3D" parent="." index="4"]
+[node name="Lights" type="Node" parent="." index="4"]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lights" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.49688, -0.954904)
@@ -56,7 +59,7 @@ light_energy = 5.0
 spot_range = 10.0
 spot_angle = 73.7
 
-[node name="Sounds" type="Node3D" parent="." index="5"]
+[node name="Sounds" type="Node" parent="." index="5"]
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.49688, -0.954904)
@@ -72,7 +75,7 @@ attenuation_model = 1
 autoplay = true
 max_distance = 10.0
 
-[node name="Interactables" type="Node3D" parent="." index="6"]
+[node name="Interactables" type="Node" parent="." index="6"]
 
 [node name="InteractableEndTable" parent="Interactables" index="0" instance=ExtResource("4_v2fwa")]
 transform = Transform3D(0.0839741, 0, -0.996468, 0, 1, 0, 0.996468, 0, 0.083974, -1.68582, -0.0431562, -1.02612)
@@ -83,8 +86,23 @@ transform = Transform3D(-0.243108, 0, 0.969999, 0, 1, 0, -0.969999, 0, -0.243108
 [node name="InteractableEndTable3" parent="Interactables" index="2" instance=ExtResource("4_v2fwa")]
 transform = Transform3D(-0.999997, 0, -0.00228696, 0, 1, 0, 0.00228699, 0, -0.999997, 1.41455, -0.0380317, 1.99868)
 
-[node name="FuneralCard" parent="Interactables" index="3" instance=ExtResource("5_c18oj")]
-transform = Transform3D(-0.325964, 0, 0.945382, 0, 1, 0, -0.945382, 0, -0.325964, -2.84733, 0.801349, -0.179607)
+[node name="SnapZone" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer" index="2"]
+initial_object = NodePath("../../../../../FuneralCard")
 
-[node name="Phone" parent="Interactables" index="4" instance=ExtResource("6_0s71t")]
+[node name="Phone" parent="Interactables" index="3" instance=ExtResource("6_0s71t")]
 transform = Transform3D(-0.311821, 0, -0.950141, 0, 1, 0, 0.950141, 0, -0.311821, 1.39416, 0.539826, 1.99566)
+
+[node name="FuneralCard" parent="Interactables" index="4" instance=ExtResource("6_clyh2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.41455, -0.0380317, 1.99868)
+
+[node name="FireplaceSnapZone" parent="Interactables" index="5" instance=ExtResource("7_h8hgi")]
+transform = Transform3D(-0.699726, 0, 0.714412, 0, 1, 0, -0.714412, 0, -0.699726, -0.733034, 1.4407, 3.36832)
+
+[node name="NautilusShell" parent="Interactables/FireplaceSnapZone" index="2" instance=ExtResource("8_dnesd")]
+
+[node name="TVSnapZone" parent="Interactables" index="6" instance=ExtResource("7_h8hgi")]
+transform = Transform3D(-0.586641, 0, -0.809847, 0, 1, 0, 0.809847, 0, -0.586641, -2.6703, 1.0926, -0.193725)
+
+[node name="CarKeys" parent="Interactables/TVSnapZone" index="2" instance=ExtResource("9_nax6b")]
+
+[editable path="Interactables/InteractableEndTable3"]

@@ -162,7 +162,7 @@ func drop_object() -> void:
 	picked_up_object = null
 	has_dropped.emit()
 	highlight_updated.emit(self, enabled)
-	
+
 	var player = get_node("AudioStreamPlayer3D")
 	if is_instance_valid(player):
 		if player.playing:

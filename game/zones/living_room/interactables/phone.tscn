@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://c1gb5c3hi4xlw"]
+[gd_scene load_steps=35 format=3 uid="uid://c1gb5c3hi4xlw"]
 
 [ext_resource type="ArrayMesh" uid="uid://byo17brqjj3fb" path="res://bin/phone_phone-box.res" id="1_ccwgm"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_4l8tc"]
@@ -9,11 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="5_m6h7h"]
 [ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="6_l2com"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_kc373"]
-[ext_resource type="Script" path="res://game/components/highlight/highlight_mesh.gd" id="7_wa668"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="8_2kjbd"]
+[ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="8_4e64j"]
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="9_rgxxh"]
 [ext_resource type="AudioStream" uid="uid://raqn7eqt7kva" path="res://assets/audio/sfx/living_room/phone_ring.wav" id="12_xgrna"]
 [ext_resource type="ArrayMesh" uid="uid://caqk84fco87b3" path="res://bin/phone_0-button.res" id="13_3wp5n"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/return_to_snap_zone.gd" id="13_i1w3k"]
 [ext_resource type="ArrayMesh" uid="uid://sb6vfjult540" path="res://bin/phone_1-button.res" id="14_p6i54"]
 [ext_resource type="ArrayMesh" uid="uid://bw1atkvjn10dy" path="res://bin/phone_2-button.res" id="15_26l30"]
 [ext_resource type="ArrayMesh" uid="uid://6kmbegtfvocq" path="res://bin/phone_3-button.res" id="16_x0u0o"]
@@ -51,9 +52,11 @@ closed_pose = ExtResource("9_rgxxh")
 
 [node name="PhoneBox" type="StaticBody3D" parent="."]
 
-[node name="HighlightMesh" type="MeshInstance3D" parent="PhoneBox"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PhoneBox"]
 mesh = ExtResource("1_ccwgm")
-script = ExtResource("7_wa668")
+
+[node name="HighlightComponent" parent="PhoneBox/MeshInstance3D" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("8_4e64j")]
+parent_mesh = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhoneBox"]
 shape = SubResource("ConvexPolygonShape3D_j7sos")
@@ -68,9 +71,11 @@ initial_object = NodePath("../../Phone")
 [node name="Phone" parent="." groups=["phone"] instance=ExtResource("3_7w5on")]
 transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0.0455544, 0.0428957, 0.0227543)
 
-[node name="HighlightMesh" type="MeshInstance3D" parent="Phone"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Phone"]
 mesh = ExtResource("4_g5ns4")
-script = ExtResource("7_wa668")
+
+[node name="HighlightComponent" parent="Phone/MeshInstance3D" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("8_4e64j")]
+parent_mesh = NodePath("..")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Phone"]
 shape = SubResource("ConvexPolygonShape3D_ppu3w")
@@ -82,6 +87,11 @@ hand_pose = SubResource("Resource_se5jg")
 [node name="GrabPointHandRight" parent="Phone" instance=ExtResource("8_2kjbd")]
 transform = Transform3D(1.5619e-15, 4.37114e-08, -1, 1, -4.37114e-08, -3.48787e-16, -4.37114e-08, -1, -4.37114e-08, 0.062, 0.033, -0.049)
 hand_pose = SubResource("Resource_4wcad")
+
+[node name="ReturnToSnapZone" type="Node" parent="Phone"]
+script = ExtResource("13_i1w3k")
+snap_zone_path = NodePath("../../PhoneBox/SnapZone")
+return_delay = 3.0
 
 [node name="PhoneDialog" type="AudioStreamPlayer3D" parent="Phone"]
 transform = Transform3D(1, 0, 0, 0, 0.0075748, 0.999971, 0, -0.999971, 0.0075748, 0, -0.0103232, -0.0556711)

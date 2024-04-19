@@ -1,15 +1,15 @@
 extends XRToolsSceneBase
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var funeral_card: KeyItem = $Interactables/FuneralCard
+@onready var funeral_card: XRToolsPickable = $Interactables/FuneralCard
 @onready var mc_dialog: AudioStreamPlayer3D = $XROrigin3D/XRCamera3D/MCDialog
 @onready var phone_ring: AudioStreamPlayer3D = $Interactables/Phone/AudioStreamPlayer3D
 @onready var phone_ring_delay: Timer = $PhoneRingDelay
 @onready var phone_snap_zone: XRToolsSnapZone = $Interactables/Phone/PhoneBox/SnapZone
 
-@onready var phone_mesh: HighlightMesh = $Interactables/Phone/Phone/HighlightMesh
-@onready var phone_box_mesh: HighlightMesh = $Interactables/Phone/PhoneBox/HighlightMesh
-@onready var drawer_mesh: HighlightMesh = $Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/HighlightMesh
+@onready var phone_highlight: HighlightComponent = $Interactables/Phone/Phone/MeshInstance3D/HighlightComponent
+@onready var phone_box_highlight: HighlightComponent = $Interactables/Phone/PhoneBox/MeshInstance3D/HighlightComponent
+@onready var drawer_highlight: HighlightComponent = $Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/MeshInstance3D/HighlightComponent
 
 enum State {
 	INITIAL,
@@ -27,27 +27,27 @@ func process_state():
 	match state:
 		State.PHONE_RINGING:
 			phone_ring.play()
-			phone_mesh.highlight_enabled = true
+			phone_highlight.enabled = true
 
 		State.PHONE_CALL_STARTED:
 			phone_ring.stop()
 			animation_player.play("phone_call")
 			phone_snap_zone.enabled = false
-			phone_mesh.highlight_enabled = false
+			phone_highlight.enabled = false
 
 		State.PHONE_CALL_ENDED:
 			phone_snap_zone.enabled = true
-			phone_box_mesh.highlight_enabled = true
+			phone_box_highlight.enabled = true
 
 		State.PHONE_HANGUP:
 			animation_player.play("dialog_2")
 			funeral_card.scene_switch_enabled = true
-			phone_box_mesh.highlight_enabled = false
-			drawer_mesh.highlight_enabled = true
+			phone_box_highlight.enabled = false
+			drawer_highlight.enabled = true
 
 		State.TRANSITION:
 			animation_player.play("dialog_3")
-			drawer_mesh.highlight_enabled = false
+			drawer_highlight.enabled = false
 
 
 func _start_phone_ringing():

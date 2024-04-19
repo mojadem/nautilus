@@ -1,15 +1,24 @@
-[gd_scene load_steps=14 format=3 uid="uid://f6w6fn648vwn"]
+[gd_scene load_steps=16 format=3 uid="uid://f6w6fn648vwn"]
 
 [ext_resource type="Script" path="res://game/zones/funeral_reception/interactables/whiskey_glass.gd" id="1_2as7t"]
 [ext_resource type="Material" uid="uid://voydj6ikcji6" path="res://game/components/liquid/liquid.tres" id="2_7t07n"]
-[ext_resource type="PackedScene" uid="uid://dplnwlo61dlmj" path="res://game/components/highlight/highlight_mesh.tscn" id="2_egpfb"]
 [ext_resource type="ArrayMesh" uid="uid://bbh836okduh42" path="res://bin/whiskey_glass_Cylinder.res" id="3_v41e0"]
 [ext_resource type="ArrayMesh" uid="uid://dc6uqlntoxjpa" path="res://bin/whiskey_glass_Cylinder_001.res" id="4_1pvi7"]
+[ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="4_d2gyc"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_di65x"]
+[ext_resource type="Shader" path="res://game/components/highlight/highlight.gdshader" id="5_nsf5f"]
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="6_b5h1x"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_5rtfq"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="8_irebu"]
 [ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="9_vl5g7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j0rww"]
+render_priority = 0
+shader = ExtResource("5_nsf5f")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 3.0
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_width = 5.0
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mh6qh"]
 points = PackedVector3Array(0.0458883, 0.0458883, -8.9854e-06, 0.0324398, 0.0458883, 0.0324398, 0.028523, -0.0458883, 0.028523, 0.0403454, -0.0458883, -8.9854e-06, 0.028523, -0.0458883, -0.0285409, 0.0324398, 0.0458883, -0.0324488, -8.9854e-06, 0.0458883, 0.0458883, -8.9854e-06, -0.0458883, 0.0403454, -8.9854e-06, 0.0458883, -0.0458883, -8.9854e-06, -0.0458883, -0.0403544, -0.0324488, 0.0458883, 0.0324398, -0.0285409, -0.0458883, 0.028523, -0.0285409, -0.0458883, -0.0285409, -0.0324488, 0.0458883, -0.0324488, -0.0458883, 0.0458883, -8.9854e-06, -0.0403544, -0.0458883, -8.9854e-06)
@@ -31,11 +40,19 @@ collision_mask = 196615
 script = ExtResource("1_2as7t")
 shader = ExtResource("2_7t07n")
 
-[node name="Glass" parent="." instance=ExtResource("2_egpfb")]
-mesh = ExtResource("3_v41e0")
+[node name="Mesh" type="Node3D" parent="."]
 
-[node name="Liquid" type="MeshInstance3D" parent="."]
+[node name="Glass" type="MeshInstance3D" parent="Mesh"]
+mesh = ExtResource("3_v41e0")
+skeleton = NodePath("../..")
+
+[node name="HighlightComponent" parent="Mesh/Glass" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("4_d2gyc")]
+highlight = SubResource("ShaderMaterial_j0rww")
+parent_mesh = NodePath("..")
+
+[node name="Liquid" type="MeshInstance3D" parent="Mesh"]
 mesh = ExtResource("4_1pvi7")
+skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_mh6qh")

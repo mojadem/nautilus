@@ -4,11 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://cm0ft6v3r5xwy" path="res://assets/models/characters/imports/character_oldadult_male.glb" id="2_4gf5y"]
 [ext_resource type="Texture2D" uid="uid://ddo2q47hh1opv" path="res://assets/models/characters/textures/character-expressions.png" id="3_0pfag"]
 [ext_resource type="PackedScene" uid="uid://hh51ljxlc0hj" path="res://assets/models/characters/props/drink.glb" id="3_krhma"]
-[ext_resource type="Animation" uid="uid://cqe1nohhvfhnh" path="res://assets/models/characters/animations/RESET.res" id="3_u03iw"]
-[ext_resource type="Animation" uid="uid://csknumbdj374m" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="4_a5niq"]
-[ext_resource type="Animation" uid="uid://bv1lc4luemo6f" path="res://assets/models/characters/animations/HeadTurnRight.res" id="5_c0buc"]
-[ext_resource type="Animation" uid="uid://b6ue35fk85fc2" path="res://assets/models/characters/animations/SitDrinkDrink_OldAdult_male.res" id="6_le4tv"]
-[ext_resource type="Animation" uid="uid://cqxkw0b7ywfbo" path="res://assets/models/characters/animations/SitDrinkIdle_OldAdult_male.res" id="7_6peq2"]
+[ext_resource type="Animation" uid="uid://umse44ou7mer" path="res://assets/models/characters/animations/RESET.res" id="3_u03iw"]
+[ext_resource type="Animation" uid="uid://c84v12ydieih7" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="4_a5niq"]
+[ext_resource type="Animation" uid="uid://cgx66ckbdbauf" path="res://assets/models/characters/animations/HeadTurnRight.res" id="5_c0buc"]
+[ext_resource type="Animation" uid="uid://cxuhe6corxo6i" path="res://assets/models/characters/animations/SitDrinkDrink_OldAdult_male.res" id="6_le4tv"]
+[ext_resource type="Animation" uid="uid://e3pj4rky0xdl" path="res://assets/models/characters/animations/SitDrinkIdle_OldAdult_male.res" id="7_6peq2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7mxoj"]
 resource_name = "character_expression"
@@ -17,7 +17,7 @@ albedo_texture = ExtResource("3_0pfag")
 uv1_offset = Vector3(0.25, 0, 0)
 texture_filter = 2
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_l44en"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_soyju"]
 _data = {
 "HeadTurnLeft": ExtResource("4_a5niq"),
 "HeadTurnRight": ExtResource("5_c0buc"),
@@ -41,6 +41,8 @@ animation = &"SitDrinkDrink_OldAdult_male"
 animation = &"SitDrinkIdle_OldAdult_male"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_8gf8s"]
+fadein_time = 0.5
+fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xm70q"]
 animation = &"HeadTurnLeft"
@@ -55,7 +57,7 @@ blend_point_1/node = SubResource("AnimationNodeAnimation_hramt")
 blend_point_1/pos = 1.0
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_dvkwt"]
-graph_offset = Vector2(-301.754, -9.18287)
+graph_offset = Vector2(-372.455, -41.1799)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_fnk2l")
 nodes/Add2/position = Vector2(300, 110)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_xn2pg")
@@ -120,7 +122,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_7mxoj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male" index="1"]
 libraries = {
-"": SubResource("AnimationLibrary_l44en")
+"": SubResource("AnimationLibrary_soyju")
 }
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
@@ -128,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 0.929461, -0.36892, 0, 0.36892, 0.929461, 0,
 shape = SubResource("CapsuleShape3D_cspw3")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(1, -1.58879e-14, 4.74426e-14, 1.5888e-14, 1, -2.88894e-07, -4.74426e-14, 2.88894e-07, 1, 5.72993e-15, 1.40792, -0.176285)
+transform = Transform3D(0.999105, -0.0045789, -0.0420532, -0.0112936, 0.929167, -0.369487, 0.0407663, 0.369631, 0.928284, 0.00108486, 1.40698, -0.0427535)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -138,7 +140,7 @@ external_skeleton = NodePath("../character_oldadult_male_character_rig_oldadult_
 transform = Transform3D(-0.999745, 0.0221626, -0.00429578, 0.0195536, 0.755018, -0.655413, -0.0112822, -0.65533, -0.755259, -0.0044381, 0.101295, 0.303589)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(-5.75046e-08, -1, 1.97246e-08, 5.41316e-08, -2.07435e-08, -1, 1, -6.09313e-08, 4.53935e-08, -0.509814, 0.778127, -0.0198441)
+transform = Transform3D(0.0710898, 0.744495, 0.663833, 0.994517, -0.00173202, -0.10456, -0.0766949, 0.667626, -0.740536, -0.0357432, 1.17111, 0.32316)
 bone_name = "RightIndexIntermediate"
 bone_idx = 33
 use_external_skeleton = true
@@ -150,7 +152,7 @@ transform = Transform3D(0.0721157, 0.994383, -0.0774756, 0.743828, -0.00187009, 
 [node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 root_node = NodePath("../character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male")
 libraries = {
-"": SubResource("AnimationLibrary_l44en")
+"": SubResource("AnimationLibrary_soyju")
 }
 tree_root = SubResource("AnimationNodeBlendTree_dvkwt")
 anim_player = NodePath("../character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male/AnimationPlayer")

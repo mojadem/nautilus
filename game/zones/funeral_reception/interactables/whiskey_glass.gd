@@ -8,7 +8,7 @@ class_name WhiskeyGlass
 	set(value):
 		if not shader:
 			return
-		
+
 		fill_percent = value
 		var fill := calculate_fill(fill_percent)
 		shader.set_shader_parameter("fill_amount", fill)

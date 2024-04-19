@@ -6,18 +6,11 @@ const WHISKEY_SIP = preload("res://assets/audio/sfx/funeral_reception/whiskey_si
 @onready var drink_area: Area3D = $XROrigin3D/XRCamera3D/DrinkArea
 @onready var mc_dialog: AudioStreamPlayer3D = $XROrigin3D/XRCamera3D/MCDialog
 @onready var whiskey_glass: WhiskeyGlass = $Interactables/WhiskeyGlass
-@onready var whiskey_glass_mesh: HighlightMesh = $Interactables/WhiskeyGlass/Glass
+@onready var whiskey_glass_highlight: HighlightComponent = $Interactables/WhiskeyGlass/Mesh/Glass/HighlightComponent
 @onready var transition_area: Area3D = $TransitionArea
+@onready var doors_highlight: HighlightComponent = $"Models/doors/left-door/HighlightComponent"
 
-enum State {
-	DIALOG_1,
-	DIALOG_2,
-	DIALOG_3,
-	DIALOG_4,
-	TRANSITION,
-}
-
-var state := State.DIALOG_1
+var current_dialog := 1
 var awaiting_sip := false
 
 
@@ -30,27 +23,27 @@ func _ready():
 
 
 func _on_animation_finished(anim_name: StringName) -> void:
+	current_dialog += 1
 	match anim_name:
 		"dialog_1":
-			state = State.DIALOG_2
 			await_sip()
 		"dialog_2":
-			state = State.DIALOG_3
 			await_sip()
 		"dialog_3":
-			state = State.DIALOG_4
 			await_sip()
 		"dialog_4":
-			state = State.TRANSITION
-		"transition":
+			transition_area.monitoring = true
+			doors_highlight.enabled = true
+		"dialog_5":
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-			if not scene_base:
-				return
-
 			var target = ""
 			scene_base.load_scene(target)
 		"sip":
-			play_next_animation()
+			play_next_dialog()
+
+
+func play_next_dialog():
+	animation_player.play("dialog_%s" % current_dialog)
 
 
 func _on_sip(body: Node3D) -> void:
@@ -63,26 +56,13 @@ func _on_sip(body: Node3D) -> void:
 	awaiting_sip = false
 	animation_player.play("sip")
 	whiskey_glass.fill_percent -= 0.33
-	whiskey_glass_mesh.highlight_enabled = false
+	whiskey_glass_highlight.enabled = false
 
 
 func _on_transition_area_entered(body: Node3D) -> void:
-	if state != State.TRANSITION:
-		return
-
-	animation_player.play("transition")
+	play_next_dialog()
 
 
 func await_sip():
 	awaiting_sip = true
-	whiskey_glass_mesh.highlight_enabled = true
-
-
-func play_next_animation():
-	match state:
-		State.DIALOG_2:
-			animation_player.play("dialog_2")
-		State.DIALOG_3:
-			animation_player.play("dialog_3")
-		State.DIALOG_4:
-			animation_player.play("dialog_4")
+	whiskey_glass_highlight.enabled = true

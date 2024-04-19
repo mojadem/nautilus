@@ -77,12 +77,6 @@ _subresources={
 "PATH:dining 5": {
 "generate/physics": true
 },
-"PATH:door L": {
-"import/skip_import": true
-},
-"PATH:door R": {
-"import/skip_import": true
-},
 "PATH:wall": {
 "generate/physics": true,
 "physics/shape_type": 2

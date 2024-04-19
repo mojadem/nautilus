@@ -1,12 +1,15 @@
-[gd_scene load_steps=32 format=3 uid="uid://s6pwu85l6y06"]
+[gd_scene load_steps=36 format=3 uid="uid://s6pwu85l6y06"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_0ttmv"]
 [ext_resource type="PackedScene" uid="uid://c120g3eta4baa" path="res://assets/models/zones/funeral_reception/funeral_reception.blend" id="2_63qw3"]
 [ext_resource type="Script" path="res://game/zones/funeral_reception/funeral_reception.gd" id="2_imy6g"]
 [ext_resource type="PackedScene" uid="uid://drobllaqkesrs" path="res://game/zones/funeral_reception/characters/casey_old.tscn" id="3_473ar"]
-[ext_resource type="PackedScene" uid="uid://x0k2ii6bra5k" path="res://game/zones/funeral_reception/interactables/funeral_reception_doors.tscn" id="3_h8kf7"]
 [ext_resource type="PackedScene" uid="uid://f6w6fn648vwn" path="res://game/zones/funeral_reception/interactables/whiskey_glass.tscn" id="4_8q700"]
+[ext_resource type="PackedScene" uid="uid://83eyrtocwoph" path="res://assets/models/zones/funeral_reception/doors.blend" id="4_urwnp"]
+[ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="5_pgdw8"]
+[ext_resource type="Shader" path="res://game/components/highlight/highlight.gdshader" id="6_q16m3"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="6_rtt74"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/return_to_snap_zone.gd" id="6_up5dg"]
 [ext_resource type="AudioStream" uid="uid://kamn3rc7ask6" path="res://assets/audio/dialog/funeral_reception/dialog_1/mc.wav" id="7_e8174"]
 [ext_resource type="AudioStream" uid="uid://3x4l58ndnhpv" path="res://assets/audio/dialog/funeral_reception/dialog_1/casey.wav" id="8_qirf5"]
 [ext_resource type="AudioStream" uid="uid://4cnss0ob4ux1" path="res://assets/audio/dialog/funeral_reception/dialog_2/mc.wav" id="9_1fbl1"]
@@ -22,10 +25,19 @@
 
 [sub_resource type="Environment" id="Environment_urysr"]
 background_mode = 1
+sdfgi_enabled = true
 sdfgi_read_sky_light = false
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lm47d"]
 size = Vector3(0.3, 0.3, 0.396582)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_46ria"]
+render_priority = 0
+shader = ExtResource("6_q16m3")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 5.0
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_width = 3.0
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_g7lj2"]
 
@@ -258,27 +270,8 @@ tracks/0/keys = {
 }
 tracks/0/use_blend = true
 
-[sub_resource type="Animation" id="Animation_pc1hf"]
-resource_name = "sip"
-length = 3.0
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("18_6xdce")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-
 [sub_resource type="Animation" id="Animation_1qli6"]
-resource_name = "transition"
+resource_name = "dialog_5"
 length = 8.0
 tracks/0/type = "audio"
 tracks/0/imported = false
@@ -323,6 +316,25 @@ tracks/2/keys = {
 "values": [2.08165e-12, 0.6, 0.6, 2.08165e-12]
 }
 
+[sub_resource type="Animation" id="Animation_pc1hf"]
+resource_name = "sip"
+length = 3.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("18_6xdce")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1iagy"]
 _data = {
 "RESET": SubResource("Animation_yuaxa"),
@@ -330,8 +342,8 @@ _data = {
 "dialog_2": SubResource("Animation_e1itf"),
 "dialog_3": SubResource("Animation_x17uy"),
 "dialog_4": SubResource("Animation_3hcwm"),
-"sip": SubResource("Animation_pc1hf"),
-"transition": SubResource("Animation_1qli6")
+"dialog_5": SubResource("Animation_1qli6"),
+"sip": SubResource("Animation_pc1hf")
 }
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_36q0b"]
@@ -359,7 +371,16 @@ collision_mask = 65536
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.38419e-07, 0, -0.0482912)
 shape = SubResource("BoxShape3D_lm47d")
 
-[node name="funeral_reception" parent="." index="2" instance=ExtResource("2_63qw3")]
+[node name="Models" type="Node3D" parent="." index="2"]
+
+[node name="funeral_reception" parent="Models" index="0" instance=ExtResource("2_63qw3")]
+
+[node name="doors" parent="Models" index="1" instance=ExtResource("4_urwnp")]
+transform = Transform3D(-4.37114e-08, 3.48787e-16, 1, 3.48787e-16, 1, -3.48787e-16, -1, 3.48787e-16, -4.37114e-08, -2.32906, 0, 5.86187)
+
+[node name="HighlightComponent" parent="Models/doors/left-door" index="0" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("5_pgdw8")]
+highlight = SubResource("ShaderMaterial_46ria")
+parent_mesh = NodePath("..")
 
 [node name="Floor" type="StaticBody3D" parent="." index="3"]
 collision_layer = 2049
@@ -413,19 +434,24 @@ omni_range = 10.0
 
 [node name="Interactables" type="Node3D" parent="." index="5"]
 
-[node name="FuneralReceptionDoors" parent="Interactables" index="0" instance=ExtResource("3_h8kf7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.36758, 0, 5.83038)
+[node name="WhiskeyGlass" parent="Interactables" index="0" instance=ExtResource("4_8q700")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34087, 1.14399, 2.67074)
+collision_layer = 65536
+collision_mask = 0
+freeze = true
 
-[node name="WhiskeyGlass" parent="Interactables" index="1" instance=ExtResource("4_8q700")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34199, 1.14352, 2.67392)
+[node name="ReturnToSnapZone" type="Node" parent="Interactables/WhiskeyGlass" index="4"]
+script = ExtResource("6_up5dg")
+snap_zone_path = NodePath("../../Coaster")
+return_delay = 3.0
 
-[node name="SnapZone" parent="Interactables" index="2" instance=ExtResource("6_rtt74")]
+[node name="Coaster" parent="Interactables" index="1" instance=ExtResource("6_rtt74")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.34087, 1.14399, 2.67074)
 snap_require = "whiskey_glass"
 initial_object = NodePath("../WhiskeyGlass")
 
 [node name="CaseyOld" parent="." index="6" instance=ExtResource("3_473ar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.747, 0, 2.346)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.747, 0, 2.53872)
 collision_layer = 1
 velocity = Vector3(0, -28332.2, 0)
 expression = 1
@@ -469,13 +495,13 @@ bones/40/scale = Vector3(1, 1, 1.00002)
 bones/41/rotation = Quaternion(3.16436e-10, 1, 3.5524e-09, 1.60446e-10)
 bones/41/scale = Vector3(1, 1, 1)
 bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
-bones/42/scale = Vector3(1, 0.999993, 1.00001)
+bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="CaseyOld" index="2"]
-transform = Transform3D(0.998851, 0.00947545, -0.0469853, -0.024601, 0.942646, -0.332887, 0.0411362, 0.33366, 0.941796, 0.00604844, 1.40475, -0.052701)
+transform = Transform3D(0.999181, -0.0048415, -0.0401835, -0.00955754, 0.936518, -0.350488, 0.0393295, 0.350585, 0.935705, 0.00084734, 1.40541, -0.0467408)
 
 [node name="RightHand" parent="CaseyOld" index="3"]
-transform = Transform3D(0.0720959, 0.744108, 0.664158, 0.994438, -0.00236631, -0.105297, -0.0767811, 0.668055, -0.74014, -0.0357275, 1.17115, 0.323191)
+transform = Transform3D(0.0720961, 0.744101, 0.664166, 0.994435, -0.0023427, -0.105323, -0.0768146, 0.668063, -0.740129, -0.0357313, 1.17116, 0.323198)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {
@@ -486,11 +512,13 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34272, 0.962507, 5.74935)
 collision_layer = 0
 collision_mask = 524288
+monitoring = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="TransitionArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.501128, -0.513785)
 shape = SubResource("BoxShape3D_36q0b")
 
+[editable path="Models/doors"]
 [editable path="Interactables/WhiskeyGlass"]
 [editable path="CaseyOld"]
 [editable path="CaseyOld/character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male"]
