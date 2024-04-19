@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://8qp6b24vcipx"]
+
+[ext_resource type="PackedScene" uid="uid://qmrog76fwnmm" path="res://game/zones/living_room/living_room_base.tscn" id="1_ileo4"]
+[ext_resource type="AudioStream" uid="uid://c5daivh4vppe5" path="res://assets/audio/dialog/living_room_3/dialog_1/mc.wav" id="2_c68d2"]
+[ext_resource type="Script" path="res://game/zones/living_room/living_room_3.gd" id="2_hpa8l"]
+[ext_resource type="AudioStream" uid="uid://didr64hvabqtm" path="res://assets/audio/dialog/living_room_3/dialog_2/mc.wav" id="3_3dbl0"]
+
+[sub_resource type="Animation" id="Animation_mqcw7"]
+resource_name = "dialog_1"
+length = 17.0
+step = 1.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_c68d2")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_17ji6"]
+resource_name = "dialog_2"
+length = 4.0
+step = 1.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_3dbl0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nknbe"]
+_data = {
+"dialog_1": SubResource("Animation_mqcw7"),
+"dialog_2": SubResource("Animation_17ji6")
+}
+
+[node name="LivingRoom" instance=ExtResource("1_ileo4")]
+script = ExtResource("2_hpa8l")
+
+[node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
+stream = null
+
+[node name="NautilusShell" parent="Interactables/FireplaceSnapZone" index="2"]
+transform = Transform3D(1, 0, 1.83754e-08, 0, 1, 0, -2.10558e-08, 0, 1, 0, 0, 0)
+collision_layer = 65536
+collision_mask = 0
+freeze = true
+
+[node name="HighlightComponent" parent="Interactables/FireplaceSnapZone/NautilusShell/nautilus_shell/shell" index="0"]
+enabled = false
+
+[node name="CarKeys" parent="Interactables/TVSnapZone" index="2"]
+transform = Transform3D(1, 0, -1.82335e-08, 0, 1, 0, 1.99272e-08, 0, 1, 0, 0, 0)
+collision_layer = 65536
+collision_mask = 0
+freeze = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_nknbe")
+}
+
+[editable path="Interactables/InteractableEndTable3"]
+[editable path="Interactables/FireplaceSnapZone/NautilusShell"]
+[editable path="Interactables/FireplaceSnapZone/NautilusShell/nautilus_shell"]

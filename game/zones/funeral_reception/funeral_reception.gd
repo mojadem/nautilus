@@ -36,7 +36,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			doors_highlight.enabled = true
 		"dialog_5":
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-			var target = ""
+			var target = "res://game/zones/living_room/living_room_2.tscn"
 			scene_base.load_scene(target)
 		"sip":
 			play_next_dialog()

@@ -792,9 +792,6 @@ libraries = {
 "": SubResource("AnimationLibrary_6rk42")
 }
 
-[connection signal="has_picked_up" from="XROrigin3D/LeftHand/FunctionPickup" to="." method="_on_function_pickup_has_picked_up"]
-[connection signal="has_picked_up" from="XROrigin3D/RightHand/FunctionPickup" to="." method="_on_function_pickup_has_picked_up"]
-
 [editable path="Models/oceanside_cliff"]
 [editable path="NavigationRegion3D/nav_area"]
 [editable path="NavigationRegion3D/car"]

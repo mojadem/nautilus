@@ -65,6 +65,7 @@ parent_mesh = NodePath("..")
 shape = SubResource("ConcavePolygonShape3D_qs8bh")
 
 [node name="SnapZone" parent="SliderOrigin/InteractableSlider/Drawer" instance=ExtResource("4_k6qhh")]
+transform = Transform3D(0.960469, -4.32097e-16, -0.278388, 3.48787e-16, 1, -3.48787e-16, 0.278388, 2.37901e-16, 0.960469, 2.08165e-12, 0, 0.0262618)
 
 [node name="GrabPointHandLeft" parent="SliderOrigin/InteractableSlider" instance=ExtResource("5_54m42")]
 transform = Transform3D(1, 0, 0, 0, 0.630554, 0.776145, 0, -0.776145, 0.630554, -0.0313054, -0.0291182, 0.143726)

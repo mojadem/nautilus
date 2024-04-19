@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dyim60sb7emag"]
+[gd_scene load_steps=32 format=3 uid="uid://dyim60sb7emag"]
 
 [ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_w30cn"]
 [ext_resource type="PackedScene" uid="uid://c6ys1q4kwrpdk" path="res://assets/models/characters/imports/character_youngadult_male.glb" id="2_nsxiq"]
@@ -13,8 +13,6 @@
 [ext_resource type="Animation" uid="uid://c84v12ydieih7" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="10_ooyjq"]
 [ext_resource type="Animation" uid="uid://cgx66ckbdbauf" path="res://assets/models/characters/animations/HeadTurnRight.res" id="11_4quco"]
 [ext_resource type="Animation" uid="uid://b37r4grxnhaw1" path="res://assets/models/characters/animations/TwoFingerSalute_YoungAdult_male.res" id="12_71igc"]
-[ext_resource type="PackedScene" uid="uid://dvw1nfbxsvg0g" path="res://game/components/character/navigation_component.tscn" id="14_c2g6h"]
-[ext_resource type="Script" path="res://game/components/character/navigation_component.gd" id="15_aj6mr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16e7q"]
 resource_name = "character_expression"
@@ -132,10 +130,9 @@ nodes/State/position = Vector2(-330, 180)
 nodes/output/position = Vector2(170, 240)
 node_connections = [&"Add2", 0, &"State", &"Add2", 1, &"HeadTurn", &"MotionToKeys", 0, &"Animation", &"MotionToKeys", 1, &"Animation 2", &"Salute", 0, &"Animation 3", &"Salute", 1, &"Animation 7", &"State", 0, &"MotionToKeys", &"State", 1, &"Animation 6", &"State", 2, &"Salute", &"State", 3, &"Animation 4", &"State", 4, &"Animation 5", &"output", 0, &"Add2"]
 
-[node name="CaseyAdult" node_paths=PackedStringArray("mesh", "nav") instance=ExtResource("1_w30cn")]
+[node name="CaseyAdult" node_paths=PackedStringArray("mesh") instance=ExtResource("1_w30cn")]
 velocity = Vector3(0, -3020.79, 0)
 mesh = NodePath("character_youngadult_male2/character_rig_youngadult_male/GeneralSkeleton/character_youngadult_male")
-nav = NodePath("NavigationAgent3D")
 
 [node name="character_youngadult_male2" parent="." index="0" instance=ExtResource("2_nsxiq")]
 
@@ -193,7 +190,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.85, 2.08165e-1
 shape = SubResource("CapsuleShape3D_ijo4p")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.9851, -0.0580458, -0.161891, 0.0303077, 0.985182, -0.168815, 0.169291, 0.161393, 0.972262, 0.0581204, 0.996159, -0.677086)
+transform = Transform3D(0.968675, -0.0212974, -0.247416, -0.0112903, 0.991508, -0.129551, 0.248075, 0.128287, 0.960209, 0.0675506, 0.991938, -0.676255)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -202,14 +199,8 @@ external_skeleton = NodePath("../character_youngadult_male2/character_rig_younga
 [node name="CaseyDialog" type="AudioStreamPlayer3D" parent="Mouth" index="0"]
 transform = Transform3D(0.999824, -0.00589969, 0.017816, 0.00585803, 0.99998, 0.0023891, -0.0178297, -0.00228436, 0.999839, 0.0928269, 0.0240021, 0.300608)
 
-[node name="NavigationAgent3D" parent="." index="3" instance=ExtResource("14_c2g6h")]
-script = ExtResource("15_aj6mr")
-
-[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
 root_node = NodePath("../character_youngadult_male2")
-libraries = {
-"": SubResource("AnimationLibrary_rkt64")
-}
 tree_root = SubResource("AnimationNodeBlendTree_r1phn")
 anim_player = NodePath("../character_youngadult_male2/AnimationPlayer")
 parameters/Add2/add_amount = 1.0
