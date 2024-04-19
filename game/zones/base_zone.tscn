@@ -28,6 +28,7 @@ stream = SubResource("AudioStreamWAV_1wu7o")
 [node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("6_me1rc")]
 
 [node name="FunctionTeleport" parent="XROrigin3D/RightHand/CollisionHandRight" index="2" instance=ExtResource("6_t30ao")]
+collision_mask = 5119
 valid_teleport_mask = 2048
 
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" index="1" instance=ExtResource("4_e2j15")]

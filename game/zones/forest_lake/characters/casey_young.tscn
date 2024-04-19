@@ -3,14 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_8q8t3"]
 [ext_resource type="PackedScene" uid="uid://jxxw5ypt1e1o" path="res://assets/models/characters/imports/character_youngchild_male.glb" id="2_e06re"]
 [ext_resource type="Texture2D" uid="uid://ddo2q47hh1opv" path="res://assets/models/characters/textures/character-expressions.png" id="3_7yc7c"]
-[ext_resource type="Animation" uid="uid://csknumbdj374m" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="3_mdx1l"]
-[ext_resource type="Animation" uid="uid://bv1lc4luemo6f" path="res://assets/models/characters/animations/HeadTurnRight.res" id="4_whp0p"]
-[ext_resource type="Animation" uid="uid://tkn046434ru7" path="res://assets/models/characters/animations/Idle_YoungChild_male.res" id="5_08o1q"]
-[ext_resource type="Animation" uid="uid://bxispox8ysq3d" path="res://assets/models/characters/animations/Talk_YoungChild_male.res" id="6_0f3kq"]
-[ext_resource type="Animation" uid="uid://dlyamrbhsykc6" path="res://assets/models/characters/animations/Walk_YoungChild_male.res" id="7_lm0p2"]
-[ext_resource type="Animation" uid="uid://cejpi3dnugu1t" path="res://assets/models/characters/animations/Swim_YoungChild_male.res" id="8_fuklq"]
-[ext_resource type="Animation" uid="uid://dpe6x5y3bk6tf" path="res://assets/models/characters/animations/Wave_YoungAdult_female.res" id="9_rnsne"]
-[ext_resource type="Animation" uid="uid://cqe1nohhvfhnh" path="res://assets/models/characters/animations/RESET.res" id="10_s8it6"]
+[ext_resource type="Animation" uid="uid://c84v12ydieih7" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="3_mdx1l"]
+[ext_resource type="Animation" uid="uid://cgx66ckbdbauf" path="res://assets/models/characters/animations/HeadTurnRight.res" id="4_whp0p"]
+[ext_resource type="Animation" uid="uid://c13uruh83fbgg" path="res://assets/models/characters/animations/Idle_YoungChild_male.res" id="5_08o1q"]
+[ext_resource type="Animation" uid="uid://cqix5y77b361p" path="res://assets/models/characters/animations/Talk_YoungChild_male.res" id="6_0f3kq"]
+[ext_resource type="Animation" uid="uid://d36kraij0u6vl" path="res://assets/models/characters/animations/Walk_YoungChild_male.res" id="7_lm0p2"]
+[ext_resource type="Animation" uid="uid://7awq00rjj7cv" path="res://assets/models/characters/animations/Swim_YoungChild_male.res" id="8_fuklq"]
+[ext_resource type="Animation" uid="uid://ddkyc2wux4t2h" path="res://assets/models/characters/animations/Wave_YoungAdult_female.res" id="9_rnsne"]
+[ext_resource type="Animation" uid="uid://umse44ou7mer" path="res://assets/models/characters/animations/RESET.res" id="10_s8it6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r756r"]
 resource_name = "character_expression"
@@ -85,7 +85,7 @@ fadein_time = 0.25
 fadeout_time = 0.25
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_aowvs"]
-graph_offset = Vector2(-454.932, -106.124)
+graph_offset = Vector2(-425.154, -128.81)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_gljqs")
 nodes/Add2/position = Vector2(210, 140)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_jcbyd")
@@ -166,7 +166,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.75, 2.08165e-1
 shape = SubResource("CapsuleShape3D_n85wy")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(1, -1.58879e-14, 4.74426e-14, 1.5888e-14, 1, -2.88894e-07, -4.74426e-14, 2.88894e-07, 1, 2.07195e-15, 1.17982, -0.147725)
+transform = Transform3D(0.997515, -0.022359, 0.0668089, -0.00838392, 0.903889, 0.427684, -0.0699504, -0.427182, 0.901456, -0.011556, 1.12037, -0.116736)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -175,11 +175,10 @@ external_skeleton = NodePath("../character_youngchild_male2/character_rig_youngc
 [node name="CaseyDialog" type="AudioStreamPlayer3D" parent="Mouth" index="0"]
 transform = Transform3D(1, 1.95539e-08, -4.96057e-10, -3.94571e-09, 1, 9.57377e-09, 2.10274e-09, -6.41013e-09, 1, 2.08165e-12, 2.08165e-12, 0.274)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="3"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="3"]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 root_node = NodePath("../character_youngchild_male2")
-libraries = {
-"": SubResource("AnimationLibrary_c2fnc")
-}
 tree_root = SubResource("AnimationNodeBlendTree_aowvs")
 anim_player = NodePath("../character_youngchild_male2/AnimationPlayer")
 parameters/Add2/add_amount = 1.0

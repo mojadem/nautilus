@@ -57,11 +57,11 @@ func _on_animation_finished(anim_name: StringName) -> void:
 func play_next_dialog() -> void:
 	match current_dialog:
 		2:
-			var marker: Marker3D = $Markers/Pat1
-			pat.nav_target = marker
+			var target: Marker3D = $Markers/Pat1
+			pat.nav_target = target
 		4:
-			var marker: Marker3D = $Markers/Pat2
-			pat.nav_target = marker
+			var target: Marker3D = $Markers/Pat2
+			pat.nav_target = target
 
 	animation_player.play("dialog_%s" % current_dialog)
 

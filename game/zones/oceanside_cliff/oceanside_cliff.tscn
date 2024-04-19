@@ -590,6 +590,10 @@ collision_layer = 2049
 [node name="StaticBody3D" parent="NavigationRegion3D/nav_area/parking circle" index="0"]
 collision_layer = 2049
 
+[node name="barrier" parent="NavigationRegion3D/nav_area" index="6"]
+collision_layer = 4096
+collision_mask = 524288
+
 [node name="car" parent="NavigationRegion3D" index="1" instance=ExtResource("22_v47eq")]
 transform = Transform3D(-0.835855, 0, -0.54895, 0, 1, 0, 0.54895, 0, -0.835855, -13.7161, 15.5232, 7.59081)
 
@@ -654,9 +658,9 @@ bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="Characters/CaseyAdult" index="2"]
-transform = Transform3D(0.982815, -0.0493714, -0.177869, 0.0203493, 0.986674, -0.161433, 0.183469, 0.155039, 0.970722, 0.0597854, 0.995408, -0.67717)
+transform = Transform3D(0.952246, -0.00796516, -0.305228, -0.0165743, 0.996837, -0.0777215, 0.304881, 0.0790689, 0.949102, 0.0745687, 0.985248, -0.67329)
 
-[node name="AnimationTree" parent="Characters/CaseyAdult" index="4"]
+[node name="AnimationTree" parent="Characters/CaseyAdult" index="3"]
 parameters/State/transition_request = "sit"
 
 [node name="PatAdult" parent="Characters" index="1" instance=ExtResource("4_28525")]
@@ -709,13 +713,13 @@ bones/42/scale = Vector3(1, 1, 1)
 surface_material_override/1 = null
 
 [node name="Mouth" parent="Characters/PatAdult" index="2"]
-transform = Transform3D(0.947586, -0.2722, -0.167298, 0.189305, 0.900137, -0.392323, 0.257381, 0.340089, 0.904486, -0.0182993, 1.27323, -0.156689)
+transform = Transform3D(0.958112, 0.0256843, -0.285241, -0.120336, 0.93989, -0.319572, 0.259887, 0.340511, 0.90361, -0.00364637, 1.26885, -0.156483)
 
 [node name="PatDialog" parent="Characters/PatAdult/Mouth" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160913, 0.00362396, 0.247843)
 
 [node name="RightHand" parent="Characters/PatAdult" index="3"]
-transform = Transform3D(0.601979, -0.249647, 0.758484, 0.713727, 0.594164, -0.370894, -0.358072, 0.764621, 0.535854, -0.151888, 0.873967, 0.0306778)
+transform = Transform3D(0.608911, -0.242181, 0.755365, 0.707503, 0.596418, -0.379109, -0.3587, 0.765267, 0.534509, -0.1413, 0.873958, 0.0307693)
 
 [node name="SnapZone" parent="Characters/PatAdult/RightHand" index="0"]
 enabled = false
@@ -733,6 +737,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59101, 14.9571, 2.84413)
 initial_object = NodePath("CarKeys")
 
 [node name="CarKeys" parent="Interactables/BenchSnapZone" index="2" instance=ExtResource("12_iymax")]
+collision_layer = 65536
+collision_mask = 0
+freeze = true
 
 [node name="HighlightComponent" parent="Interactables/BenchSnapZone/CarKeys/car_keys/metal" index="0"]
 enabled = false

@@ -3,15 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_165d8"]
 [ext_resource type="PackedScene" uid="uid://buqbqxxn4xtjd" path="res://assets/models/characters/imports/character_youngchild_female.glb" id="2_0twdn"]
 [ext_resource type="Texture2D" uid="uid://ddo2q47hh1opv" path="res://assets/models/characters/textures/character-expressions.png" id="3_c4n83"]
-[ext_resource type="Animation" uid="uid://cqe1nohhvfhnh" path="res://assets/models/characters/animations/RESET.res" id="4_t13m0"]
-[ext_resource type="Animation" uid="uid://csknumbdj374m" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="5_1mx24"]
-[ext_resource type="Animation" uid="uid://bv1lc4luemo6f" path="res://assets/models/characters/animations/HeadTurnRight.res" id="6_oxrit"]
-[ext_resource type="Animation" uid="uid://dx0ivhnnp2ghd" path="res://assets/models/characters/animations/HandOverIdle_YoungAdult_female.res" id="7_kqj77"]
-[ext_resource type="Animation" uid="uid://bky1t1rhbgnmr" path="res://assets/models/characters/animations/Idle_YoungChild_female.res" id="8_7w531"]
-[ext_resource type="Animation" uid="uid://dt2jo1mbu08g3" path="res://assets/models/characters/animations/Talk_YoungChild_female.res" id="9_xao0f"]
-[ext_resource type="Animation" uid="uid://dgpq7qd7uw3f4" path="res://assets/models/characters/animations/Walk_YoungAdult_female.res" id="10_640sh"]
-[ext_resource type="Animation" uid="uid://cjfj40d8a60gh" path="res://assets/models/characters/animations/LookDownCliff_YoungChild_female.res" id="11_6ykpf"]
-[ext_resource type="Animation" uid="uid://dpe6x5y3bk6tf" path="res://assets/models/characters/animations/Wave_YoungAdult_female.res" id="12_x855t"]
+[ext_resource type="Animation" uid="uid://umse44ou7mer" path="res://assets/models/characters/animations/RESET.res" id="4_t13m0"]
+[ext_resource type="Animation" uid="uid://c84v12ydieih7" path="res://assets/models/characters/animations/HeadTurnLeft.res" id="5_1mx24"]
+[ext_resource type="Animation" uid="uid://cgx66ckbdbauf" path="res://assets/models/characters/animations/HeadTurnRight.res" id="6_oxrit"]
+[ext_resource type="Animation" uid="uid://chybgryydtp72" path="res://assets/models/characters/animations/HandOverIdle_YoungAdult_female.res" id="7_kqj77"]
+[ext_resource type="Animation" uid="uid://ds2p5o8xxi4g2" path="res://assets/models/characters/animations/Idle_YoungChild_female.res" id="8_7w531"]
+[ext_resource type="Animation" uid="uid://bsbntyc4assah" path="res://assets/models/characters/animations/Talk_YoungChild_female.res" id="9_xao0f"]
+[ext_resource type="Animation" uid="uid://c5iv5fmlrkhlp" path="res://assets/models/characters/animations/Walk_YoungAdult_female.res" id="10_640sh"]
+[ext_resource type="Animation" uid="uid://b4ytcfj2laci4" path="res://assets/models/characters/animations/LookDownCliff_YoungChild_female.res" id="11_6ykpf"]
+[ext_resource type="Animation" uid="uid://ddkyc2wux4t2h" path="res://assets/models/characters/animations/Wave_YoungAdult_female.res" id="12_x855t"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="13_hn2hx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6ph34"]
@@ -94,7 +94,7 @@ fadein_time = 0.25
 fadeout_time = 0.25
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uj7pj"]
-graph_offset = Vector2(-302.393, -108.233)
+graph_offset = Vector2(-400.192, -30.218)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_r22p1")
 nodes/Add2/position = Vector2(230, 140)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_vdd0l")
@@ -177,7 +177,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.7, 2.08165e-12
 shape = SubResource("CapsuleShape3D_frp7a")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(1, -1.58879e-14, 4.74426e-14, 1.5888e-14, 1, -2.88894e-07, -4.74426e-14, 2.88894e-07, 1, 3.49263e-15, 1.10061, -0.137807)
+transform = Transform3D(0.955204, 0.0509767, -0.291526, -0.153855, 0.927014, -0.342016, 0.252814, 0.371547, 0.89333, -0.0117031, 1.10093, -0.130367)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -187,7 +187,7 @@ external_skeleton = NodePath("../character_youngchild_female2/character_rig_youn
 transform = Transform3D(1, 1.54075e-21, 3.38813e-21, -1.53314e-22, 1, 0, 0, 0, 1, -1.03726e-14, 0.0404235, 0.232173)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(-1.17109e-07, -1, -1.59089e-07, 1.13736e-07, 1.58071e-07, -1, 1, -1.20536e-07, 1.04998e-07, -0.400482, 0.605255, -0.0493127)
+transform = Transform3D(-0.969356, 0.173756, 0.17366, -0.0855091, -0.901358, 0.42455, 0.230297, 0.396691, 0.888594, -0.173412, 0.785411, 0.365783)
 bone_name = "RightMiddleIntermediate"
 bone_idx = 30
 use_external_skeleton = true
@@ -196,11 +196,10 @@ external_skeleton = NodePath("../character_youngchild_female2/character_rig_youn
 [node name="SnapZone" parent="RightHand" index="0" instance=ExtResource("13_hn2hx")]
 transform = Transform3D(0.999821, 0.0148938, -0.0116274, -0.0149565, 0.999874, -0.00533843, 0.0115465, 0.00551152, 0.999918, 0.00378209, -0.0451165, -0.00249016)
 
-[node name="AnimationTree" type="AnimationTree" parent="." index="4"]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="4"]
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="5"]
 root_node = NodePath("../character_youngchild_female2")
-libraries = {
-"": SubResource("AnimationLibrary_jdyir")
-}
 tree_root = SubResource("AnimationNodeBlendTree_uj7pj")
 anim_player = NodePath("../character_youngchild_female2/AnimationPlayer")
 parameters/Add2/add_amount = 1.0

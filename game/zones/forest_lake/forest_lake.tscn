@@ -1,7 +1,8 @@
-[gd_scene load_steps=46 format=3 uid="uid://k0n7kexm1gaf"]
+[gd_scene load_steps=47 format=3 uid="uid://k0n7kexm1gaf"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_3km7h"]
 [ext_resource type="PackedScene" uid="uid://bxm1ply47vaan" path="res://addons/godot-xr-tools/functions/movement_climb.tscn" id="2_c1ose"]
+[ext_resource type="Script" path="res://game/zones/forest_lake/forest_lake.gd" id="2_oip7e"]
 [ext_resource type="PackedScene" uid="uid://bn62yu2sa6l6q" path="res://assets/models/zones/forest_lake/forest_lake.blend" id="2_ur1ia"]
 [ext_resource type="Shader" path="res://game/components/water/water.gdshader" id="3_nc0kq"]
 [ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="3_ycci6"]
@@ -63,7 +64,7 @@ size = Vector3(4, 10, 1)
 size = Vector3(4, 10, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aurnw"]
-size = Vector3(10, 1, 10)
+size = Vector3(11.135, 2, 13.822)
 
 [sub_resource type="Animation" id="Animation_tekk0"]
 resource_name = "RESET"
@@ -122,6 +123,18 @@ tracks/4/path = NodePath("Characters/PatYoung/AnimationTree:parameters/State/tra
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["idle"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Characters/CaseyYoung/AnimationTree:parameters/State/transition_request")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -586,12 +599,17 @@ _data = {
 "dialog_8": SubResource("Animation_ixhky")
 }
 
-[node name="SceneBase" instance=ExtResource("1_3km7h")]
+[node name="ForestLake" instance=ExtResource("1_3km7h")]
+script = ExtResource("2_oip7e")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="0"]
+transform = Transform3D(-0.206204, -0.67108, 0.712132, 0, 0.727772, 0.685819, -0.978509, 0.141419, -0.15007, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="1"]
 environment = SubResource("Environment_bad03")
 
-[node name="XROrigin3D" parent="." index="1"]
+[node name="XROrigin3D" parent="." index="2"]
 transform = Transform3D(0.826059, 0, -0.563583, 0, 1, 0, 0.563583, 0, 0.826059, -53.0438, -3.47082, 32.9068)
 
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
@@ -599,7 +617,7 @@ stream = null
 
 [node name="MovementClimb" parent="XROrigin3D" index="4" instance=ExtResource("2_c1ose")]
 
-[node name="Models" type="Node3D" parent="." index="2"]
+[node name="Models" type="Node3D" parent="." index="3"]
 
 [node name="forest_lake" parent="Models" index="0" instance=ExtResource("2_ur1ia")]
 
@@ -610,12 +628,6 @@ collision_layer = 2049
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -6.98234, 3.70264)
 mesh = SubResource("QuadMesh_5npoq")
 skeleton = NodePath("../..")
-
-[node name="Lights" type="Node3D" parent="." index="3"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights" index="0"]
-transform = Transform3D(-0.206204, -0.67108, 0.712132, 0, 0.727772, 0.685819, -0.978509, 0.141419, -0.15007, 0, 0, 0)
-shadow_enabled = true
 
 [node name="Climbable" parent="." index="4" instance=ExtResource("3_ycci6")]
 transform = Transform3D(0.706193, 0, -0.708019, 0, 1, 0, 0.708019, 0, 0.706193, -44.7175, 1.17788, 12.3715)
@@ -637,8 +649,9 @@ stream = ExtResource("6_jpofd")
 
 [node name="Characters" type="Node" parent="." index="7"]
 
-[node name="CaseyYoung" parent="Characters" index="0" instance=ExtResource("6_86e4i")]
+[node name="CaseyYoung" parent="Characters" index="0" node_paths=PackedStringArray("nav") instance=ExtResource("6_86e4i")]
 transform = Transform3D(0.464072, 0, -0.885798, 0, 1, 0, 0.885798, 0, 0.464072, -31.1402, 7.16914, 14.2989)
+nav = NodePath("NavigationAgent3D")
 
 [node name="GeneralSkeleton" parent="Characters/CaseyYoung/character_youngchild_male2/character_rig_youngchild_male" index="0"]
 bones/0/rotation = Quaternion(1.26881e-08, 0, 0, 1)
@@ -679,17 +692,16 @@ bones/40/scale = Vector3(1, 1, 1.00002)
 bones/41/rotation = Quaternion(3.16436e-10, 1, 3.5524e-09, 1.60446e-10)
 bones/41/scale = Vector3(1, 1, 1)
 bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
-bones/42/scale = Vector3(1, 0.999993, 1.00001)
 
 [node name="Mouth" parent="Characters/CaseyYoung" index="2"]
-transform = Transform3D(1, -1.58879e-14, 4.74426e-14, 1.5888e-14, 1, -2.88894e-07, -4.74426e-14, 2.88894e-07, 1, 2.07195e-15, 1.17982, -0.147725)
+transform = Transform3D(0.999027, -0.0431039, -0.00928322, 0.0428582, 0.899839, 0.434111, -0.0103585, -0.434087, 0.900812, -0.00662267, 1.1204, -0.107056)
 
-[node name="AnimationTree" parent="Characters/CaseyYoung" index="3"]
-parameters/State/current_state = "swim"
-parameters/State/current_index = 3
+[node name="AnimationTree" parent="Characters/CaseyYoung" index="4"]
+parameters/State/transition_request = "idle"
 
-[node name="PatYoung" parent="Characters" index="1" instance=ExtResource("7_m6mrl")]
+[node name="PatYoung" parent="Characters" index="1" node_paths=PackedStringArray("nav") instance=ExtResource("7_m6mrl")]
 transform = Transform3D(0.527798, 0, -0.84937, 0, 1, 0, 0.84937, 0, 0.527798, -31.1402, 7.16914, 13.2572)
+nav = NodePath("NavigationAgent3D")
 
 [node name="GeneralSkeleton" parent="Characters/PatYoung/character_youngchild_female2/character_rig_youngchild_female" index="0"]
 bones/0/rotation = Quaternion(1.26881e-08, 0, 0, 1)
@@ -730,15 +742,14 @@ bones/40/scale = Vector3(1, 1, 1.00002)
 bones/41/rotation = Quaternion(3.16436e-10, 1, 3.5524e-09, 1.60446e-10)
 bones/41/scale = Vector3(1, 1, 1)
 bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
-bones/42/scale = Vector3(1, 0.999993, 1.00001)
 
 [node name="Mouth" parent="Characters/PatYoung" index="2"]
-transform = Transform3D(1, -1.58879e-14, 4.74426e-14, 1.5888e-14, 1, -2.88894e-07, -4.74426e-14, 2.88894e-07, 1, 3.49263e-15, 1.10061, -0.137807)
+transform = Transform3D(0.97924, -0.173565, -0.104714, 0.185614, 0.975381, 0.11908, 0.0814677, -0.136044, 0.987347, -0.00169468, 1.07483, -0.136097)
 
 [node name="RightHand" parent="Characters/PatYoung" index="3"]
-transform = Transform3D(-1.17109e-07, -1, -1.59089e-07, 1.13736e-07, 1.58071e-07, -1, 1, -1.20536e-07, 1.04998e-07, -0.400482, 0.605255, -0.0493127)
+transform = Transform3D(0.153721, 0.97866, 0.136364, -0.0716517, -0.1266, 0.989363, 0.985513, -0.161857, 0.0506613, -0.244699, 0.543033, 0.0046463)
 
-[node name="AnimationTree" parent="Characters/PatYoung" index="4"]
+[node name="AnimationTree" parent="Characters/PatYoung" index="5"]
 parameters/State/current_state = "idle"
 parameters/State/transition_request = "idle"
 parameters/State/current_index = 0
@@ -759,12 +770,12 @@ collision_mask = 524288
 shape = SubResource("BoxShape3D_aurnw")
 
 [node name="TopCliff" type="Area3D" parent="Areas" index="1"]
-transform = Transform3D(0.763875, 0, -0.645364, 0, 1, 0, 0.645364, 0, 0.763875, -23.7483, 7.03798, 7.34296)
+transform = Transform3D(0.347705, 0, -0.937604, 0, 1, 0, 0.937604, 0, 0.347705, -25.6937, 8.04937, 7.34296)
 collision_layer = 0
 collision_mask = 524288
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/TopCliff" index="0"]
-transform = Transform3D(1, 0, -2.81614e-09, 0, 1, 0, -2.81614e-09, 0, 1, 0.989193, 0.375496, 1.17084)
+transform = Transform3D(1, 0, 8.58569e-09, 0, 1, 0, 1.04452e-08, 0, 1, -0.567385, 0, 1.91089)
 shape = SubResource("BoxShape3D_aurnw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10"]

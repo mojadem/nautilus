@@ -93,6 +93,9 @@ _subresources={
 }
 },
 "nodes": {
+"PATH:barrier": {
+"import/skip_import": true
+},
 "PATH:bench": {
 "import/skip_import": true
 },
