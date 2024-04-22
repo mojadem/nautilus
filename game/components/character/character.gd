@@ -33,8 +33,9 @@ func _on_set_expression(value: int) -> void:
 
 func _ready() -> void:
 	anim_tree = get_node("AnimationTree")
-	nav = find_child("NavigationAgent3D")
+	anim_tree.animation_finished.connect(_on_animation_finished)
 
+	nav = find_child("NavigationAgent3D")
 	if nav:
 		nav.navigation_finished.connect(_on_navigation_finished)
 
@@ -65,6 +66,16 @@ func _process(delta: float) -> void:
 		return
 
 	set_head_turn(delta)
+
+
+func _on_animation_finished(anim_name: StringName):
+	if anim_name == "TurnLeftFull":
+		global_rotate(Vector3.UP, PI / 2)
+		anim_tree.set("parameters/TurnState/transition_request", "pass")
+
+	if anim_name == "TurnRightFull":
+		global_rotate(Vector3.UP, -PI / 2)
+		anim_tree.set("parameters/TurnState/transition_request", "pass")
 
 
 func _on_navigation_finished() -> void:

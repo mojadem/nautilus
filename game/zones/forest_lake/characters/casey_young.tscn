@@ -107,8 +107,9 @@ nodes/Wave/position = Vector2(-230, -110)
 nodes/output/position = Vector2(440, 190)
 node_connections = [&"Add2", 0, &"State", &"Add2", 1, &"HeadTurn", &"State", 0, &"Wave", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Animation 4", &"Wave", 0, &"Animation", &"Wave", 1, &"Animation 5", &"output", 0, &"Add2"]
 
-[node name="CaseyYoung" node_paths=PackedStringArray("mesh") instance=ExtResource("1_8q8t3")]
+[node name="CaseyYoung" node_paths=PackedStringArray("mesh", "nav") instance=ExtResource("1_8q8t3")]
 mesh = NodePath("character_youngchild_male2/character_rig_youngchild_male/GeneralSkeleton/character_youngchild_male")
+nav = NodePath("NavigationAgent3D")
 
 [node name="character_youngchild_male2" parent="." index="0" instance=ExtResource("2_e06re")]
 
@@ -166,7 +167,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.75, 2.08165e-1
 shape = SubResource("CapsuleShape3D_n85wy")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.997515, -0.022359, 0.0668089, -0.00838392, 0.903889, 0.427684, -0.0699504, -0.427182, 0.901456, -0.011556, 1.12037, -0.116736)
+transform = Transform3D(0.853245, -0.00615344, 0.521474, -0.0839934, 0.985255, 0.149058, -0.514702, -0.170983, 0.840147, -0.069429, 1.1527, -0.0862478)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true

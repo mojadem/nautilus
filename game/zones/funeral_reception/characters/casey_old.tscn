@@ -130,7 +130,7 @@ transform = Transform3D(1, 0, 0, 0, 0.929461, -0.36892, 0, 0.36892, 0.929461, 0,
 shape = SubResource("CapsuleShape3D_cspw3")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.999105, -0.0045789, -0.0420532, -0.0112936, 0.929167, -0.369487, 0.0407663, 0.369631, 0.928284, 0.00108486, 1.40698, -0.0427535)
+transform = Transform3D(0.999032, 0.00101601, -0.0439845, -0.0172834, 0.928426, -0.371115, 0.0404593, 0.371516, 0.927544, 0.002795, 1.40719, -0.0425632)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -140,7 +140,7 @@ external_skeleton = NodePath("../character_oldadult_male_character_rig_oldadult_
 transform = Transform3D(-0.999745, 0.0221626, -0.00429578, 0.0195536, 0.755018, -0.655413, -0.0112822, -0.65533, -0.755259, -0.0044381, 0.101295, 0.303589)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(0.0710898, 0.744495, 0.663833, 0.994517, -0.00173202, -0.10456, -0.0766949, 0.667626, -0.740536, -0.0357432, 1.17111, 0.32316)
+transform = Transform3D(0.0720888, 0.744126, 0.664138, 0.994438, -0.00236248, -0.105294, -0.0767832, 0.668035, -0.740158, -0.0357195, 1.17115, 0.323184)
 bone_name = "RightIndexIntermediate"
 bone_idx = 33
 use_external_skeleton = true
@@ -151,9 +151,6 @@ transform = Transform3D(0.0721157, 0.994383, -0.0774756, 0.743828, -0.00187009, 
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="4"]
 root_node = NodePath("../character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male")
-libraries = {
-"": SubResource("AnimationLibrary_soyju")
-}
 tree_root = SubResource("AnimationNodeBlendTree_dvkwt")
 anim_player = NodePath("../character_oldadult_male_character_rig_oldadult_male_Skeleton3D#character_oldadult_male/AnimationPlayer")
 parameters/Add2/add_amount = 1.0

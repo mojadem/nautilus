@@ -41,6 +41,11 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://bin/cliff.res"
 }
+},
+"nodes": {
+"PATH:clifftop": {
+"import/skip_import": true
+}
 }
 }
 gltf/naming_version=1

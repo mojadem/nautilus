@@ -31,7 +31,7 @@ script = ExtResource("5_8c4kl")
 open_pose = ExtResource("7_yxrd7")
 closed_pose = ExtResource("7_yxrd7")
 
-[node name="NautilusShell" instance=ExtResource("1_sej7o")]
+[node name="NautilusShell" groups=["shell"] instance=ExtResource("1_sej7o")]
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("ConvexPolygonShape3D_spif4")
@@ -41,7 +41,6 @@ shape = SubResource("ConvexPolygonShape3D_spif4")
 [node name="HighlightComponent" parent="nautilus_shell/shell" index="0" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("3_jx8me")]
 highlight = SubResource("ShaderMaterial_s7l2p")
 parent_mesh = NodePath("..")
-enabled = true
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_ql7dw")]
 transform = Transform3D(0.889957, -0.41169, 0.196182, 0.313298, 0.864529, 0.392981, -0.331391, -0.288273, 0.898376, -0.0714967, 0.00763554, -0.0747402)
