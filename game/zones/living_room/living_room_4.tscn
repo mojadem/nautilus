@@ -1,0 +1,182 @@
+[gd_scene load_steps=18 format=3 uid="uid://c1l6vjdfgpeo0"]
+
+[ext_resource type="PackedScene" uid="uid://qmrog76fwnmm" path="res://game/zones/living_room/living_room_base.tscn" id="1_hwp2i"]
+[ext_resource type="AudioStream" uid="uid://cyt72y7qhhnso" path="res://assets/audio/dialog/living_room_4/dialog_1/mc.wav" id="2_6jm36"]
+[ext_resource type="Script" path="res://game/zones/living_room/living_room_4.gd" id="2_y52wf"]
+[ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="3_l07p7"]
+[ext_resource type="AudioStream" uid="uid://do8j4koe25qrr" path="res://assets/audio/dialog/living_room_4/dialog_2/mc.wav" id="4_7sxnv"]
+[ext_resource type="Shader" path="res://game/components/highlight/highlight.gdshader" id="4_x5ppb"]
+[ext_resource type="AudioStream" uid="uid://decuj0gdlqjs3" path="res://assets/audio/dialog/living_room_4/dialog_2/phone.wav" id="5_d6pav"]
+[ext_resource type="AudioStream" uid="uid://cpq7quy05bgna" path="res://assets/audio/dialog/living_room_4/dialog_3/mc.wav" id="6_amafc"]
+[ext_resource type="AudioStream" uid="uid://b54f3lb1l5ynm" path="res://assets/audio/dialog/living_room_4/dialog_4/mc.wav" id="7_eycha"]
+[ext_resource type="AudioStream" uid="uid://cop28ctau7mfa" path="res://assets/audio/dialog/living_room_4/dialog_4/phone.wav" id="8_k2xeq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jerti"]
+render_priority = 0
+shader = ExtResource("4_x5ppb")
+shader_parameter/shine_color = Color(1, 1, 1, 1)
+shader_parameter/cycle_interval = 5.0
+shader_parameter/shine_speed = 1.0
+shader_parameter/shine_width = 1.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xr8x1"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="Animation" id="Animation_1xi86"]
+resource_name = "dialog_1"
+length = 21.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_6jm36")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_tqdji"]
+resource_name = "dialog_2"
+length = 93.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_7sxnv")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interactables/Phone/Phone/PhoneDialog")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_d6pav")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_7x28t"]
+resource_name = "dialog_3"
+length = 5.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("6_amafc")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_enhgf"]
+resource_name = "dialog_4"
+length = 33.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D/MCDialog")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_eycha")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Interactables/Phone/Phone/PhoneDialog")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_k2xeq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2qfkk"]
+_data = {
+"dialog_1": SubResource("Animation_1xi86"),
+"dialog_2": SubResource("Animation_tqdji"),
+"dialog_3": SubResource("Animation_7x28t"),
+"dialog_4": SubResource("Animation_enhgf")
+}
+
+[node name="LivingRoom" instance=ExtResource("1_hwp2i")]
+script = ExtResource("2_y52wf")
+
+[node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
+stream = null
+
+[node name="HighlightComponent" parent="living_room/door" index="1" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("3_l07p7")]
+highlight = SubResource("ShaderMaterial_jerti")
+parent_mesh = NodePath("..")
+
+[node name="FuneralCard" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/SnapZone" index="2"]
+transform = Transform3D(1, -7.4444e-24, -2.92802e-08, -4.46252e-23, 1, 4.74232e-23, 1.90774e-08, -5.08597e-24, 1, 0, 0, 0)
+
+[node name="Phone" parent="Interactables/Phone" index="1"]
+transform = Transform3D(1, 3.2085e-09, 3.60472e-08, 0, 0.939693, -0.34202, -1.97299e-08, 0.34202, 0.939693, -0.0472336, 0.0381644, 0.0189884)
+
+[node name="PhoneDialog" parent="Interactables/Phone/Phone" index="6"]
+stream = null
+
+[node name="NautilusShell" parent="Interactables/FireplaceSnapZone" index="2"]
+transform = Transform3D(1, 0, 1.83754e-08, 0, 1, 0, -2.10558e-08, 0, 1, 0, 0, 0)
+
+[node name="CarKeys" parent="Interactables/TVSnapZone" index="2"]
+transform = Transform3D(1, 0, -1.82335e-08, 0, 1, 0, 1.99272e-08, 0, 1, 0, 0, 0)
+
+[node name="Areas" type="Node" parent="." index="7"]
+
+[node name="DoorArea" type="Area3D" parent="Areas" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71027, 1.5, -2.53521)
+collision_layer = 0
+collision_mask = 524288
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/DoorArea" index="0"]
+shape = SubResource("BoxShape3D_xr8x1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
+libraries = {
+"": SubResource("AnimationLibrary_2qfkk")
+}
+
+[editable path="living_room"]
+[editable path="Interactables/InteractableEndTable3"]
+[editable path="Interactables/Phone"]

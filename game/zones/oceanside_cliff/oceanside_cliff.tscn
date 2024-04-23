@@ -6,31 +6,31 @@
 [ext_resource type="PackedScene" uid="uid://dyim60sb7emag" path="res://game/zones/oceanside_cliff/characters/casey_adult.tscn" id="3_qb4xw"]
 [ext_resource type="PackedScene" uid="uid://dxhe52ll666ph" path="res://assets/models/zones/oceanside_cliff/car2.blend" id="4_5y54i"]
 [ext_resource type="PackedScene" uid="uid://borlciqi2jb8d" path="res://game/zones/oceanside_cliff/characters/pat_adult.tscn" id="4_28525"]
-[ext_resource type="AudioStream" uid="uid://d1j776o4wica0" path="res://assets/audio/dialog/oceanside_cliff/dialog_1/mc.wav" id="5_vpxv0"]
-[ext_resource type="AudioStream" uid="uid://b8i8le84stg44" path="res://assets/audio/dialog/oceanside_cliff/dialog_1/casey.wav" id="6_5jix5"]
+[ext_resource type="AudioStream" uid="uid://bo61j3ptx5hp4" path="res://assets/audio/dialog/oceanside_cliff/dialog_1/mc.wav" id="5_vpxv0"]
+[ext_resource type="AudioStream" uid="uid://bnqdeswj0la5k" path="res://assets/audio/dialog/oceanside_cliff/dialog_1/casey.wav" id="6_5jix5"]
 [ext_resource type="Shader" path="res://game/components/highlight/highlight.gdshader" id="7_2mm5a"]
-[ext_resource type="AudioStream" uid="uid://olacq2vh0aaj" path="res://assets/audio/dialog/oceanside_cliff/dialog_2/mc.wav" id="7_dc513"]
-[ext_resource type="AudioStream" uid="uid://bo3ibuig8h71u" path="res://assets/audio/dialog/oceanside_cliff/dialog_2/casey.wav" id="8_nivfq"]
+[ext_resource type="AudioStream" uid="uid://bq3cat8pvtooo" path="res://assets/audio/dialog/oceanside_cliff/dialog_2/mc.wav" id="7_dc513"]
+[ext_resource type="AudioStream" uid="uid://lj0hrboy5pqc" path="res://assets/audio/dialog/oceanside_cliff/dialog_2/casey.wav" id="8_nivfq"]
 [ext_resource type="PackedScene" uid="uid://7ftumnx4mpau" path="res://assets/models/zones/oceanside_cliff/nav_area.glb" id="8_wwncu"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="9_f7dux"]
-[ext_resource type="AudioStream" uid="uid://cgvo48ciuyn1f" path="res://assets/audio/dialog/oceanside_cliff/dialog_2/pat.wav" id="9_g8vv1"]
+[ext_resource type="AudioStream" uid="uid://bg3bikobdrxpo" path="res://assets/audio/dialog/oceanside_cliff/dialog_2/pat.wav" id="9_g8vv1"]
 [ext_resource type="AudioStream" uid="uid://dr4wgbk763sfb" path="res://assets/audio/sfx/oceanside_cliff/rock_splash.wav" id="10_gubfe"]
-[ext_resource type="AudioStream" uid="uid://oywrovl0h8cn" path="res://assets/audio/dialog/oceanside_cliff/dialog_3/casey.wav" id="10_r464l"]
+[ext_resource type="AudioStream" uid="uid://cnrdubmjgghue" path="res://assets/audio/dialog/oceanside_cliff/dialog_3/casey.wav" id="10_r464l"]
 [ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="11_630s3"]
-[ext_resource type="AudioStream" uid="uid://c3hikav2pg5jw" path="res://assets/audio/dialog/oceanside_cliff/dialog_3/pat.wav" id="11_ns5nt"]
-[ext_resource type="AudioStream" uid="uid://8n31f36cmci0" path="res://assets/audio/dialog/oceanside_cliff/dialog_3/mc.wav" id="12_4yifc"]
+[ext_resource type="AudioStream" uid="uid://b3ryrpgtt76x8" path="res://assets/audio/dialog/oceanside_cliff/dialog_3/pat.wav" id="11_ns5nt"]
+[ext_resource type="AudioStream" uid="uid://bkypaj25xo330" path="res://assets/audio/dialog/oceanside_cliff/dialog_3/mc.wav" id="12_4yifc"]
 [ext_resource type="PackedScene" uid="uid://bvlg2vxjxi6gv" path="res://game/components/key_items/car_keys.tscn" id="12_iymax"]
-[ext_resource type="AudioStream" uid="uid://cpmveogcfx8vi" path="res://assets/audio/dialog/oceanside_cliff/dialog_4/mc.wav" id="13_2v36o"]
+[ext_resource type="AudioStream" uid="uid://2a57bgc3tajn" path="res://assets/audio/dialog/oceanside_cliff/dialog_4/mc.wav" id="13_2v36o"]
 [ext_resource type="PackedScene" uid="uid://dxog42k76emnp" path="res://game/zones/oceanside_cliff/interactables/rock_pile.tscn" id="13_l8ouw"]
-[ext_resource type="AudioStream" uid="uid://2nkqd1iqiqxk" path="res://assets/audio/dialog/oceanside_cliff/dialog_4/casey.wav" id="14_cmgek"]
+[ext_resource type="AudioStream" uid="uid://bobffwx4wh22c" path="res://assets/audio/dialog/oceanside_cliff/dialog_4/casey.wav" id="14_cmgek"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/return_to_snap_zone.gd" id="14_lpqh7"]
-[ext_resource type="AudioStream" uid="uid://cxjtf1vhlfa50" path="res://assets/audio/dialog/oceanside_cliff/dialog_4/pat.wav" id="15_mv3lj"]
-[ext_resource type="AudioStream" uid="uid://dva57bikli0cm" path="res://assets/audio/dialog/oceanside_cliff/dialog_5/mc.wav" id="16_3udhl"]
-[ext_resource type="AudioStream" uid="uid://p82sfllnakwh" path="res://assets/audio/dialog/oceanside_cliff/dialog_5/casey.wav" id="17_xhqed"]
-[ext_resource type="AudioStream" uid="uid://lni4sgfp4fo5" path="res://assets/audio/dialog/oceanside_cliff/dialog_6/mc.wav" id="18_qowyc"]
-[ext_resource type="AudioStream" uid="uid://bx5851l780be2" path="res://assets/audio/dialog/oceanside_cliff/dialog_6/casey.wav" id="19_1hj4w"]
-[ext_resource type="AudioStream" uid="uid://wugr684s4jpa" path="res://assets/audio/dialog/oceanside_cliff/dialog_7/mc.wav" id="20_bjh6j"]
-[ext_resource type="AudioStream" uid="uid://dlqnkxpcga507" path="res://assets/audio/dialog/oceanside_cliff/dialog_7/pat.wav" id="21_fqrab"]
+[ext_resource type="AudioStream" uid="uid://c03ebbs41b0jx" path="res://assets/audio/dialog/oceanside_cliff/dialog_4/pat.wav" id="15_mv3lj"]
+[ext_resource type="AudioStream" uid="uid://dl1pepwrm5wt2" path="res://assets/audio/dialog/oceanside_cliff/dialog_5/mc.wav" id="16_3udhl"]
+[ext_resource type="AudioStream" uid="uid://cm5f54r1tic1m" path="res://assets/audio/dialog/oceanside_cliff/dialog_5/casey.wav" id="17_xhqed"]
+[ext_resource type="AudioStream" uid="uid://bju8yyw32cx3t" path="res://assets/audio/dialog/oceanside_cliff/dialog_6/mc.wav" id="18_qowyc"]
+[ext_resource type="AudioStream" uid="uid://ceembbrxyw8ke" path="res://assets/audio/dialog/oceanside_cliff/dialog_6/casey.wav" id="19_1hj4w"]
+[ext_resource type="AudioStream" uid="uid://bkd283xaciabl" path="res://assets/audio/dialog/oceanside_cliff/dialog_7/mc.wav" id="20_bjh6j"]
+[ext_resource type="AudioStream" uid="uid://ct2a13id0ylt1" path="res://assets/audio/dialog/oceanside_cliff/dialog_7/pat.wav" id="21_fqrab"]
 [ext_resource type="PackedScene" uid="uid://csn7ms2b32vqb" path="res://assets/models/zones/oceanside_cliff/car.blend" id="22_v47eq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2qeww"]
@@ -658,10 +658,12 @@ bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="Characters/CaseyAdult" index="2"]
-transform = Transform3D(0.981674, -0.0435852, -0.185517, 0.0140062, 0.987363, -0.157855, 0.190053, 0.152364, 0.969879, 0.0604979, 0.995082, -0.677132)
+transform = Transform3D(0.983831, 0.16889, -0.0596007, -0.168033, 0.985595, 0.0191504, 0.0619764, -0.00882586, 0.998039, 0.00943983, 1.39913, -0.158653)
 
 [node name="AnimationTree" parent="Characters/CaseyAdult" index="3"]
+parameters/State/current_state = "idle"
 parameters/State/transition_request = "sit"
+parameters/State/current_index = 2
 
 [node name="PatAdult" parent="Characters" index="1" instance=ExtResource("4_28525")]
 transform = Transform3D(0.639492, 0, -0.768796, 0, 1, 0, 0.768796, 0, 0.639492, -15.5798, 14.994, 8.39083)
@@ -713,13 +715,13 @@ bones/42/scale = Vector3(1, 1, 1)
 surface_material_override/1 = null
 
 [node name="Mouth" parent="Characters/PatAdult" index="2"]
-transform = Transform3D(0.95193, -0.25021, -0.176707, 0.166048, 0.906267, -0.388727, 0.257407, 0.340699, 0.904249, -0.0169885, 1.27309, -0.156713)
+transform = Transform3D(0.964543, -0.0628957, -0.256323, -0.0327469, 0.935165, -0.352694, 0.261887, 0.348583, 0.899947, -0.0224762, 1.2699, -0.156475)
 
 [node name="PatDialog" parent="Characters/PatAdult/Mouth" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160913, 0.00362396, 0.247843)
 
 [node name="RightHand" parent="Characters/PatAdult" index="3"]
-transform = Transform3D(0.60352, -0.247835, 0.757853, 0.712285, 0.594739, -0.372739, -0.358347, 0.764763, 0.535466, -0.1515, 0.874282, 0.0306797)
+transform = Transform3D(0.586696, -0.26437, 0.765439, 0.7273, 0.587685, -0.354487, -0.356121, 0.76468, 0.537068, -0.147754, 0.868982, 0.0300922)
 
 [node name="SnapZone" parent="Characters/PatAdult/RightHand" index="0"]
 enabled = false

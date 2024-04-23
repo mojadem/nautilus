@@ -10,17 +10,17 @@
 [ext_resource type="Shader" path="res://game/components/highlight/highlight.gdshader" id="6_q16m3"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="6_rtt74"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/return_to_snap_zone.gd" id="6_up5dg"]
-[ext_resource type="AudioStream" uid="uid://kamn3rc7ask6" path="res://assets/audio/dialog/funeral_reception/dialog_1/mc.wav" id="7_e8174"]
-[ext_resource type="AudioStream" uid="uid://3x4l58ndnhpv" path="res://assets/audio/dialog/funeral_reception/dialog_1/casey.wav" id="8_qirf5"]
-[ext_resource type="AudioStream" uid="uid://4cnss0ob4ux1" path="res://assets/audio/dialog/funeral_reception/dialog_2/mc.wav" id="9_1fbl1"]
-[ext_resource type="AudioStream" uid="uid://c3ja5kugcekqh" path="res://assets/audio/dialog/funeral_reception/dialog_2/casey.wav" id="10_gsqu7"]
-[ext_resource type="AudioStream" uid="uid://ca0gy5jlnigt" path="res://assets/audio/dialog/funeral_reception/dialog_3/mc1.wav" id="11_bnn6q"]
-[ext_resource type="AudioStream" uid="uid://ducuad7p3aptp" path="res://assets/audio/dialog/funeral_reception/dialog_3/mc2.wav" id="12_2ic3c"]
-[ext_resource type="AudioStream" uid="uid://cv6lut1qymyu1" path="res://assets/audio/dialog/funeral_reception/dialog_3/casey1.wav" id="13_nojea"]
-[ext_resource type="AudioStream" uid="uid://bv7nhx1v2xtr8" path="res://assets/audio/dialog/funeral_reception/dialog_3/casey2.wav" id="14_wot81"]
-[ext_resource type="AudioStream" uid="uid://rellfuvg4h53" path="res://assets/audio/dialog/funeral_reception/transition/mc.wav" id="16_6o0ro"]
-[ext_resource type="AudioStream" uid="uid://cq4a4upxi56e7" path="res://assets/audio/dialog/funeral_reception/dialog_4/mc.wav" id="17_0lwgo"]
-[ext_resource type="AudioStream" uid="uid://bj46jgadoirag" path="res://assets/audio/dialog/funeral_reception/transition/casey.wav" id="17_x1dta"]
+[ext_resource type="AudioStream" uid="uid://dcmcs3y11e24a" path="res://assets/audio/dialog/funeral_reception/dialog_1/mc.wav" id="7_e8174"]
+[ext_resource type="AudioStream" uid="uid://0geqrlhquebk" path="res://assets/audio/dialog/funeral_reception/dialog_1/casey.wav" id="8_qirf5"]
+[ext_resource type="AudioStream" uid="uid://cam0namqieigr" path="res://assets/audio/dialog/funeral_reception/dialog_2/mc.wav" id="9_1fbl1"]
+[ext_resource type="AudioStream" uid="uid://pwcuo1nexo1m" path="res://assets/audio/dialog/funeral_reception/dialog_2/casey.wav" id="10_gsqu7"]
+[ext_resource type="AudioStream" uid="uid://cvngg4nmla4ha" path="res://assets/audio/dialog/funeral_reception/dialog_3/mc.wav" id="11_bnn6q"]
+[ext_resource type="AudioStream" uid="uid://dqk13xoowwhbl" path="res://assets/audio/dialog/funeral_reception/dialog_4/mc.wav" id="12_2ic3c"]
+[ext_resource type="AudioStream" uid="uid://cq55p8dq32a33" path="res://assets/audio/dialog/funeral_reception/dialog_3/casey.wav" id="13_nojea"]
+[ext_resource type="AudioStream" uid="uid://ydkhtvis2xj6" path="res://assets/audio/dialog/funeral_reception/dialog_4/casey.wav" id="14_wot81"]
+[ext_resource type="AudioStream" uid="uid://bc37ckuvfgoe5" path="res://assets/audio/dialog/funeral_reception/dialog_6/mc.wav" id="16_6o0ro"]
+[ext_resource type="AudioStream" uid="uid://hwjarw5yk3m" path="res://assets/audio/dialog/funeral_reception/dialog_5/mc.wav" id="17_0lwgo"]
+[ext_resource type="AudioStream" uid="uid://3qgthxe0hge6" path="res://assets/audio/dialog/funeral_reception/dialog_6/casey.wav" id="17_x1dta"]
 [ext_resource type="AudioStream" uid="uid://clbyb6hmhm8xl" path="res://assets/audio/sfx/funeral_reception/whiskey_sip.wav" id="18_6xdce"]
 
 [sub_resource type="Environment" id="Environment_urysr"]
@@ -128,7 +128,7 @@ tracks/3/keys = {
 
 [sub_resource type="Animation" id="Animation_e1itf"]
 resource_name = "dialog_2"
-length = 42.0
+length = 39.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -272,7 +272,7 @@ tracks/0/use_blend = true
 
 [sub_resource type="Animation" id="Animation_1qli6"]
 resource_name = "dialog_5"
-length = 8.0
+length = 9.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -451,7 +451,7 @@ snap_require = "whiskey_glass"
 initial_object = NodePath("../WhiskeyGlass")
 
 [node name="CaseyOld" parent="." index="6" instance=ExtResource("3_473ar")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.747, 0, 2.53872)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.747, 0, 2.36016)
 collision_layer = 1
 velocity = Vector3(0, -28332.2, 0)
 expression = 1
@@ -498,10 +498,10 @@ bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840581)
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="CaseyOld" index="2"]
-transform = Transform3D(0.998837, 0.0101204, -0.0471446, -0.0250634, 0.944236, -0.328313, 0.041193, 0.329112, 0.943392, 0.00628018, 1.40435, -0.0536504)
+transform = Transform3D(0.999119, -0.00526066, -0.0416428, -0.0103058, 0.931, -0.364874, 0.0406889, 0.364981, 0.930125, 0.000947237, 1.40664, -0.0438302)
 
 [node name="RightHand" parent="CaseyOld" index="3"]
-transform = Transform3D(0.0722761, 0.743948, 0.664318, 0.994413, -0.00236931, -0.105536, -0.0769395, 0.668234, -0.739962, -0.0357745, 1.1712, 0.323247)
+transform = Transform3D(0.0715855, 0.744343, 0.66395, 0.994459, -0.00188212, -0.10511, -0.0769882, 0.667795, -0.740353, -0.0357237, 1.17122, 0.323131)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {
