@@ -55,7 +55,6 @@ func _on_phone_snap_zone_has_dropped():
 
 	phone_ring.stop()
 	phone_ringing = false
-	phone_snap_zone.enabled = false
 	phone_highlight.enabled = false
 
 	play_next_dialog()

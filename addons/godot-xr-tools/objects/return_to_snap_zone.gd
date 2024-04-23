@@ -1,4 +1,3 @@
-@tool
 @icon("res://addons/godot-xr-tools/editor/icons/hand.svg")
 class_name XRToolsReturnToSnapZone
 extends Node

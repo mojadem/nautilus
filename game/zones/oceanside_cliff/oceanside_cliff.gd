@@ -17,6 +17,7 @@ extends XRToolsSceneBase
 @onready var casey: Character = $Characters/CaseyAdult
 @onready var pat: Character = $Characters/PatAdult
 @onready var pat_hand: XRToolsSnapZone = $Characters/PatAdult/RightHand/SnapZone
+@onready var pat_navigation: NavigationAgent3D = $Characters/PatAdult/NavigationAgent3D
 
 var current_dialog := 1
 var awaiting_rock := false
@@ -28,7 +29,7 @@ func _ready() -> void:
 	rock_detector.body_entered.connect(_on_rock_detected)
 	dialog_delay.timeout.connect(_on_dialog_delay_timeout)
 	car_snap_zone.has_picked_up.connect(_on_keys_inserted)
-	pat.arrived_at_marker.connect(_on_pat_arrived)
+	pat_navigation.navigation_finished.connect(_on_pat_arrived)
 
 	animation_player.play("dialog_1")
 
@@ -50,7 +51,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			car_highlight.enabled = true
 		"dialog_6":
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-			var target = ""
+			var target = "res://game/zones/living_room/living_room_3.tscn"
 			scene_base.load_scene(target)
 
 

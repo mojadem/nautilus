@@ -104,5 +104,5 @@ func _on_water_area_body_entered(body: Node3D) -> void:
 	assert(awaiting_jump)
 
 	var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-	var target = ""
+	var target = "res://game/zones/living_room/living_room_4.gd"
 	scene_base.load_scene(target)
