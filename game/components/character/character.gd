@@ -12,7 +12,8 @@ class_name Character
 
 @export var nav: NavigationAgent3D
 
-var nav_target: Marker3D
+var navigating = false
+var nav_target: Marker3D: set = _on_set_nav_target
 
 var anim_tree: AnimationTree
 
@@ -31,6 +32,11 @@ func _on_set_expression(value: int) -> void:
 		material.uv1_offset = Vector3(offset, 0, 0)
 
 
+func _on_set_nav_target(value: Marker3D) -> void:
+	nav_target = value
+	navigating = true
+
+
 func _ready() -> void:
 	anim_tree = get_node("AnimationTree")
 	anim_tree.animation_finished.connect(_on_animation_finished)
@@ -46,8 +52,10 @@ func _physics_process(delta: float) -> void:
 
 	if not physics_enabled:
 		return
+	
+	velocity = Vector3.ZERO
 
-	if nav_target:
+	if navigating:
 		navigate()
 
 	check_state()
@@ -62,10 +70,12 @@ func _process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 
-	if not player or not look_at_player:
-		return
-
-	set_head_turn(delta)
+	if look_at_player:
+		set_head_turn(delta)
+	else:
+		var current_value = anim_tree.get("parameters/HeadTurn/blend_position")
+		var value = lerpf(current_value, 0, delta * 4)
+		anim_tree.set("parameters/HeadTurn/blend_position", value)
 
 
 func _on_animation_finished(anim_name: StringName):
@@ -79,7 +89,8 @@ func _on_animation_finished(anim_name: StringName):
 
 
 func _on_navigation_finished() -> void:
-	global_rotation.y = nav_target.global_rotation.y
+	rotation.y = nav_target.rotation.y
+	navigating = false
 
 
 func navigate() -> void:
@@ -88,9 +99,10 @@ func navigate() -> void:
 	nav.target_position = nav_target.global_position
 
 	direction = nav.get_next_path_position() - global_position
+	direction.y = 0
 	direction = direction.normalized()
 
-	look_at(direction, Vector3.UP, true)
+	look_at(global_position + direction, Vector3.UP, true)
 
 	velocity = direction * speed
 
@@ -98,12 +110,10 @@ func navigate() -> void:
 func check_state() -> void:
 	var state = anim_tree.get("parameters/State/current_state")
 
-	var moving := not velocity.is_zero_approx()
-
-	if moving and state != "walk":
+	if navigating and state != "walk":
 		anim_tree.set("parameters/State/transition_request", "walk")
 
-	if not moving and state != "idle":
+	if not navigating and state != "idle":
 		anim_tree.set("parameters/State/transition_request", "idle")
 
 

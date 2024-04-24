@@ -3,6 +3,6 @@
 [ext_resource type="Script" path="res://game/components/character/character.gd" id="1_5kfnx"]
 
 [node name="Character" type="CharacterBody3D"]
-collision_layer = 2
+collision_layer = 8192
 velocity = Vector3(0, -26332.8, 0)
 script = ExtResource("1_5kfnx")

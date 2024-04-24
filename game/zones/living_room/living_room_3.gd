@@ -10,6 +10,11 @@ func _ready() -> void:
 	animation_player.animation_finished.connect(_on_animation_finished)
 	fireplace_snap_zone.has_dropped.connect(_on_tv_snap_zone_has_dropped)
 
+	var staging: XRToolsStaging = XRTools.find_xr_ancestor(self, "*", "XRToolsStaging")
+	staging.scene_visible.connect(_on_scene_visible)
+
+
+func _on_scene_visible(_scene: Variant, _user_data: Variant) -> void:
 	animation_player.play("dialog_1")
 
 

@@ -1,25 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bwr5d6rhqje32"]
+[gd_scene load_steps=12 format=3 uid="uid://bwr5d6rhqje32"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_sej7o"]
 [ext_resource type="PackedScene" uid="uid://beknrnj32l1es" path="res://assets/models/items/nautilus_shell.blend" id="2_5px02"]
 [ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="3_jx8me"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="3_ql7dw"]
 [ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="4_1n8b4"]
-[ext_resource type="Shader" path="res://game/components/highlight/highlight.gdshader" id="4_kvv3u"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="5_8c4kl"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="6_e5i16"]
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="7_yxrd7"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_spif4"]
 points = PackedVector3Array(0.0511059, -4.58956e-06, -0.000195432, 0.0510948, 0.00858418, -0.000195432, 0.0299012, 0.0115298, 0.0738147, 0.0299012, -0.0115344, 0.0738022, 0.0510948, -0.00858876, -0.000195432, 0.047557, -0.00858876, -0.0113495, 0.0409694, -0.00858876, -0.0320804, 0.0409694, 0.00858418, -0.0320804, 0.047557, 0.00858418, -0.0113495, 0.0399934, 0.0168926, -8.27648e-05, 0.0297016, 0.0234732, 0.0610081, 0.0321304, 0.0179404, -0.0271731, 0.037243, 0.0172603, -0.00955936, -0.0202714, 0.02192, 0.0558129, -0.0240532, 0.00858418, 0.0636996, -0.0240532, -0.00858876, 0.0636996, -0.0202714, -0.0219246, 0.0558129, 0.0297016, -0.0234732, 0.0610081, 0.0399934, -0.0168972, -8.27648e-05, 0.037243, -0.0172648, -0.00955936, 0.0321304, -0.017945, -0.0271731, 0.0112029, -0.00858876, -0.0528363, 0.0112029, 0.00858418, -0.0528363, 0.0294132, 0.0234686, 0.0422302, 0.0253875, 0.0179036, -0.0318425, 0.0145966, 0.0178531, -0.0393036, -0.0135285, 0.02192, 0.0413789, -0.0534537, 0.0197142, 0.00351008, -0.0453023, 0.0205368, 0.032691, -0.0524001, 0.00858418, 0.0382493, -0.0524001, -0.00858876, 0.0382493, -0.0453023, -0.0205414, 0.032691, -0.0534537, -0.0197188, 0.00351008, -0.0135285, -0.0219246, 0.0413789, 0.0294132, -0.0234732, 0.0422302, 0.0253875, -0.0179128, -0.0318425, 0.0145966, -0.0178576, -0.0393036, 0.00866323, -0.0178301, -0.0433972, -0.0194618, -0.0187583, -0.0453126, -0.0217908, -0.00858876, -0.0540756, -0.0217908, 0.00858418, -0.0540756, -0.0194618, 0.0187538, -0.0453126, 0.00866323, 0.0178209, -0.0433972, -0.045391, 0.0188916, -0.0253078, -0.0621929, 0.00858418, 0.00349756, -0.0525776, 0.00858418, -0.0303027, -0.0621929, -0.00858876, 0.00349756, -0.0525776, -0.00858876, -0.0303027, -0.045391, -0.0188962, -0.0253078)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s7l2p"]
-render_priority = 0
-shader = ExtResource("4_kvv3u")
-shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/cycle_interval = 5.0
-shader_parameter/shine_speed = 1.0
-shader_parameter/shine_width = 5.0
 
 [sub_resource type="Resource" id="Resource_lmtdr"]
 script = ExtResource("5_8c4kl")
@@ -38,15 +29,14 @@ shape = SubResource("ConvexPolygonShape3D_spif4")
 
 [node name="nautilus_shell" parent="." index="1" instance=ExtResource("2_5px02")]
 
-[node name="HighlightComponent" parent="nautilus_shell/shell" index="0" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("3_jx8me")]
-highlight = SubResource("ShaderMaterial_s7l2p")
-parent_mesh = NodePath("..")
+[node name="HighlightComponent" parent="nautilus_shell/shell" index="0" instance=ExtResource("3_jx8me")]
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("3_ql7dw")]
 transform = Transform3D(0.889957, -0.41169, 0.196182, 0.313298, 0.864529, 0.392981, -0.331391, -0.288273, 0.898376, -0.0714967, 0.00763554, -0.0747402)
 hand_pose = SubResource("Resource_lmtdr")
 
 [node name="GrabPointHandRight" parent="." index="3" instance=ExtResource("6_e5i16")]
+transform = Transform3D(-0.890256, -0.411155, 0.19595, 0.313088, -0.864897, -0.392337, 0.330788, -0.287931, 0.898708, -0.071, -0.008, -0.075)
 hand_pose = SubResource("Resource_bnf2s")
 
 [editable path="nautilus_shell"]

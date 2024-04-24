@@ -1,33 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxog42k76emnp"]
+[gd_scene load_steps=6 format=3 uid="uid://dxog42k76emnp"]
 
 [ext_resource type="Script" path="res://game/zones/oceanside_cliff/interactables/rock_pile.gd" id="1_8w1l5"]
 [ext_resource type="PackedScene" uid="uid://8ux7ludn87ik" path="res://assets/models/zones/oceanside_cliff/rock_pile.blend" id="1_co032"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_l7bg3"]
 [ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="3_5ue6f"]
 [ext_resource type="PackedScene" uid="uid://ekua77ard05a" path="res://game/zones/oceanside_cliff/interactables/rock.tscn" id="3_patsa"]
-[ext_resource type="Shader" path="res://game/components/highlight/highlight.gdshader" id="4_5groi"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7ns0d"]
-render_priority = 0
-shader = ExtResource("4_5groi")
-shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/cycle_interval = 5.0
-shader_parameter/shine_speed = 1.0
-shader_parameter/shine_width = 3.0
 
 [node name="RockPile" type="Node3D"]
 script = ExtResource("1_8w1l5")
 
 [node name="rock_pile" parent="." instance=ExtResource("1_co032")]
 
-[node name="HighlightComponent" parent="rock_pile/rock pile" index="0" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("3_5ue6f")]
-highlight = SubResource("ShaderMaterial_7ns0d")
-parent_mesh = NodePath("..")
-
 [node name="SnapZone" parent="." instance=ExtResource("2_l7bg3")]
-transform = Transform3D(0.951444, 5.50648e-17, -0.307822, -0.0774365, 0.967841, -0.239348, 0.297923, 0.251563, 0.920847, 0.0135632, 0.0647759, 0.0430069)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 initial_object = NodePath("Rock")
 
 [node name="Rock" parent="SnapZone" instance=ExtResource("3_patsa")]
+
+[node name="HighlightComponent" parent="." node_paths=PackedStringArray("mesh") instance=ExtResource("3_5ue6f")]
+mesh = NodePath("../rock_pile/rock pile")
 
 [editable path="rock_pile"]

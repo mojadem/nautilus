@@ -1,23 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1l6vjdfgpeo0"]
+[gd_scene load_steps=16 format=3 uid="uid://c1l6vjdfgpeo0"]
 
 [ext_resource type="PackedScene" uid="uid://qmrog76fwnmm" path="res://game/zones/living_room/living_room_base.tscn" id="1_hwp2i"]
 [ext_resource type="AudioStream" uid="uid://cyt72y7qhhnso" path="res://assets/audio/dialog/living_room_4/dialog_1/mc.wav" id="2_6jm36"]
 [ext_resource type="Script" path="res://game/zones/living_room/living_room_4.gd" id="2_y52wf"]
 [ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="3_l07p7"]
 [ext_resource type="AudioStream" uid="uid://do8j4koe25qrr" path="res://assets/audio/dialog/living_room_4/dialog_2/mc.wav" id="4_7sxnv"]
-[ext_resource type="Shader" path="res://game/components/highlight/highlight.gdshader" id="4_x5ppb"]
 [ext_resource type="AudioStream" uid="uid://decuj0gdlqjs3" path="res://assets/audio/dialog/living_room_4/dialog_2/phone.wav" id="5_d6pav"]
 [ext_resource type="AudioStream" uid="uid://cpq7quy05bgna" path="res://assets/audio/dialog/living_room_4/dialog_3/mc.wav" id="6_amafc"]
 [ext_resource type="AudioStream" uid="uid://b54f3lb1l5ynm" path="res://assets/audio/dialog/living_room_4/dialog_4/mc.wav" id="7_eycha"]
 [ext_resource type="AudioStream" uid="uid://cop28ctau7mfa" path="res://assets/audio/dialog/living_room_4/dialog_4/phone.wav" id="8_k2xeq"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jerti"]
-render_priority = 0
-shader = ExtResource("4_x5ppb")
-shader_parameter/shine_color = Color(1, 1, 1, 1)
-shader_parameter/cycle_interval = 5.0
-shader_parameter/shine_speed = 1.0
-shader_parameter/shine_width = 1.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xr8x1"]
 size = Vector3(3, 3, 3)
@@ -139,11 +130,13 @@ _data = {
 [node name="LivingRoom" instance=ExtResource("1_hwp2i")]
 script = ExtResource("2_y52wf")
 
+[node name="XROrigin3D" parent="." index="1"]
+transform = Transform3D(-0.999997, 0, -0.00214668, 0, 1, 0, 0.00214668, 0, -0.999997, -0.71253, -0.0336731, 2.6)
+
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
 
 [node name="HighlightComponent" parent="living_room/door" index="1" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("3_l07p7")]
-highlight = SubResource("ShaderMaterial_jerti")
 parent_mesh = NodePath("..")
 
 [node name="FuneralCard" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/SnapZone" index="2"]

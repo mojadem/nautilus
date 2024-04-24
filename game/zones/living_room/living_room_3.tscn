@@ -54,6 +54,9 @@ _data = {
 [node name="LivingRoom" instance=ExtResource("1_ileo4")]
 script = ExtResource("2_hpa8l")
 
+[node name="XROrigin3D" parent="." index="1"]
+transform = Transform3D(-0.00214663, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.00214663, -1.71253, -0.0336731, 0)
+
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
 
@@ -62,15 +65,9 @@ transform = Transform3D(1, -7.4444e-24, -2.92802e-08, -4.46252e-23, 1, 4.74232e-
 
 [node name="NautilusShell" parent="Interactables/FireplaceSnapZone" index="2"]
 transform = Transform3D(1, 0, 1.83754e-08, 0, 1, 0, -2.10558e-08, 0, 1, 0, 0, 0)
-collision_layer = 65536
-collision_mask = 0
-freeze = true
 
 [node name="CarKeys" parent="Interactables/TVSnapZone" index="2"]
 transform = Transform3D(1, 0, -1.82335e-08, 0, 1, 0, 1.99272e-08, 0, 1, 0, 0, 0)
-collision_layer = 65536
-collision_mask = 0
-freeze = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="7"]
 libraries = {
@@ -78,5 +75,6 @@ libraries = {
 }
 
 [editable path="Interactables/InteractableEndTable3"]
+[editable path="Interactables/Phone"]
 [editable path="Interactables/FireplaceSnapZone/NautilusShell"]
 [editable path="Interactables/FireplaceSnapZone/NautilusShell/nautilus_shell"]

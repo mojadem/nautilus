@@ -31,6 +31,11 @@ func _ready() -> void:
 	pat_hand.has_dropped.connect(_on_pat_hand_has_dropped)
 	pat_visibility.screen_entered.connect(_on_pat_visibility_screen_entered)
 
+	var staging: XRToolsStaging = XRTools.find_xr_ancestor(self, "*", "XRToolsStaging")
+	staging.scene_visible.connect(_on_scene_visible)
+
+
+func _on_scene_visible(_scene: Variant, _user_data: Variant) -> void:
 	animation_player.play("dialog_1")
 
 

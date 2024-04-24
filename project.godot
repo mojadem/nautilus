@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_11="Drawers"
 3d_physics/layer_12="Valid Teleport Target"
 3d_physics/layer_13="Invisible Barriers"
+3d_physics/layer_14="Character Body"
 3d_physics/layer_17="Held Objects"
 3d_physics/layer_18="Player Hands"
 3d_physics/layer_19="Grab Handles"

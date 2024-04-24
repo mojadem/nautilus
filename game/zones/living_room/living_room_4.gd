@@ -21,6 +21,13 @@ func _ready() -> void:
 	phone_snap_zone.has_dropped.connect(_on_phone_snap_zone_has_dropped)
 	phone_snap_zone.has_picked_up.connect(_on_phone_snap_zone_has_picked_up)
 	door_area.body_entered.connect(_on_door_area_body_entered)
+	
+	var staging: XRToolsStaging = XRTools.find_xr_ancestor(self, "*", "XRToolsStaging")
+	staging.scene_visible.connect(_on_scene_visible)
+
+
+func _on_scene_visible(_scene: Variant, _user_data: Variant) -> void:
+	animation_player.play("dialog_1")
 
 
 func _on_animation_finished(anim_name: StringName) -> void:

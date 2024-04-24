@@ -111,23 +111,23 @@ freeze = true
 
 [node name="FireplaceSnapZone" parent="Interactables" index="4" instance=ExtResource("7_h8hgi")]
 transform = Transform3D(-0.699726, 0, 0.714412, 0, 1, 0, -0.714412, 0, -0.699726, -0.733034, 1.4407, 3.36832)
-initial_object = NodePath("../NautilusShell")
+initial_object = NodePath("NautilusShell")
+
+[node name="NautilusShell" parent="Interactables/FireplaceSnapZone" index="2" instance=ExtResource("8_dnesd")]
+transform = Transform3D(1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0)
+
+[node name="ReturnToSnapZone" parent="Interactables/FireplaceSnapZone/NautilusShell" index="4" instance=ExtResource("10_s6swv")]
+snap_zone_path = NodePath("../..")
+return_delay = 3.0
 
 [node name="TVSnapZone" parent="Interactables" index="5" instance=ExtResource("7_h8hgi")]
 transform = Transform3D(-0.586641, 0, -0.809847, 0, 1, 0, 0.809847, 0, -0.586641, -2.6703, 1.0926, -0.193725)
 
-[node name="NautilusShell" parent="Interactables" index="6" instance=ExtResource("8_dnesd")]
-transform = Transform3D(-0.699726, 0, 0.714412, 0, 1, 0, -0.714412, 0, -0.699726, -0.733034, 1.4407, 3.36832)
+[node name="CarKeys" parent="Interactables/TVSnapZone" index="2" instance=ExtResource("9_nax6b")]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
 
-[node name="ReturnToSnapZone" parent="Interactables/NautilusShell" index="4" instance=ExtResource("10_s6swv")]
-snap_zone_path = NodePath("../../FireplaceSnapZone")
-return_delay = 3.0
-
-[node name="CarKeys" parent="Interactables" index="7" instance=ExtResource("9_nax6b")]
-transform = Transform3D(-0.586641, 0, -0.809847, 0, 1, 0, 0.809847, 0, -0.586641, -2.6703, 1.0926, -0.193725)
-
-[node name="ReturnToSnapZone" parent="Interactables/CarKeys" index="4" instance=ExtResource("10_s6swv")]
-snap_zone_path = NodePath("../../TVSnapZone")
+[node name="ReturnToSnapZone" parent="Interactables/TVSnapZone/CarKeys" index="4" instance=ExtResource("10_s6swv")]
+snap_zone_path = NodePath("../..")
 return_delay = 3.0
 
 [editable path="Interactables/InteractableEndTable3"]

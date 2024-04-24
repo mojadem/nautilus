@@ -95,14 +95,13 @@ _data = {
 [node name="LivingRoom" instance=ExtResource("1_vawkh")]
 script = ExtResource("2_j4sgx")
 
+[node name="XROrigin3D" parent="." index="1"]
+transform = Transform3D(-0.999997, 0, -0.00214668, 0, 1, 0, 0.00214668, 0, -0.999997, -0.0816382, -0.0336731, -0.3)
+
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
 
-[node name="FuneralCard" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/SnapZone" index="2"]
-transform = Transform3D(1, -5.29396e-23, -2.98023e-08, -5.29396e-23, 1, 2.64698e-23, 2.98023e-08, 5.29396e-23, 1, 0, 0, 0)
-
 [node name="Phone" parent="Interactables/Phone" index="1"]
-transform = Transform3D(1, 0, 2.98023e-08, 0, 0.939693, -0.34202, -2.98023e-08, 0.34202, 0.939693, -0.0472336, 0.0381644, 0.0189884)
 collision_layer = 65536
 collision_mask = 0
 
