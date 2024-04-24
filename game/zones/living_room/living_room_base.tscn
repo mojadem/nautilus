@@ -132,3 +132,5 @@ return_delay = 3.0
 
 [editable path="Interactables/InteractableEndTable3"]
 [editable path="Interactables/Phone"]
+[editable path="Interactables/FireplaceSnapZone/NautilusShell"]
+[editable path="Interactables/FireplaceSnapZone/NautilusShell/nautilus_shell"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://c6bmot722qrlj"]
+[gd_scene load_steps=30 format=3 uid="uid://c6bmot722qrlj"]
 
 [ext_resource type="PackedScene" uid="uid://dqxtx5wdq7tuf" path="res://game/components/character/character.tscn" id="1_8q8t3"]
 [ext_resource type="PackedScene" uid="uid://jxxw5ypt1e1o" path="res://assets/models/characters/imports/character_youngchild_male.glb" id="2_e06re"]
@@ -11,6 +11,7 @@
 [ext_resource type="Animation" uid="uid://7awq00rjj7cv" path="res://assets/models/characters/animations/Swim_YoungChild_male.res" id="8_fuklq"]
 [ext_resource type="Animation" uid="uid://ddkyc2wux4t2h" path="res://assets/models/characters/animations/Wave_YoungAdult_female.res" id="9_rnsne"]
 [ext_resource type="Animation" uid="uid://umse44ou7mer" path="res://assets/models/characters/animations/RESET.res" id="10_s8it6"]
+[ext_resource type="Animation" uid="uid://dikryueonxxrf" path="res://assets/models/characters/animations/HeadTurnUp.res" id="12_q7v8s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r756r"]
 resource_name = "character_expression"
@@ -22,6 +23,7 @@ texture_filter = 2
 _data = {
 "HeadTurnLeft": ExtResource("3_mdx1l"),
 "HeadTurnRight": ExtResource("4_whp0p"),
+"HeadTurnUp": ExtResource("12_q7v8s"),
 "Idle_YoungChild_male": ExtResource("5_08o1q"),
 "RESET": ExtResource("10_s8it6"),
 "Swim_YoungChild_male": ExtResource("8_fuklq"),
@@ -33,6 +35,10 @@ _data = {
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n85wy"]
 radius = 0.2
 height = 1.5
+
+[sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_8ynk0"]
+filter_enabled = true
+filters = ["%GeneralSkeleton:Head", "%GeneralSkeleton:Neck"]
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_gljqs"]
 filter_enabled = true
@@ -49,6 +55,9 @@ animation = &"Swim_YoungChild_male"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wmfjp"]
 animation = &"Wave_YoungAdult_female"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wjttm"]
+animation = &"HeadTurnUp"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jcbyd"]
 animation = &"Idle_YoungChild_male"
@@ -85,9 +94,11 @@ fadein_time = 0.25
 fadeout_time = 0.25
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_aowvs"]
-graph_offset = Vector2(-425.154, -128.81)
+graph_offset = Vector2(-379.503, -42.8907)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_gljqs")
 nodes/Add2/position = Vector2(210, 140)
+"nodes/Add2 2/node" = SubResource("AnimationNodeAdd2_8ynk0")
+"nodes/Add2 2/position" = Vector2(-170, 390)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_jcbyd")
 nodes/Animation/position = Vector2(-550, -150)
 "nodes/Animation 2/node" = SubResource("AnimationNodeAnimation_rw7r6")
@@ -95,9 +106,11 @@ nodes/Animation/position = Vector2(-550, -150)
 "nodes/Animation 3/node" = SubResource("AnimationNodeAnimation_7ec8i")
 "nodes/Animation 3/position" = Vector2(-330, 250)
 "nodes/Animation 4/node" = SubResource("AnimationNodeAnimation_5atd0")
-"nodes/Animation 4/position" = Vector2(-300, 390)
+"nodes/Animation 4/position" = Vector2(-420, 390)
 "nodes/Animation 5/node" = SubResource("AnimationNodeAnimation_wmfjp")
 "nodes/Animation 5/position" = Vector2(-540, -20)
+"nodes/Animation 6/node" = SubResource("AnimationNodeAnimation_wjttm")
+"nodes/Animation 6/position" = Vector2(-390, 530)
 nodes/HeadTurn/node = SubResource("AnimationNodeBlendSpace1D_k6acu")
 nodes/HeadTurn/position = Vector2(30, 310)
 nodes/State/node = SubResource("AnimationNodeTransition_6mfp6")
@@ -105,7 +118,7 @@ nodes/State/position = Vector2(-20, 50)
 nodes/Wave/node = SubResource("AnimationNodeOneShot_mtl1e")
 nodes/Wave/position = Vector2(-230, -110)
 nodes/output/position = Vector2(440, 190)
-node_connections = [&"Add2", 0, &"State", &"Add2", 1, &"HeadTurn", &"State", 0, &"Wave", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Animation 4", &"Wave", 0, &"Animation", &"Wave", 1, &"Animation 5", &"output", 0, &"Add2"]
+node_connections = [&"Add2", 0, &"State", &"Add2", 1, &"HeadTurn", &"Add2 2", 0, &"Animation 4", &"Add2 2", 1, &"Animation 6", &"State", 0, &"Wave", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Add2 2", &"Wave", 0, &"Animation", &"Wave", 1, &"Animation 5", &"output", 0, &"Add2"]
 
 [node name="CaseyYoung" node_paths=PackedStringArray("mesh", "nav") instance=ExtResource("1_8q8t3")]
 mesh = NodePath("character_youngchild_male2/character_rig_youngchild_male/GeneralSkeleton/character_youngchild_male")
@@ -167,7 +180,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.75, 2.08165e-1
 shape = SubResource("CapsuleShape3D_n85wy")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.853245, -0.00615344, 0.521474, -0.0839934, 0.985255, 0.149058, -0.514702, -0.170983, 0.840147, -0.069429, 1.1527, -0.0862478)
+transform = Transform3D(0.997617, -0.016476, 0.0669919, -0.0118221, 0.915871, 0.401299, -0.0679677, -0.401135, 0.913494, -0.0106159, 1.12331, -0.118533)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -183,6 +196,7 @@ root_node = NodePath("../character_youngchild_male2")
 tree_root = SubResource("AnimationNodeBlendTree_aowvs")
 anim_player = NodePath("../character_youngchild_male2/AnimationPlayer")
 parameters/Add2/add_amount = 1.0
+"parameters/Add2 2/add_amount" = 1.0
 parameters/HeadTurn/blend_position = 2.08165e-12
 parameters/State/current_state = "idle"
 parameters/State/transition_request = ""

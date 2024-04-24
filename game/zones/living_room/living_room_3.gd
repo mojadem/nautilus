@@ -25,7 +25,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			shell_highlight.enabled = true
 		"dialog_2":
 			shell_highlight.enabled = false
-			
+
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
 			var target = "res://game/zones/forest_lake/forest_lake.tscn"
 			scene_base.load_scene(target)

@@ -103,7 +103,7 @@ func navigate(delta) -> void:
 	direction = direction.normalized()
 
 	look_at(global_position + direction, Vector3.UP, true)
-	
+
 	speed = lerpf(speed, max_speed, delta * 4)
 	velocity = direction * speed
 

@@ -6,6 +6,7 @@ extends XRToolsSceneBase
 @onready var top_cliff: Area3D = $Areas/TopCliff
 @onready var ear_area: Area3D = $XROrigin3D/XRCamera3D/EarArea
 @onready var water_area: Area3D = $Areas/WaterArea
+@onready var cliff_barrier: CollisionShape3D = $"NavigationRegion3D/forest_lake/cliff-barrier/CollisionShape3D"
 
 @onready var cliff_snap_zone: XRToolsSnapZone = $Interactables/CliffSnapZone
 @onready var shell: XRToolsPickable = $Interactables/CliffSnapZone/NautilusShell
@@ -54,7 +55,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		"dialog_3":
 			pat_anim_tree.set("parameters/State/transition_request", "start_hand_over")
 		"dialog_4":
-			pass
+			ear_area.set_deferred("monitoring", true)
 		"dialog_5":
 			pass
 		"dialog_6":
@@ -66,12 +67,13 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			play_next_dialog()
 		"dialog_8":
 			awaiting_jump = true
+			cliff_barrier.disabled = true
 
 func play_next_dialog():
 	match current_dialog:
 		2:
 			casey.physics_enabled = false
-	
+
 	animation_player.play("dialog_%s" % current_dialog)
 
 
@@ -81,7 +83,9 @@ func _on_bottom_cliff_entered(_body: Node3D):
 
 
 func _on_top_cliff_entered(_body: Node3D):
-	assert(current_dialog == 3)
+	assert(current_dialog <= 3)
+	if current_dialog < 3:
+		current_dialog = 3
 	play_next_dialog()
 	top_cliff.set_deferred("monitoring", false)
 
@@ -106,6 +110,8 @@ func _on_pat_hand_has_dropped() -> void:
 func _on_ear_area_body_entered(body: Node3D):
 	assert(body.is_in_group("shell"))
 
+
+	ear_area.set_deferred("monitoring", false)
 	play_next_dialog()
 
 func _on_pat_visibility_screen_entered() -> void:
