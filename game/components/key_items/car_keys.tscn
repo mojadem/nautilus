@@ -29,8 +29,8 @@ shape = SubResource("ConvexPolygonShape3D_oqy8d")
 
 [node name="car_keys" parent="." index="1" instance=ExtResource("7_nggsd")]
 
-[node name="HighlightComponent" parent="car_keys/metal" index="0" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("8_ebns2")]
-parent_mesh = NodePath("..")
+[node name="HighlightComponent" parent="car_keys/metal" index="0" node_paths=PackedStringArray("mesh") instance=ExtResource("8_ebns2")]
+mesh = NodePath("..")
 
 [node name="GrabPointHandLeft" parent="." index="2" instance=ExtResource("2_agwxi")]
 transform = Transform3D(1, 0, 0, 0, 0.937367, 0.348343, 0, -0.348343, 0.937367, -0.0191949, -0.000343986, -0.0558596)

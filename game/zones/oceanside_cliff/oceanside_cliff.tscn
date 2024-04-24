@@ -148,7 +148,7 @@ tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_jyj2x"]
 resource_name = "dialog_2"
-length = 20.0
+length = 76.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -538,7 +538,7 @@ shadow_enabled = true
 environment = SubResource("Environment_aj2lf")
 
 [node name="XROrigin3D" parent="." index="2"]
-transform = Transform3D(-0.0876075, 0, -0.996155, 0, 1, 0, 0.996155, 0, -0.0876075, 8.11489, 14.5091, 3.64944)
+transform = Transform3D(-0.500816, 0, -0.865554, 0, 1, 0, 0.865554, 0, -0.500816, 7.32898, 14.5091, 2.1847)
 
 [node name="XRCamera3D" parent="XROrigin3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.262119, -0.23827, 1.57943)
@@ -571,29 +571,34 @@ collision_mask = 524288
 [node name="car" parent="NavigationRegion3D" index="1" instance=ExtResource("22_v47eq")]
 transform = Transform3D(-0.835855, 0, -0.54895, 0, 1, 0, 0.54895, 0, -0.835855, -13.7161, 15.5232, 7.59081)
 
-[node name="HighlightComponent" parent="NavigationRegion3D/car/Body" index="1" instance=ExtResource("11_630s3")]
+[node name="HighlightComponent" parent="NavigationRegion3D/car/Body" index="1" node_paths=PackedStringArray("mesh") instance=ExtResource("11_630s3")]
+mesh = NodePath("..")
 
-[node name="HighlightComponent" parent="NavigationRegion3D/car/KeyHole" index="0" instance=ExtResource("11_630s3")]
+[node name="HighlightComponent" parent="NavigationRegion3D/car/KeyHole" index="0" node_paths=PackedStringArray("mesh") instance=ExtResource("11_630s3")]
+mesh = NodePath("..")
 
 [node name="car2" parent="NavigationRegion3D" index="2" instance=ExtResource("4_5y54i")]
 transform = Transform3D(-0.993745, 0, -0.111677, 0, 1, 0, 0.111677, 0, -0.993745, -18.1047, 15.5375, 7.98195)
 
 [node name="Characters" type="Node" parent="." index="5"]
 
-[node name="CaseyAdult" parent="Characters" index="0" node_paths=PackedStringArray("player") instance=ExtResource("3_qb4xw")]
+[node name="CaseyAdult" parent="Characters" index="0" node_paths=PackedStringArray("player", "nav") instance=ExtResource("3_qb4xw")]
 transform = Transform3D(0.280415, 0, 0.959879, 0, 1, 0, -0.959879, 0, 0.280415, 6.54569, 14.5313, 3.59415)
 velocity = Vector3(0, 0, 0)
 player = NodePath("../../XROrigin3D/PlayerBody")
 look_at_player = true
+nav = NodePath("NavigationAgent3D")
 
 [node name="GeneralSkeleton" parent="Characters/CaseyAdult/character_youngadult_male2/character_rig_youngadult_male" index="0"]
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="Characters/CaseyAdult" index="2"]
-transform = Transform3D(0.957631, -0.0125978, -0.287724, -0.00916742, 0.997203, -0.0741739, 0.287854, 0.0736689, 0.954837, 0.0724685, 0.984603, -0.673574)
+transform = Transform3D(0.996466, -0.0608898, -0.0578608, 0.0622336, 0.997825, 0.0217111, 0.056413, -0.0252353, 0.998089, -0.0164076, 1.40012, -0.160491)
 
-[node name="AnimationTree" parent="Characters/CaseyAdult" index="3"]
+[node name="AnimationTree" parent="Characters/CaseyAdult" index="4"]
+parameters/State/current_state = "idle"
 parameters/State/transition_request = "sit"
+parameters/State/current_index = 2
 
 [node name="PatAdult" parent="Characters" index="1" node_paths=PackedStringArray("player") instance=ExtResource("4_28525")]
 transform = Transform3D(-0.656848, 0, 0.754021, 0, 1, 0, -0.754021, 0, -0.656848, -15.1132, 14.9453, 8.8827)
@@ -605,16 +610,20 @@ player = NodePath("../../XROrigin3D/PlayerBody")
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="Characters/PatAdult" index="2"]
-transform = Transform3D(0.940579, 0.120238, -0.317576, -0.221804, 0.925684, -0.306452, 0.257128, 0.358681, 0.897348, 0.0171642, 1.26957, -0.155539)
+transform = Transform3D(0.956508, 0.038641, -0.289135, -0.131664, 0.941667, -0.309722, 0.260301, 0.33432, 0.9058, 0.0175214, 1.26722, -0.155525)
 
 [node name="PatDialog" parent="Characters/PatAdult/Mouth" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160913, 0.00362396, 0.247843)
 
 [node name="RightHand" parent="Characters/PatAdult" index="3"]
-transform = Transform3D(0.6327, -0.222112, 0.741861, 0.686991, 0.603116, -0.405332, -0.357399, 0.766105, 0.53418, -0.133811, 0.877724, 0.0310974)
+transform = Transform3D(0.632456, -0.221933, 0.742122, 0.687058, 0.603159, -0.405154, -0.357701, 0.766123, 0.533953, -0.133385, 0.877726, 0.0311508)
 
 [node name="SnapZone" parent="Characters/PatAdult/RightHand" index="0"]
 enabled = false
+
+[node name="AnimationTree" parent="Characters/PatAdult" index="5"]
+parameters/State/current_state = "idle"
+parameters/State/current_index = 0
 
 [node name="Interactables" type="Node" parent="." index="6"]
 
@@ -633,7 +642,7 @@ return_delay = 3.0
 transform = Transform3D(2.10748e-08, 0.482136, 0.876096, 1, -4.37114e-08, 8.54035e-16, 3.82954e-08, 0.876096, -0.482136, -12.8596, 16.0393, 5.7724)
 
 [node name="RockPile" parent="Interactables" index="2" instance=ExtResource("13_l8ouw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59543, 14.5489, 4.45513)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66793, 14.5489, 5.28145)
 
 [node name="Markers" type="Node" parent="." index="7"]
 
@@ -641,13 +650,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.59543, 14.5489, 4.45513)
 transform = Transform3D(-0.358123, 0, 0.933674, 0, 1, 0, -0.933674, 0, -0.358123, 6.0976, 14.7323, 5.52229)
 
 [node name="Pat2" type="Marker3D" parent="Markers" index="1"]
-transform = Transform3D(0.512838, 0, 0.858486, 0, 1, 0, -0.858486, 0, 0.512838, 7.98148, 14.7178, 2.88467)
+transform = Transform3D(0.873374, 0, 0.487052, 0, 1, 0, -0.487052, 0, 0.873374, 8.60912, 14.7178, 3.10386)
 
 [node name="Pat3" type="Marker3D" parent="Markers" index="2"]
-transform = Transform3D(0.109248, 0, -0.994015, 0, 1, 0, 0.994015, 0, 0.109248, 2.97014, 14.7323, 4.84514)
+transform = Transform3D(-0.31762, 0, -0.948219, 0, 1, 0, 0.948219, 0, -0.31762, 3.51919, 14.7323, 6.735)
 
 [node name="Casey1" type="Marker3D" parent="Markers" index="3"]
-transform = Transform3D(0.338426, 0, -0.940993, 0, 1, 0, 0.940993, 0, 0.338426, 5.82398, 14.7323, 0.945664)
+transform = Transform3D(0.744032, 0, 0.668144, 0, 1, 0, -0.668144, 0, 0.744032, 7.38734, 14.7323, 4.26051)
+
+[node name="Casey2" type="Marker3D" parent="Markers" index="4"]
+transform = Transform3D(0.0946992, 0, -0.995506, 0, 1, 0, 0.995506, 0, 0.0946992, 4.44807, 14.7323, 5.21945)
 
 [node name="Sounds" type="Node" parent="." index="8"]
 

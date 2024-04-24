@@ -17,7 +17,6 @@ extends XRToolsSceneBase
 
 @onready var casey: Character = $Characters/CaseyAdult
 @onready var pat: Character = $Characters/PatAdult
-@onready var pat_anim_tree: AnimationTree = $Characters/PatAdult/AnimationTree
 @onready var pat_hand: XRToolsSnapZone = $Characters/PatAdult/RightHand/SnapZone
 @onready var pat_navigation: NavigationAgent3D = $Characters/PatAdult/NavigationAgent3D
 
@@ -44,24 +43,21 @@ func _on_scene_visible(_scene: Variant, _user_data: Variant) -> void:
 
 
 func _on_animation_finished(anim_name: StringName) -> void:
-	print(anim_name)
 	current_dialog += 1
 	match anim_name:
 		"dialog_1":
-			#await_rock()
-			play_next_dialog()
+			await_rock()
 		"dialog_2":
-			#await_rock()
-			play_next_dialog()
+			await_rock()
 		"dialog_3":
-			#await_rock()
-			play_next_dialog()
+			await_rock()
 		"dialog_4":
-			pat_anim_tree.set("parameters/State/transition_request", "hand_over")
+			pat.set_animation_state("hand_over")
 			keys.visible = true
 			key_highlight.enabled = true
 			awaiting_key_pickup = true
-			
+			pat_hand.enabled = true
+			pat.rotate_to_player()
 		"dialog_5":
 			car_area.monitoring = true
 			car_highlight.enabled = true
@@ -79,6 +75,9 @@ func play_next_dialog() -> void:
 		4:
 			var target: Marker3D = $Markers/Pat2
 			pat.nav_target = target
+		6:
+			pat.rotate_to_player()
+			casey.rotate_to_player()
 
 	animation_player.play("dialog_%s" % current_dialog)
 
@@ -126,8 +125,11 @@ func _on_car_area_entered(body: Node3D) -> void:
 
 	car_highlight.enabled = false
 	keyhole_highlight.enabled = true
+	
+	casey.global_position = $Markers/Casey1.global_position
+	casey.physics_enabled = true
 
-	var casey_target = $Markers/Casey1
+	var casey_target = $Markers/Casey2
 	var pat_target = $Markers/Pat3
 
 	casey.nav_target = casey_target

@@ -18,7 +18,8 @@ var nav_target: Marker3D: set = _on_set_nav_target
 var anim_tree: AnimationTree
 
 var gravity: float = ProjectSettings.get_setting("physics/3d/default_gravity")
-var speed := 1.3
+var speed := 0.0
+var max_speed := 1.3
 
 
 func _on_set_expression(value: int) -> void:
@@ -35,6 +36,7 @@ func _on_set_expression(value: int) -> void:
 func _on_set_nav_target(value: Marker3D) -> void:
 	nav_target = value
 	navigating = true
+	set_animation_state("walk")
 
 
 func _ready() -> void:
@@ -56,9 +58,7 @@ func _physics_process(delta: float) -> void:
 	velocity = Vector3.ZERO
 
 	if navigating:
-		navigate()
-
-	check_state()
+		navigate(delta)
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -89,11 +89,11 @@ func _on_animation_finished(anim_name: StringName):
 
 
 func _on_navigation_finished() -> void:
-	rotation.y = nav_target.rotation.y
 	navigating = false
+	set_animation_state("idle")
 
 
-func navigate() -> void:
+func navigate(delta) -> void:
 	var direction = Vector3()
 
 	nav.target_position = nav_target.global_position
@@ -103,18 +103,9 @@ func navigate() -> void:
 	direction = direction.normalized()
 
 	look_at(global_position + direction, Vector3.UP, true)
-
+	
+	speed = lerpf(speed, max_speed, delta * 4)
 	velocity = direction * speed
-
-
-func check_state() -> void:
-	var state = anim_tree.get("parameters/State/current_state")
-
-	if navigating and state != "walk":
-		anim_tree.set("parameters/State/transition_request", "walk")
-
-	if not navigating and state != "idle":
-		anim_tree.set("parameters/State/transition_request", "idle")
 
 
 func set_head_turn(delta: float) -> void:
@@ -129,3 +120,11 @@ func set_head_turn(delta: float) -> void:
 	var current_value = anim_tree.get("parameters/HeadTurn/blend_position")
 	var value = lerpf(current_value, angle, delta * 4)
 	anim_tree.set("parameters/HeadTurn/blend_position", value)
+
+
+func set_animation_state(state: String) -> void:
+	anim_tree.set("parameters/State/transition_request", state)
+
+
+func rotate_to_player() -> void:
+	look_at(player.global_position, Vector3.UP, true)
