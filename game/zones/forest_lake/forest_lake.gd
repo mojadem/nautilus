@@ -7,8 +7,9 @@ extends XRToolsSceneBase
 @onready var ear_area: Area3D = $XROrigin3D/XRCamera3D/EarArea
 @onready var water_area: Area3D = $Areas/WaterArea
 
-@onready var shell: XRToolsPickable = $Interactables/NautilusShell
-@onready var shell_highlight: HighlightComponent = $Interactables/NautilusShell/nautilus_shell/shell/HighlightComponent
+@onready var cliff_snap_zone: XRToolsSnapZone = $Interactables/CliffSnapZone
+@onready var shell: XRToolsPickable = $Interactables/CliffSnapZone/NautilusShell
+@onready var shell_highlight: HighlightComponent = $Interactables/CliffSnapZone/NautilusShell/nautilus_shell/shell/HighlightComponent
 
 @onready var casey: Character = $Characters/CaseyYoung
 
@@ -29,7 +30,9 @@ func _ready() -> void:
 	top_cliff.body_entered.connect(_on_top_cliff_entered)
 	pat_anim_tree.animation_finished.connect(_on_pat_animation_finished)
 	pat_hand.has_dropped.connect(_on_pat_hand_has_dropped)
+	ear_area.body_entered.connect(_on_ear_area_body_entered)
 	pat_visibility.screen_entered.connect(_on_pat_visibility_screen_entered)
+	water_area.body_entered.connect(_on_water_area_body_entered)
 
 	var staging: XRToolsStaging = XRTools.find_xr_ancestor(self, "*", "XRToolsStaging")
 	staging.scene_visible.connect(_on_scene_visible)
@@ -65,23 +68,30 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			awaiting_jump = true
 
 func play_next_dialog():
+	match current_dialog:
+		2:
+			casey.physics_enabled = false
+	
 	animation_player.play("dialog_%s" % current_dialog)
 
 
-func _on_bottom_cliff_entered(body: Node3D):
+func _on_bottom_cliff_entered(_body: Node3D):
 	play_next_dialog()
-	bottom_cliff.monitoring = false
+	bottom_cliff.set_deferred("monitoring", false)
 
 
-func _on_top_cliff_entered(body: Node3D):
+func _on_top_cliff_entered(_body: Node3D):
 	assert(current_dialog == 3)
 	play_next_dialog()
-	top_cliff.monitoring = false
+	top_cliff.set_deferred("monitoring", false)
 
 
 func _on_pat_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "HandOverStart_YoungAdult_female":
+		cliff_snap_zone.enabled = true
+		cliff_snap_zone.drop_object()
 		pat_hand.pick_up_object(shell)
+		shell.visible = true
 		awaiting_shell_pickup = true
 		shell_highlight.enabled = true
 
@@ -105,7 +115,7 @@ func _on_pat_visibility_screen_entered() -> void:
 	awaiting_pat_visibility = false
 	play_next_dialog()
 
-func _on_water_area_body_entered(body: Node3D) -> void:
+func _on_water_area_body_entered(_body: Node3D) -> void:
 	assert(awaiting_jump)
 
 	var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")

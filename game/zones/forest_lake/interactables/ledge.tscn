@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://doiiadvica8ko"]
+
+[ext_resource type="PackedScene" uid="uid://cjyilbm4ucc7s" path="res://addons/godot-xr-tools/objects/climbable.tscn" id="1_wgsuy"]
+[ext_resource type="PackedScene" uid="uid://cvbh3tc200pds" path="res://assets/models/zones/forest_lake/ledge.blend" id="2_a3dwf"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4w6vr"]
+size = Vector3(0.0915527, 0.081543, 0.0780029)
+
+[node name="Ledge" instance=ExtResource("1_wgsuy")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0109863, -0.00281927)
+shape = SubResource("BoxShape3D_4w6vr")
+
+[node name="ledge" parent="." index="1" instance=ExtResource("2_a3dwf")]
