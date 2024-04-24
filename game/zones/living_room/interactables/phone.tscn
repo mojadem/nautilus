@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://c1gb5c3hi4xlw"]
+[gd_scene load_steps=52 format=3 uid="uid://c1gb5c3hi4xlw"]
 
 [ext_resource type="ArrayMesh" uid="uid://byo17brqjj3fb" path="res://bin/phone_phone-box.res" id="1_ccwgm"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_4l8tc"]
@@ -16,9 +16,13 @@
 [ext_resource type="ArrayMesh" uid="uid://caqk84fco87b3" path="res://bin/phone_0-button.res" id="13_3wp5n"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/return_to_snap_zone.gd" id="13_i1w3k"]
 [ext_resource type="ArrayMesh" uid="uid://sb6vfjult540" path="res://bin/phone_1-button.res" id="14_p6i54"]
+[ext_resource type="PackedScene" uid="uid://dc5t2qgmhb2nf" path="res://addons/godot-xr-tools/objects/hand_pose_area.tscn" id="14_ymptq"]
+[ext_resource type="Animation" uid="uid://cevirj0eagdrq" path="res://addons/godot-xr-tools/hands/animations/left/Sign 1.res" id="15_0klcn"]
 [ext_resource type="ArrayMesh" uid="uid://bw1atkvjn10dy" path="res://bin/phone_2-button.res" id="15_26l30"]
+[ext_resource type="Animation" uid="uid://bcwx6a6mhsoj2" path="res://addons/godot-xr-tools/hands/animations/right/Sign 1.res" id="16_qmdyx"]
 [ext_resource type="ArrayMesh" uid="uid://6kmbegtfvocq" path="res://bin/phone_3-button.res" id="16_x0u0o"]
 [ext_resource type="ArrayMesh" uid="uid://cmm8one52khxo" path="res://bin/phone_4-button.res" id="17_02878"]
+[ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="17_lwmge"]
 [ext_resource type="ArrayMesh" uid="uid://c017cdfdepjy6" path="res://bin/phone_5-button.res" id="18_0dv8v"]
 [ext_resource type="ArrayMesh" uid="uid://l4ecbpn34xjc" path="res://bin/phone_6-button.res" id="19_os0tu"]
 [ext_resource type="ArrayMesh" uid="uid://k1ccvmwkv8dd" path="res://bin/phone_7-button.res" id="20_rkrst"]
@@ -48,6 +52,49 @@ closed_pose = ExtResource("9_rgxxh")
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_iiuat"]
 
+[sub_resource type="Resource" id="Resource_ypfsw"]
+script = ExtResource("7_kc373")
+open_pose = ExtResource("15_0klcn")
+closed_pose = ExtResource("15_0klcn")
+
+[sub_resource type="Resource" id="Resource_qvbk2"]
+script = ExtResource("7_kc373")
+open_pose = ExtResource("16_qmdyx")
+closed_pose = ExtResource("16_qmdyx")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_wagt5"]
+radius = 0.063274
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1x310"]
+points = PackedVector3Array(0.0318012, 0.0136147, 0.0664253, 0.0318012, 0.00634417, 0.0841861, 0.0318012, 0.0169002, 0.0677701, 0.0513838, 0.0136147, 0.0664253, 0.0318012, 0.00962973, 0.0855309, 0.0513857, 0.00634417, 0.0841861, 0.0513838, 0.00962973, 0.0855328, 0.0332677, 0.0115432, 0.0847304, 0.0332677, 0.0177019, 0.0696835, 0.0499173, 0.017703, 0.0696835, 0.0513838, 0.0169002, 0.0677701, 0.0499173, 0.0115432, 0.0847304, 0.037073, 0.0147788, 0.07712, 0.0371171, 0.015099, 0.0763475, 0.0427974, 0.0126106, 0.0824673, 0.0420631, 0.0125862, 0.0825122, 0.0413308, 0.0126017, 0.0824598, 0.0406464, 0.0126562, 0.0823176, 0.0394272, 0.0128686, 0.081779, 0.0389019, 0.0130231, 0.0813974, 0.0380316, 0.0134156, 0.0804305, 0.0376942, 0.0136491, 0.07986, 0.0372322, 0.0141806, 0.0785695, 0.0372417, 0.0153925, 0.0756387, 0.037443, 0.0156716, 0.0749709, 0.0377191, 0.0159318, 0.0743481, 0.0380642, 0.0161708, 0.0737758, 0.0384744, 0.0163865, 0.0732614, 0.0389479, 0.0165778, 0.0728107, 0.0394809, 0.0167401, 0.072431, 0.0400675, 0.0168713, 0.0721243, 0.0407059, 0.0169691, 0.0718998, 0.0413922, 0.0170325, 0.0717614, 0.0421226, 0.017057, 0.0717165, 0.0428472, 0.0170414, 0.071767, 0.0464838, 0.015994, 0.0743687, 0.0467541, 0.0157383, 0.0749915, 0.0469516, 0.0154626, 0.0756592, 0.0470724, 0.0151713, 0.0763662, 0.0435278, 0.0169869, 0.0719111, 0.0441623, 0.016898, 0.0721392, 0.0447432, 0.0167746, 0.0724478, 0.0452703, 0.01662, 0.0728313, 0.0457381, 0.0164377, 0.073282, 0.0461445, 0.0162275, 0.0737964, 0.0447125, 0.0129042, 0.0817977, 0.044124, 0.0127719, 0.0821044, 0.0434856, 0.012674, 0.0823289, 0.0471107, 0.0148522, 0.0771387, 0.0470685, 0.0145442, 0.0778793, 0.0469439, 0.0142506, 0.0785882, 0.0467446, 0.0139716, 0.0792578, 0.0464704, 0.0137114, 0.0798806, 0.0461273, 0.0134723, 0.080451, 0.045717, 0.0132566, 0.0809654, 0.0452435, 0.0130654, 0.0814161)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gy8yp"]
+points = PackedVector3Array(0.0061148, 0.0437568, -0.00868903, 0.0061148, 0.0364863, 0.00907174, 0.0061148, 0.0470424, -0.00734426, 0.0256975, 0.0437568, -0.00868903, 0.0061148, 0.0397719, 0.0104165, 0.0256994, 0.0364863, 0.00907174, 0.0256975, 0.0397719, 0.0104184, 0.00758135, 0.0416854, 0.00961601, 0.00758135, 0.047844, -0.0054309, 0.0242309, 0.0478451, -0.0054309, 0.0256975, 0.0470424, -0.00734426, 0.0242309, 0.0416854, 0.00961601, 0.0176286, 0.0427061, 0.00764654, 0.0151767, 0.0426916, 0.00763532, 0.0132251, 0.0458838, -0.000113513, 0.0127133, 0.0466577, -0.00199508, 0.0159589, 0.0470479, -0.00287227, 0.0176535, 0.0470579, -0.00286479)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_l1pv1"]
+points = PackedVector3Array(0.032354, 0.0440744, -0.00820111, 0.032354, 0.0368039, 0.00955967, 0.032354, 0.04736, -0.00685633, 0.0519366, 0.0440744, -0.00820111, 0.032354, 0.0400894, 0.0109044, 0.0519385, 0.0368039, 0.00955967, 0.0519366, 0.0400894, 0.0109063, 0.0338205, 0.042003, 0.0101039, 0.0338205, 0.0481616, -0.00494297, 0.0504701, 0.0481627, -0.00494297, 0.0519366, 0.04736, -0.00685633, 0.0504701, 0.042003, 0.0101039, 0.0466954, 0.0432516, 0.00794369, 0.0382642, 0.0432016, 0.00790254, 0.0382681, 0.043961, 0.00606774, 0.038431, 0.0467206, -0.000594423, 0.0387128, 0.0468629, -0.000932955, 0.0389946, 0.0469941, -0.0012453, 0.0392841, 0.0471131, -0.00152772, 0.0395812, 0.047221, -0.00178209, 0.0398918, 0.0473177, -0.0020084, 0.0402177, 0.0474022, -0.00220666, 0.0405609, 0.0474745, -0.00237499, 0.040927, 0.0475345, -0.00251152, 0.04132, 0.0475823, -0.00262, 0.0417418, 0.0476168, -0.00269669, 0.0421942, 0.047639, -0.00274158, 0.0426849, 0.047649, -0.00275467, 0.0465689, 0.0465249, 3.5882e-05, 0.0465996, 0.0463281, 0.00051282, 0.0432581, 0.0476413, -0.00272661, 0.0437949, 0.0476124, -0.00264619, 0.0442934, 0.0475634, -0.00251714, 0.0447496, 0.0474945, -0.00234132, 0.0451618, 0.0474055, -0.00211875, 0.0455298, 0.0472999, -0.00185503, 0.0458462, 0.0471765, -0.00155017, 0.0461107, 0.0470364, -0.0012079, 0.0463216, 0.0468807, -0.000826346, 0.046475, 0.0467095, -0.000413, 0.0467012, 0.0440799, 0.00594242, 0.0455835, 0.0452897, 0.00300225, 0.0415232, 0.0466839, -0.000444796)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_scja2"]
+points = PackedVector3Array(0.058151, 0.0442483, -0.0076888, 0.058151, 0.0369778, 0.0100719, 0.058151, 0.0475339, -0.00634403, 0.0777336, 0.0442483, -0.0076888, 0.058151, 0.0402634, 0.0114166, 0.0777336, 0.0369778, 0.0100719, 0.0777355, 0.0402634, 0.0114185, 0.0596176, 0.0421769, 0.0106161, 0.0596176, 0.0483356, -0.00443068, 0.0762671, 0.0483367, -0.00443068, 0.0777336, 0.0475339, -0.00634403, 0.0762671, 0.0421769, 0.0106161, 0.0678398, 0.0432921, 0.0087907, 0.0673797, 0.0432943, 0.00877386, 0.0669426, 0.0433099, 0.00872898, 0.0665304, 0.0433355, 0.00865977, 0.0661393, 0.0433711, 0.00856626, 0.0657713, 0.0434166, 0.00844843, 0.0654243, 0.0434711, 0.00830815, 0.0650965, 0.0435345, 0.00814917, 0.0647897, 0.0436068, 0.00796962, 0.0645022, 0.0436857, 0.00777324, 0.0642338, 0.0437713, 0.00756189, 0.0639846, 0.0438636, 0.00733371, 0.0637507, 0.0439615, 0.00709431, 0.0643853, 0.0473549, -0.00109027, 0.0714764, 0.0473971, -0.0010566, 0.0716259, 0.0446286, 0.00563545, 0.0715952, 0.0444429, 0.00608246, 0.0715071, 0.0442672, 0.00650515, 0.0713614, 0.0441016, 0.00690166, 0.071162, 0.0439481, 0.00726825, 0.0709109, 0.043808, 0.00760304, 0.070608, 0.0436813, 0.00790229, 0.0702571, 0.0435701, 0.00816413, 0.0698603, 0.0434767, 0.00838296, 0.0694175, 0.0434, 0.00855877, 0.0689325, 0.0433433, 0.00868783, 0.0684053, 0.0433066, 0.00876451, 0.0690667, 0.0442683, 0.00645652, 0.0695172, 0.0456882, 0.00303569, 0.0714725, 0.0467322, 0.000550015, 0.0712157, 0.0452401, 0.0041504)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iaqdl"]
+points = PackedVector3Array(0.00626632, 0.0337155, 0.0165309, 0.00626632, 0.026445, 0.0342916, 0.00626632, 0.0370011, 0.0178756, 0.0258489, 0.0337155, 0.0165309, 0.00626632, 0.0297306, 0.0356382, 0.0258489, 0.026445, 0.0342916, 0.00773286, 0.0316441, 0.0348358, 0.00773286, 0.0378027, 0.019789, 0.0243824, 0.0378038, 0.019789, 0.0258489, 0.0370011, 0.0178756, 0.0258489, 0.0297306, 0.0356363, 0.0243824, 0.0316441, 0.0348358, 0.0106583, 0.0338312, 0.0299842, 0.0102576, 0.0345016, 0.028357, 0.0185431, 0.0329472, 0.0322735, 0.0161717, 0.0329328, 0.0322622, 0.0164707, 0.0372868, 0.021751, 0.018568, 0.0372991, 0.0217622, 0.020071, 0.0346595, 0.0281662, 0.0200671, 0.0338879, 0.0300291, 0.0161889, 0.0359826, 0.0248969)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cj868"]
+points = PackedVector3Array(0.031415, 0.0336547, 0.0163787, 0.031415, 0.0263842, 0.0341395, 0.031415, 0.0369403, 0.0177235, 0.0509976, 0.0336547, 0.0163787, 0.031415, 0.0296698, 0.0354842, 0.0509996, 0.0263842, 0.0341395, 0.0509976, 0.0296698, 0.0354861, 0.0328815, 0.0315833, 0.0346837, 0.0328815, 0.037742, 0.0196368, 0.0495311, 0.0377431, 0.0196368, 0.0509976, 0.0369403, 0.0177235, 0.0495311, 0.0315833, 0.0346837, 0.0391139, 0.0327997, 0.0322373, 0.0387611, 0.0328497, 0.0321101, 0.0384218, 0.0329075, 0.0319643, 0.0377834, 0.0330476, 0.0316126, 0.0374824, 0.0331288, 0.0314106, 0.0371949, 0.0332178, 0.0311899, 0.036915, 0.0333123, 0.0309543, 0.0417709, 0.0327052, 0.032516, 0.0411402, 0.0326896, 0.0325403, 0.0406973, 0.0326929, 0.0325272, 0.0402756, 0.0327052, 0.032488, 0.0398711, 0.0327274, 0.0324262, 0.0380173, 0.0370659, 0.0219093, 0.044957, 0.0371082, 0.021943, 0.0454056, 0.0344542, 0.0283638, 0.045442, 0.0342218, 0.0289231, 0.0454401, 0.0342095, 0.028953, 0.0454056, 0.0339883, 0.0294879, 0.0453002, 0.0337815, 0.0299873, 0.0451315, 0.0335891, 0.0304474, 0.0449014, 0.0334134, 0.0308682, 0.04461, 0.0332544, 0.031246, 0.044263, 0.0331132, 0.031579, 0.0438605, 0.0329909, 0.031867, 0.043408, 0.0328875, 0.0321064, 0.0429077, 0.0328052, 0.0322972, 0.0423594, 0.0327441, 0.0324337, 0.0376837, 0.0349345, 0.0270527, 0.0403446, 0.0355304, 0.0256668, 0.0429441, 0.0339872, 0.0294449, 0.0439141, 0.0353726, 0.0261176, 0.0449532, 0.0362754, 0.0239555)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_llxh7"]
+points = PackedVector3Array(0.0580413, 0.0335505, 0.0161149, 0.0580413, 0.02628, 0.0338757, 0.0580413, 0.0368361, 0.0174597, 0.077624, 0.0335505, 0.0161149, 0.0580413, 0.0295655, 0.0352204, 0.0776259, 0.02628, 0.0338757, 0.077624, 0.0295655, 0.0352223, 0.0595079, 0.0314791, 0.0344199, 0.0595079, 0.0376377, 0.019373, 0.0761575, 0.0376388, 0.019373, 0.077624, 0.0368361, 0.0174597, 0.0761575, 0.0314791, 0.0344199, 0.0658437, 0.0326832, 0.0318912, 0.0651766, 0.0328611, 0.0314498, 0.0644213, 0.0331969, 0.0306231, 0.0641241, 0.0334159, 0.0300882, 0.0640014, 0.0335405, 0.0297852, 0.0638941, 0.0336772, 0.0294523, 0.0638059, 0.0338251, 0.0290932, 0.063735, 0.0339874, 0.0287004, 0.0636851, 0.0341631, 0.028274, 0.0636545, 0.0343533, 0.0278139, 0.0636449, 0.0345601, 0.0273145, 0.0636813, 0.0348992, 0.0264972, 0.0688324, 0.0325053, 0.0323794, 0.0682324, 0.0324886, 0.0324074, 0.0678758, 0.0324898, 0.0323981, 0.0675365, 0.0324975, 0.0323719, 0.0672144, 0.032512, 0.0323308, 0.0669115, 0.0325331, 0.0322728, 0.0666221, 0.0325609, 0.0321998, 0.0663498, 0.0325954, 0.0321119, 0.0637829, 0.0352105, 0.0257453, 0.0639516, 0.0355051, 0.0250383, 0.0641874, 0.0357798, 0.0243799, 0.0644922, 0.0360311, 0.0237777, 0.064868, 0.036259, 0.0232353, 0.0653127, 0.036458, 0.0227621, 0.0658284, 0.0366281, 0.02236, 0.066415, 0.036766, 0.0220401, 0.0670745, 0.0368694, 0.0218045, 0.0678068, 0.036935, 0.0216605, 0.0686139, 0.0369606, 0.0216137, 0.0689858, 0.0369595, 0.0216231, 0.0693385, 0.0369506, 0.0216511, 0.0696721, 0.036935, 0.021696, 0.0699884, 0.0369128, 0.0217559, 0.0702913, 0.0368839, 0.0218307, 0.0705788, 0.0368483, 0.0219223, 0.0708568, 0.036806, 0.0220289, 0.0711271, 0.0367582, 0.0221505, 0.0713878, 0.0367037, 0.022287, 0.0716428, 0.0366437, 0.0224367, 0.0718959, 0.0365781, 0.0226012, 0.0721451, 0.0365069, 0.0227789, 0.072517, 0.0342376, 0.0282665, 0.0725496, 0.0340086, 0.0288201, 0.0725112, 0.033794, 0.0293382, 0.0723981, 0.0335905, 0.0298264, 0.0722179, 0.0334015, 0.0302809, 0.0719744, 0.0332258, 0.0306998, 0.0716696, 0.0330657, 0.0310795, 0.0713092, 0.0329234, 0.031418, 0.070899, 0.0327989, 0.0317098, 0.0704408, 0.0326932, 0.0319567, 0.0699424, 0.0326087, 0.0321512, 0.0694037, 0.0325454, 0.0322933, 0.0666259, 0.0356208, 0.024812, 0.0700651, 0.0338607, 0.0291306, 0.0724154, 0.0344355, 0.0277877)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_t0sa3"]
+points = PackedVector3Array(0.00585583, 0.023198, 0.0409439, 0.00585583, 0.0159276, 0.0587046, 0.00585583, 0.0264836, 0.0422887, 0.0254384, 0.023198, 0.0409439, 0.00585583, 0.0192131, 0.0600512, 0.0254384, 0.0159276, 0.0587046, 0.00732237, 0.0211266, 0.0592489, 0.00732237, 0.0272853, 0.044202, 0.0239719, 0.0272864, 0.044202, 0.0254403, 0.0264836, 0.0422887, 0.0254384, 0.0192131, 0.0600494, 0.0239719, 0.0211266, 0.0592489, 0.0144231, 0.0221162, 0.0570157, 0.0116146, 0.0220995, 0.0570026, 0.0113807, 0.0264191, 0.0465624, 0.0195147, 0.026468, 0.0466035, 0.0195109, 0.025752, 0.0483317)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_vl0y1"]
+points = PackedVector3Array(0.0320954, 0.0235157, 0.0414317, 0.0320954, 0.0162452, 0.0591924, 0.0320954, 0.0268013, 0.0427765, 0.051678, 0.0235157, 0.0414317, 0.0320954, 0.0195307, 0.0605372, 0.051678, 0.0162452, 0.0591924, 0.05168, 0.0195307, 0.060539, 0.033562, 0.0214443, 0.0597367, 0.033562, 0.0276029, 0.0446898, 0.0502115, 0.027604, 0.0446898, 0.051678, 0.0268013, 0.0427765, 0.0502115, 0.0214443, 0.0597367, 0.0412589, 0.0266467, 0.0472653, 0.0402103, 0.0265589, 0.0474579, 0.0397464, 0.0264877, 0.0476206, 0.0386326, 0.0261831, 0.0483351, 0.0435498, 0.0223115, 0.0577803, 0.0440559, 0.0223805, 0.0576232, 0.044932, 0.0225695, 0.0571855, 0.0455991, 0.0228241, 0.0565833, 0.0461378, 0.02332, 0.0553956, 0.0461225, 0.0237636, 0.0543239, 0.0456969, 0.0251724, 0.0509143, 0.0457697, 0.0256627, 0.0497304, 0.0455205, 0.025964, 0.0489972, 0.0450374, 0.0262242, 0.0483594, 0.0439274, 0.0265144, 0.0476375, 0.0429612, 0.0266256, 0.0473494, 0.0407145, 0.0266122, 0.0473382, 0.0418379, 0.02666, 0.0472428, 0.0424187, 0.0266534, 0.0472709, 0.0434654, 0.0265789, 0.047471, 0.0443454, 0.0264321, 0.0478432, 0.0447173, 0.0263354, 0.0480845, 0.0453058, 0.0260997, 0.0486643, 0.0456758, 0.0258172, 0.0493526, 0.0461646, 0.0236491, 0.0546007, 0.046178, 0.0235134, 0.054928, 0.0460266, 0.0231399, 0.0558277, 0.0458445, 0.0229742, 0.0562242, 0.0445179, 0.0224661, 0.0574249, 0.0457544, 0.0252702, 0.0506786)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2ndbp"]
+points = PackedVector3Array(0.0578922, 0.0236894, 0.0419441, 0.0578922, 0.0164189, 0.0597049, 0.0578922, 0.026975, 0.0432889, 0.0774749, 0.0236894, 0.0419441, 0.0578922, 0.0197045, 0.0610496, 0.0774749, 0.0164189, 0.0597049, 0.0774749, 0.0197045, 0.0610515, 0.0593587, 0.021618, 0.0602491, 0.0593587, 0.0277767, 0.0452022, 0.0760083, 0.0277778, 0.0452022, 0.0774749, 0.026975, 0.0432889, 0.0760083, 0.021618, 0.0602491, 0.065407, 0.0230156, 0.057107, 0.0650984, 0.0230557, 0.0570041, 0.064253, 0.0232124, 0.0566076, 0.0637449, 0.0233425, 0.0562821, 0.0635034, 0.0234148, 0.0561026, 0.0632599, 0.0258587, 0.0501979, 0.0632963, 0.0260711, 0.0496836, 0.0686948, 0.0230112, 0.0571799, 0.0679855, 0.02295, 0.0573146, 0.0672129, 0.0229256, 0.0573595, 0.0664326, 0.0229378, 0.0573146, 0.0634037, 0.0262734, 0.0491973, 0.0635782, 0.0264636, 0.0487409, 0.063814, 0.0266403, 0.0483182, 0.0641111, 0.0268027, 0.0479329, 0.0644638, 0.0269483, 0.0475888, 0.0648702, 0.0270762, 0.0472877, 0.0653265, 0.027184, 0.0470333, 0.0658269, 0.0272719, 0.0468313, 0.0663732, 0.0273375, 0.0466835, 0.066956, 0.0273797, 0.0465938, 0.0675771, 0.0273964, 0.0465657, 0.0679433, 0.0273964, 0.0465732, 0.0715378, 0.0265814, 0.0486119, 0.0716796, 0.0264669, 0.0488905, 0.0718023, 0.0263424, 0.0491954, 0.0720017, 0.0260577, 0.0498874, 0.0721244, 0.0257208, 0.0507029, 0.0682864, 0.0273886, 0.0465975, 0.0686066, 0.0273753, 0.0466349, 0.0689056, 0.0273564, 0.0466891, 0.0691894, 0.0273297, 0.0467583, 0.0694539, 0.0272963, 0.0468444, 0.069707, 0.0272563, 0.0469454, 0.0699485, 0.0272096, 0.0470651, 0.0701786, 0.0271551, 0.0471997, 0.0706195, 0.0270239, 0.0475252, 0.0710297, 0.0268683, 0.0479105, 0.0713825, 0.0266859, 0.0483575, 0.0721646, 0.0253139, 0.0516867, 0.0721263, 0.0249725, 0.0525097, 0.0720189, 0.0246512, 0.053284, 0.0718387, 0.0243521, 0.0540041, 0.0715914, 0.0240753, 0.0546643, 0.0712751, 0.0238251, 0.0552647, 0.0708898, 0.0236016, 0.0557977, 0.0704393, 0.0234059, 0.0562597, 0.0699217, 0.0232414, 0.0566469, 0.0693408, 0.023109, 0.0569555, 0.0696207, 0.0260277, 0.0499136)
+
 [node name="Phone" type="Node3D"]
 
 [node name="PhoneBox" type="StaticBody3D" parent="."]
@@ -55,8 +102,8 @@ closed_pose = ExtResource("9_rgxxh")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="PhoneBox"]
 mesh = ExtResource("1_ccwgm")
 
-[node name="HighlightComponent" parent="PhoneBox/MeshInstance3D" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("8_4e64j")]
-parent_mesh = NodePath("..")
+[node name="HighlightComponent" parent="PhoneBox/MeshInstance3D" node_paths=PackedStringArray("mesh") instance=ExtResource("8_4e64j")]
+mesh = NodePath("..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PhoneBox"]
 shape = SubResource("ConvexPolygonShape3D_j7sos")
@@ -74,8 +121,8 @@ transform = Transform3D(1, 0, 0, 0, 0.939693, -0.34202, 0, 0.34202, 0.939693, -0
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Phone"]
 mesh = ExtResource("4_g5ns4")
 
-[node name="HighlightComponent" parent="Phone/MeshInstance3D" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("8_4e64j")]
-parent_mesh = NodePath("..")
+[node name="HighlightComponent" parent="Phone/MeshInstance3D" node_paths=PackedStringArray("mesh") instance=ExtResource("8_4e64j")]
+mesh = NodePath("..")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Phone"]
 shape = SubResource("ConvexPolygonShape3D_ppu3w")
@@ -102,53 +149,173 @@ emission_angle_degrees = 49.5
 
 [node name="Buttons" type="Node3D" parent="."]
 
-[node name="Phone0-button" type="MeshInstance3D" parent="Buttons"]
+[node name="HandPoseArea" parent="Buttons" instance=ExtResource("14_ymptq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0426456, 0.0186001, 0.0317706)
+left_pose = SubResource("Resource_ypfsw")
+right_pose = SubResource("Resource_qvbk2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/HandPoseArea"]
+shape = SubResource("SphereShape3D_wagt5")
+
+[node name="Button0" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../0")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button0"]
+shape = SubResource("ConvexPolygonShape3D_1x310")
+
+[node name="Button1" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../1")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button1"]
+shape = SubResource("ConvexPolygonShape3D_gy8yp")
+
+[node name="Button2" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../2")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button2"]
+shape = SubResource("ConvexPolygonShape3D_l1pv1")
+
+[node name="Button3" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../3")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button3"]
+shape = SubResource("ConvexPolygonShape3D_scja2")
+
+[node name="Button4" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../4")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button4"]
+shape = SubResource("ConvexPolygonShape3D_iaqdl")
+
+[node name="Button5" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../5")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button5"]
+shape = SubResource("ConvexPolygonShape3D_cj868")
+
+[node name="Button6" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../6")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button6"]
+shape = SubResource("ConvexPolygonShape3D_llxh7")
+
+[node name="Button7" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../7")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button7"]
+shape = SubResource("ConvexPolygonShape3D_t0sa3")
+
+[node name="Button8" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../8")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button8"]
+shape = SubResource("ConvexPolygonShape3D_vl0y1")
+
+[node name="Button9" parent="Buttons" instance=ExtResource("17_lwmge")]
+button = NodePath("../9")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/Button9"]
+shape = SubResource("ConvexPolygonShape3D_2ndbp")
+
+[node name="0" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone0-button" type="MeshInstance3D" parent="Buttons/0"]
 mesh = ExtResource("13_3wp5n")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone1-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/0"]
+shape = SubResource("ConvexPolygonShape3D_1x310")
+
+[node name="1" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone1-button" type="MeshInstance3D" parent="Buttons/1"]
 mesh = ExtResource("14_p6i54")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone2-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/1"]
+shape = SubResource("ConvexPolygonShape3D_gy8yp")
+
+[node name="2" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone2-button" type="MeshInstance3D" parent="Buttons/2"]
 mesh = ExtResource("15_26l30")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone3-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/2"]
+shape = SubResource("ConvexPolygonShape3D_l1pv1")
+
+[node name="3" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone3-button" type="MeshInstance3D" parent="Buttons/3"]
 mesh = ExtResource("16_x0u0o")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone4-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/3"]
+shape = SubResource("ConvexPolygonShape3D_scja2")
+
+[node name="4" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone4-button" type="MeshInstance3D" parent="Buttons/4"]
 mesh = ExtResource("17_02878")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone5-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/4"]
+shape = SubResource("ConvexPolygonShape3D_iaqdl")
+
+[node name="5" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone5-button" type="MeshInstance3D" parent="Buttons/5"]
 mesh = ExtResource("18_0dv8v")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone6-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/5"]
+shape = SubResource("ConvexPolygonShape3D_cj868")
+
+[node name="6" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone6-button" type="MeshInstance3D" parent="Buttons/6"]
 mesh = ExtResource("19_os0tu")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone7-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/6"]
+shape = SubResource("ConvexPolygonShape3D_llxh7")
+
+[node name="7" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone7-button" type="MeshInstance3D" parent="Buttons/7"]
 mesh = ExtResource("20_rkrst")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone8-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/7"]
+shape = SubResource("ConvexPolygonShape3D_t0sa3")
+
+[node name="8" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone8-button" type="MeshInstance3D" parent="Buttons/8"]
 mesh = ExtResource("21_k75p0")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="Phone9-button" type="MeshInstance3D" parent="Buttons"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/8"]
+shape = SubResource("ConvexPolygonShape3D_vl0y1")
+
+[node name="9" type="StaticBody3D" parent="Buttons"]
+
+[node name="Phone9-button" type="MeshInstance3D" parent="Buttons/9"]
 mesh = ExtResource("22_orkwo")
-skeleton = NodePath("../..")
+skeleton = NodePath("../../..")
 
-[node name="PhonePound-button" type="MeshInstance3D" parent="Buttons"]
-mesh = ExtResource("23_uk32m")
-skeleton = NodePath("../..")
-
-[node name="PhoneStar-button" type="MeshInstance3D" parent="Buttons"]
-mesh = ExtResource("24_bv1be")
-skeleton = NodePath("../..")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Buttons/9"]
+shape = SubResource("ConvexPolygonShape3D_2ndbp")
 
 [node name="PhoneTop-left-button" type="MeshInstance3D" parent="Buttons"]
 mesh = ExtResource("25_ugeyj")
@@ -161,6 +328,12 @@ skeleton = NodePath("../..")
 [node name="PhoneTop-right-button" type="MeshInstance3D" parent="Buttons"]
 mesh = ExtResource("27_giawj")
 skeleton = NodePath("../..")
+
+[node name="PoundButton" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("23_uk32m")
+
+[node name="StarButton" type="MeshInstance3D" parent="Buttons"]
+mesh = ExtResource("24_bv1be")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("12_xgrna")

@@ -111,6 +111,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Characters/PatAdult/AnimationTree:parameters/State/transition_request")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["idle"]
+}
 
 [sub_resource type="Animation" id="Animation_wqdpa"]
 resource_name = "dialog_1"
@@ -241,6 +253,18 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Characters/PatAdult/AnimationTree:parameters/State/transition_request")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(54.2, 59.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["talk", "idle"]
 }
 
 [sub_resource type="Animation" id="Animation_v1qqn"]
@@ -546,9 +570,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.262119, -0.23827, 1.57943)
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
 
-[node name="PlayerBody" parent="XROrigin3D" index="3"]
-collision_mask = 5119
-
 [node name="Models" type="Node3D" parent="." index="3"]
 
 [node name="oceanside_cliff" parent="Models" index="0" instance=ExtResource("2_imggn")]
@@ -628,7 +649,7 @@ bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840582)
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="Characters/CaseyAdult" index="2"]
-transform = Transform3D(1, -1.99577e-14, 2.98996e-14, 1.99577e-14, 1, -2.28639e-07, -2.98996e-14, 2.28639e-07, 1, 5.32808e-16, 1.40792, -0.176285)
+transform = Transform3D(0.985298, -0.0587703, -0.160416, 0.0310619, 0.984944, -0.170059, 0.167995, 0.162576, 0.972289, 0.0579526, 0.996305, -0.676937)
 
 [node name="AnimationTree" parent="Characters/CaseyAdult" index="4"]
 parameters/State/transition_request = "sit"
@@ -640,58 +661,22 @@ physics_enabled = true
 player = NodePath("../../XROrigin3D/PlayerBody")
 
 [node name="GeneralSkeleton" parent="Characters/PatAdult/character_youngadult_female2/character_rig_youngadult_female" index="0"]
-bones/9/position = Vector3(0, 0.850988, -0.0367007)
-bones/9/rotation = Quaternion(1.19209e-07, 7.81121e-15, 8.91027e-15, 1)
-bones/10/rotation = Quaternion(6.61744e-24, 7.10716e-15, 1.11022e-16, 1)
-bones/11/rotation = Quaternion(0.5, 0.5, 0.5, -0.5)
-bones/12/rotation = Quaternion(0.00933755, 0.999932, -6.45518e-05, -0.00699329)
-bones/13/rotation = Quaternion(1.42983e-05, -0.707117, 1.19065e-06, 0.707096)
-bones/14/rotation = Quaternion(-0.00666256, 0.702124, -0.00655825, 0.711993)
-bones/15/rotation = Quaternion(-2.98023e-08, -2.98023e-08, -2.98023e-08, 1)
-bones/16/rotation = Quaternion(-2.98023e-08, 2.98023e-08, -2.98023e-08, 1)
-bones/17/rotation = Quaternion(-2.98023e-08, 4.47035e-08, 4.47035e-08, 1)
-bones/20/rotation = Quaternion(5.96046e-08, 0, 0, 1)
-bones/21/rotation = Quaternion(-0.214187, 0.673887, 0.214187, 0.673887)
-bones/22/rotation = Quaternion(1.49012e-08, 2.98023e-08, -2.98023e-08, 1)
-bones/23/rotation = Quaternion(-4.88944e-09, -3.54905e-15, 1.17961e-15, 1)
-bones/24/rotation = Quaternion(2.64698e-23, 3.58047e-15, -2.22045e-16, 1)
-bones/26/rotation = Quaternion(-0.00934595, 0.999932, -7.15703e-05, 0.00698249)
-bones/27/rotation = Quaternion(-9.58841e-06, 0.7071, 8.0079e-07, 0.707114)
-bones/28/rotation = Quaternion(-0.00664937, -0.702114, 0.00655728, 0.712003)
-bones/30/rotation = Quaternion(-1.19209e-07, 0, 0, 1)
-bones/31/rotation = Quaternion(-4.47035e-08, 0, -4.47035e-08, 1)
-bones/32/rotation = Quaternion(2.98023e-08, -2.98023e-08, 2.98023e-08, 1)
-bones/33/rotation = Quaternion(5.96046e-08, 0, 0, 1)
-bones/34/rotation = Quaternion(8.9407e-08, -2.98023e-08, -2.98023e-08, 1)
-bones/35/rotation = Quaternion(-0.214187, -0.673887, -0.214187, 0.673887)
-bones/36/rotation = Quaternion(-4.47035e-08, -2.98023e-08, -2.98023e-08, 1)
-bones/37/rotation = Quaternion(0.00117628, 5.01048e-07, 0.999999, 1.20963e-05)
-bones/37/scale = Vector3(1, 1, 1.00002)
-bones/38/rotation = Quaternion(-2.89814e-10, 1, 5.58793e-09, -1.19685e-10)
-bones/38/scale = Vector3(1, 1, 1)
-bones/39/rotation = Quaternion(-0.000823073, 0.707102, -0.707111, -0.000840278)
-bones/40/rotation = Quaternion(-0.00117613, 5.0478e-07, 0.999999, -1.20991e-05)
-bones/40/scale = Vector3(1, 1, 1.00002)
-bones/41/rotation = Quaternion(4.40212e-10, 1, 5.58793e-09, -3.1203e-12)
-bones/41/scale = Vector3(1, 1, 1)
-bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840582)
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="Characters/PatAdult" index="2"]
-transform = Transform3D(1, -1.99577e-14, 2.98996e-14, 1.99577e-14, 1, -2.28639e-07, -2.98996e-14, 2.28639e-07, 1, -5.34504e-15, 1.27295, -0.159386)
+transform = Transform3D(0.941104, 0.118153, -0.316801, -0.219452, 0.926238, -0.306469, 0.257223, 0.357942, 0.897616, 0.0174031, 1.26949, -0.155537)
 
 [node name="PatDialog" parent="Characters/PatAdult/Mouth" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0160913, 0.00362396, 0.247843)
 
 [node name="RightHand" parent="Characters/PatAdult" index="3"]
-transform = Transform3D(2.66358e-07, -1, -4.17925e-08, 1.78814e-07, 4.16761e-08, -1, 1, 2.62633e-07, 1.69501e-07, -0.463193, 0.700032, -0.0570347)
+transform = Transform3D(0.632957, -0.221827, 0.741726, 0.686736, 0.603206, -0.405631, -0.357434, 0.766117, 0.53414, -0.133719, 0.877778, 0.0311069)
 
 [node name="SnapZone" parent="Characters/PatAdult/RightHand" index="0"]
 enabled = false
 
 [node name="AnimationTree" parent="Characters/PatAdult" index="5"]
-parameters/State/current_state = "idle"
-parameters/State/current_index = 0
+parameters/State/transition_request = "idle"
 
 [node name="Interactables" type="Node" parent="." index="6"]
 

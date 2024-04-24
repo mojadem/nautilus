@@ -238,7 +238,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.7, 2.08165e-12
 shape = SubResource("CapsuleShape3D_frp7a")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.999947, -0.00895887, -0.00511849, 0.0100238, 0.725885, 0.687744, -0.00244597, -0.687758, 0.725936, 0.00876629, 0.993094, -0.0456088)
+transform = Transform3D(1, -1.99577e-14, 2.98996e-14, 1.99577e-14, 1, -2.28639e-07, -2.98996e-14, 2.28639e-07, 1, 2.30396e-15, 1.10061, -0.137807)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -248,7 +248,7 @@ external_skeleton = NodePath("../character_youngchild_female2/character_rig_youn
 transform = Transform3D(1, 1.54075e-21, 3.38813e-21, -1.53314e-22, 1, 0, 0, 0, 1, -1.03726e-14, 0.0404235, 0.232173)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(0.589953, 0.173403, 0.788598, 0.186458, 0.921012, -0.342009, -0.785614, 0.34881, 0.511022, -0.10028, 0.936474, 0.209534)
+transform = Transform3D(2.66358e-07, -1, -4.17925e-08, 1.78814e-07, 4.16761e-08, -1, 1, 2.62633e-07, 1.69501e-07, -0.400481, 0.605255, -0.0493127)
 bone_name = "RightMiddleIntermediate"
 bone_idx = 30
 use_external_skeleton = true

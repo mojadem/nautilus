@@ -95,7 +95,6 @@ fadein_time = 0.5
 fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bhowk"]
-graph_offset = Vector2(-81.0146, -41.7132)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_sj4n2")
 nodes/Add2/position = Vector2(380, 140)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_3mj6o")
@@ -180,7 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 2.08165e-12
 shape = SubResource("CapsuleShape3D_s17vb")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.954997, 0.0513422, -0.292139, -0.153263, 0.928653, -0.337807, 0.253952, 0.367379, 0.89473, -0.0133631, 1.27278, -0.151685)
+transform = Transform3D(0.949157, 0.0768695, -0.305273, -0.178007, 0.930866, -0.319065, 0.259642, 0.357183, 0.897221, -0.00631266, 1.26977, -0.156031)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -190,7 +189,7 @@ external_skeleton = NodePath("../character_youngadult_female2/character_rig_youn
 transform = Transform3D(0.96826, 0.234132, -0.0874909, -0.229423, 0.971438, 0.0606139, 0.0991836, -0.0386176, 0.99432, 0.0809107, 0.11097, 0.30169)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(-0.969307, 0.171891, 0.175777, -0.0837968, -0.903143, 0.421083, 0.231132, 0.393429, 0.889827, -0.200598, 0.907398, 0.421882)
+transform = Transform3D(0.604277, -0.248755, 0.756948, 0.712621, 0.593677, -0.373791, -0.3564, 0.76529, 0.536013, -0.141236, 0.872175, 0.0304743)
 bone_name = "RightMiddleIntermediate"
 bone_idx = 30
 use_external_skeleton = true
@@ -211,9 +210,9 @@ parameters/HeadScratch/active = false
 parameters/HeadScratch/internal_active = false
 parameters/HeadScratch/request = 0
 parameters/HeadTurn/blend_position = 0
-parameters/State/current_state = "hand_over"
+parameters/State/current_state = "idle"
 parameters/State/transition_request = ""
-parameters/State/current_index = 3
+parameters/State/current_index = 0
 parameters/Wave/active = false
 parameters/Wave/internal_active = false
 parameters/Wave/request = 0
