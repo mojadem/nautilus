@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 
 	if not physics_enabled:
 		return
-	
+
 	velocity = Vector3.ZERO
 
 	if navigating:

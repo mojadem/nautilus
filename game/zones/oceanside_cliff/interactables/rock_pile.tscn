@@ -12,7 +12,6 @@ script = ExtResource("1_8w1l5")
 [node name="rock_pile" parent="." instance=ExtResource("1_co032")]
 
 [node name="SnapZone" parent="." instance=ExtResource("2_l7bg3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 initial_object = NodePath("Rock")
 
 [node name="Rock" parent="SnapZone" instance=ExtResource("3_patsa")]

@@ -18,7 +18,7 @@ func _ready():
 	animation_player.animation_finished.connect(_on_animation_finished)
 	drink_area.body_entered.connect(_on_sip)
 	transition_area.body_entered.connect(_on_transition_area_entered)
-	
+
 	var staging: XRToolsStaging = XRTools.find_xr_ancestor(self, "*", "XRToolsStaging")
 	staging.scene_visible.connect(_on_scene_visible)
 
@@ -30,7 +30,7 @@ func _on_scene_visible(_scene: Variant, _user_data: Variant) -> void:
 func _on_animation_finished(anim_name: StringName) -> void:
 	if "dialog" in anim_name:
 		current_dialog += 1
-	
+
 	match anim_name:
 		"dialog_1":
 			await_sip()
