@@ -57,7 +57,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 		"dialog_4":
 			ear_area.set_deferred("monitoring", true)
 		"dialog_5":
-			pass
+			play_next_dialog()
 		"dialog_6":
 			if pat_visibility.is_on_screen():
 				play_next_dialog()
@@ -73,6 +73,8 @@ func play_next_dialog():
 	match current_dialog:
 		2:
 			casey.physics_enabled = false
+		5:
+			pat.physics_enabled = false
 
 	animation_player.play("dialog_%s" % current_dialog)
 
@@ -125,5 +127,5 @@ func _on_water_area_body_entered(_body: Node3D) -> void:
 	assert(awaiting_jump)
 
 	var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-	var target = "res://game/zones/living_room/living_room_4.gd"
+	var target = "res://game/zones/living_room/living_room_4.tscn"
 	scene_base.load_scene(target)

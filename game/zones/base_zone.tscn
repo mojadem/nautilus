@@ -34,5 +34,6 @@ valid_teleport_mask = 2048
 [node name="FunctionPickup" parent="XROrigin3D/RightHand" index="1" instance=ExtResource("4_e2j15")]
 
 [node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("6_gtq1k")]
+collision_mask = 5119
 player_radius = 0.1
 eye_forward_offset = 0.25
