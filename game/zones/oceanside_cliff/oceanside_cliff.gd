@@ -24,6 +24,8 @@ var current_dialog := 1
 var awaiting_rock := false
 var awaiting_key_pickup := false
 
+var next_scene := "res://game/zones/living_room/living_room_3.tscn"
+
 
 func _ready() -> void:
 	animation_player.animation_finished.connect(_on_animation_finished)
@@ -38,7 +40,10 @@ func _ready() -> void:
 	staging.scene_visible.connect(_on_scene_visible)
 
 
-func _on_scene_visible(_scene: Variant, _user_data: Variant) -> void:
+func _on_scene_visible(_scene: Variant, user_data: Variant) -> void:
+	if user_data and user_data["selected"]:
+		next_scene = "res://game/zones/start/start.tscn"
+	
 	animation_player.play("dialog_1")
 
 
@@ -63,8 +68,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			car_highlight.enabled = true
 		"dialog_6":
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-			var target = "res://game/zones/living_room/living_room_3.tscn"
-			scene_base.load_scene(target)
+			scene_base.load_scene(next_scene)
 
 
 func play_next_dialog() -> void:

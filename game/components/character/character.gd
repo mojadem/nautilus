@@ -10,7 +10,7 @@ class_name Character
 @export var mesh: MeshInstance3D
 @export_enum("Happy", "Sad", "Angry", "Surprised") var expression: int: set = _on_set_expression
 
-@export var nav: NavigationAgent3D
+var nav: NavigationAgent3D
 
 var navigating = false
 var nav_target: Marker3D: set = _on_set_nav_target

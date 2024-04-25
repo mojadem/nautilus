@@ -13,6 +13,8 @@ const WHISKEY_SIP = preload("res://assets/audio/sfx/funeral_reception/whiskey_si
 var current_dialog := 1
 var awaiting_sip := false
 
+var next_scene := "res://game/zones/living_room/living_room_2.tscn"
+
 
 func _ready():
 	animation_player.animation_finished.connect(_on_animation_finished)
@@ -23,7 +25,10 @@ func _ready():
 	staging.scene_visible.connect(_on_scene_visible)
 
 
-func _on_scene_visible(_scene: Variant, _user_data: Variant) -> void:
+func _on_scene_visible(_scene: Variant, user_data: Variant) -> void:
+	if user_data and user_data["selected"]:
+		next_scene = "res://game/zones/start/start.tscn"
+	
 	animation_player.play("dialog_1")
 
 
@@ -46,8 +51,7 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			doors_highlight.enabled = true
 		"dialog_5":
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-			var target = "res://game/zones/living_room/living_room_2.tscn"
-			scene_base.load_scene(target)
+			scene_base.load_scene(next_scene)
 		"sip":
 			play_next_dialog()
 
@@ -69,7 +73,7 @@ func _on_sip(body: Node3D) -> void:
 	whiskey_glass_highlight.enabled = false
 
 
-func _on_transition_area_entered(body: Node3D) -> void:
+func _on_transition_area_entered(_body: Node3D) -> void:
 	doors_highlight.enabled = false
 	play_next_dialog()
 

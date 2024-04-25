@@ -24,6 +24,8 @@ var awaiting_shell_pickup = false
 var awaiting_pat_visibility = false
 var awaiting_jump = false
 
+var next_scene = "res://game/zones/living_room/living_room_4.tscn"
+
 
 func _ready() -> void:
 	animation_player.animation_finished.connect(_on_animation_finished)
@@ -34,12 +36,17 @@ func _ready() -> void:
 	ear_area.body_entered.connect(_on_ear_area_body_entered)
 	pat_visibility.screen_entered.connect(_on_pat_visibility_screen_entered)
 	water_area.body_entered.connect(_on_water_area_body_entered)
+	
+	XRToolsUserSettings.player_height = 1.4
 
 	var staging: XRToolsStaging = XRTools.find_xr_ancestor(self, "*", "XRToolsStaging")
 	staging.scene_visible.connect(_on_scene_visible)
 
 
-func _on_scene_visible(_scene: Variant, _user_data: Variant) -> void:
+func _on_scene_visible(_scene: Variant, user_data: Variant) -> void:
+	if user_data and user_data["selected"]:
+		next_scene = "res://game/zones/start/start.tscn"
+	
 	animation_player.play("dialog_1")
 
 
@@ -127,5 +134,4 @@ func _on_water_area_body_entered(_body: Node3D) -> void:
 	assert(awaiting_jump)
 
 	var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-	var target = "res://game/zones/living_room/living_room_4.tscn"
-	scene_base.load_scene(target)
+	scene_base.load_scene(next_scene)

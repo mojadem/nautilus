@@ -1,12 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3hu0sdf71l4v"]
+[gd_scene load_steps=17 format=3 uid="uid://d3hu0sdf71l4v"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_hkpcn"]
+[ext_resource type="Script" path="res://game/zones/start/start.gd" id="2_0wynf"]
+[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="2_dv2r6"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_ofjdg"]
 [ext_resource type="PackedScene" uid="uid://dhf0k1xkme5sj" path="res://game/zones/start/start_menu.tscn" id="3_fv7uj"]
 [ext_resource type="PackedScene" uid="uid://dhs3gl5f3kt70" path="res://assets/models/zones/oceanside_cliff/oceanside_cliff.blend" id="4_juhgs"]
 [ext_resource type="PackedScene" uid="uid://7ftumnx4mpau" path="res://assets/models/zones/oceanside_cliff/nav_area.glb" id="5_tjqvj"]
 [ext_resource type="AudioStream" uid="uid://dr4wgbk763sfb" path="res://assets/audio/sfx/oceanside_cliff/rock_splash.wav" id="6_ma0f0"]
 [ext_resource type="PackedScene" uid="uid://dxog42k76emnp" path="res://game/zones/oceanside_cliff/interactables/rock_pile.tscn" id="7_gj5i2"]
+[ext_resource type="AudioStream" uid="uid://lmijqq66esmb" path="res://assets/audio/music/Peppers Theme.mp3" id="8_mrvuc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s215l"]
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8vfsy"]
+shading_mode = 0
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3a3qx"]
 sky_top_color = Color(0.576471, 0.54902, 0.803922, 1)
@@ -30,12 +39,23 @@ sdfgi_enabled = true
 size = Vector3(104.965, 10, 100)
 
 [node name="Start" instance=ExtResource("1_hkpcn")]
+script = ExtResource("2_0wynf")
 
 [node name="XROrigin3D" parent="." index="0"]
 transform = Transform3D(-0.771625, 4.72768e-17, -0.636078, 3.48787e-16, 1, -3.48787e-16, 0.636078, -4.90988e-16, -0.771625, 9.018, 14.536, 4.179)
 
+[node name="FunctionPointer" parent="XROrigin3D/LeftHand" index="2" instance=ExtResource("2_dv2r6")]
+show_laser = 2
+laser_length = 1
+laser_material = SubResource("StandardMaterial3D_s215l")
+
 [node name="FunctionTeleport" parent="XROrigin3D/RightHand/CollisionHandRight" index="2"]
 enabled = false
+
+[node name="FunctionPointer" parent="XROrigin3D/RightHand" index="2" instance=ExtResource("2_dv2r6")]
+show_laser = 2
+laser_length = 1
+laser_material = SubResource("StandardMaterial3D_8vfsy")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
 transform = Transform3D(0.502748, 0, 0.864433, 0, 1, 0, -0.864433, 0, 0.502748, 0, 18.911, 0)
@@ -74,6 +94,10 @@ collision_mask = 524288
 
 [node name="RockSplash" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
 stream = ExtResource("6_ma0f0")
+
+[node name="Music" type="AudioStreamPlayer" parent="Sounds" index="1"]
+stream = ExtResource("8_mrvuc")
+autoplay = true
 
 [node name="Interactables" type="Node" parent="." index="6"]
 

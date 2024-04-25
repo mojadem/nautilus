@@ -6,6 +6,8 @@ extends XRToolsSceneBase
 
 func _ready() -> void:
 	rock_detector.body_entered.connect(_on_rock_detected)
+	
+	XRToolsUserSettings.player_height = 1.6
 
 
 func _on_rock_detected(body: Node3D) -> void:
