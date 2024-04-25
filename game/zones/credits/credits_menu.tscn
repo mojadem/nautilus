@@ -1,0 +1,159 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1ptu68td37n2"]
+
+[ext_resource type="Theme" uid="uid://dk648xqnyqvot" path="res://assets/gui/theme.tres" id="1_ht6wp"]
+[ext_resource type="FontFile" uid="uid://jpm6d0byltxv" path="res://assets/gui/Journal OT Text.ttf" id="2_osw8i"]
+[ext_resource type="Script" path="res://game/zones/credits/credits_menu.gd" id="2_ukp27"]
+
+[sub_resource type="FontVariation" id="FontVariation_ygjdg"]
+base_font = ExtResource("2_osw8i")
+
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ht6wp")
+script = ExtResource("2_ukp27")
+scroll_speed = 128
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scroll_vertical = 3045
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Spacer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 1024
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Spacer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Spacer"]
+layout_mode = 2
+
+[node name="Team" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Team"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Nautilus Team"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Team"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontVariation_ygjdg")
+text = "Abdiel Gonzalez
+Dikchhaya Karki
+Katie Cavanaugh
+Katie Lorine
+Klarissa Hillegass 
+Liam Vaughan
+Matt Dembiczak
+Taylor Smith 
+Yiming Zhao"
+
+[node name="Cast" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Cast"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Cast"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Cast"]
+layout_mode = 2
+text = "Player - Charlie Plante
+Pat - Lin Klinger
+Casey - Adam Tinkleman
+Ellie - Rachel Horde "
+
+[node name="Music" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Music"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Music"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Music"]
+layout_mode = 2
+text = "\"Pepper's Theme\"
+ Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: 
+By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Night on the Docks - Piano\" 
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: 
+By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Senbazuru\" 
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: 
+By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Bittersweet\" 
+Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: 
+By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+
+[node name="Software" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/Software"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Software"
+
+[node name="Label2" type="Label" parent="ScrollContainer/VBoxContainer/Software"]
+layout_mode = 2
+text = "Godot
+Blender
+Audacity
+Freesound.org"
+
+[node name="EndingStatement" type="VBoxContainer" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 256
+
+[node name="Spacer" type="Label" parent="ScrollContainer/VBoxContainer/EndingStatement"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ScrollContainer/VBoxContainer/EndingStatement"]
+layout_mode = 2
+text = "Eduardo Navas
+DART 301
+Spring 2024
+Pennsylvania State University"
+
+[node name="Spacer2" type="Label" parent="ScrollContainer/VBoxContainer/EndingStatement"]
+layout_mode = 2
+
+[node name="EndTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true

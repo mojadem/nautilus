@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3hu0sdf71l4v"]
+[gd_scene load_steps=19 format=3 uid="uid://d3hu0sdf71l4v"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_hkpcn"]
 [ext_resource type="Script" path="res://game/zones/start/start.gd" id="2_0wynf"]
@@ -34,6 +34,14 @@ sky = SubResource("Sky_i4ejo")
 sky_rotation = Vector3(3.48787e-16, 3.48787e-16, 3.48787e-16)
 tonemap_mode = 2
 sdfgi_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh73d"]
+shading_mode = 0
+albedo_color = Color(0.341176, 0.458824, 0.54902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_m3ich"]
+material = SubResource("StandardMaterial3D_eh73d")
+size = Vector2(1000, 1000)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lplwv"]
 size = Vector3(104.965, 10, 100)
@@ -89,6 +97,9 @@ collision_layer = 2049
 [node name="barrier" parent="Models/nav_area" index="6"]
 collision_layer = 4096
 collision_mask = 524288
+
+[node name="Ocean" type="MeshInstance3D" parent="Models" index="2"]
+mesh = SubResource("PlaneMesh_m3ich")
 
 [node name="Sounds" type="Node" parent="." index="5"]
 

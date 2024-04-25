@@ -67,6 +67,11 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Level Select"
 
+[node name="Credits" type="Button" parent="VBoxContainer/TabContainer/MainMenu"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Credits"
+
 [node name="Quit" type="Button" parent="VBoxContainer/TabContainer/MainMenu"]
 unique_name_in_owner = true
 layout_mode = 2

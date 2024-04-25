@@ -4,6 +4,7 @@ extends Control
 func _ready() -> void:
 	%Play.pressed.connect(_on_play_pressed)
 	%Level.pressed.connect(_on_level_pressed)
+	%Credits.pressed.connect(_on_credits_pressed)
 	%Quit.pressed.connect(_on_quit_pressed)
 	%FuneralReception.pressed.connect(_on_funeral_reception_pressed)
 	%OceansideCliff.pressed.connect(_on_oceanside_cliff_pressed)
@@ -22,6 +23,10 @@ func _on_play_pressed() -> void:
 
 func _on_level_pressed() -> void:
 	%TabContainer.current_tab = 1
+
+
+func _on_credits_pressed() -> void:
+	load_scene("res://game/zones/credits/credits.tscn")
 
 
 func _on_quit_pressed() -> void:
