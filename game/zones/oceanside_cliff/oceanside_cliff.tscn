@@ -769,6 +769,7 @@ stream = ExtResource("10_gubfe")
 [node name="Ambiance" type="AudioStreamPlayer" parent="Sounds" index="1"]
 stream = ExtResource("15_sojvp")
 volume_db = -10.0
+autoplay = true
 
 [node name="Areas" type="Node" parent="." index="9"]
 
