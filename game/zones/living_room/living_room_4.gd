@@ -9,7 +9,7 @@ extends XRToolsSceneBase
 @onready var phone_box_highlight: HighlightComponent = $Interactables/Phone/PhoneBox/MeshInstance3D/HighlightComponent
 
 @onready var door_area: Area3D = $Areas/DoorArea
-@onready var door_highlight: HighlightComponent = $living_room/door/HighlightComponent
+@onready var door_highlight: HighlightComponent = $Models/living_room/door/HighlightComponent
 
 var current_dialog := 1
 var awaiting_phone_hangup := false
@@ -37,7 +37,6 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			phone_highlight.enabled = true
 		"dialog_2":
 			phone_box_highlight.enabled = true
-			phone_snap_zone.enabled = true
 			awaiting_phone_hangup = true
 		"dialog_3":
 			door_highlight.enabled = true
@@ -50,7 +49,6 @@ func play_next_dialog() -> void:
 	animation_player.play("dialog_%s" % current_dialog)
 	match current_dialog:
 		2:
-			phone_snap_zone.enabled = false
 			phone_highlight.enabled = false
 		3:
 			phone_box_highlight.enabled = false

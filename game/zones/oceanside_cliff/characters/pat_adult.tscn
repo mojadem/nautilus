@@ -179,7 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 2.08165e-12
 shape = SubResource("CapsuleShape3D_s17vb")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.949157, 0.0768695, -0.305273, -0.178007, 0.930866, -0.319065, 0.259642, 0.357183, 0.897221, -0.00631266, 1.26977, -0.156031)
+transform = Transform3D(0.943579, -0.289116, -0.161466, 0.206677, 0.895129, -0.395004, 0.258735, 0.339346, 0.904378, -0.0238411, 1.27187, -0.156767)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -189,7 +189,7 @@ external_skeleton = NodePath("../character_youngadult_female2/character_rig_youn
 transform = Transform3D(0.96826, 0.234132, -0.0874909, -0.229423, 0.971438, 0.0606139, 0.0991836, -0.0386176, 0.99432, 0.0809107, 0.11097, 0.30169)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(0.604277, -0.248755, 0.756948, 0.712621, 0.593677, -0.373791, -0.3564, 0.76529, 0.536013, -0.141236, 0.872175, 0.0304743)
+transform = Transform3D(0.592549, -0.257955, 0.763116, 0.721865, 0.590461, -0.360925, -0.357488, 0.764732, 0.536085, -0.152265, 0.870824, 0.0302543)
 bone_name = "RightMiddleIntermediate"
 bone_idx = 30
 use_external_skeleton = true
@@ -199,7 +199,6 @@ external_skeleton = NodePath("../character_youngadult_female2/character_rig_youn
 transform = Transform3D(-0.954954, 0.296518, -0.0118017, 0.2606, 0.818927, -0.511317, -0.14195, -0.49136, -0.859311, 0.00255013, -0.0514351, -0.0511526)
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="4"]
-debug_enabled = true
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="5"]
 root_node = NodePath("../character_youngadult_female2")

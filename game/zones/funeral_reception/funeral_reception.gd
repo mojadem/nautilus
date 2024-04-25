@@ -70,6 +70,7 @@ func _on_sip(body: Node3D) -> void:
 
 
 func _on_transition_area_entered(body: Node3D) -> void:
+	doors_highlight.enabled = false
 	play_next_dialog()
 
 

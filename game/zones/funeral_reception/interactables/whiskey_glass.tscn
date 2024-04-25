@@ -1,13 +1,15 @@
-[gd_scene load_steps=14 format=3 uid="uid://f6w6fn648vwn"]
+[gd_scene load_steps=16 format=3 uid="uid://f6w6fn648vwn"]
 
 [ext_resource type="Script" path="res://game/zones/funeral_reception/interactables/whiskey_glass.gd" id="1_2as7t"]
 [ext_resource type="Material" uid="uid://voydj6ikcji6" path="res://game/components/liquid/liquid.tres" id="2_7t07n"]
 [ext_resource type="ArrayMesh" uid="uid://bbh836okduh42" path="res://bin/whiskey_glass_Cylinder.res" id="3_v41e0"]
 [ext_resource type="ArrayMesh" uid="uid://dc6uqlntoxjpa" path="res://bin/whiskey_glass_Cylinder_001.res" id="4_1pvi7"]
 [ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="4_d2gyc"]
+[ext_resource type="Material" uid="uid://bksbk5sequgcw" path="res://game/zones/funeral_reception/interactables/glass_material.tres" id="4_s0p0p"]
 [ext_resource type="PackedScene" uid="uid://ctw7nbntd5pcj" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_right.tscn" id="5_di65x"]
 [ext_resource type="Animation" uid="uid://do01jton6rk42" path="res://addons/godot-xr-tools/hands/animations/right/Cup.res" id="6_b5h1x"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="7_5rtfq"]
+[ext_resource type="Material" uid="uid://d25fk6nd6x3ou" path="res://game/zones/funeral_reception/interactables/liquid_material.tres" id="7_6e51m"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="8_irebu"]
 [ext_resource type="Animation" uid="uid://dgfeikrugfewi" path="res://addons/godot-xr-tools/hands/animations/left/Cup.res" id="9_vl5g7"]
 
@@ -36,6 +38,7 @@ shader = ExtResource("2_7t07n")
 [node name="Glass" type="MeshInstance3D" parent="Mesh"]
 mesh = ExtResource("3_v41e0")
 skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("4_s0p0p")
 
 [node name="HighlightComponent" parent="Mesh/Glass" node_paths=PackedStringArray("mesh") instance=ExtResource("4_d2gyc")]
 mesh = NodePath("..")
@@ -43,6 +46,7 @@ mesh = NodePath("..")
 [node name="Liquid" type="MeshInstance3D" parent="Mesh"]
 mesh = ExtResource("4_1pvi7")
 skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("7_6e51m")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("ConvexPolygonShape3D_mh6qh")

@@ -77,7 +77,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 geometry_parsed_geometry_type = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_aurnw"]
-size = Vector3(11.135, 2, 13.822)
+size = Vector3(11.135, 3, 13)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_risik"]
 size = Vector3(35.4897, 12.0596, 40.6899)
@@ -969,7 +969,7 @@ collision_layer = 4096
 collision_mask = 524288
 
 [node name="Ledges" type="Node3D" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1006, 3.1691, 11.8798)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.0837, 3.1691, 11.8715)
 
 [node name="Ledge" parent="Ledges" index="0" instance=ExtResource("6_gqady")]
 transform = Transform3D(0.726838, 0, -0.686808, 0, 1, 0, 0.686808, 0, 0.726838, 0.286247, -1.12265, -0.28148)
@@ -998,6 +998,18 @@ transform = Transform3D(0.78482, 0, -0.619724, 0, 1, 0, 0.619724, 0, 0.78482, -0
 [node name="Ledge9" parent="Ledges" index="8" instance=ExtResource("6_gqady")]
 transform = Transform3D(0.78482, 0, -0.619724, 0, 1, 0, 0.619724, 0, 0.78482, -0.203941, 2.80279, 0.682903)
 
+[node name="Ledge10" parent="Ledges" index="9" instance=ExtResource("6_gqady")]
+transform = Transform3D(0.965623, 0, -0.259948, 0, 1, 0, 0.259948, 0, 0.965623, -5.73874, -3.98272, 10.3148)
+
+[node name="Ledge11" parent="Ledges" index="10" instance=ExtResource("6_gqady")]
+transform = Transform3D(0.965623, 0, -0.259948, 0, 1, 0, 0.259948, 0, 0.965623, -6.34417, -3.63004, 10.194)
+
+[node name="Ledge12" parent="Ledges" index="11" instance=ExtResource("6_gqady")]
+transform = Transform3D(0.859335, 0, -0.511413, 0, 1, 0, 0.511413, 0, 0.859335, -3.82916, -2.42786, 5.91008)
+
+[node name="Ledge13" parent="Ledges" index="12" instance=ExtResource("6_gqady")]
+transform = Transform3D(0.79769, 0, -0.603068, 0, 1, 0, 0.603068, 0, 0.79769, -3.36876, -2.13505, 6.27214)
+
 [node name="Sounds" type="Node" parent="." index="6"]
 
 [node name="Splash" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
@@ -1005,6 +1017,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3641, -6.98735, -2.36807)
 
 [node name="Ambiance" type="AudioStreamPlayer" parent="Sounds" index="1"]
 stream = ExtResource("7_3yael")
+volume_db = -10.0
 autoplay = true
 
 [node name="Shell" type="AudioStreamPlayer" parent="Sounds" index="2"]
@@ -1073,7 +1086,7 @@ bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840582)
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="Characters/CaseyYoung" index="2"]
-transform = Transform3D(0.997642, -0.0159737, 0.0667547, -0.0120268, 0.916818, 0.399125, -0.0675774, -0.398986, 0.914463, -0.0104961, 1.12356, -0.11861)
+transform = Transform3D(0.98904, 0.0326046, 0.144004, -0.0264811, 0.99867, -0.0442378, -0.145255, 0.0399395, 0.988588, -0.0230579, 1.17568, -0.0974274)
 
 [node name="AnimationTree" parent="Characters/CaseyYoung" index="4"]
 parameters/State/transition_request = "idle"
@@ -1122,10 +1135,10 @@ bones/42/rotation = Quaternion(0.00082286, 0.707102, -0.707111, 0.000840582)
 bones/42/scale = Vector3(1, 1, 1)
 
 [node name="Mouth" parent="Characters/PatYoung" index="2"]
-transform = Transform3D(0.950593, 0.0747238, -0.301314, 0.0759507, 0.885124, 0.459115, 0.301007, -0.459317, 0.835717, 0.035202, 1.03296, -0.10318)
+transform = Transform3D(0.648127, -0.308795, 0.696116, 0.121438, 0.944311, 0.305827, -0.751788, -0.113679, 0.649532, -0.0884552, 1.04694, -0.0878792)
 
 [node name="RightHand" parent="Characters/PatYoung" index="3"]
-transform = Transform3D(0.116873, 0.976391, 0.181665, 0.268019, -0.20714, 0.940882, 0.956299, -0.061274, -0.2859, -0.242883, 0.544456, 0.058773)
+transform = Transform3D(0.238226, 0.96827, 0.0755057, 0.0864313, -0.0985719, 0.991369, 0.967356, -0.229644, -0.107171, -0.227275, 0.534441, 0.0922737)
 
 [node name="AnimationTree" parent="Characters/PatYoung" index="5"]
 parameters/State/current_state = "idle"
@@ -1145,6 +1158,7 @@ collision_layer = 0
 collision_mask = 524288
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/BottomCliff" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, -0.5, -0.411)
 shape = SubResource("BoxShape3D_aurnw")
 
 [node name="TopCliff" type="Area3D" parent="Areas" index="1"]

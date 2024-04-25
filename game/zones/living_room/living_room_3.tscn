@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://8qp6b24vcipx"]
+[gd_scene load_steps=9 format=3 uid="uid://8qp6b24vcipx"]
 
 [ext_resource type="PackedScene" uid="uid://qmrog76fwnmm" path="res://game/zones/living_room/living_room_base.tscn" id="1_ileo4"]
 [ext_resource type="Script" path="res://game/zones/living_room/living_room_3.gd" id="2_hpa8l"]
+[ext_resource type="AudioStream" uid="uid://c224lpoeitnp" path="res://assets/audio/music/Senbazuru.mp3" id="3_7dr3e"]
 [ext_resource type="AudioStream" uid="uid://brux8x42dypwk" path="res://assets/audio/dialog/living_room_3/dialog_1/mc.wav" id="3_us47o"]
 [ext_resource type="AudioStream" uid="uid://bxhh0frmrlly6" path="res://assets/audio/dialog/living_room_3/dialog_2/mc.wav" id="4_jlfo7"]
 
@@ -59,6 +60,12 @@ transform = Transform3D(-0.00214663, 0, 0.999997, 0, 1, 0, -0.999997, 0, -0.0021
 
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
+
+[node name="Vinyl" parent="Models" index="1"]
+transform = Transform3D(0.504701, 0, -0.863403, 0, 1, 0, 0.863403, 0, 0.504701, -1.67336, 0.564141, -0.83718)
+
+[node name="AudioStreamPlayer3D" parent="Models/Vinyl" index="0"]
+stream = ExtResource("3_7dr3e")
 
 [node name="FuneralCard" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/SnapZone" index="2"]
 transform = Transform3D(1, -7.4444e-24, -2.92802e-08, -4.46252e-23, 1, 4.74232e-23, 1.90774e-08, -5.08597e-24, 1, 0, 0, 0)

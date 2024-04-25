@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://hqwv8ymenpi7"]
+[gd_scene load_steps=13 format=3 uid="uid://hqwv8ymenpi7"]
 
 [ext_resource type="PackedScene" uid="uid://qmrog76fwnmm" path="res://game/zones/living_room/living_room_base.tscn" id="1_vawkh"]
 [ext_resource type="Script" path="res://game/zones/living_room/living_room_1.gd" id="2_j4sgx"]
+[ext_resource type="AudioStream" uid="uid://lmijqq66esmb" path="res://assets/audio/music/Peppers Theme.mp3" id="3_0t20d"]
 [ext_resource type="AudioStream" uid="uid://cf72501fmuy3o" path="res://assets/audio/dialog/living_room_1/dialog_1/mc.wav" id="3_123k7"]
 [ext_resource type="AudioStream" uid="uid://ht1ihy1kqfv6" path="res://assets/audio/dialog/living_room_1/dialog_1/phone.wav" id="4_aelwv"]
 [ext_resource type="AudioStream" uid="uid://baugt2jbitrqa" path="res://assets/audio/dialog/living_room_1/dialog_2/mc.wav" id="6_85y4m"]
@@ -101,6 +102,12 @@ transform = Transform3D(-0.999997, 0, -0.00214668, 0, 1, 0, 0.00214668, 0, -0.99
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
 
+[node name="Vinyl" parent="Models" index="1"]
+transform = Transform3D(-0.38064, 0, 0.924737, 0, 1, 0, -0.924737, 0, -0.38064, -1.67336, 0.564141, -0.83718)
+
+[node name="AudioStreamPlayer3D" parent="Models/Vinyl" index="0"]
+stream = ExtResource("3_0t20d")
+
 [node name="Phone" parent="Interactables/Phone" index="1"]
 collision_layer = 65536
 collision_mask = 0
@@ -120,3 +127,5 @@ autostart = true
 
 [editable path="Interactables/InteractableEndTable3"]
 [editable path="Interactables/Phone"]
+[editable path="Interactables/FireplaceSnapZone/NautilusShell"]
+[editable path="Interactables/FireplaceSnapZone/NautilusShell/nautilus_shell"]

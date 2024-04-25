@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhf0k1xkme5sj"]
+
+[ext_resource type="Theme" uid="uid://dk648xqnyqvot" path="res://assets/gui/theme.tres" id="1_ufhk5"]
+[ext_resource type="Texture2D" uid="uid://b0d0dpx4kqo7k" path="res://assets/images/logo.png" id="2_t2vua"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wqh6d"]
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ufhk5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -149.5
+offset_bottom = 149.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="Header" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Header"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("2_t2vua")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Nautilus"
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wqh6d")
+tabs_visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PlayButton" type="Button" parent="VBoxContainer/TabContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="LevelButton" type="Button" parent="VBoxContainer/TabContainer/VBoxContainer"]
+layout_mode = 2
+text = "Level Select"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer/TabContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"

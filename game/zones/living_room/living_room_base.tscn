@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://qmrog76fwnmm"]
+[gd_scene load_steps=16 format=3 uid="uid://qmrog76fwnmm"]
 
 [ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_a5qlr"]
 [ext_resource type="PackedScene" uid="uid://iw3jh5lhjs2e" path="res://assets/models/zones/living_room/living_room.blend" id="2_yd3hy"]
 [ext_resource type="AudioStream" uid="uid://dsjh1d3b0plor" path="res://assets/audio/sfx/living_room/light_buzz_loop.wav" id="3_5whe4"]
+[ext_resource type="ArrayMesh" uid="uid://bi2u3ew6lidot" path="res://bin/vinyl.res" id="3_sqnft"]
+[ext_resource type="Script" path="res://game/zones/living_room/vinyl.gd" id="4_5ok7k"]
 [ext_resource type="PackedScene" uid="uid://boll40m3suscs" path="res://game/zones/living_room/interactables/end_table.tscn" id="4_v2fwa"]
 [ext_resource type="PackedScene" uid="uid://c1gb5c3hi4xlw" path="res://game/zones/living_room/interactables/phone.tscn" id="6_0s71t"]
 [ext_resource type="PackedScene" uid="uid://bsoirpcijmsdr" path="res://game/components/key_items/funeral_card.tscn" id="6_clyh2"]
@@ -30,7 +32,20 @@ environment = SubResource("Environment_apxhd")
 [node name="XROrigin3D" parent="." index="1"]
 transform = Transform3D(0.00214672, 0, -0.999997, 0, 1, 0, 0.999997, 0, 0.00214672, -1.71253, -0.0336731, 0)
 
-[node name="living_room" parent="." index="2" instance=ExtResource("2_yd3hy")]
+[node name="Models" type="Node3D" parent="." index="2"]
+
+[node name="living_room" parent="Models" index="0" instance=ExtResource("2_yd3hy")]
+
+[node name="Vinyl" type="MeshInstance3D" parent="Models" index="1"]
+transform = Transform3D(0.481261, 0, -0.876538, 0, 1, 0, 0.876538, 0, 0.481261, -1.67336, 0.564141, -0.83718)
+mesh = ExtResource("3_sqnft")
+skeleton = NodePath("../..")
+script = ExtResource("4_5ok7k")
+rotate_speed = 1.5
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Models/Vinyl" index="0"]
+volume_db = -10.0
+autoplay = true
 
 [node name="Floor" type="StaticBody3D" parent="." index="3"]
 collision_layer = 2049
@@ -67,6 +82,7 @@ spot_angle = 73.7
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40268, 1.49688, -0.954904)
 stream = ExtResource("3_5whe4")
 attenuation_model = 1
+volume_db = -20.0
 autoplay = true
 max_distance = 10.0
 
@@ -74,6 +90,7 @@ max_distance = 10.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51307, 0.694264, -1.98649)
 stream = ExtResource("3_5whe4")
 attenuation_model = 1
+volume_db = -20.0
 autoplay = true
 max_distance = 10.0
 

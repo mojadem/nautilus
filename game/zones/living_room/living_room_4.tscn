@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://c1l6vjdfgpeo0"]
+[gd_scene load_steps=18 format=3 uid="uid://c1l6vjdfgpeo0"]
 
 [ext_resource type="PackedScene" uid="uid://qmrog76fwnmm" path="res://game/zones/living_room/living_room_base.tscn" id="1_hwp2i"]
 [ext_resource type="AudioStream" uid="uid://cyt72y7qhhnso" path="res://assets/audio/dialog/living_room_4/dialog_1/mc.wav" id="2_6jm36"]
 [ext_resource type="Script" path="res://game/zones/living_room/living_room_4.gd" id="2_y52wf"]
 [ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="3_l07p7"]
 [ext_resource type="AudioStream" uid="uid://do8j4koe25qrr" path="res://assets/audio/dialog/living_room_4/dialog_2/mc.wav" id="4_7sxnv"]
+[ext_resource type="AudioStream" uid="uid://blpy0knltf3oq" path="res://assets/audio/music/Bittersweet.mp3" id="4_bvaki"]
+[ext_resource type="Script" path="res://game/components/highlight/highlight_component.gd" id="4_ygpgi"]
 [ext_resource type="AudioStream" uid="uid://decuj0gdlqjs3" path="res://assets/audio/dialog/living_room_4/dialog_2/phone.wav" id="5_d6pav"]
 [ext_resource type="AudioStream" uid="uid://cpq7quy05bgna" path="res://assets/audio/dialog/living_room_4/dialog_3/mc.wav" id="6_amafc"]
 [ext_resource type="AudioStream" uid="uid://b54f3lb1l5ynm" path="res://assets/audio/dialog/living_room_4/dialog_4/mc.wav" id="7_eycha"]
@@ -130,29 +132,23 @@ _data = {
 [node name="LivingRoom" instance=ExtResource("1_hwp2i")]
 script = ExtResource("2_y52wf")
 
-[node name="XROrigin3D" parent="." index="1"]
+[node name="living_room_door#HighlightComponent" parent="." index="1" instance=ExtResource("3_l07p7")]
+
+[node name="XROrigin3D" parent="." index="2"]
 transform = Transform3D(-0.999997, 0, -0.00214668, 0, 1, 0, 0.00214668, 0, -0.999997, -0.71253, -0.0336731, 2.6)
 
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
 
-[node name="HighlightComponent" parent="living_room/door" index="1" node_paths=PackedStringArray("parent_mesh") instance=ExtResource("3_l07p7")]
-parent_mesh = NodePath("..")
+[node name="HighlightComponent" type="Node" parent="Models/living_room/door" index="1" node_paths=PackedStringArray("mesh")]
+script = ExtResource("4_ygpgi")
+mesh = NodePath("..")
 
-[node name="FuneralCard" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/SnapZone" index="2"]
-transform = Transform3D(1, -7.4444e-24, -2.92802e-08, -4.46252e-23, 1, 4.74232e-23, 1.90774e-08, -5.08597e-24, 1, 0, 0, 0)
+[node name="Vinyl" parent="Models" index="1"]
+transform = Transform3D(0.254329, 0, 0.967234, 0, 1, 0, -0.967234, 0, 0.254329, -1.67336, 0.564141, -0.83718)
 
-[node name="Phone" parent="Interactables/Phone" index="1"]
-transform = Transform3D(1, 3.2085e-09, 3.60472e-08, 0, 0.939693, -0.34202, -1.97299e-08, 0.34202, 0.939693, -0.0472336, 0.0381644, 0.0189884)
-
-[node name="PhoneDialog" parent="Interactables/Phone/Phone" index="6"]
-stream = null
-
-[node name="NautilusShell" parent="Interactables/FireplaceSnapZone" index="2"]
-transform = Transform3D(1, 0, 1.83754e-08, 0, 1, 0, -2.10558e-08, 0, 1, 0, 0, 0)
-
-[node name="CarKeys" parent="Interactables/TVSnapZone" index="2"]
-transform = Transform3D(1, 0, -1.82335e-08, 0, 1, 0, 1.99272e-08, 0, 1, 0, 0, 0)
+[node name="AudioStreamPlayer3D" parent="Models/Vinyl" index="0"]
+stream = ExtResource("4_bvaki")
 
 [node name="Areas" type="Node" parent="." index="7"]
 
@@ -170,6 +166,23 @@ libraries = {
 "": SubResource("AnimationLibrary_2qfkk")
 }
 
-[editable path="living_room"]
+[node name="FuneralCard" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/SnapZone" index="2"]
+transform = Transform3D(1, -7.4444e-24, -2.92802e-08, -4.46252e-23, 1, 4.74232e-23, 1.90774e-08, -5.08597e-24, 1, 0, 0, 0)
+
+[node name="Phone" parent="Interactables/Phone" index="1"]
+transform = Transform3D(1, 3.2085e-09, 3.60472e-08, 0, 0.939693, -0.34202, -1.97299e-08, 0.34202, 0.939693, -0.0472336, 0.0381644, 0.0189884)
+
+[node name="PhoneDialog" parent="Interactables/Phone/Phone" index="6"]
+stream = null
+
+[node name="NautilusShell" parent="Interactables/FireplaceSnapZone" index="2"]
+transform = Transform3D(1, 0, 1.83754e-08, 0, 1, 0, -2.10558e-08, 0, 1, 0, 0, 0)
+
+[node name="CarKeys" parent="Interactables/TVSnapZone" index="2"]
+transform = Transform3D(1, 0, -1.82335e-08, 0, 1, 0, 1.99272e-08, 0, 1, 0, 0, 0)
+
+[editable path="Models/living_room"]
 [editable path="Interactables/InteractableEndTable3"]
 [editable path="Interactables/Phone"]
+[editable path="Interactables/FireplaceSnapZone/NautilusShell"]
+[editable path="Interactables/FireplaceSnapZone/NautilusShell/nautilus_shell"]
