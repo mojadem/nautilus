@@ -17,7 +17,7 @@ size = Vector3(3, 3, 3)
 
 [sub_resource type="Animation" id="Animation_1xi86"]
 resource_name = "dialog_1"
-length = 21.0
+length = 16.0
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -145,26 +145,10 @@ script = ExtResource("4_ygpgi")
 mesh = NodePath("..")
 
 [node name="Vinyl" parent="Models" index="1"]
-transform = Transform3D(0.254329, 0, 0.967234, 0, 1, 0, -0.967234, 0, 0.254329, -1.67336, 0.564141, -0.83718)
+transform = Transform3D(0.710217, 0, 0.703129, 0, 1, 0, -0.703126, 0, 0.710222, -1.67336, 0.564141, -0.83718)
 
 [node name="AudioStreamPlayer3D" parent="Models/Vinyl" index="0"]
 stream = ExtResource("4_bvaki")
-
-[node name="Areas" type="Node" parent="." index="7"]
-
-[node name="DoorArea" type="Area3D" parent="Areas" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71027, 1.5, -2.53521)
-collision_layer = 0
-collision_mask = 524288
-monitoring = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/DoorArea" index="0"]
-shape = SubResource("BoxShape3D_xr8x1")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
-libraries = {
-"": SubResource("AnimationLibrary_2qfkk")
-}
 
 [node name="FuneralCard" parent="Interactables/InteractableEndTable3/SliderOrigin/InteractableSlider/Drawer/SnapZone" index="2"]
 transform = Transform3D(1, -7.4444e-24, -2.92802e-08, -4.46252e-23, 1, 4.74232e-23, 1.90774e-08, -5.08597e-24, 1, 0, 0, 0)
@@ -180,6 +164,21 @@ transform = Transform3D(1, 0, 1.83754e-08, 0, 1, 0, -2.10558e-08, 0, 1, 0, 0, 0)
 
 [node name="CarKeys" parent="Interactables/TVSnapZone" index="2"]
 transform = Transform3D(1, 0, -1.82335e-08, 0, 1, 0, 1.99272e-08, 0, 1, 0, 0, 0)
+
+[node name="Areas" type="Node" parent="." index="8"]
+
+[node name="DoorArea" type="Area3D" parent="Areas" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71027, 1.5, -2.53521)
+collision_layer = 0
+collision_mask = 524288
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/DoorArea" index="0"]
+shape = SubResource("BoxShape3D_xr8x1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
+libraries = {
+"": SubResource("AnimationLibrary_2qfkk")
+}
 
 [editable path="Models/living_room"]
 [editable path="Interactables/InteractableEndTable3"]

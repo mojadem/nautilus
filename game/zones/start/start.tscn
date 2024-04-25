@@ -1,26 +1,14 @@
-[gd_scene load_steps=22 format=3 uid="uid://edmdss7wey31"]
+[gd_scene load_steps=12 format=3 uid="uid://d3hu0sdf71l4v"]
 
-[ext_resource type="PackedScene" uid="uid://qbmx03iibuuu" path="res://addons/godot-xr-tools/staging/scene_base.tscn" id="1_2vjyy"]
-[ext_resource type="Script" path="res://game/zones/start/start.gd" id="2_07jmq"]
-[ext_resource type="PackedScene" uid="uid://dhs3gl5f3kt70" path="res://assets/models/zones/oceanside_cliff/oceanside_cliff.blend" id="2_iyk18"]
-[ext_resource type="PackedScene" uid="uid://bkv43ec6chcf3" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_left.tscn" id="3_dqqds"]
-[ext_resource type="PackedScene" uid="uid://7ftumnx4mpau" path="res://assets/models/zones/oceanside_cliff/nav_area.glb" id="3_odnmy"]
-[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="3_qx3j0"]
-[ext_resource type="AudioStream" uid="uid://dr4wgbk763sfb" path="res://assets/audio/sfx/oceanside_cliff/rock_splash.wav" id="4_2jo6k"]
-[ext_resource type="PackedScene" uid="uid://d1rgc70rrg6ju" path="res://game/components/hands/left_hand.tscn" id="4_a7j7q"]
-[ext_resource type="PackedScene" uid="uid://dhf0k1xkme5sj" path="res://game/zones/start/start_menu.tscn" id="4_qx4pj"]
-[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="5_63m2r"]
-[ext_resource type="PackedScene" uid="uid://dxog42k76emnp" path="res://game/zones/oceanside_cliff/interactables/rock_pile.tscn" id="6_msqj5"]
-[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="6_qemir"]
-[ext_resource type="PackedScene" uid="uid://c3uoohvnshach" path="res://addons/godot-xr-tools/hands/scenes/collision/collision_hand_right.tscn" id="7_slb08"]
-[ext_resource type="PackedScene" uid="uid://c3vvdsfaw8x7u" path="res://game/components/hands/right_hand.tscn" id="8_mga0p"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="9_mxat1"]
+[ext_resource type="PackedScene" uid="uid://dch6y6iihywuc" path="res://game/zones/base_zone.tscn" id="1_hkpcn"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="2_ofjdg"]
+[ext_resource type="PackedScene" uid="uid://dhf0k1xkme5sj" path="res://game/zones/start/start_menu.tscn" id="3_fv7uj"]
+[ext_resource type="PackedScene" uid="uid://dhs3gl5f3kt70" path="res://assets/models/zones/oceanside_cliff/oceanside_cliff.blend" id="4_juhgs"]
+[ext_resource type="PackedScene" uid="uid://7ftumnx4mpau" path="res://assets/models/zones/oceanside_cliff/nav_area.glb" id="5_tjqvj"]
+[ext_resource type="AudioStream" uid="uid://dr4wgbk763sfb" path="res://assets/audio/sfx/oceanside_cliff/rock_splash.wav" id="6_ma0f0"]
+[ext_resource type="PackedScene" uid="uid://dxog42k76emnp" path="res://game/zones/oceanside_cliff/interactables/rock_pile.tscn" id="7_gj5i2"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47tys"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vgjvi"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_n7cny"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3a3qx"]
 sky_top_color = Color(0.576471, 0.54902, 0.803922, 1)
 sky_horizon_color = Color(0.827451, 0.494118, 0.384314, 1)
 sky_curve = 0.3
@@ -29,50 +17,25 @@ ground_horizon_color = Color(0.341176, 0.458824, 0.54902, 1)
 sun_angle_max = 10.0
 
 [sub_resource type="Sky" id="Sky_i4ejo"]
-sky_material = SubResource("ProceduralSkyMaterial_n7cny")
+sky_material = SubResource("ProceduralSkyMaterial_3a3qx")
 
-[sub_resource type="Environment" id="Environment_qouws"]
+[sub_resource type="Environment" id="Environment_n3ttf"]
 background_mode = 2
 sky = SubResource("Sky_i4ejo")
 sky_rotation = Vector3(3.48787e-16, 3.48787e-16, 3.48787e-16)
 tonemap_mode = 2
 sdfgi_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mkl45"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_lplwv"]
 size = Vector3(104.965, 10, 100)
 
-[node name="Start" instance=ExtResource("1_2vjyy")]
-script = ExtResource("2_07jmq")
+[node name="Start" instance=ExtResource("1_hkpcn")]
 
 [node name="XROrigin3D" parent="." index="0"]
-transform = Transform3D(-0.771269, 0, -0.636509, 0, 1, 0, 0.636509, 0, -0.771269, 9.01821, 14.5358, 4.1788)
+transform = Transform3D(-0.771625, 4.72768e-17, -0.636078, 3.48787e-16, 1, -3.48787e-16, 0.636078, -4.90988e-16, -0.771625, 9.018, 14.536, 4.179)
 
-[node name="CollisionHandLeft" parent="XROrigin3D/LeftHand" index="0" instance=ExtResource("3_dqqds")]
-
-[node name="LeftHand" parent="XROrigin3D/LeftHand/CollisionHandLeft" index="1" instance=ExtResource("4_a7j7q")]
-
-[node name="FunctionPickup" parent="XROrigin3D/LeftHand" index="1" instance=ExtResource("5_63m2r")]
-
-[node name="FunctionPointer" parent="XROrigin3D/LeftHand" index="2" instance=ExtResource("6_qemir")]
-show_laser = 2
-laser_length = 1
-laser_material = SubResource("StandardMaterial3D_47tys")
-
-[node name="CollisionHandRight" parent="XROrigin3D/RightHand" index="0" instance=ExtResource("7_slb08")]
-
-[node name="RightHand" parent="XROrigin3D/RightHand/CollisionHandRight" index="1" instance=ExtResource("8_mga0p")]
-
-[node name="FunctionPickup" parent="XROrigin3D/RightHand" index="1" instance=ExtResource("5_63m2r")]
-
-[node name="FunctionPointer" parent="XROrigin3D/RightHand" index="2" instance=ExtResource("6_qemir")]
-show_laser = 2
-laser_length = 1
-laser_material = SubResource("StandardMaterial3D_vgjvi")
-
-[node name="PlayerBody" parent="XROrigin3D" index="3" instance=ExtResource("9_mxat1")]
-collision_mask = 5119
-player_radius = 0.1
-eye_forward_offset = 0.25
+[node name="FunctionTeleport" parent="XROrigin3D/RightHand/CollisionHandRight" index="2"]
+enabled = false
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
 transform = Transform3D(0.502748, 0, 0.864433, 0, 1, 0, -0.864433, 0, 0.502748, 0, 18.911, 0)
@@ -82,20 +45,20 @@ light_angular_distance = 2.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." index="2"]
-environment = SubResource("Environment_qouws")
+environment = SubResource("Environment_n3ttf")
 
-[node name="Menu" parent="." index="3" instance=ExtResource("3_qx3j0")]
+[node name="Menu" parent="." index="3" instance=ExtResource("2_ofjdg")]
 transform = Transform3D(-0.753472, 0, -0.65748, 0, 1, 0, 0.65748, 0, -0.753472, 10.0738, 16.3092, 5.4612)
 screen_size = Vector2(3, 1.688)
-scene = ExtResource("4_qx4pj")
+scene = ExtResource("3_fv7uj")
 viewport_size = Vector2(1152, 648)
 unshaded = true
 
 [node name="Models" type="Node3D" parent="." index="4"]
 
-[node name="oceanside_cliff" parent="Models" index="0" instance=ExtResource("2_iyk18")]
+[node name="oceanside_cliff" parent="Models" index="0" instance=ExtResource("4_juhgs")]
 
-[node name="nav_area" parent="Models" index="1" instance=ExtResource("3_odnmy")]
+[node name="nav_area" parent="Models" index="1" instance=ExtResource("5_tjqvj")]
 
 [node name="StaticBody3D" parent="Models/nav_area/cliff" index="0"]
 collision_layer = 2049
@@ -110,11 +73,11 @@ collision_mask = 524288
 [node name="Sounds" type="Node" parent="." index="5"]
 
 [node name="RockSplash" type="AudioStreamPlayer3D" parent="Sounds" index="0"]
-stream = ExtResource("4_2jo6k")
+stream = ExtResource("6_ma0f0")
 
 [node name="Interactables" type="Node" parent="." index="6"]
 
-[node name="RockPile" parent="Interactables" index="0" instance=ExtResource("6_msqj5")]
+[node name="RockPile" parent="Interactables" index="0" instance=ExtResource("7_gj5i2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.66793, 14.5489, 5.28145)
 
 [node name="Areas" type="Node" parent="." index="7"]
@@ -124,7 +87,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.126, -0.341483, 12.271)
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/RockDetector" index="0"]
-shape = SubResource("BoxShape3D_mkl45")
+shape = SubResource("BoxShape3D_lplwv")
 
 [editable path="Models/oceanside_cliff"]
 [editable path="Models/nav_area"]

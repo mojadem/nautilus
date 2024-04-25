@@ -12,8 +12,9 @@ extends XRToolsSceneBase
 @onready var door_highlight: HighlightComponent = $Models/living_room/door/HighlightComponent
 
 var current_dialog := 1
+var awaiting_phone_pickup := false
 var awaiting_phone_hangup := false
-var phone_ringing := false
+var awaiting_door_area := false
 
 
 func _ready() -> void:
@@ -35,14 +36,19 @@ func _on_animation_finished(anim_name: StringName) -> void:
 	match anim_name:
 		"dialog_1":
 			phone_highlight.enabled = true
+			awaiting_phone_pickup = true
 		"dialog_2":
 			phone_box_highlight.enabled = true
 			awaiting_phone_hangup = true
 		"dialog_3":
 			door_highlight.enabled = true
-			door_area.monitoring = true
 		"dialog_4":
-			pass
+			phone_box_highlight.enabled = true
+			awaiting_phone_hangup = true
+		"dialog_5":
+			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
+			var target = "res://game/zones/living_room/living_room_4.tscn"
+			scene_base.load_scene(target)
 
 
 func play_next_dialog() -> void:
@@ -52,32 +58,32 @@ func play_next_dialog() -> void:
 			phone_highlight.enabled = false
 		3:
 			phone_box_highlight.enabled = false
-			awaiting_phone_hangup = false
 		4:
 			phone_ring.stop()
 			phone_highlight.enabled = false
-			phone_ringing = false
 
 
 func _on_phone_snap_zone_has_dropped() -> void:
-	if current_dialog == 2:
-		play_next_dialog()
-	elif phone_ringing:
-		assert(current_dialog == 4)
-		play_next_dialog()
-	else:
+	if not awaiting_phone_pickup:
 		return
+
+	awaiting_phone_pickup = false
+	play_next_dialog()
 
 
 func _on_phone_snap_zone_has_picked_up(_what: Variant) -> void:
 	if not awaiting_phone_hangup:
 		return
 
+	awaiting_phone_hangup = false
 	play_next_dialog()
 
 
 func _on_door_area_body_entered(_body: Node3D) -> void:
-	assert(current_dialog == 4)
+	if not awaiting_door_area:
+		return
+
+	door_highlight.enabled = false
 	phone_ring.play()
 	phone_highlight.enabled = true
-	phone_ringing = true
+	awaiting_phone_pickup = true
