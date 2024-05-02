@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://c1l6vjdfgpeo0"]
+[gd_scene load_steps=20 format=3 uid="uid://c1l6vjdfgpeo0"]
 
 [ext_resource type="PackedScene" uid="uid://qmrog76fwnmm" path="res://game/zones/living_room/living_room_base.tscn" id="1_hwp2i"]
 [ext_resource type="AudioStream" uid="uid://cyt72y7qhhnso" path="res://assets/audio/dialog/living_room_4/dialog_1/mc.wav" id="2_6jm36"]
 [ext_resource type="Script" path="res://game/zones/living_room/living_room_4.gd" id="2_y52wf"]
-[ext_resource type="PackedScene" uid="uid://c0gj4rj4vbqlb" path="res://game/components/highlight/highlight_component.tscn" id="3_l07p7"]
 [ext_resource type="AudioStream" uid="uid://do8j4koe25qrr" path="res://assets/audio/dialog/living_room_4/dialog_2/mc.wav" id="4_7sxnv"]
 [ext_resource type="AudioStream" uid="uid://blpy0knltf3oq" path="res://assets/audio/music/Bittersweet.mp3" id="4_bvaki"]
 [ext_resource type="Script" path="res://game/components/highlight/highlight_component.gd" id="4_ygpgi"]
@@ -12,8 +11,25 @@
 [ext_resource type="AudioStream" uid="uid://b54f3lb1l5ynm" path="res://assets/audio/dialog/living_room_4/dialog_4/mc.wav" id="7_eycha"]
 [ext_resource type="AudioStream" uid="uid://cop28ctau7mfa" path="res://assets/audio/dialog/living_room_4/dialog_4/phone.wav" id="8_k2xeq"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_873gb"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xr8x1"]
 size = Vector3(3, 3, 3)
+
+[sub_resource type="Animation" id="Animation_b6nmq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D:attributes:exposure_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_1xi86"]
 resource_name = "dialog_1"
@@ -121,21 +137,40 @@ tracks/1/keys = {
 }
 tracks/1/use_blend = true
 
+[sub_resource type="Animation" id="Animation_7vxaj"]
+resource_name = "dialog_5"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("XROrigin3D/XRCamera3D:attributes:exposure_multiplier")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2qfkk"]
 _data = {
+"RESET": SubResource("Animation_b6nmq"),
 "dialog_1": SubResource("Animation_1xi86"),
 "dialog_2": SubResource("Animation_tqdji"),
 "dialog_3": SubResource("Animation_7x28t"),
-"dialog_4": SubResource("Animation_enhgf")
+"dialog_4": SubResource("Animation_enhgf"),
+"dialog_5": SubResource("Animation_7vxaj")
 }
 
 [node name="LivingRoom" instance=ExtResource("1_hwp2i")]
 script = ExtResource("2_y52wf")
 
-[node name="living_room_door#HighlightComponent" parent="." index="1" instance=ExtResource("3_l07p7")]
-
-[node name="XROrigin3D" parent="." index="2"]
+[node name="XROrigin3D" parent="." index="1"]
 transform = Transform3D(-0.999997, 0, -0.00214668, 0, 1, 0, 0.00214668, 0, -0.999997, -0.71253, -0.0336731, 2.6)
+
+[node name="XRCamera3D" parent="XROrigin3D" index="0"]
+attributes = SubResource("CameraAttributesPractical_873gb")
 
 [node name="MCDialog" parent="XROrigin3D/XRCamera3D" index="0"]
 stream = null
@@ -145,7 +180,7 @@ script = ExtResource("4_ygpgi")
 mesh = NodePath("..")
 
 [node name="Vinyl" parent="Models" index="1"]
-transform = Transform3D(0.710217, 0, 0.703129, 0, 1, 0, -0.703126, 0, 0.710222, -1.67336, 0.564141, -0.83718)
+transform = Transform3D(-0.995324, 0, -0.0964402, 0, 1, 0, 0.0964456, 0, -0.99533, -1.67336, 0.564141, -0.83718)
 
 [node name="AudioStreamPlayer3D" parent="Models/Vinyl" index="0"]
 stream = ExtResource("4_bvaki")
@@ -165,7 +200,7 @@ transform = Transform3D(1, 0, 1.83754e-08, 0, 1, 0, -2.10558e-08, 0, 1, 0, 0, 0)
 [node name="CarKeys" parent="Interactables/TVSnapZone" index="2"]
 transform = Transform3D(1, 0, -1.82335e-08, 0, 1, 0, 1.99272e-08, 0, 1, 0, 0, 0)
 
-[node name="Areas" type="Node" parent="." index="8"]
+[node name="Areas" type="Node" parent="." index="7"]
 
 [node name="DoorArea" type="Area3D" parent="Areas" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71027, 1.5, -2.53521)
@@ -175,7 +210,7 @@ collision_mask = 524288
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Areas/DoorArea" index="0"]
 shape = SubResource("BoxShape3D_xr8x1")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="8"]
 libraries = {
 "": SubResource("AnimationLibrary_2qfkk")
 }

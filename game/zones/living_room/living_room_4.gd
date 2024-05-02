@@ -16,6 +16,8 @@ var awaiting_phone_pickup := false
 var awaiting_phone_hangup := false
 var awaiting_door_area := false
 
+var next_scene := "res://game/zones/credits/credits.tscn"
+
 
 func _ready() -> void:
 	animation_player.animation_finished.connect(_on_animation_finished)
@@ -44,13 +46,13 @@ func _on_animation_finished(anim_name: StringName) -> void:
 			awaiting_phone_hangup = true
 		"dialog_3":
 			door_highlight.enabled = true
+			awaiting_door_area = true
 		"dialog_4":
 			phone_box_highlight.enabled = true
 			awaiting_phone_hangup = true
 		"dialog_5":
 			var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
-			var target = "res://game/zones/living_room/living_room_4.tscn"
-			scene_base.load_scene(target)
+			scene_base.load_scene(next_scene)
 
 
 func play_next_dialog() -> void:
@@ -63,6 +65,8 @@ func play_next_dialog() -> void:
 		4:
 			phone_ring.stop()
 			phone_highlight.enabled = false
+		5:
+			phone_box_highlight.enabled = false
 
 
 func _on_phone_snap_zone_has_dropped() -> void:

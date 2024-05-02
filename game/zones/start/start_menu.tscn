@@ -97,6 +97,14 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Memory 3"
 
+[node name="ReturnToStart" type="CheckButton" parent="VBoxContainer/TabContainer/LevelSelect"]
+unique_name_in_owner = true
+layout_mode = 2
+tooltip_text = "Enable this option to return to the start menu after completion of the memory."
+text = "Return to Start Menu"
+flat = true
+alignment = 1
+
 [node name="Back" type="Button" parent="VBoxContainer/TabContainer/LevelSelect"]
 unique_name_in_owner = true
 layout_mode = 2

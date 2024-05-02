@@ -95,6 +95,7 @@ fadein_time = 0.5
 fadeout_time = 0.5
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bhowk"]
+graph_offset = Vector2(-279.467, -10.0474)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_sj4n2")
 nodes/Add2/position = Vector2(380, 140)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_3mj6o")
@@ -120,11 +121,10 @@ nodes/Wave/position = Vector2(840, 100)
 nodes/output/position = Vector2(1380, 160)
 node_connections = [&"Add2", 0, &"State", &"Add2", 1, &"HeadTurn", &"HeadScratch", 0, &"Wave", &"HeadScratch", 1, &"Animation 5", &"State", 0, &"Animation", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Animation 6", &"Wave", 0, &"Add2", &"Wave", 1, &"Animation 4", &"output", 0, &"HeadScratch"]
 
-[node name="PatAdult" node_paths=PackedStringArray("mesh", "nav") instance=ExtResource("1_82ho8")]
+[node name="PatAdult" node_paths=PackedStringArray("mesh") instance=ExtResource("1_82ho8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 velocity = Vector3(0, -33225.1, 0)
 mesh = NodePath("character_youngadult_female2/character_rig_youngadult_female/GeneralSkeleton/character_youngadult_female")
-nav = NodePath("NavigationAgent3D")
 
 [node name="character_youngadult_female2" parent="." index="0" instance=ExtResource("2_4u8qq")]
 
@@ -179,7 +179,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.8, 2.08165e-12
 shape = SubResource("CapsuleShape3D_s17vb")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(0.943579, -0.289116, -0.161466, 0.206677, 0.895129, -0.395004, 0.258735, 0.339346, 0.904378, -0.0238411, 1.27187, -0.156767)
+transform = Transform3D(0.958694, 0.0222144, -0.28357, -0.113924, 0.943477, -0.311243, 0.260628, 0.330692, 0.907037, 0.0153105, 1.26696, -0.155604)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -189,7 +189,7 @@ external_skeleton = NodePath("../character_youngadult_female2/character_rig_youn
 transform = Transform3D(0.96826, 0.234132, -0.0874909, -0.229423, 0.971438, 0.0606139, 0.0991836, -0.0386176, 0.99432, 0.0809107, 0.11097, 0.30169)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(0.592549, -0.257955, 0.763116, 0.721865, 0.590461, -0.360925, -0.357488, 0.764732, 0.536085, -0.152265, 0.870824, 0.0302543)
+transform = Transform3D(0.628935, -0.225008, 0.744186, 0.69021, 0.602171, -0.401249, -0.357843, 0.766004, 0.534029, -0.133629, 0.877076, 0.031139)
 bone_name = "RightMiddleIntermediate"
 bone_idx = 30
 use_external_skeleton = true

@@ -12,8 +12,13 @@ func _ready() -> void:
 	%Back.pressed.connect(_on_back_pressed)
 
 
-func load_scene(path: String, user_data = null) -> void:
+func load_scene(path: String) -> void:
 	var scene_base : XRToolsSceneBase = XRTools.find_xr_ancestor(self, "*", "XRToolsSceneBase")
+	
+	var user_data = null
+	if %ReturnToStart.button_pressed:
+		user_data = {"selected": true}
+	
 	scene_base.load_scene(path, user_data)
 
 
@@ -34,16 +39,17 @@ func _on_quit_pressed() -> void:
 
 
 func _on_funeral_reception_pressed() -> void:
-	load_scene("res://game/zones/funeral_reception/funeral_reception.tscn", {"selected": true})
+	load_scene("res://game/zones/funeral_reception/funeral_reception.tscn")
 
 
 func _on_oceanside_cliff_pressed() -> void:
-	load_scene("res://game/zones/oceanside_cliff/oceanside_cliff.tscn", {"selected": true})
+	load_scene("res://game/zones/oceanside_cliff/oceanside_cliff.tscn")
 
 
 func _on_forest_lake_pressed() -> void:
-	load_scene("res://game/zones/forest_lake/forest_lake.tscn", {"selected": true})
+	load_scene("res://game/zones/forest_lake/forest_lake.tscn")
 
 
 func _on_back_pressed() -> void:
 	%TabContainer.current_tab = 0
+	%ReturnToStart.button_pressed = false

@@ -62,7 +62,7 @@ transform = Transform3D(0.00214672, 0, -0.999997, 0, 1, 0, 0.999997, 0, 0.002146
 stream = null
 
 [node name="Vinyl" parent="Models" index="1"]
-transform = Transform3D(0.573718, 0, -0.819024, 0, 1, 0, 0.819024, 0, 0.573718, -1.67336, 0.564141, -0.83718)
+transform = Transform3D(-0.999135, 0, -0.0415811, 0, 1, 0, 0.0415811, 0, -0.999135, -1.67336, 0.564141, -0.83718)
 
 [node name="AudioStreamPlayer3D" parent="Models/Vinyl" index="0"]
 stream = ExtResource("3_sbgkw")

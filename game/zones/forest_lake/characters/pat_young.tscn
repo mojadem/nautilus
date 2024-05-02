@@ -145,7 +145,7 @@ fadein_time = 0.25
 fadeout_time = 0.25
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_uj7pj"]
-graph_offset = Vector2(-480.208, 167.496)
+graph_offset = Vector2(-289.676, -49.8408)
 nodes/Add2/node = SubResource("AnimationNodeAdd2_r22p1")
 nodes/Add2/position = Vector2(420, 100)
 "nodes/Add2 2/node" = SubResource("AnimationNodeAdd2_b1jdg")
@@ -181,9 +181,8 @@ nodes/Wave/position = Vector2(-320, -180)
 nodes/output/position = Vector2(830, 130)
 node_connections = [&"Add2", 0, &"State", &"Add2", 1, &"HeadTurn", &"Add2 2", 0, &"Add2", &"Add2 2", 1, &"TorsoTurn", &"Add2 3", 0, &"Animation 8", &"Add2 3", 1, &"Animation 9", &"State", 0, &"Wave", &"State", 1, &"Animation 2", &"State", 2, &"Animation 3", &"State", 3, &"Animation 6", &"State", 4, &"Animation 7", &"State", 5, &"Animation 5", &"State", 6, &"Add2 3", &"Wave", 0, &"Animation", &"Wave", 1, &"Animation 4", &"output", 0, &"Add2 2"]
 
-[node name="PatYoung" node_paths=PackedStringArray("mesh", "nav") instance=ExtResource("1_165d8")]
+[node name="PatYoung" node_paths=PackedStringArray("mesh") instance=ExtResource("1_165d8")]
 mesh = NodePath("character_youngchild_female2/character_rig_youngchild_female/GeneralSkeleton/character_youngchild_female")
-nav = NodePath("NavigationAgent3D")
 
 [node name="character_youngchild_female2" parent="." index="0" instance=ExtResource("2_0twdn")]
 
@@ -238,7 +237,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.7, 2.08165e-12
 shape = SubResource("CapsuleShape3D_frp7a")
 
 [node name="Mouth" type="BoneAttachment3D" parent="." index="2"]
-transform = Transform3D(1, -1.99577e-14, 2.98996e-14, 1.99577e-14, 1, -2.28639e-07, -2.98996e-14, 2.28639e-07, 1, 2.30396e-15, 1.10061, -0.137807)
+transform = Transform3D(0.957509, 0.0343831, -0.286347, 0.0973502, 0.896062, 0.433123, 0.271476, -0.442595, 0.854641, 0.0261641, 1.03612, -0.102215)
 bone_name = "Head"
 bone_idx = 24
 use_external_skeleton = true
@@ -248,7 +247,7 @@ external_skeleton = NodePath("../character_youngchild_female2/character_rig_youn
 transform = Transform3D(1, 1.54075e-21, 3.38813e-21, -1.53314e-22, 1, 0, 0, 0, 1, -1.03726e-14, 0.0404235, 0.232173)
 
 [node name="RightHand" type="BoneAttachment3D" parent="." index="3"]
-transform = Transform3D(2.66358e-07, -1, -4.17925e-08, 1.78814e-07, 4.16761e-08, -1, 1, 2.62633e-07, 1.69501e-07, -0.400481, 0.605255, -0.0493127)
+transform = Transform3D(0.136117, 0.977712, 0.159847, 0.25497, -0.190487, 0.948001, 0.95732, -0.0882823, -0.275216, -0.238706, 0.539967, 0.0610012)
 bone_name = "RightMiddleIntermediate"
 bone_idx = 30
 use_external_skeleton = true
@@ -266,10 +265,10 @@ anim_player = NodePath("../character_youngchild_female2/AnimationPlayer")
 parameters/Add2/add_amount = 1.0
 "parameters/Add2 2/add_amount" = 1.0
 "parameters/Add2 3/add_amount" = 1.0
-parameters/HeadTurn/blend_position = 2.08165e-12
-parameters/State/current_state = "swim"
+parameters/HeadTurn/blend_position = 0.0
+parameters/State/current_state = "idle"
 parameters/State/transition_request = ""
-parameters/State/current_index = 6
+parameters/State/current_index = 0
 parameters/TorsoTurn/blend_position = 2.08165e-12
 parameters/Wave/active = false
 parameters/Wave/internal_active = false
